@@ -25,7 +25,7 @@ const config: Config = {
         'dynamic': 'var(--color-primary)',
       },
       fontFamily: {
-        playfair: ['Playfair Display', 'serif'],
+  lora: ['Lora', 'serif'],
       },
     },
   },
