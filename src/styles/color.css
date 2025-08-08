@@ -5,6 +5,7 @@
   --color-blue-bg: #e0edff;
   --color-surface-1: #e0edff; /* xanh dương nhạt */
   --color-black2white: #000;
+  --color-white2black: #ffffff; /* White for light mode */
 }
 /* Light mode: .bg-surface là trắng */
 
