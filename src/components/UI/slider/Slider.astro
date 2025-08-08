@@ -22,17 +22,8 @@ const { slides, autoSlideInterval = 4000, class: customClass = '' } = Astro.prop
 <section class={`relative overflow-hidden z-0 ${customClass}`}>
   <div class="slider-container relative h-[600px]" style="background: var(--slider-bg);">
     {slides.map((slide, index) => (
-      <div class={`slide ${index === 0 ? 'active' : ''} flex items-center justify-center`} style="background: var(--slide-gradient); color: var(--color-text);">
-        <div class="text-center px-6">
-          <h1 class="slide-title text-6xl font-bold mb-6" style="color: var(--slider-title);">{slide.title}</h1>
-          <p class="text-base text-center mb-8 max-w-4xl mx-auto" style="color: var(--color-black);">
-            {slide.description}
-          </p>
-          <div class="flex gap-4 justify-center">
-            <Button variant="primary">{slide.primaryButton}</Button>
-            <Button variant="secondary">{slide.secondaryButton}</Button>
-          </div>
-        </div>
+  <div class={`slide ${index === 0 ? 'active' : ''} flex items-center justify-center`}>
+        {/* Removed text-center px-6 content as requested */}
       </div>
     ))}
 
@@ -69,15 +60,14 @@ const { slides, autoSlideInterval = 4000, class: customClass = '' } = Astro.prop
   }
 
   .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    background: var(--slide-gradient);
-    color: var(--color-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background: transparent !important;
   }
 
   .slide.active {

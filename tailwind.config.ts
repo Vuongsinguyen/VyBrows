@@ -26,8 +26,8 @@ const config: Config = {
       },
       fontFamily: {
         playfair: ['Playfair Display', 'serif'],
-      }
-    }
+      },
+    },
   },
   plugins: []
 };

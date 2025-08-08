@@ -1,6 +1,6 @@
 /* Blue background for Recruitment section */
 :root {
-  --color-lineblack2white: rgba(0,0,0,0.05); /* Black 5% for light mode */
+  --color-lineblack2white: rgb(69, 74, 67); /* Black 5% for light mode */
   --color-white2white: #fff;
   --color-blue-bg: #e0edff;
   --color-surface-1: #e0edff; /* xanh dương nhạt */
@@ -63,7 +63,7 @@
   --topbar-bg: var(--color-primary);
   --header-bg: var(--color-bg);
   /* === Slider === */
-  --slider-bg: #e8f0ff;
+  --slider-bg: #0e2617;
   --slider-dot: #cbd5e1;
   --slider-dot-active: #1e3a8a;
   --slider-arrow-bg: rgba(0, 0, 0, 0.1);
