@@ -1,0 +1,133 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../components/UI/layout/Header.astro';
+import Slider from '../components/UI/slider/Slider.astro';
+import ServiceSection from '../components/UI/section/ServiceSection.astro';
+import AboutUsSection from '../components/UI/section/AboutUsSection.astro';
+import CompanyPhotoGallery from '../components/UI/gallery/CompanyPhotoGallery.astro';
+import ProjectSection from '../components/UI/section/ProjectSection.astro';
+import IndustrySection from '../components/UI/section/IndustrySection.astro';
+import NewsSection from '../components/UI/section/NewsSection.astro';
+import FooterSection from '../components/UI/layout/FooterSection.astro';
+import TeamMembersSection from '../components/UI/section/TeamMembersSection.astro';
+import CustomerSection from '../components/UI/section/CustomerSection.astro';
+import RecruitmentSection from '../components/UI/section/RecruitmentSection.astro';
+import FullContactSection from '../components/UI/section/FullContactSection.astro';
+import UseCaseSection from '../components/UI/section/UseCaseSection.astro';
+
+// Define slides data for English
+const slides = [
+  {
+    title: "Welcome to ARIS Vietnam",
+    subtitle: "Innovation",
+    description: "Innovative technology solutions for modern businesses",
+    primaryButton: "Get Started",
+    secondaryButton: "Learn More",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Expert Web Development",
+    subtitle: "Development",
+    description: "Modern, responsive websites that drive business growth",
+    primaryButton: "View Projects",
+    secondaryButton: "Contact Us",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Mobile App Solutions",
+    subtitle: "Mobile",
+    description: "Native iOS and Android applications with stunning performance",
+    primaryButton: "Our Apps",
+    secondaryButton: "Get Quote",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "UI/UX Design Excellence",
+    subtitle: "Design",
+    description: "Beautiful, user-friendly interfaces that convert visitors to customers",
+    primaryButton: "Design Portfolio",
+    secondaryButton: "Design Process",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Enterprise Solutions",
+    subtitle: "Enterprise",
+    description: "Scalable ERP and CRM systems for large organizations",
+    primaryButton: "Enterprise Demo",
+    secondaryButton: "Schedule Call",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Cloud & DevOps",
+    subtitle: "Cloud",
+    description: "Modern cloud infrastructure and DevOps practices for efficiency",
+    primaryButton: "Cloud Services",
+    secondaryButton: "Migration Guide",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "AI & Machine Learning",
+    subtitle: "AI/ML",
+    description: "Intelligent solutions powered by artificial intelligence and ML",
+    primaryButton: "AI Solutions",
+    secondaryButton: "Case Studies",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "24/7 Support & Training",
+    subtitle: "Support",
+    description: "Comprehensive support and training for all our solutions",
+    primaryButton: "Get Support",
+    secondaryButton: "Training Programs",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  }
+];
+---
+
+<MainLayout title="Homepage - English">
+  <Header />
+  
+  <!-- Main Content -->
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <!-- Hero Section - Slider -->
+    <Slider slides={slides} autoSlideInterval={4000} />
+
+    <!-- Services Section -->
+    <ServiceSection heading="Accelerate your DX journey with our services" />
+
+    <!-- About Us Section -->
+    <AboutUsSection />
+
+    <!-- Company Photo Gallery Section -->
+    <CompanyPhotoGallery />
+
+    <!-- Project Section -->
+    <ProjectSection />
+
+    <!-- Industry Section -->
+    <IndustrySection />
+
+    <!-- UseCase Section -->
+    <UseCaseSection />
+
+
+    <!-- Team Members Section -->
+    <TeamMembersSection />
+
+    <!-- Customer Section -->
+    <CustomerSection />
+
+    <!-- News Section -->
+    <NewsSection />
+
+    <!-- Recruitment Section -->
+    <RecruitmentSection />
+
+    <!-- Full Contact Section -->
+    <FullContactSection />
+
+  </main>
+  <!-- Footer Section -->
+  <FooterSection />
+</MainLayout>
+
