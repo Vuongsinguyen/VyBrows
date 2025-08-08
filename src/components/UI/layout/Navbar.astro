@@ -253,11 +253,11 @@ document.addEventListener('DOMContentLoaded', () => {
               <Dropdown label={item.label} items={item.children} />
             ) : (
               item.label === t.home ? (
-                <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center">
+                <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center font-playfair">
                   <span class="whitespace-nowrap" style="color: var(--color-black2white);">{item.label}</span>
                 </a>
               ) : (
-                <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center">
+                <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center font-playfair">
                   <span class="whitespace-nowrap" style="color: var(--color-black2white);">{item.label}</span>
                 </a>
               )
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <!-- Mobile Navigation (hidden by default) -->
   <div class="md:hidden hidden" id="mobile-menu">
     <div class="px-4 pt-2 pb-3 space-y-2 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200/50 dark:border-gray-600/50">
-      <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+      <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium transition-colors font-playfair">
         {t.home}
       </a>
       
