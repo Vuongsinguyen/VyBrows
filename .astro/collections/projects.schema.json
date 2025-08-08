@@ -1,0 +1,44 @@
+{
+  "$ref": "#/definitions/projects",
+  "definitions": {
+    "projects": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "image1": {
+          "type": "string"
+        },
+        "image2": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "techs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "category",
+        "image1",
+        "image2",
+        "desc",
+        "techs"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
