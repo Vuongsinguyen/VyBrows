@@ -23,10 +23,24 @@ const config: Config = {
       },
       borderColor: {
         'dynamic': 'var(--color-primary)',
+      },
+      fontFamily: {
+        playfair: ['Playfair Display', 'serif'],
       }
     }
   },
   plugins: []
+};
+
+// Thêm cấu hình font Playfair Display
+const config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        playfair: ['Playfair Display', 'serif'],
+      },
+    },
+  },
 };
 
 export default config;
