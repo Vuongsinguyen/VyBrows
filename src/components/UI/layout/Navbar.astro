@@ -33,34 +33,34 @@ const translations = {
     news: "News",
     contact: "Contact",
     aboutItems: [
-      { href: `/${currentLang}/about-us`, title: "About Us", description: "Learn about ARIS Vietnam" },
-      { href: `/${currentLang}/history`, title: "Our History", description: "Our development journey" },
-      { href: `/${currentLang}/team`, title: "Our Team", description: "Talented people" },
-      { href: `/${currentLang}/vision`, title: "Vision & Mission", description: "Future orientation" }
+      { href: currentLang === 'en' ? '/about-us' : `/${currentLang}/about-us`, title: "About Us", description: "Learn about ARIS Vietnam" },
+      { href: currentLang === 'en' ? '/history' : `/${currentLang}/history`, title: "Our History", description: "Our development journey" },
+      { href: currentLang === 'en' ? '/team' : `/${currentLang}/team`, title: "Our Team", description: "Talented people" },
+      { href: currentLang === 'en' ? '/vision' : `/${currentLang}/vision`, title: "Vision & Mission", description: "Future orientation" }
     ],
     serviceItems: [
-      { href: `/${currentLang}/web-development`, title: "Web Development", description: "Modern and responsive websites" },
-      { href: `/${currentLang}/mobile-app`, title: "Mobile Apps", description: "Professional iOS and Android apps" },
-      { href: `/${currentLang}/design`, title: "UI/UX Design", description: "Beautiful and user-friendly interfaces" },
-      { href: `/${currentLang}/consulting`, title: "IT Consulting", description: "Comprehensive technology solutions" }
+      { href: currentLang === 'en' ? '/web-development' : `/${currentLang}/web-development`, title: "Web Development", description: "Modern and responsive websites" },
+      { href: currentLang === 'en' ? '/mobile-app' : `/${currentLang}/mobile-app`, title: "Mobile Apps", description: "Professional iOS and Android apps" },
+      { href: currentLang === 'en' ? '/design' : `/${currentLang}/design`, title: "UI/UX Design", description: "Beautiful and user-friendly interfaces" },
+      { href: currentLang === 'en' ? '/consulting' : `/${currentLang}/consulting`, title: "IT Consulting", description: "Comprehensive technology solutions" }
     ],
     productItems: [
-      { href: `/${currentLang}/erp-system`, title: "ERP System", description: "Comprehensive business management" },
-      { href: `/${currentLang}/crm-solution`, title: "CRM Solution", description: "Effective customer management" },
-      { href: `/${currentLang}/ecommerce`, title: "E-commerce", description: "Online sales platform" },
-      { href: `/${currentLang}/pos-system`, title: "POS System", description: "Point of sale and sales management" }
+      { href: currentLang === 'en' ? '/erp-system' : `/${currentLang}/erp-system`, title: "ERP System", description: "Comprehensive business management" },
+      { href: currentLang === 'en' ? '/crm-solution' : `/${currentLang}/crm-solution`, title: "CRM Solution", description: "Effective customer management" },
+      { href: currentLang === 'en' ? '/ecommerce' : `/${currentLang}/ecommerce`, title: "E-commerce", description: "Online sales platform" },
+      { href: currentLang === 'en' ? '/pos-system' : `/${currentLang}/pos-system`, title: "POS System", description: "Point of sale and sales management" }
     ],
     newsItems: [
-      { href: `/${currentLang}/news`, title: "Company News", description: "Latest updates from ARIS" },
-      { href: `/${currentLang}/blog`, title: "Tech Blog", description: "IT knowledge and trends" },
-      { href: `/${currentLang}/events`, title: "Events", description: "Activities and workshops" },
-      { href: `/${currentLang}/press`, title: "Press Coverage", description: "News about ARIS Vietnam" }
+      { href: currentLang === 'en' ? '/news' : `/${currentLang}/news`, title: "Company News", description: "Latest updates from ARIS" },
+      { href: currentLang === 'en' ? '/blog' : `/${currentLang}/blog`, title: "Tech Blog", description: "IT knowledge and trends" },
+      { href: currentLang === 'en' ? '/events' : `/${currentLang}/events`, title: "Events", description: "Activities and workshops" },
+      { href: currentLang === 'en' ? '/press' : `/${currentLang}/press`, title: "Press Coverage", description: "News about ARIS Vietnam" }
     ],
     contactItems: [
-      { href: `/${currentLang}/contact`, title: "Contact Info", description: "Address, phone and email" },
-      { href: `/${currentLang}/quote`, title: "Request Quote", description: "Send your project request" },
-      { href: `/${currentLang}/support`, title: "Technical Support", description: "24/7 help and consultation" },
-      { href: `/${currentLang}/career`, title: "Careers", description: "Career opportunities at ARIS" }
+      { href: currentLang === 'en' ? '/contact' : `/${currentLang}/contact`, title: "Contact Info", description: "Address, phone and email" },
+      { href: currentLang === 'en' ? '/quote' : `/${currentLang}/quote`, title: "Request Quote", description: "Send your project request" },
+      { href: currentLang === 'en' ? '/support' : `/${currentLang}/support`, title: "Technical Support", description: "24/7 help and consultation" },
+      { href: currentLang === 'en' ? '/career' : `/${currentLang}/career`, title: "Careers", description: "Career opportunities at ARIS" }
     ]
   },
   vi: {
@@ -201,7 +201,9 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const lang = this.getAttribute('data-lang');
-      if (lang) {
+      if (lang === 'en') {
+        window.location.pathname = '/';
+      } else if (lang) {
         const path = window.location.pathname.replace(/^\/(en|vi|ja)(\/)?/, '');
         window.location.pathname = `/${lang}/${path}`.replace(/\/+/g, '/');
       }
@@ -238,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="flex justify-between items-center h-14">
       <!-- Logo/Brand -->
       <div class="flex-shrink-0">
-        <a href={`/${currentLang}`} class="flex items-center">
+        <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="flex items-center">
           <img src="/logo-aris.svg" alt="ARIS VIETNAM" class="h-8 w-auto" style="color: var(--color-blue2white);" />
         </a>
       </div>
@@ -250,9 +252,15 @@ document.addEventListener('DOMContentLoaded', () => {
             item.children && item.children.length > 0 ? (
               <Dropdown label={item.label} items={item.children} />
             ) : (
-              <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center">
-                <span class="whitespace-nowrap" style="color: var(--color-black2white);">{item.label}</span>
-              </a>
+              item.label === t.home ? (
+                <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center">
+                  <span class="whitespace-nowrap" style="color: var(--color-black2white);">{item.label}</span>
+                </a>
+              ) : (
+                <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center">
+                  <span class="whitespace-nowrap" style="color: var(--color-black2white);">{item.label}</span>
+                </a>
+              )
             )
           )}
         </div>
@@ -278,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <!-- Mobile Navigation (hidden by default) -->
   <div class="md:hidden hidden" id="mobile-menu">
     <div class="px-4 pt-2 pb-3 space-y-2 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200/50 dark:border-gray-600/50">
-      <a href={`/${currentLang}`} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+      <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium transition-colors">
         {t.home}
       </a>
       
