@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+export interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+
+// Lấy ngôn ngữ từ URL
+const lang = Astro.url.pathname.split('/')[1] || 'en';
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="ARIS VIETNAM" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Prevent cache during development -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" sizes="any" />
+
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen transition-colors duration-200" style="background: var(--color-white2black);">
+    <!-- Header space for fixed header -->
+    <div class="h-[88px]"></div> <!-- TopBar height ~40px + Navbar height ~64px -->
+    
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

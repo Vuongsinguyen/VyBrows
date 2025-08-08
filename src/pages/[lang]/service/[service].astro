@@ -1,0 +1,101 @@
+---
+import '/src/styles/color.css';
+import '/src/styles/global.css';
+import PageLayout from '../../../layouts/PageLayout.astro';
+export async function getStaticPaths() {
+  const services = [
+    'web-development', 'mobile-app', 'design', 'consulting', 'ai', 'iot', 'cloud', 'testing', 'maintenance'
+  ];
+  const langs = ['en', 'vi', 'ja'];
+  return langs.flatMap(lang => services.map(service => ({ params: { lang, service } })));
+}
+const lang = Astro.params.lang as 'en' | 'vi' | 'ja';
+const service = Astro.params.service as keyof typeof tocLabels;
+const tocLabels = {
+  'web-development': lang === 'vi' ? 'Phát triển Web' : lang === 'ja' ? 'Webサイト開発' : 'Web Development',
+  'mobile-app': lang === 'vi' ? 'Ứng dụng Mobile' : lang === 'ja' ? 'モバイルアプリ' : 'Mobile Apps',
+  'design': lang === 'vi' ? 'Thiết kế UI/UX' : lang === 'ja' ? 'UI/UXデザイン' : 'UI/UX Design',
+  'consulting': lang === 'vi' ? 'Tư vấn IT' : lang === 'ja' ? 'ITコンサルティング' : 'IT Consulting',
+  'ai': lang === 'vi' ? 'Giải pháp AI' : lang === 'ja' ? 'AIソリューション' : 'AI Solutions',
+  'iot': lang === 'vi' ? 'Giải pháp IoT' : lang === 'ja' ? 'IoTソリューション' : 'IoT Solutions',
+  'cloud': lang === 'vi' ? 'Dịch vụ Cloud' : lang === 'ja' ? 'クラウドサービス' : 'Cloud Services',
+  'testing': lang === 'vi' ? 'Kiểm thử & QA' : lang === 'ja' ? 'テスト・QA' : 'Testing & QA',
+  'maintenance': lang === 'vi' ? 'Bảo trì & Hỗ trợ' : lang === 'ja' ? '保守・サポート' : 'Maintenance & Support',
+} as const;
+const serviceContent = {
+  'web-development': {
+    en: 'We build modern, responsive websites tailored to your business needs.',
+    vi: 'Chúng tôi phát triển website hiện đại, responsive phù hợp với nhu cầu doanh nghiệp.',
+    ja: 'ビジネスニーズに合わせたモダンでレスポンシブなWebサイトを構築します。'
+  },
+  'mobile-app': {
+    en: 'Professional iOS and Android app development for your business.',
+    vi: 'Phát triển ứng dụng iOS và Android chuyên nghiệp cho doanh nghiệp.',
+    ja: 'ビジネス向けのプロフェッショナルなiOS・Androidアプリ開発。'
+  },
+  'design': {
+    en: 'Beautiful and user-friendly UI/UX design services.',
+    vi: 'Dịch vụ thiết kế UI/UX đẹp mắt, dễ sử dụng.',
+    ja: '美しく使いやすいUI/UXデザインサービス。'
+  },
+  'consulting': {
+    en: 'Comprehensive IT consulting for digital transformation.',
+    vi: 'Tư vấn IT toàn diện cho chuyển đổi số.',
+    ja: 'デジタルトランスフォーメーションのための包括的なITコンサルティング。'
+  },
+  'ai': {
+    en: 'AI and Machine Learning solutions for smarter business.',
+    vi: 'Giải pháp AI và Machine Learning cho doanh nghiệp thông minh hơn.',
+    ja: 'よりスマートなビジネスのためのAI・機械学習ソリューション。'
+  },
+  'iot': {
+    en: 'IoT solutions for smart devices and automation.',
+    vi: 'Giải pháp IoT cho thiết bị thông minh và tự động hóa.',
+    ja: 'スマートデバイスと自動化のためのIoTソリューション。'
+  },
+  'cloud': {
+    en: 'Cloud migration and management services.',
+    vi: 'Dịch vụ di chuyển và quản lý hệ thống lên Cloud.',
+    ja: 'クラウドへの移行・管理サービス。'
+  },
+  'testing': {
+    en: 'Quality assurance and software testing services.',
+    vi: 'Dịch vụ kiểm thử và đảm bảo chất lượng phần mềm.',
+    ja: '品質保証・ソフトウェアテストサービス。'
+  },
+  'maintenance': {
+    en: 'Ongoing support and maintenance for your IT systems.',
+    vi: 'Hỗ trợ và bảo trì liên tục cho hệ thống CNTT.',
+    ja: 'ITシステムの継続的なサポート・保守。'
+  }
+};
+---
+
+<PageLayout title={tocLabels[service] || 'Service'}>
+  <div class="w-full bg-surface flex justify-center">
+    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
+      <!-- Sidebar Trái -->
+      <aside class="w-64 bg-surface rounded-lg shadow p-4 mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
+        <h2 class="font-bold text-lg mb-2 text-on-surface">{lang === 'vi' ? 'Danh mục dịch vụ' : lang === 'ja' ? 'サービス一覧' : 'Services Menu'}</h2>
+        <ul class="border border-border rounded-lg overflow-hidden">
+          <li><a href={`/${lang}/service/web-development`} class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['web-development']}</a></li>
+          <li><a href={`/${lang}/service/mobile-app`} class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['mobile-app']}</a></li>
+          <li><a href={`/${lang}/service/design`} class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['design']}</a></li>
+          <li><a href={`/${lang}/service/consulting`} class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['consulting']}</a></li>
+          <li><a href={`/${lang}/service/ai`} class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['ai']}</a></li>
+          <li><a href={`/${lang}/service/iot`} class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['iot']}</a></li>
+          <li><a href={`/${lang}/service/cloud`} class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['cloud']}</a></li>
+          <li><a href={`/${lang}/service/testing`} class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['testing']}</a></li>
+          <li><a href={`/${lang}/service/maintenance`} class="block bg-surface rounded-none px-3 py-2 text-on-surface font-normal hover:text-primary">{tocLabels['maintenance']}</a></li>
+        </ul>
+      </aside>
+      <!-- Nội dung chính -->
+      <main class="flex-1 space-y-12">
+        <h1 class="text-3xl font-bold mb-4 text-on-surface">{tocLabels[service] ?? service}</h1>
+        <p class="text-base mt-2 max-w-2xl text-on-surface">
+          {serviceContent[service]?.[lang] ?? '[Service content not available]'}
+        </p>
+      </main>
+    </div>
+  </div>
+</PageLayout>

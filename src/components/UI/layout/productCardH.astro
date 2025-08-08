@@ -1,0 +1,51 @@
+---
+import '/src/styles/global.css';
+
+export interface Props {
+  product: {
+    image?: string;
+    title?: string;
+    name?: string;
+    description?: string;
+    desc?: string;
+    techs?: string[];
+    members?: number;
+    months?: number;
+    industry?: string;
+  };
+}
+
+const { product } = Astro.props;
+---
+<div class="flex items-center gap-4 bg-surface-1 rounded-lg shadow-lg border border-border hover:bg-surface-2 hover:shadow-2xl transition">
+  <div class="flex-shrink-0 w-20 h-20 bg-surface-2 rounded-lg flex items-center justify-center overflow-hidden">
+    {product.image ? (
+      <img src={product.image} alt={product.title ?? product.name ?? ''} class="object-cover w-full h-full rounded-lg" />
+    ) : (
+      <span class="text-3xl text-on-surface/40">📦</span>
+    )}
+  </div>
+  <div class="flex-1 min-w-0">
+    {product.title || product.name ? (
+      <h2 class="text-lg font-semibold mb-1 truncate">{product.title ?? product.name}</h2>
+    ) : null}
+    {product.description || product.desc ? (
+      <p class="text-on-surface/70 text-sm mb-2 truncate">{product.description ?? product.desc}</p>
+    ) : null}
+    {product.techs && product.techs.length > 0 && (
+      <div class="flex flex-wrap gap-1 mb-2">
+        {product.techs.map((tech) => (
+          <span class="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded">{tech}</span>
+        ))}
+      </div>
+    )}
+    {(product.members || product.months || product.industry) ? (
+      <div class="flex items-center gap-4 text-xs text-on-surface/60 mb-1">
+        {product.members && <span>👥 {product.members} thành viên</span>}
+        {product.months && <span>⏳ {product.months} tháng</span>}
+        {product.industry && <span class="bg-surface-2 text-on-surface/80 px-2 py-0.5 rounded">🏷️ {product.industry}</span>}
+      </div>
+    ) : null}
+    {/* Đã xoá nút Xem chi tiết */}
+  </div>
+</div>

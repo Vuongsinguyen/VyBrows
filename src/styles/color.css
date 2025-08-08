@@ -1,0 +1,161 @@
+/* Blue background for Recruitment section */
+:root {
+  --color-lineblack2white: rgba(0,0,0,0.05); /* Black 5% for light mode */
+  --color-white2white: #fff;
+  --color-blue-bg: #e0edff;
+  --color-surface-1: #e0edff; /* xanh dương nhạt */
+  --color-black2white: #000;
+}
+/* Light mode: .bg-surface là trắng */
+
+.bg-surface {
+  background-color: var(--color-white) !important;
+}
+
+/* Light mode: Ensure bg-surface-1 always applies background-color */
+:root:not([data-theme="dark"]) .bg-surface-1 {
+  background-color: var(--color-white) !important;
+}
+/* Dark mode: Ensure bg-surface-1 always applies background-color */
+:root[data-theme="dark"] .bg-surface-1 {
+  background-color: var(--color-white) !important;
+}
+/* === Team Avatar Border === */
+:root {
+  --team-avatar-border: #60a5fa; /* blue-400 */
+  --team-avatar-shadow: 0 4px 24px 0 rgba(96, 165, 250, 0.15);
+  --color-black-50: rgba(0,0,0,0.5);
+  /* === Brand Colors === */
+  --color-blueWhite: #2563eb; /* blue for light mode */
+  --color-blue2white: #2563eb; /* blue for light mode, white for dark mode */
+  --color-primary: #2563eb;        /* blue-600 */
+  --color-primary-hover: #1d4ed8;  /* blue-700 */
+  --color-primary-ring: #2563eb33; /* blue-600, 20% opacity */
+  /* --color-primary-light removed, use --color-white instead */
+  --color-primary-dark: #1e40af;   /* blue-800 */
+  /* === Button Colors === */
+  --color-on-primary: var(--color-white);
+  --color-on-primary-hover: var(--color-white);
+  --color-button-secondary-text: #2563eb;
+  /* === Base Colors === */
+  --color-white: #ffffff; /* White for light mode */
+  --color-black: #000000; /* Black for light mode */
+  --color-bg: var(--color-white);
+  /* --color-surface removed, use --color-white instead */
+  --color-elevated: var(--color-white);       /* cards, dropdowns */
+  --color-text: #fff;
+  --text-heading: var(--color-white);
+  --text-body: var(--color-muted);
+  --text-link: var(--color-primary);
+  --text-inverse: var(--color-white);
+  /* === Dropdown / Card === */
+  --dropdown-bg: var(--color-elevated);
+  --dropdown-text: var(--color-white);
+  --text-inverse: var(--color-white);
+  --color-card-bg: var(--color-elevated);
+  /* === Navbar === */
+  /* --nav-bg removed, use --color-white instead */
+  --nav-text: var(--color-white);
+  --nav-text-hover: var(--color-primary);
+  --nav-border: rgba(229, 231, 235, 0.4);
+  /* === Topbar & Header === */
+  --topbar-bg: var(--color-primary);
+  --header-bg: var(--color-bg);
+  /* === Slider === */
+  --slider-bg: #e8f0ff;
+  --slider-dot: #cbd5e1;
+  --slider-dot-active: #1e3a8a;
+  --slider-arrow-bg: rgba(0, 0, 0, 0.1);
+  --slider-title: var(--color-primary);
+  /* === Gradients === */
+  --slide-gradient: linear-gradient(90deg, #f0f4ff 0%, #e8f0ff 100%);
+}
+:root {
+  --button-height: 48px;
+  --button-min-width: 140px;
+  --button-padding-x: 1.5rem;
+  --button-padding-y: 0.75rem;
+  --button-radius: 0.75rem;
+}
+/* ======================================
+   COLOR SYSTEM – BLUE / WHITE / GRAY
+   ====================================== */
+
+/* === Tech Tag Colors (Fixed, not affected by dark mode) === */
+:root {
+  --color-stroke: #2563eb; /* blue-600, matches primary */
+  --tech-tag-1: #f87171;   /* red-400 */
+  --tech-tag-2: #fb923c;   /* orange-400 */
+  --tech-tag-3: #fbbf24;   /* yellow-400 */
+  --tech-tag-4: #34d399;   /* green-400 */
+  /* --color-text removed, use --color-white instead */
+  --tech-tag-6: #818cf8;   /* indigo-400 */
+  --tech-tag-7: #a78bfa;   /* purple-400 */
+  --tech-tag-8: #f472b6;   /* pink-400 */
+  --tech-tag-9: #60a5fa;   /* blue-400 */
+  --tech-tag-10: #facc15;  /* amber-400 */
+}
+
+/* ======================================
+   DARK MODE
+   ====================================== */
+
+/* ====================================== */
+:root.dark, .dark {
+  --color-lineblack2white: rgb(42, 42, 42); /* White 5% for dark mode */
+  --color-white2white: #fff;
+  --color-stroke: #3b82f6;
+  --color-black2white: #fff;
+  --color-blue2white: #fff; /* white for dark mode */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-ring: #3b82f633;
+  --color-primary-dark: #172554;
+  --color-on-primary: var(--color-white);
+  --color-on-primary-hover: var(--color-white);
+  --color-button-secondary-text: #3b82f6;
+  --color-bg: #0f172a;
+  --color-elevated: #1e293b;
+  --color-text: #fff;
+  --color-muted: #94a3b8;
+  --color-border: #334155;
+  --text-heading: var(--color-white);
+  --text-body: var(--color-muted);
+  --text-link: var(--color-primary);
+  --text-inverse: var(--color-white);
+  --dropdown-bg: var(--color-elevated);
+  --dropdown-text: var(--color-white);
+  --dropdown-border: var(--color-border);
+  --color-card-bg: var(--color-elevated);
+  --nav-text: var(--color-white);
+  --nav-text-hover: var(--color-primary);
+  --nav-border: rgba(100, 116, 139, 0.3);
+  --color-white: #000;
+  --color-black: #ffffff;
+  --header-bg: var(--color-white);
+  --slider-bg: #1e293b;
+  --slider-dot: #475569;
+  --slider-dot-active: #60a5fa;
+  --slider-arrow-bg: rgba(255, 255, 255, 0.1);
+  --slider-title: var(--color-primary);
+  --slide-gradient: linear-gradient(90deg, #1e3a8a 0%, #0f172a 100%);
+}
+
+
+/* Light mode variables */
+:root:not([data-theme="dark"]) {
+  --color-navbar-bg: rgba(255, 255, 255, 0.8);
+  --color-navbar-border: rgba(229,231,235,0.3);
+  /* --color-surface-1 removed, use --color-white instead */
+  --color-on-surface: #1f2937; /* neutral dark text */
+}
+
+/* Dark mode variables */
+:root[data-theme="dark"] {
+  --color-lineblack2white: rgba(255,255,255,0.05); /* White 5% for dark mode */
+  --color-lineblack2white: rgba(0,0,0,0.05); /* Black 5% for light mode */
+  --color-navbar-bg: rgba(31,41,55,0.8);
+  --color-navbar-border: rgba(55,65,81,0.3);
+  /* --color-surface-1 removed, use --color-white instead */
+  --color-on-surface: #f3f4f6; /* neutral light text */
+}

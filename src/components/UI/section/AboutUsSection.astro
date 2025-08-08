@@ -1,0 +1,176 @@
+---
+// AboutUsSection.astro - Professional About Us section component
+const currentLang = Astro.url.pathname.split('/')[1] || 'en';
+const stats = [
+  {
+    value: 14,
+    suffix: '+',
+    label:
+      currentLang === 'vi' ? 'Năm kinh nghiệm'
+      : currentLang === 'ja' ? '年の経験'
+      : 'Years Experience',
+    color: 'blue-600',
+    darkColor: 'blue-400',
+    bg: 'from-blue-50 to-blue-100',
+    darkBg: 'from-blue-900/20 to-blue-800/20',
+  },
+  {
+    value: 500,
+    suffix: '+',
+    label:
+      currentLang === 'vi' ? 'Dự án hoàn thành'
+      : currentLang === 'ja' ? '件のプロジェクト完了'
+      : 'Projects Completed',
+    color: 'emerald-600',
+    darkColor: 'emerald-400',
+    bg: 'from-emerald-50 to-emerald-100',
+    darkBg: 'from-emerald-900/20 to-emerald-800/20',
+  },
+  {
+    value: 200,
+    suffix: '+',
+    label:
+      currentLang === 'vi' ? 'Khách hàng hài lòng'
+      : currentLang === 'ja' ? '満足した顧客'
+      : 'Happy Clients',
+    color: 'purple-600',
+    darkColor: 'purple-400',
+    bg: 'from-purple-50 to-purple-100',
+    darkBg: 'from-purple-900/20 to-purple-800/20',
+  },
+  {
+    value: 100,
+    suffix: '+',
+    label:
+      currentLang === 'vi' ? 'Gặp gỡ đội ngũ'
+      : currentLang === 'ja' ? 'チーム紹介'
+      : 'Meet The Team',
+    color: 'orange-600',
+    darkColor: 'orange-400',
+    bg: 'from-orange-50 to-orange-100',
+    darkBg: 'from-orange-900/20 to-orange-800/20',
+  },
+];
+---
+
+<section class="px-6 py-16" style="background: var(--color-bg);">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-black);">
+        {
+          Astro.url.pathname.startsWith('/vi') ? 'Về ARIS Việt Nam'
+          : Astro.url.pathname.startsWith('/ja') ? 'ARISベトナムについて'
+          : 'About ARIS Vietnam'
+        }
+      </h2>
+      <p class="text-xl max-w-3xl mx-auto" style="color: var(--color-text-secondary);">
+        {
+          Astro.url.pathname.startsWith('/vi')
+            ? 'Chúng tôi là công ty công nghệ hàng đầu chuyên về các giải pháp số sáng tạo giúp chuyển đổi doanh nghiệp và thúc đẩy tăng trưởng trong kỷ nguyên số.'
+            : Astro.url.pathname.startsWith('/ja')
+            ? '私たちは、革新的なデジタルソリューションを専門とする先進的なテクノロジー企業であり、企業の変革と成長を支援します。'
+            : 'We are a leading technology company specializing in innovative digital solutions that transform businesses and drive growth in the digital age.'
+        }
+      </p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <!-- Left Content -->
+      <div class="space-y-6">
+        <div class="space-y-4">
+          <h3 class="text-2xl font-semibold" style="color: var(--color-text);">
+            {
+              currentLang === 'vi' ? 'Sứ mệnh của chúng tôi'
+              : currentLang === 'ja' ? '私たちのミッション'
+              : 'Our Mission'
+            }
+          </h3>
+          <p class="leading-relaxed" style="color: var(--color-text-secondary);">
+            {
+              currentLang === 'vi'
+                ? 'Trao quyền cho doanh nghiệp bằng các giải pháp công nghệ tiên tiến giúp tăng năng suất, tối ưu vận hành và tạo ra trải nghiệm người dùng xuất sắc. Chúng tôi tin vào sự đổi mới tạo ra giá trị thực.'
+                : currentLang === 'ja'
+                ? '最先端の技術ソリューションで企業の生産性を高め、業務を効率化し、優れたユーザー体験を創出します。私たちは本当に価値あるイノベーションを信じています。'
+                : 'To empower businesses with cutting-edge technology solutions that enhance productivity, streamline operations, and create exceptional user experiences. We believe in innovation that makes a real difference.'
+            }
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-2xl font-semibold" style="color: var(--color-text);">
+            {
+              currentLang === 'vi' ? 'Tầm nhìn của chúng tôi'
+              : currentLang === 'ja' ? '私たちのビジョン'
+              : 'Our Vision'
+            }
+          </h3>
+          <p class="leading-relaxed" style="color: var(--color-text-secondary);">
+            {
+              currentLang === 'vi'
+                ? 'Trở thành đối tác tin cậy trong chuyển đổi số, giúp doanh nghiệp tự tin thích ứng với công nghệ mới và tăng trưởng bền vững nhờ các giải pháp sáng tạo.'
+                : currentLang === 'ja'
+                ? 'デジタル変革の信頼できるパートナーとして、企業が進化する技術環境に自信を持って対応し、革新的なソリューションで持続的な成長を実現します。'
+                : 'To be the trusted partner for digital transformation, helping companies navigate the evolving technological landscape with confidence and achieve sustainable growth through innovative solutions.'
+            }
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Content - Stats -->
+      <div class="grid grid-cols-2 gap-6">
+        {stats.map((stat, idx) => (
+          <div class="rounded-2xl p-6 text-center" style="background: var(--color-card-bg);">
+            <div 
+              class="text-3xl font-bold mb-2"
+              style="color: var(--color-accent);"
+              id={`stat-anim-${idx}`}
+              data-target={stat.value}
+            >0{stat.suffix}</div>
+            <div style="color: var(--color-text-secondary);" class="font-medium">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  const statsSection = document.querySelector('.grid.grid-cols-2');
+  let animated = false;
+  if (!statsSection) return;
+
+  const animateStats = () => {
+    if (animated) return;
+    animated = true;
+    document.querySelectorAll('[id^="stat-anim-"]').forEach(el => {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.textContent.replace(/[0-9]/g, '');
+      let count = 0;
+      const duration = 1200;
+      const step = Math.ceil(target / (duration / 16));
+      function animate() {
+        count += step;
+        if (count >= target) {
+          el.textContent = target + suffix;
+        } else {
+          el.textContent = count + suffix;
+          requestAnimationFrame(animate);
+        }
+      }
+      animate();
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      animateStats();
+      observer.disconnect();
+    }
+  }, { threshold: 0.3 });
+
+  observer.observe(statsSection);
+});
+</script>

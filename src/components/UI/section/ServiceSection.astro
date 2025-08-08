@@ -1,0 +1,130 @@
+---
+// ServiceSection.astro - Services grid section with blue cards
+export interface Props {
+  class?: string;
+  heading?: string;
+}
+
+const { class: customClass = '', heading } = Astro.props;
+
+// Detect current language from URL
+const currentLang = Astro.url.pathname.split('/')[1] || 'en';
+
+const serviceTitles = {
+  en: [
+    "ONE-STOP SERVICES",
+    "SYSTEM/APP DEVELOPMENT",
+    "MOBILE DEVELOPMENT",
+    "QUALITY CONTROL",
+    "UI/UX DESIGN",
+    "COOPERATIVE RESEARCH & DEVELOPMENT",
+    "DIGITAL TRANSFORMATION SOLUTIONS",
+    "BUSINESS PROCESS OUTSOURCING (BPO)",
+    "SYSTEM MAINTENANCE & OPERATION SERVER/SYSTEM"
+  ],
+  vi: [
+    "DỊCH VỤ TRỌN GÓI",
+    "PHÁT TRIỂN HỆ THỐNG/ỨNG DỤNG",
+    "PHÁT TRIỂN DI ĐỘNG",
+    "KIỂM SOÁT CHẤT LƯỢNG",
+    "THIẾT KẾ UI/UX",
+    "NGHIÊN CỨU & PHÁT TRIỂN HỢP TÁC",
+    "GIẢI PHÁP CHUYỂN ĐỔI SỐ",
+    "DỊCH VỤ BPO (OUTSOURCING QUY TRÌNH)",
+    "BẢO TRÌ & VẬN HÀNH HỆ THỐNG/SERVER"
+  ],
+  ja: [
+    "ワンストップサービス",
+    "システム・アプリ開発",
+    "モバイル開発",
+    "品質管理",
+    "UI/UXデザイン",
+    "共同研究・開発",
+    "デジタル変革ソリューション",
+    "BPO（ビジネスプロセスアウトソーシング）",
+    "システム・サーバー保守運用"
+  ]
+};
+
+const serviceIcons = [
+  // ONE-STOP SERVICES (fill style)
+  { path: "M9.4 16.6L4.8 12L9.4 7.4L8 6L2 12L8 18L9.4 16.6ZM14.6 16.6L19.2 12L14.6 7.4L16 6L22 12L16 18L14.6 16.6Z", fill: true },
+  // SYSTEM/APP DEVELOPMENT
+  "M16 18V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12", // icon code
+  // MOBILE DEVELOPMENT
+  "M7 4h10v16H7z", // icon smartphone
+  // QUALITY CONTROL
+  "M9 12l2 2 4-4", // icon check
+  // UI/UX DESIGN
+  "M12 19l9-7-9-7-9 7 9 7z", // icon pencil
+  // COOPERATIVE RESEARCH & DEVELOPMENT
+  "M17 20h5v-2a4 4 0 00-3-3.87", // icon users
+  // DIGITAL TRANSFORMATION SOLUTIONS
+  "M12 4v16m8-8H4", // icon transform
+  // BUSINESS PROCESS OUTSOURCING (BPO)
+  "M3 7v4a1 1 0 001 1h3v4a1 1 0 001 1h3v4a1 1 0 001 1h3v4a1 1 0 001 1h3", // icon flow
+  // SYSTEM MAINTENANCE & OPERATION SERVER/SYSTEM
+  "M4 6h16M4 10h16M4 14h16M4 18h16", // icon server
+];
+
+const services = serviceTitles[currentLang as keyof typeof serviceTitles]?.map((title, idx) => ({
+  title,
+  icon: typeof serviceIcons[idx] === 'string' ? serviceIcons[idx] : (serviceIcons[idx] as { path: string }).path
+})) || [];
+---
+
+<section class={`py-16 px-6 ${customClass}`} style="background: var(--color-bg);">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Title -->
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-black);">
+      {heading || (currentLang === 'vi' ? 'Thúc đẩy chuyển đổi số với dịch vụ của chúng tôi' : currentLang === 'ja' ? 'サービスでDXを加速' : 'Accelerate your DX journey with our services')}
+    </h2>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service, idx) => (
+        <div
+          class="service-card flex flex-row items-center gap-6 transition-all duration-300 rounded-2xl p-8 group cursor-pointer hover:shadow-2xl hover:-translate-y-1 hover:scale-105"
+          style="background: var(--color-surface-1);"
+        >
+          <div class="w-16 h-16 rounded-full flex items-center justify-center border-2" style="border-color: var(--color-primary); background: transparent;">
+          {/* Sử dụng màu xanh nhạt từ color.css */}
+            {idx === 0 ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9.4 16.6L4.8 12L9.4 7.4L8 6L2 12L8 18L9.4 16.6ZM14.6 16.6L19.2 12L14.6 7.4L16 6L22 12L16 18L14.6 16.6Z" fill="var(--color-primary)" />
+              </svg>
+            ) : (
+              <svg class="w-8 h-8 diamond-icon transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d={service.icon}
+                />
+              </svg>
+            )}
+          </div>
+          <h3 class="font-bold text-lg uppercase tracking-wide leading-tight text-left flex-1" style="color: var(--color-primary);">
+            {service.title}
+          </h3>
+          <div class="flex items-center justify-center">
+            <svg class="w-6 h-6 opacity-70 group-hover:opacity-100 transition" fill="none" stroke="var(--color-primary)" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom hover effects */
+  .group:hover .diamond-icon {
+    transform: rotate(180deg);
+  }
+  .service-card {
+    background: var(--color-primary);
+    color: var(--color-bg);
+  }
+</style>

@@ -1,0 +1,129 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/UI/layout/Header.astro';
+import Button from '../../components/UI/shared/Button.astro';
+import Slider from '../../components/UI/slider/Slider.astro';
+import ServiceSection from '../../components/UI/section/ServiceSection.astro';
+import AboutUsSection from '../../components/UI/section/AboutUsSection.astro';
+import CompanyPhotoGallery from '../../components/UI/gallery/CompanyPhotoGallery.astro';
+import ProjectSection from '../../components/UI/section/ProjectSection.astro';
+import IndustrySection from '../../components/UI/section/IndustrySection.astro';
+import NewsSection from '../../components/UI/section/NewsSection.astro';
+import FooterSection from '../../components/UI/layout/FooterSection.astro';
+import TeamMembersSection from '../../components/UI/section/TeamMembersSection.astro';
+import RecruitmentSection from '../../components/UI/section/RecruitmentSection.astro';
+import FullContactSection from '../../components/UI/section/FullContactSection.astro';
+import UseCaseSection from '../../components/UI/section/UseCaseSection.astro';
+
+// Define slides data for English
+const slides = [
+  {
+    title: "Chào mừng đến với ARIS Việt Nam",
+    subtitle: "Đổi mới",
+    description: "Giải pháp công nghệ sáng tạo cho doanh nghiệp hiện đại",
+    primaryButton: "Bắt đầu",
+    secondaryButton: "Xem chi tiết",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Phát triển website chuyên nghiệp",
+    subtitle: "Phát triển",
+    description: "Website hiện đại, đáp ứng tốt giúp tăng trưởng doanh nghiệp",
+    primaryButton: "Xem dự án",
+    secondaryButton: "Liên hệ",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Giải pháp ứng dụng di động",
+    subtitle: "Di động",
+    description: "Ứng dụng iOS và Android native hiệu năng vượt trội",
+    primaryButton: "Danh sách ứng dụng",
+    secondaryButton: "Yêu cầu báo giá",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Thiết kế UI/UX xuất sắc",
+    subtitle: "Thiết kế",
+    description: "Giao diện đẹp, dễ dùng giúp chuyển đổi khách hàng hiệu quả",
+    primaryButton: "Xem portfolio thiết kế",
+    secondaryButton: "Quy trình thiết kế",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Giải pháp doanh nghiệp",
+    subtitle: "Doanh nghiệp",
+    description: "Hệ thống ERP và CRM mở rộng cho tổ chức lớn",
+    primaryButton: "Xem demo",
+    secondaryButton: "Đặt lịch tư vấn",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Cloud & DevOps",
+    subtitle: "Cloud",
+    description: "Hạ tầng cloud hiện đại và DevOps tối ưu hiệu quả",
+    primaryButton: "Dịch vụ cloud",
+    secondaryButton: "Hướng dẫn chuyển đổi",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "AI & Machine Learning",
+    subtitle: "AI/ML",
+    description: "Giải pháp thông minh với trí tuệ nhân tạo và máy học",
+    primaryButton: "Giải pháp AI",
+    secondaryButton: "Xem case study",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Hỗ trợ & đào tạo 24/7",
+    subtitle: "Hỗ trợ",
+    description: "Hỗ trợ và đào tạo toàn diện cho mọi giải pháp của chúng tôi",
+    primaryButton: "Nhận hỗ trợ",
+    secondaryButton: "Chương trình đào tạo",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  }
+];
+---
+
+<MainLayout title="Homepage - English">
+  <Header />
+  
+  <!-- Main Content -->
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <!-- Hero Section - Slider -->
+    <Slider slides={slides} autoSlideInterval={4000} />
+
+    <!-- Services Section -->
+    <ServiceSection />
+
+    <!-- About Us Section -->
+    <AboutUsSection />
+
+    <!-- Company Photo Gallery Section -->
+    <CompanyPhotoGallery />
+
+    <!-- Project Section -->
+    <ProjectSection />
+
+    <!-- Industry Section -->
+    <IndustrySection />
+
+    <!-- UseCase Section -->
+    <UseCaseSection />
+
+    <!-- Team Members Section -->
+    <TeamMembersSection />
+
+    <!-- News Section -->
+    <NewsSection />
+
+    <!-- Recruitment Section -->
+    <RecruitmentSection />
+
+    <!-- Full Contact Section -->
+    <FullContactSection />
+
+  </main>
+  <!-- Footer Section -->
+  <FooterSection />
+</MainLayout>
+

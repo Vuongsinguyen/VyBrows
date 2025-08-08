@@ -1,0 +1,197 @@
+---
+const images = [
+  { thumb: '/images/gallery/photo-thumb1.avif', full: '/images/gallery/photo1.avif', desc: 'Ảnh 1' },
+  { thumb: '/images/gallery/photo-thumb2.avif', full: '/images/gallery/photo2.avif', desc: 'Ảnh 2' },
+  { thumb: '/images/gallery/photo-thumb3.avif', full: '/images/gallery/photo3.avif', desc: 'Ảnh 3' },
+  { thumb: '/images/gallery/photo-thumb4.avif', full: '/images/gallery/photo4.avif', desc: 'Ảnh 4' },
+  { thumb: '/images/gallery/photo-thumb5.avif', full: '/images/gallery/photo5.avif', desc: 'Ảnh 5' },
+  { thumb: '/images/gallery/photo-thumb6.avif', full: '/images/gallery/photo6.avif', desc: 'Ảnh 6' },
+  { thumb: '/images/gallery/photo-thumb7.avif', full: '/images/gallery/photo7.avif', desc: 'Ảnh 7' },
+  { thumb: '/images/gallery/photo-thumb8.avif', full: '/images/gallery/photo8.avif', desc: 'Ảnh 8' },
+  { thumb: '/images/gallery/photo-thumb9.avif', full: '/images/gallery/photo9.avif', desc: 'Ảnh 9' },
+  { thumb: '/images/gallery/photo-thumb10.avif', full: '/images/gallery/photo10.avif', desc: 'Ảnh 10' },
+  { thumb: '/images/gallery/photo-thumb11.avif', full: '/images/gallery/photo11.avif', desc: 'Ảnh 11' },
+  { thumb: '/images/gallery/photo-thumb12.avif', full: '/images/gallery/photo12.avif', desc: 'Ảnh 12' },
+  { thumb: '/images/gallery/photo-thumb13.avif', full: '/images/gallery/photo13.avif', desc: 'Ảnh 13' },
+  { thumb: '/images/gallery/photo-thumb14.avif', full: '/images/gallery/photo14.avif', desc: 'Ảnh 14' },
+  { thumb: '/images/gallery/photo-thumb15.avif', full: '/images/gallery/photo15.avif', desc: 'Ảnh 15' },
+  { thumb: '/images/gallery/photo-thumb16.avif', full: '/images/gallery/photo16.avif', desc: 'Ảnh 16' },
+  { thumb: '/images/gallery/photo-thumb17.avif', full: '/images/gallery/photo17.avif', desc: 'Ảnh 17' },
+  { thumb: '/images/gallery/photo-thumb18.avif', full: '/images/gallery/photo18.avif', desc: 'Ảnh 18' },
+  { thumb: '/images/gallery/photo-thumb19.avif', full: '/images/gallery/photo19.avif', desc: 'Ảnh 19' },
+  { thumb: '/images/gallery/photo-thumb20.avif', full: '/images/gallery/photo20.avif', desc: 'Ảnh 20' }
+];
+
+const SMALL_W = 'w-48';
+const SMALL_H = 'h-48';
+
+const columns = [];
+let imgIdx = 0;
+for (let i = 0; i < 4; i++) {
+  for (let j = 0; j < 3; j++) {
+    columns.push([
+      { idx: imgIdx++, w: SMALL_W, h: SMALL_H },
+      { idx: imgIdx++, w: SMALL_W, h: SMALL_H }
+    ]);
+  }
+  columns.push([
+    { idx: imgIdx++, w: 'w-96', h: 'h-[408px]' }
+  ]);
+}
+// Lặp lại columns để tạo hiệu ứng infinity loop
+const loopColumns = [...columns, ...columns];
+---
+
+<section class="relative" style="background: var(--color-bg); margin-top:-30px;">
+  <div class="overflow-x-auto no-scrollbar" id="gallery-scroll" style="background: var(--color-bg);">
+    <div class="flex gap-6 w-max scroll-smooth snap-x py-[30px]" id="gallery-track">
+      {loopColumns.map((col, colIdx) => (
+        <div class="flex flex-col gap-6 items-center">
+          {col.map(img => (
+            <button
+              type="button"
+              class={`open-modal-btn flex-shrink-0 rounded-xl overflow-hidden shadow-lg border-2 hover:scale-105 transition-transform duration-200 ${img.w} ${img.h} snap-start`}
+              style="background: var(--color-card-bg); border-color: var(--color-bg);"
+              data-full={images[img.idx % images.length]?.full}
+              data-desc={images[img.idx % images.length]?.desc}
+            >
+              <img src={images[img.idx % images.length]?.thumb} alt={`Company photo ${img.idx + 1}`} class="w-full h-full object-cover" loading="lazy" />
+            </button>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div id="gallery-modal" class="fixed inset-0 items-center justify-center z-[99999] hidden" style="background: rgba(0,0,0,0.7); display: none;">
+    <div class="relative flex flex-col items-center">
+      <img id="gallery-modal-img" src="" alt="Full size photo" class="max-w-3xl max-h-[80vh] rounded-2xl shadow-2xl border-4 mb-4" style="border-color: var(--color-bg);" />
+      <div id="gallery-modal-desc" class="text-base text-center max-w-2xl mb-2" style="color: var(--color-text);"></div>
+      <button
+        class="absolute top-[-32px] right-[-32px] text-3xl font-bold"
+        aria-label="Close"
+        id="gallery-modal-close"
+        style="color: var(--color-text);"
+      >×</button>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  // Preload all full-size images
+  const preloadImages = [
+    '/images/gallery/photo1.avif', '/images/gallery/photo2.avif', '/images/gallery/photo3.avif', '/images/gallery/photo4.avif',
+    '/images/gallery/photo5.avif', '/images/gallery/photo6.avif', '/images/gallery/photo7.avif', '/images/gallery/photo8.avif',
+    '/images/gallery/photo9.avif', '/images/gallery/photo10.avif', '/images/gallery/photo11.avif', '/images/gallery/photo12.avif',
+    '/images/gallery/photo13.avif', '/images/gallery/photo14.avif', '/images/gallery/photo15.avif', '/images/gallery/photo16.avif',
+    '/images/gallery/photo17.avif', '/images/gallery/photo18.avif', '/images/gallery/photo19.avif', '/images/gallery/photo20.avif'
+  ];
+  preloadImages.forEach(src => {
+    const img = new window.Image();
+    img.src = src;
+  });
+  const modal = document.getElementById('gallery-modal');
+  const modalImg = document.getElementById('gallery-modal-img');
+  const modalDesc = document.getElementById('gallery-modal-desc');
+  const closeBtn = document.getElementById('gallery-modal-close');
+  const scrollContainer = document.getElementById('gallery-scroll');
+  const track = document.getElementById('gallery-track');
+
+  // Modal logic
+  document.querySelectorAll('.open-modal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      modalImg.src = btn.dataset.full;
+      modalDesc.textContent = btn.dataset.desc || '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      modal.style.display = 'flex';
+      // Chặn scroll background
+      document.body.style.overflow = 'hidden';
+    });
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    modal.style.display = 'none';
+    modalImg.src = '';
+    modalDesc.textContent = '';
+    modalImg.src = '';
+    modalDesc.textContent = '';
+    document.body.style.overflow = '';
+  });
+
+  // Đóng modal khi bấm vùng ngoài ảnh/modal content
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modal.style.display = 'none';
+      modalImg.src = '';
+      modalDesc.textContent = '';
+      document.body.style.overflow = '';
+    }
+    // Đóng modal khi bấm vào ảnh to
+    if (e.target === modalImg) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modal.style.display = 'none';
+      modalImg.src = '';
+      modalDesc.textContent = '';
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Đóng modal khi bấm nút X
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    modal.style.display = 'none';
+    modalImg.src = '';
+    modalDesc.textContent = '';
+    document.body.style.overflow = '';
+  });
+
+  // Infinity auto slide logic (chậm và mượt hơn)
+  let isPaused = false;
+  let scrollAmount = 0.5; // Giảm tốc độ xuống
+  let interval;
+  let galleryLength = track.scrollWidth / 2; // vì bạn lặp gallery 2 lần
+
+  function startAutoScroll() {
+    interval = setInterval(() => {
+      if (!isPaused) {
+        scrollContainer.scrollLeft += scrollAmount;
+        // Nếu scroll gần hết nửa đầu, nhảy về vị trí tương ứng ở nửa sau
+        if (scrollContainer.scrollLeft >= galleryLength) {
+          scrollContainer.scrollLeft -= galleryLength;
+        }
+      }
+    }, 16); // 60fps, mượt hơn
+  }
+  startAutoScroll();
+
+  // Pause auto scroll on mouse/touch
+  scrollContainer.addEventListener('mouseenter', () => { isPaused = true; });
+  scrollContainer.addEventListener('mouseleave', () => { isPaused = false; });
+  scrollContainer.addEventListener('touchstart', () => { isPaused = true; });
+  scrollContainer.addEventListener('touchend', () => { isPaused = false; });
+
+  // Manual scroll disables auto for a short time
+  let manualTimeout;
+  scrollContainer.addEventListener('wheel', () => {
+    isPaused = true;
+    clearTimeout(manualTimeout);
+    manualTimeout = setTimeout(() => { isPaused = false; }, 2000);
+  });
+  scrollContainer.addEventListener('pointerdown', () => {
+    isPaused = true;
+    clearTimeout(manualTimeout);
+    manualTimeout = setTimeout(() => { isPaused = false; }, 2000);
+  });
+});
+</script>
+
+<style>
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+</style>

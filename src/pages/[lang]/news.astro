@@ -1,0 +1,61 @@
+---
+import '/src/styles/global.css';
+import PageLayout from '../../layouts/PageLayout.astro';
+import NewsListComp from '../../components/UI/layout/NewsListComp.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'vi' } },
+    { params: { lang: 'ja' } }
+  ];
+}
+
+const lang = Astro.params.lang;
+const allEntries = await Astro.glob('/src/content/news/*/*.md');
+const newsEntries = allEntries.filter(entry => entry.file.endsWith(`.${lang}.md`));
+const PAGE_SIZE = 25;
+const pageParam = Astro.url?.searchParams.get('page');
+const currentPage = pageParam ? parseInt(pageParam) : 1;
+const totalNews = newsEntries.length;
+const totalPages = Math.ceil(totalNews / PAGE_SIZE);
+
+const news = newsEntries.map((entry, idx) => {
+  const parts = entry.file.split('/');
+  const folder = parts[parts.length - 2];
+  const fileBase = parts[parts.length - 1].replace(`.${lang}.md`, '');
+  const slug = `${folder}/${fileBase}`;
+  return {
+    id: idx + 1,
+    title: entry.frontmatter.title,
+    description: entry.frontmatter.desc,
+    image: entry.frontmatter.image,
+    date: entry.frontmatter.date,
+    category: entry.frontmatter.category,
+    link: `/${lang}/news/${slug}`,
+  };
+})
+// Sắp xếp theo ngày giảm dần (mới nhất lên trên)
+.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+---
+
+<PageLayout title="News">
+  <section class="py-16 px-6" style="background: var(--color-bg);">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex gap-8">
+        <!-- Sidebar Sticky Left -->
+        <div class="hidden md:flex flex-col items-center w-[100px] h-[300px] sticky top-24">
+          <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+            TECH
+          </span>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-1">
+          <NewsListComp news={pagedNews} />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

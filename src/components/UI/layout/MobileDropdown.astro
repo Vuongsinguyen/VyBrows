@@ -1,0 +1,80 @@
+---
+export interface Props {
+  label: string;
+  items: Array<{
+    href: string;
+    title: string;
+  }>;
+  class?: string;
+}
+
+const { label, items, class: customClass = '' } = Astro.props;
+const dropdownId = `mobile-dropdown-${label.toLowerCase().replace(/\s+/g, '-')}`;
+---
+
+<div class={`space-y-1 ${customClass}`}>
+  <button 
+    class="w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors flex items-center justify-between mobile-dropdown-trigger"
+    style="
+      color: var(--color-text);
+      background: var(--color-bg);
+    "
+    data-target={dropdownId}
+    aria-expanded="false"
+    aria-controls={dropdownId}
+  >
+    <span>{label}</span>
+    <svg class="h-4 w-4 transition-transform dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="var(--color-accent)">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  <div 
+    class="pl-4 space-y-1 hidden mobile-dropdown-content" 
+    id={dropdownId}
+    style="background: var(--color-bg);"
+  >
+    {items.map((item) => (
+      <a href={item.href}
+        class="block px-3 py-2 text-sm rounded-md transition-colors"
+        style="
+          color: var(--color-text-secondary);
+          background: var(--color-bg);
+        "
+        onmouseover="this.style.color='var(--color-accent)'; this.style.background='var(--color-card-bg)'"
+        onmouseout="this.style.color='var(--color-text-secondary)'; this.style.background='var(--color-bg)'"
+      >
+        {item.title}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const triggers = document.querySelectorAll('.mobile-dropdown-trigger');
+    
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', function(event) {
+        const target = event.currentTarget as HTMLButtonElement;
+        const targetId = target.getAttribute('data-target');
+        const content = document.getElementById(targetId || '');
+        const arrow = target.querySelector('.dropdown-arrow') as HTMLElement;
+        const isExpanded = target.getAttribute('aria-expanded') === 'true';
+        
+        if (content && arrow) {
+          if (isExpanded) {
+            // Close
+            content.classList.add('hidden');
+            arrow.style.transform = 'rotate(0deg)';
+            target.setAttribute('aria-expanded', 'false');
+          } else {
+            // Open
+            content.classList.remove('hidden');
+            arrow.style.transform = 'rotate(180deg)';
+            target.setAttribute('aria-expanded', 'true');
+          }
+        }
+      });
+    });
+  });
+</script>

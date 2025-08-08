@@ -1,0 +1,129 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/UI/layout/Header.astro';
+import Button from '../../components/UI/shared/Button.astro';
+import Slider from '../../components/UI/slider/Slider.astro';
+import ServiceSection from '../../components/UI/section/ServiceSection.astro';
+import AboutUsSection from '../../components/UI/section/AboutUsSection.astro';
+import CompanyPhotoGallery from '../../components/UI/gallery/CompanyPhotoGallery.astro';
+import ProjectSection from '../../components/UI/section/ProjectSection.astro';
+import IndustrySection from '../../components/UI/section/IndustrySection.astro';
+import NewsSection from '../../components/UI/section/NewsSection.astro';
+import FooterSection from '../../components/UI/layout/FooterSection.astro';
+import TeamMembersSection from '../../components/UI/section/TeamMembersSection.astro';
+import RecruitmentSection from '../../components/UI/section/RecruitmentSection.astro';
+import FullContactSection from '../../components/UI/section/FullContactSection.astro';
+import UseCaseSection from '../../components/UI/section/UseCaseSection.astro';
+
+// Define slides data for English
+const slides = [
+  {
+    title: "ARISベトナムへようこそ",
+    subtitle: "イノベーション",
+    description: "現代ビジネスのための革新的な技術ソリューション",
+    primaryButton: "始める",
+    secondaryButton: "詳細を見る",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "専門的なウェブ開発",
+    subtitle: "開発",
+    description: "ビジネス成長を促進するモダンでレスポンシブなウェブサイト",
+    primaryButton: "プロジェクトを見る",
+    secondaryButton: "お問い合わせ",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "モバイルアプリソリューション",
+    subtitle: "モバイル",
+    description: "高性能なネイティブiOS・Androidアプリケーション",
+    primaryButton: "アプリ一覧",
+    secondaryButton: "見積もり依頼",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "UI/UXデザインの卓越性",
+    subtitle: "デザイン",
+    description: "訪問者を顧客に変える美しく使いやすいインターフェース",
+    primaryButton: "デザインポートフォリオ",
+    secondaryButton: "デザインプロセス",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "エンタープライズソリューション",
+    subtitle: "エンタープライズ",
+    description: "大規模組織向けのスケーラブルなERP・CRMシステム",
+    primaryButton: "デモを見る",
+    secondaryButton: "相談予約",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "クラウド＆DevOps",
+    subtitle: "クラウド",
+    description: "効率的な最新クラウドインフラとDevOpsプラクティス",
+    primaryButton: "クラウドサービス",
+    secondaryButton: "移行ガイド",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "AI＆機械学習",
+    subtitle: "AI/ML",
+    description: "人工知能と機械学習によるインテリジェントなソリューション",
+    primaryButton: "AIソリューション",
+    secondaryButton: "事例紹介",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "24時間365日サポート＆トレーニング",
+    subtitle: "サポート",
+    description: "すべてのソリューションに対する包括的なサポートとトレーニング",
+    primaryButton: "サポートを受ける",
+    secondaryButton: "トレーニングプログラム",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  }
+];
+---
+
+<MainLayout title="Homepage - English">
+  <Header />
+  
+  <!-- Main Content -->
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <!-- Hero Section - Slider -->
+    <Slider slides={slides} autoSlideInterval={4000} />
+
+    <!-- Services Section -->
+    <ServiceSection />
+
+    <!-- About Us Section -->
+    <AboutUsSection />
+
+    <!-- Company Photo Gallery Section -->
+    <CompanyPhotoGallery />
+
+    <!-- Project Section -->
+    <ProjectSection />
+
+    <!-- Industry Section -->
+    <IndustrySection />
+
+    <!-- UseCase Section -->
+    <UseCaseSection />
+
+    <!-- Team Members Section -->
+    <TeamMembersSection />
+
+    <!-- News Section -->
+    <NewsSection />
+
+    <!-- Recruitment Section -->
+    <RecruitmentSection />
+
+    <!-- Full Contact Section -->
+    <FullContactSection />
+
+  </main>
+  <!-- Footer Section -->
+  <FooterSection />
+</MainLayout>
+

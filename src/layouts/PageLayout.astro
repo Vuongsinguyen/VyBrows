@@ -1,0 +1,54 @@
+---
+import '/src/styles/global.css';
+import '/src/styles/color.css';
+import BannerFix from '../components/UI/section/BannerFix.astro';
+import Header from '../components/UI/layout/Header.astro';
+import FooterSection from '../components/UI/layout/FooterSection.astro';
+import SidebarLayout from '../components/UI/layout/SidebarLayout.astro';
+// Removed title prop and interface
+const lang = Astro.url.pathname.split('/')[1] || 'en';
+---
+
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="ARIS VIETNAM" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" sizes="any" />
+    <title>ARIS VIETNAM</title>
+  </head>
+  <body class="min-h-screen transition-colors duration-200" style="background: var(--color-white2black);">
+    <script>
+      // Auto set data-theme on html for light/dark mode
+      /**
+       * @param {string} theme
+       */
+      function setTheme(theme: string) {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+      (window as any).setTheme = setTheme;
+    </script>
+    <Header />
+    <BannerFix />
+    <main>
+      <section class="flex-1">
+        <slot />
+      </section>
+    </main>
+    </main>
+    <FooterSection />
+  </body>
+</html>
+

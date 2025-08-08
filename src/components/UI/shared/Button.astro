@@ -1,0 +1,54 @@
+---
+export interface Props {
+  href?: string
+  type?: 'button' | 'submit' | 'reset'
+  variant?: 'primary' | 'secondary' | 'ghost'
+  class?: string
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  class: customClass = ''
+} = Astro.props
+
+const baseClass = `inline-flex items-center justify-center text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2`
+const variants = {
+  primary: 'bg-[var(--color-primary)] text-[var(--color-on-primary)] hover:bg-[var(--color-primary-hover)] hover:text-[var(--color-on-primary-hover)] focus:ring-[var(--color-primary-ring)]',
+  secondary: 'bg-transparent text-[var(--color-button-secondary-text)] border border-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] hover:text-[var(--color-on-primary-hover)] focus:ring-[var(--color-primary-ring)]',
+  ghost: 'bg-transparent text-[var(--color-primary)] hover:bg-[var(--color-primary-bg)] focus:ring-[var(--color-primary-ring)]',
+}
+
+const finalClass = `${baseClass} ${variants[variant] || ''} ${customClass}`
+---
+
+{href ? (
+  <a
+    href={href}
+    class={finalClass}
+    style="
+      min-width: var(--button-min-width);
+      height: var(--button-height);
+      padding: var(--button-padding-y) var(--button-padding-x);
+      border-radius: var(--button-radius);
+    "
+    {...Astro.props}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    class={finalClass}
+    style="
+      min-width: var(--button-min-width);
+      height: var(--button-height);
+      padding: var(--button-padding-y) var(--button-padding-x);
+      border-radius: var(--button-radius);
+    "
+    {...Astro.props}
+  >
+    <slot />
+  </button>
+)}

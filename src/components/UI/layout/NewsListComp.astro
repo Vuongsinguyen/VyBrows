@@ -1,0 +1,24 @@
+---
+export interface Props {
+  news: Array<{
+    id: number;
+    title: string;
+    description: string;
+    image?: string;
+    date?: string;
+    link: string;
+  }>;
+}
+const { news } = Astro.props;
+---
+
+<div class="flex flex-col gap-8">
+  {news.map(item => (
+    <a href={item.link} class="block rounded-lg shadow hover:shadow-lg transition bg-white p-4">
+      {item.image && <img src={item.image} alt={item.title} class="mb-3 rounded" />}
+      <h2 class="text-lg font-bold mb-1">{item.title}</h2>
+      {item.date && <p class="text-sm text-gray-500 mb-2">{item.date}</p>}
+      <p class="text-gray-700">{item.description}</p>
+    </a>
+  ))}
+</div>

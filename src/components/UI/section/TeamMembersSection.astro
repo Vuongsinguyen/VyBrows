@@ -1,0 +1,58 @@
+---
+const ceo = {
+  photo: "/images/ceo.avif", // Đổi đường dẫn ảnh phù hợp
+  name: "NHAT TRAN",
+  title: "Chief Executive Officer",
+  message: "“Together, we build the future of technology for Vietnam and the world.”"
+};
+
+const keyMembers = [
+  {
+    photo: "/images/khoa.avif",
+    name: "KHA NGUYEN",
+    title: "COO"
+  },
+  {
+    photo: "/images/khoa.avif",
+    name: "KHOA PHAM",
+    title: "PMO"
+  },
+  {
+    photo: "/images/khoa.avif",
+    name: "TIEN NGUYEN",
+    title: "CTO"
+  },
+  {
+    photo: "/images/van.avif",
+    name: "VAN NGUYEN",
+    title: "SALES EXECUTIVE"
+  }
+];
+---
+
+<section class="px-6 py-16" style="background: var(--color-blue-bg, #e0edff);">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-text);">
+       Core Team
+    </h2>
+    <div class="flex flex-col items-center mb-16">
+      <span class="inline-block transition-transform duration-200 hover:scale-105">
+        <img src={ceo.photo} alt={ceo.name} class="w-64 h-64 rounded-full object-cover mb-4 shadow-lg" style="background: #fff; border-radius: 9999px;" />
+      </span>
+      <div class="text-2xl font-bold" style="color: var(--color-primary);">{ceo.name}</div>
+      <div class="text-lg font-semibold mb-2" style="color: var(--color-accent);">{ceo.title}</div>
+      <div class="text-center font-bold italic max-w-xl" style="color: var(--color-text-secondary);">{ceo.message}</div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {keyMembers.map(member => (
+        <div class="flex flex-col items-center rounded-2xl p-6" style="background: transparent;">
+          <span class="inline-block transition-transform duration-200 hover:scale-105">
+            <img src={member.photo} alt={member.name} class="w-48 h-48 rounded-full object-cover mb-3 shadow-lg" style="background: #fff; border-radius: 9999px;" />
+          </span>
+          <div class="text-lg font-semibold" style="color: var(--color-primary);">{member.name}</div>
+          <div class="text-sm font-medium" style="color: var(--color-accent);">{member.title}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

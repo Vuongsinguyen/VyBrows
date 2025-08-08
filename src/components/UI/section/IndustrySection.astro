@@ -1,0 +1,31 @@
+---
+const industries = [
+  { icon: "💻", title: "IT & Software" },
+  { icon: "🏦", title: "Finance" },
+  { icon: "🏥", title: "Healthcare" },
+  { icon: "🏫", title: "Education" },
+  { icon: "🛒", title: "E-commerce" },
+  { icon: "🏭", title: "Manufacturing" },
+  { icon: "🚚", title: "Logistics" },
+  { icon: "🏨", title: "Hospitality" }
+];
+---
+
+<section class="px-6 py-16 bg-gray-900">
+  <div class="max-w-6xl mx-auto">
+  <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-8">
+    Industries We Serve
+  </h2>
+  <p class="text-base text-center mb-8 max-w-2xl mx-auto" style="color: #fff;">
+    We deliver tailored technology solutions for a wide range of industries, helping businesses innovate and grow.
+  </p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-[30px] mb-[30px]">
+      {industries.map(industry => (
+        <div class="flex flex-col items-center bg-white/10 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow transition hover:scale-105">
+          <span class="text-5xl mb-4">{industry.icon}</span>
+          <span class="text-lg font-semibold text-gray-100 dark:text-white">{industry.title}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

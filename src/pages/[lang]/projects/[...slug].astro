@@ -1,0 +1,56 @@
+---
+import '/src/styles/color.css';
+import '/src/styles/global.css';
+import PageLayout from '../../../layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+  const modules = import.meta.glob('/src/content/projects/*/*.md');
+  const entries = await Promise.all(
+    Object.entries(modules).map(async ([file, resolver]) => {
+      const mod = await resolver();
+      const parts = file.split('/');
+      const folder = parts[parts.length - 2];
+      const fileName = parts[parts.length - 1];
+      const match = fileName.match(/^(.*)\.(en|vi|ja)\.md$/);
+      if (!match) return null;
+      const fileBase = match[1];
+      const lang = match[2];
+      const slug = `${folder}/${fileBase}`;
+      return { params: { lang, slug }, file, mod };
+    })
+  );
+  return entries.filter(Boolean).map(e => ({ params: (e as NonNullable<typeof e>).params }));
+}
+
+const lang = Astro.params.lang;
+const slugStr = Astro.params.slug || '';
+const [folder, fileBase] = slugStr.split('/');
+
+const modules = import.meta.glob('/src/content/projects/*/*.md');
+let projectEntry;
+for (const [file, resolver] of Object.entries(modules)) {
+  const parts = file.split('/');
+  const entryFolder = parts[parts.length - 2];
+  const fileName = parts[parts.length - 1];
+  const match = fileName.match(/^(.*)\.(en|vi|ja)\.md$/);
+  if (!match) continue;
+  const entryFileBase = match[1];
+  const entryLang = match[2];
+  if (entryFolder === folder && entryFileBase === fileBase && entryLang === lang) {
+    projectEntry = await resolver();
+    break;
+  }
+}
+if (!projectEntry) {
+  throw Astro.redirect('/404');
+}
+const frontmatter = (projectEntry as { frontmatter?: Record<string, any> }).frontmatter || {};
+const Content = (projectEntry as { default: any }).default;
+---
+<PageLayout>
+  <main class="max-w-5xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-bold mb-4 text-primary">{frontmatter.name}</h1>
+    <p class="mb-6 text-lg text-on-surface">{frontmatter.desc}</p>
+    {Content && <Content />}
+  </main>
+</PageLayout>

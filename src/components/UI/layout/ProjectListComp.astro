@@ -1,0 +1,53 @@
+---
+export interface Props {
+  products?: any[];
+}
+const { products } = Astro.props;
+// Fake data nếu không có products truyền vào
+const fakeProducts = Array.from({ length: 60 }, (_, i) => ({
+  id: i + 1,
+  title: `Project ${i + 1}`,
+  description: `Mô tả ngắn cho project ${i + 1}`,
+  image: '/images/prc-1.avif',
+  techs: ['React', 'Node.js', 'SQL'],
+  members: Math.floor(Math.random() * 10) + 2,
+  months: Math.floor(Math.random() * 12) + 1,
+  link: '#',
+}));
+const allProducts = products && products.length > 0 ? products : fakeProducts;
+
+// --- Interactive Search & Filter (Preact Island) ---
+import SearchAndListWrapper from './SearchAndListWrapper.tsx';
+
+// Pagination logic now handled in SearchAndList island
+---
+<div class="w-full flex justify-center">
+  <div class="max-w-[1280px] w-full min-h-[100vh] flex flex-col lg:flex-row items-start gap-4 md:gap-6 py-8">
+    {/* Sidebar is now managed by the parent layout via slot, not here */}
+    {/* Đã xoá nav danh sách dự án cứng sidebar trái theo yêu cầu */}
+    <!-- Nội dung chính: Danh sách Product với Search động -->
+    <main class="flex-1 w-full bg-surface text-on-surface rounded-lg shadow border border-border">
+
+      <SearchAndListWrapper allProducts={allProducts} client:only="preact" />
+    </main>
+    <!-- Right Sidebar: Contact Form giống About-us -->
+    <aside class="hidden lg:block w-[220px] bg-surface-1 rounded-lg p-4 text-on-surface shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
+      <form class="space-y-4">
+        <h2 class="font-bold text-lg mb-2 text-on-surface">Contact Us</h2>
+        <div>
+          <label class="block text-sm font-medium mb-1 text-on-surface" for="name">Name</label>
+          <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1 text-on-surface" for="email">Email</label>
+          <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1 text-on-surface" for="message">Message</label>
+          <textarea class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="w-full bg-primary text-on-primary rounded p-2 font-semibold hover:opacity-90 transition">Send</button>
+      </form>
+    </aside>
+  </div>
+</div>
