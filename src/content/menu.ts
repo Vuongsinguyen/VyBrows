@@ -102,41 +102,41 @@ export const menus: Record<string, MenuItem[]> = {
     { label: 'Liên hệ', href: '/vi/#contact', title: 'Liên hệ', description: 'Liên hệ với chúng tôi' }
   ],
   ja: [
-    { label: 'ホーム', href: '/ja/', title: 'ホーム', description: 'ホームページへ' },
+    { label: 'Inicio', href: '/ja/', title: 'Inicio', description: 'Ir a la página principal' },
     {
-      label: '会社概要', href: '/ja/about-us', title: '会社概要', description: 'ARIS Vietnamについて',
+      label: 'Sobre nosotros', href: '/ja/about-us', title: 'Sobre nosotros', description: 'Conoce ARIS Vietnam',
       children: [
-        { href: '/ja/about-us#overview', label: '概要', title: '概要', description: '概要' },
-        { href: '/ja/about-us#ceo-message', label: 'CEOメッセージ', title: 'CEOメッセージ', description: 'CEOメッセージ' },
-        { href: '/ja/about-us#vision-mission', label: 'ビジョン＆ミッション', title: 'ビジョン＆ミッション', description: 'ビジョン＆ミッション' },
-        { href: '/ja/about-us#profile', label: '会社概要', title: '会社概要', description: '会社概要' },
-        { href: '/ja/about-us#timeline', label: '沿革', title: '沿革', description: '沿革' },
-        { href: '/ja/about-us#why-choose-us', label: '選ばれる理由', title: '選ばれる理由', description: '選ばれる理由' },
-        { href: '/ja/about-us#our-customer', label: '顧客', title: '顧客', description: '顧客' },
-        { href: '/ja/about-us#skills', label: 'スキル・能力', title: 'スキル・能力', description: 'スキル・能力' },
-        { href: '/ja/about-us#technologies', label: '技術', title: '技術', description: '技術' },
-        { href: '/ja/about-us#project-flow', label: 'プロジェクトフロー', title: 'プロジェクトフロー', description: 'プロジェクトフロー' },
-        { href: '/ja/about-us#team-structure', label: 'プロジェクト体制', title: 'プロジェクト体制', description: 'プロジェクト体制' },
-        { href: '/ja/about-us#sustainability', label: 'サステナビリティ', title: 'サステナビリティ', description: 'サステナビリティ' },
-        { href: '/ja/about-us#community', label: 'コミュニティ連携', title: 'コミュニティ連携', description: 'コミュニティ連携' }
+        { href: '/ja/about-us#overview', label: 'Resumen', title: 'Resumen', description: 'Resumen' },
+        { href: '/ja/about-us#ceo-message', label: 'Mensaje del CEO', title: 'Mensaje del CEO', description: 'Mensaje del CEO' },
+        { href: '/ja/about-us#vision-mission', label: 'Visión y Misión', title: 'Visión y Misión', description: 'Visión y Misión' },
+        { href: '/ja/about-us#profile', label: 'Perfil de la empresa', title: 'Perfil de la empresa', description: 'Perfil de la empresa' },
+        { href: '/ja/about-us#timeline', label: 'Cronología', title: 'Cronología', description: 'Cronología' },
+        { href: '/ja/about-us#why-choose-us', label: '¿Por qué elegirnos?', title: '¿Por qué elegirnos?', description: '¿Por qué elegirnos?' },
+        { href: '/ja/about-us#our-customer', label: 'Clientes', title: 'Clientes', description: 'Clientes' },
+        { href: '/ja/about-us#skills', label: 'Habilidades y Capacidades', title: 'Habilidades y Capacidades', description: 'Habilidades y Capacidades' },
+        { href: '/ja/about-us#technologies', label: 'Tecnologías', title: 'Tecnologías', description: 'Tecnologías' },
+        { href: '/ja/about-us#project-flow', label: 'Flujo de Proyecto', title: 'Flujo de Proyecto', description: 'Flujo de Proyecto' },
+        { href: '/ja/about-us#team-structure', label: 'Estructura del Equipo', title: 'Estructura del Equipo', description: 'Estructura del Equipo' },
+        { href: '/ja/about-us#sustainability', label: 'Sostenibilidad', title: 'Sostenibilidad', description: 'Sostenibilidad' },
+        { href: '/ja/about-us#community', label: 'Conexión Comunitaria', title: 'Conexión Comunitaria', description: 'Conexión Comunitaria' }
       ]
     },
-    { label: 'プロジェクト', href: '/ja/projects', title: 'プロジェクト', description: 'プロジェクト一覧' },
+    { label: 'Proyectos', href: '/ja/projects', title: 'Proyectos', description: 'Lista de proyectos' },
     {
-      label: 'サービス', href: '/ja/#services', title: 'サービス', description: '当社のサービス',
+      label: 'Servicios', href: '/ja/#services', title: 'Servicios', description: 'Nuestros servicios',
       children: [
-        { href: '/ja/service/web-development', title: 'Webサイト開発', description: 'モダンでレスポンシブなウェブサイト', label: 'Webサイト開発' },
-        { href: '/ja/service/mobile-app', title: 'モバイルアプリ', description: 'プロフェッショナルなiOS・Androidアプリ', label: 'モバイルアプリ' },
-        { href: '/ja/service/design', title: 'UI/UXデザイン', description: '美しく使いやすいインターフェース', label: 'UI/UXデザイン' },
-        { href: '/ja/service/consulting', title: 'ITコンサルティング', description: '包括的な技術ソリューション', label: 'ITコンサルティング' },
-        { href: '/ja/service/ai', title: 'AIソリューション', description: '人工知能・機械学習', label: 'AIソリューション' },
-        { href: '/ja/service/iot', title: 'IoTソリューション', description: 'IoT・スマートデバイス', label: 'IoTソリューション' },
-        { href: '/ja/service/cloud', title: 'クラウドサービス', description: 'クラウド移行・管理', label: 'クラウドサービス' },
-        { href: '/ja/service/testing', title: 'テスト・QA', description: '品質保証・ソフトウェアテスト', label: 'テスト・QA' },
-        { href: '/ja/service/maintenance', title: '保守・サポート', description: '継続的なサポート・保守', label: '保守・サポート' }
+        { href: '/ja/service/web-development', title: 'Desarrollo Web', description: 'Sitios web modernos y responsivos', label: 'Desarrollo Web' },
+        { href: '/ja/service/mobile-app', title: 'Aplicaciones Móviles', description: 'Apps profesionales para iOS y Android', label: 'Aplicaciones Móviles' },
+        { href: '/ja/service/design', title: 'Diseño UI/UX', description: 'Interfaces bonitas y fáciles de usar', label: 'Diseño UI/UX' },
+        { href: '/ja/service/consulting', title: 'Consultoría IT', description: 'Soluciones tecnológicas integrales', label: 'Consultoría IT' },
+        { href: '/ja/service/ai', title: 'Soluciones de IA', description: 'Inteligencia Artificial y Machine Learning', label: 'Soluciones de IA' },
+        { href: '/ja/service/iot', title: 'Soluciones IoT', description: 'Internet de las cosas y dispositivos inteligentes', label: 'Soluciones IoT' },
+        { href: '/ja/service/cloud', title: 'Servicios en la Nube', description: 'Migración y gestión de la nube', label: 'Servicios en la Nube' },
+        { href: '/ja/service/testing', title: 'Pruebas y QA', description: 'Aseguramiento de calidad y pruebas de software', label: 'Pruebas y QA' },
+        { href: '/ja/service/maintenance', title: 'Mantenimiento y Soporte', description: 'Soporte y mantenimiento continuo', label: 'Mantenimiento y Soporte' }
       ]
     },
-    { label: 'ニュース', href: '/ja/news', title: 'ニュース', description: '最新ニュースと更新情報' },
-    { label: 'お問い合わせ', href: '/ja/#contact', title: 'お問い合わせ', description: 'お問い合わせはこちら' }
+    { label: 'Noticias', href: '/ja/news', title: 'Noticias', description: 'Últimas noticias y actualizaciones' },
+    { label: 'Contacto', href: '/ja/#contact', title: 'Contacto', description: 'Contáctanos' }
   ]
 };

@@ -18,7 +18,7 @@ const menuItems: MenuItem[] = menus[currentLang] || menus['en'];
 const langMap = {
   'vi': 'Tiếng Việt',
   'en': 'English', 
-  'ja': '日本語'
+  'ja': 'Español'
 };
 
 const currentLangDisplay = langMap[currentLang as keyof typeof langMap] || langMap['en'];
@@ -190,9 +190,9 @@ const contactMobileItems = t.contactItems.map(item => ({ href: item.href, title:
         </button>
         <div id="lang-dropdown-menu" class="absolute right-0 top-full pt-2 hidden z-[99999]">
           <div class="bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 min-w-[140px]">
-            <a role="menuitem" href="#" class={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 first:rounded-t-md lang-switch ${currentLang === 'vi' ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}`} data-lang="vi">🇻🇳 Tiếng Việt</a>
-            <a role="menuitem" href="/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 lang-switch bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400" data-lang="en">🇺🇸 English</a>
-            <a role="menuitem" href="#" class={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 last:rounded-b-md lang-switch ${currentLang === 'ja' ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}`} data-lang="ja">🇯🇵 日本語</a>
+            <a role="menuitem" href="#" class={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 first:rounded-t-md lang-switch ${currentLang === 'vi' ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}`} data-lang="vi">Tiếng Việt</a>
+            <a role="menuitem" href="/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 lang-switch bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400" data-lang="en">English</a>
+            <a role="menuitem" href="#" class={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 last:rounded-b-md lang-switch ${currentLang === 'ja' ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}`} data-lang="ja">Español</a>
 </style>
 <script is:inline>
 // Language dropdown: always keep current path, only change lang prefix
