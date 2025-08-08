@@ -39,7 +39,7 @@
   --color-on-primary-hover: var(--color-white);
   --color-button-secondary-text: #2563eb;
   /* === Base Colors === */
-  --color-white: #ffffff; /* White for light mode */
+  --color-white: #213e3c; /* White for light mode */
   --color-black: #000000; /* Black for light mode */
   --color-bg: var(--color-white);
   /* --color-surface removed, use --color-white instead */
@@ -131,7 +131,7 @@
   --nav-text: var(--color-white);
   --nav-text-hover: var(--color-primary);
   --nav-border: rgba(100, 116, 139, 0.3);
-  --color-white: #000;
+  --color-white: #e9f4ee;
   --color-black: #ffffff;
   --header-bg: var(--color-white);
   --slider-bg: #1e293b;
