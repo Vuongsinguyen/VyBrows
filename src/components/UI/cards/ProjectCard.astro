@@ -1,0 +1,60 @@
+---
+export interface Props {
+  name: string;
+  category: string;
+  image1?: string;
+  image2?: string;
+  desc?: string;
+  techs?: string[];
+  features?: string[];
+}
+const { name, category, image1, image2, desc, techs, features } = Astro.props;
+---
+
+<div class="rounded-xl border border-border bg-surface shadow-sm group overflow-hidden transition-all duration-300 hover:shadow-xl">
+  {image1 && image2 ? (
+    <div class="relative aspect-[16/9] w-full">
+      <img
+        src={image1}
+        alt={name}
+        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0 z-0"
+      />
+      <img
+        src={image2}
+        alt={name + ' alt'}
+        class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"
+      />
+    </div>
+  ) : image1 ? (
+    <img src={image1} alt={name} class="mb-4" />
+  ) : null}
+
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2 text-on-surface">{name}</h3>
+    <p class="text-sm text-on-surface/70 mb-3">{desc}</p>
+
+    {techs && techs.length > 0 && (
+      <ul class="flex flex-wrap gap-2 mb-3">
+        {techs.map((tech, idx) => {
+          const colorVar = `--tech-tag-${(idx % 10) + 1}`;
+          return (
+            <li
+              class="text-xs px-2 py-1 rounded text-white"
+              style={{ background: `var(${colorVar})` }}
+            >
+              {tech}
+            </li>
+          );
+        })}
+      </ul>
+    )}
+
+    {features && features.length > 0 && (
+      <ul class="list-disc list-inside text-sm text-on-surface/80">
+        {features.map(feature => (
+          <li>{feature}</li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>

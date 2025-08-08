@@ -1,0 +1,81 @@
+---
+export interface Props {
+  products?: any[];
+}
+import productCardH from '../cards/productCardH.astro';
+const { products } = Astro.props;
+// Fake data nếu không có products truyền vào
+const fakeProducts = Array.from({ length: 60 }, (_, i) => ({
+  id: i + 1,
+  title: `Project ${i + 1}`,
+  description: `Mô tả ngắn cho project ${i + 1}`,
+  image: '/images/prc-1.avif',
+  techs: ['React', 'Node.js', 'SQL'],
+  members: Math.floor(Math.random() * 10) + 2,
+  months: Math.floor(Math.random() * 12) + 1,
+  link: '#',
+}));
+const allProducts = fakeProducts;
+const search = '';
+const filteredProducts = allProducts.filter((p) => (p.title ?? '').toLowerCase().includes(search.toLowerCase()));
+
+// Pagination
+const pageSize = 12;
+let pageParam = Astro.url?.searchParams?.get('page');
+let page = pageParam ? parseInt(pageParam) : 1;
+if (!page || page < 1) page = 1;
+const total = filteredProducts.length;
+const totalPages = Math.ceil(total / pageSize);
+const pagedProducts = filteredProducts.slice((page - 1) * pageSize, page * pageSize);
+---
+<div class="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-12">
+  <div class="max-w-[1280px] w-full min-h-[100vh] flex flex-col lg:flex-row items-start gap-4 md:gap-6 px-2 sm:px-4 md:px-8">
+    <!-- Sidebar Trái: Search & Filter -->
+    <aside class="w-full lg:w-[200px] bg-white rounded-lg p-4 text-black shadow mb-4 lg:mb-0 lg:sticky lg:top-32 z-20">
+      <h2 class="font-bold text-lg mb-4">Search</h2>
+      <form>
+        <input type="text" placeholder="Search projects..." class="w-full border rounded p-2 mb-4" />
+        <!-- Filter Projects section -->
+        <div class="mb-2">
+          <label class="block text-sm font-medium mb-1">Filter Projects</label>
+          <select class="w-full border rounded p-2">
+            <option value="all">All</option>
+            <option value="featured">Featured</option>
+            <option value="new">New</option>
+          </select>
+        </div>
+      </form>
+    </aside>
+    <!-- Nội dung chính: Danh sách Product -->
+    <section class="flex-1 bg-white rounded-lg p-2 sm:p-4 md:p-6 text-black pt-4 md:pt-8 pb-8 md:pb-12 px-2 sm:px-4 md:px-8 w-full">
+      <!-- <h1 class="text-2xl font-bold mb-4">Danh sách sản phẩm</h1> -->
+      <div class="space-y-4">
+        {pagedProducts.length === 0 ? (
+          <div class="text-center text-gray-400 py-12">Không có sản phẩm nào để hiển thị</div>
+        ) : (
+          pagedProducts.map((product) => (
+            <productCardH product={product} />
+          ))
+        )}
+      </div>
+      <div class="flex justify-center mt-6 gap-2">
+        {Array.from({ length: totalPages }, (_, i) => (
+          <a
+            href={`?page=${i + 1}`}
+            class={`px-3 py-1 rounded border ${page === i + 1 ? 'bg-blue-600 text-white' : 'bg-white text-blue-600 hover:bg-blue-100'}`}
+          >
+            {i + 1}
+          </a>
+        ))}
+      </div>
+    </section>
+    <!-- Right Sidebar (nếu cần) -->
+    <aside class="hidden lg:block w-[220px] bg-white rounded-lg p-4 text-black shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20">
+      <h2 class="font-bold text-lg mb-2">Sidebar Phải</h2>
+      <ul class="space-y-2">
+        <li><a href="#" class="text-blue-600">Item A</a></li>
+        <li><a href="#" class="text-blue-600">Item B</a></li>
+      </ul>
+    </aside>
+  </div>
+</div>

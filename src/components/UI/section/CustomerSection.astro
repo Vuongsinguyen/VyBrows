@@ -1,0 +1,78 @@
+---
+import CustomerCard from "../cards/CustomerCard.astro";
+
+const logos = Array.from({ length: 40 }, (_, i) => 
+  `https://dummyimage.com/100x100/${['ff4444','44ff44','4444ff','ffff44','ff44ff','44ffff','888888','ff8800'][i%8]}/fff.png&text=Logo+${i+1}`
+);
+const extendedLogos1 = [...logos.slice(0, 20), ...logos.slice(0, 20)];
+const extendedLogos2 = [...logos.slice(20, 40), ...logos.slice(20, 40)];
+---
+<section class="w-full overflow-hidden py-12 bg-black">
+  <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-black);">
+    Our Customers
+  </h2>
+  <p class="text-base text-center mb-8 max-w-2xl mx-auto text-white">
+    Trusted by leading companies across finance, healthcare, education, e-commerce, manufacturing, logistics, hospitality, and IT.
+  </p>
+
+  <div class="flex flex-col gap-6">
+    <div class="relative w-full overflow-hidden">
+      <div id="carousel-customers" class="flex gap-6 will-change-transform" style="width: max-content;">
+        {extendedLogos1.map((logo, i) => (
+          <>
+            <CustomerCard logo={logo} key={`logo1-${i}`} />
+            {(i % 5 === 4) && (
+              <span class="flex items-center justify-center font-bold text-lg w-32 h-32 rounded-xl bg-transparent text-center text-white">JAPAN</span>
+            )}
+          </>
+        ))}
+      </div>
+    </div>
+    <div class="relative w-full overflow-hidden">
+      <div id="carousel-customers-2" class="flex gap-6 will-change-transform" style="width: max-content;">
+        {extendedLogos2.map((logo, i) => (
+          <>
+            <CustomerCard logo={logo} key={`logo2-${i}`} />
+            {(i % 5 === 4) && (
+              <span class="flex items-center justify-center font-bold text-lg w-32 h-32 rounded-xl bg-transparent text-center text-white">DOMESTIC</span>
+            )}
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    function setupCarousel(carouselId, speed = 1, reverse = false) {
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
+      let pos = 0;
+      const step = speed;
+      let scrollWidth = 0;
+      let animationId;
+      function measureHalfWidth() {
+        return carousel.scrollWidth / 2;
+      }
+      function animate() {
+        pos += reverse ? -step : step;
+        if (!reverse && pos >= scrollWidth) {
+          pos = 0;
+        } else if (reverse && pos <= 0) {
+          pos = scrollWidth;
+        }
+        carousel.style.transform = `translateX(${-pos}px)`;
+        animationId = requestAnimationFrame(animate);
+      }
+      setTimeout(() => {
+        scrollWidth = measureHalfWidth();
+        pos = reverse ? scrollWidth : 0;
+        animate();
+      }, 300);
+    }
+
+    if (typeof window !== 'undefined') {
+      setupCarousel('carousel-customers', 0.5, false); // row 1 left
+      setupCarousel('carousel-customers-2', 0.5, true); // row 2 right
+    }
+  </script>
+</section>

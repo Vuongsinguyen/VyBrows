@@ -1,0 +1,207 @@
+---
+
+import UseCaseCard from '../cards/UseCaseCard.astro';
+import Button from '../shared/Button.astro';
+
+import { getCollection } from 'astro:content';
+
+const useCases = await getCollection('projects');
+
+// Khai báo biến toàn cục cho slider
+let sliderRef: HTMLDivElement | null = null;
+let isDragging = false;
+let startX: number;
+let scrollLeft: number;
+let expandedIndex = -1;
+let isPaused = false;
+
+// Các hàm xử lý sự kiện
+function handleMouseEnter(idx: number) {
+  expandedIndex = idx;
+  isPaused = true;
+}
+function handleMouseLeave() {
+  expandedIndex = -1;
+  isPaused = false;
+}
+function handleClick(idx: number) {
+  expandedIndex = idx;
+  isPaused = true;
+}
+---
+
+<style>
+.usecase-slider {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+  overflow-x: auto; /* Cho phép scroll ngang */
+  overflow-y: visible;
+  position: relative;
+  touch-action: pan-x; /* Đảm bảo swipe ngang */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  padding-bottom: 2px;
+}
+.usecase-slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.usecase-track {
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 2px;
+  min-width: max-content;
+  animation: scroll-left 480s linear infinite; /* tốc độ chậm hơn nữa */
+}
+.usecase-slider[data-paused="true"] .usecase-track {
+  animation-play-state: paused;
+}
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.usecase-card {
+  min-width: 320px;
+  max-width: 320px;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1);
+  cursor: pointer;
+  z-index: 1;
+}
+.usecase-card.expanded {
+  max-width: 600px;
+  min-width: 600px;
+  z-index: 10;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.2);
+}
+</style>
+
+<section class="px-0 py-16" style="background: var(--color-bg);">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-black);">
+    Use Cases
+  </h2>
+  <p class="text-base text-center mb-8 max-w-2xl mx-auto" style="color: var(--color-text-secondary);">
+    Explore 60+ real-world projects across industries: finance, healthcare, education, e-commerce, manufacturing, logistics, hospitality, and IT.<br />
+    Each card shows project category, team size, duration, technologies, and a brief description. Discover how our solutions drive innovation for businesses and users.
+  </p>
+  <div class="relative overflow-x-hidden">
+    <div class="w-full flex justify-center mb-4">
+      <div class="flex items-center gap-2">
+        <svg width="24" height="24" fill="none" class="animate-bounce" viewBox="0 0 24 24">
+          <path d="M8 12h8M16 12l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-xs" style="color: var(--color-text-secondary);">Swipe or scroll horizontally</span>
+      </div>
+    </div>
+    <div>
+      <div class="usecase-slider"
+        style="touch-action: pan-x; background: var(--color-section-card-bg);"
+        data-paused={isPaused ? "true" : "false"}
+        id="usecase-slider"
+        onmouseenter="this.setAttribute('data-paused','true')"
+        onmouseleave="this.setAttribute('data-paused','false')"
+      >
+        <div class="usecase-track mt-[30px] mb-[30px]">
+          {useCases.concat(useCases).map((uc, idx) => {
+            // Map .md data to expected UseCaseCard props
+            const data = uc.data;
+            const techColors = [
+              'bg-blue-500',
+              'bg-green-500',
+              'bg-purple-500',
+              'bg-yellow-500',
+              'bg-orange-500',
+              'bg-cyan-500',
+              'bg-pink-500',
+              'bg-red-500',
+              'bg-teal-500',
+              'bg-indigo-500',
+              'bg-lime-500',
+              'bg-amber-500',
+            ];
+            const techs = (data.techs || []).map((t, i) => ({
+              name: t,
+              color: techColors[i % techColors.length],
+            }));
+            const mapped = {
+              name: data.name || uc.slug || 'No name',
+              category: data.category || 'Other',
+              industry: 'General',
+              teamSize: Array.isArray((data as any).member) ? (data as any).member.length : 0,
+              months: typeof (data as any).months === 'number' ? (data as any).months : 0,
+              description: data.desc || uc.body?.slice(0, 120) || '',
+              techs,
+            };
+            return <UseCaseCard uc={mapped} expanded={expandedIndex === idx} />;
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center gap-6 mt-12">
+    <Button variant="primary" class="px-6 py-3 rounded-xl font-semibold shadow transition" href="/download">
+      Download
+    </Button>
+    <button
+      class="px-6 py-3 rounded-xl font-semibold border shadow transition"
+      style="background: var(--color-button-bg); color: var(--color-primary); border-color: var(--color-primary);"
+      type="button"
+      onclick="window.open('/checkout', '_blank')"
+    >
+      Checkout
+    </button>
+  </div>
+
+    <script is:inline>
+      if (typeof window !== 'undefined') {
+        window.addEventListener('DOMContentLoaded', () => {
+          const slider = document.getElementById('usecase-slider');
+          if (!slider) return;
+          let isDragging = false;
+          let startX = 0;
+          let scrollLeft = 0;
+
+          // Mouse drag
+          slider.addEventListener('pointerdown', function(e) {
+            isDragging = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+          });
+          window.addEventListener('pointerup', function() {
+            isDragging = false;
+          });
+          slider.addEventListener('pointerleave', function() {
+            isDragging = false;
+          });
+          slider.addEventListener('pointermove', function(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+          });
+
+          // Touch swipe
+          let touchStartX = 0;
+          let touchScrollLeft = 0;
+          slider.addEventListener('touchstart', function(e) {
+            if (e.touches.length !== 1) return;
+            isDragging = true;
+            touchStartX = e.touches[0].pageX - slider.offsetLeft;
+            touchScrollLeft = slider.scrollLeft;
+          });
+          slider.addEventListener('touchend', function() {
+            isDragging = false;
+          });
+          slider.addEventListener('touchmove', function(e) {
+            if (!isDragging || e.touches.length !== 1) return;
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - touchStartX) * 2;
+            slider.scrollLeft = touchScrollLeft - walk;
+          });
+        });
+      }
+    </script>
+</section>

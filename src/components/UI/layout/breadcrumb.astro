@@ -1,0 +1,62 @@
+---
+import { menus } from '../../../content/menu.ts';
+import type { MenuItem } from '../../../content/menu.ts';
+const path = Astro.url.pathname.split('/').filter(Boolean);
+
+// Detect current language from URL
+const currentLang = path[0] || 'en';
+const menuItems = menus[currentLang] || menus['en'];
+
+// Helper to find label by href in menu tree (one level)
+function findLabelByHref(href: string, items: MenuItem[]): MenuItem | null {
+  for (const item of items) {
+    if (item.href.replace(/\/$/, '') === href.replace(/\/$/, '')) return item;
+  }
+  return null;
+}
+
+// Build breadcrumb items by traversing menu tree by path
+function getBreadcrumbItems(pathArr: string[], menuItems: MenuItem[]): { href: string, label: string }[] {
+  let items = menuItems;
+  let accPath = [];
+  const result = [];
+  for (const segment of pathArr) {
+    accPath.push(segment);
+    const href = '/' + accPath.join('/');
+    const found = findLabelByHref(href, items);
+    if (found) {
+      result.push({ href, label: found.label });
+      if (found.children) items = found.children;
+    } else {
+      result.push({ href, label: decodeURIComponent(segment) });
+      items = [];
+    }
+  }
+  return result;
+}
+---
+<nav aria-label="Breadcrumb" class="mb-6 w-full flex">
+  <ol class="flex items-center space-x-2 text-sm text-white text-opacity-60">
+    <li>
+      <a href={`/${currentLang}`} class="hover:underline text-white text-opacity-60 font-medium" onclick={`window.location.href='/${currentLang}'`}>Home</a>
+    </li>
+    {getBreadcrumbItems(path, menuItems)
+      // Remove first item if it is Home/root to avoid duplicate
+      .filter((item, idx) => !(idx === 0 && (item.href === '/' || item.label.toLowerCase() === 'home')))
+      .map(({ href, label }, idx, arr) => {
+        const isLast = idx === arr.length - 1;
+        return (
+          <>
+            <span class="mx-2 text-white text-opacity-60">/</span>
+            <li>
+              {isLast ? (
+                <span class="text-white text-opacity-100 font-semibold">{label}</span>
+              ) : (
+                <a href={href} class="hover:underline text-white text-opacity-60">{label}</a>
+              )}
+            </li>
+          </>
+        );
+      })}
+  </ol>
+</nav>

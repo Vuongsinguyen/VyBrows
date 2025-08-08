@@ -1,0 +1,52 @@
+---
+
+import '/src/styles/global.css';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ProjectListComp from '../../components/UI/layout/ProjectListComp.astro';
+import ContactUsSidebar from '../../components/UI/shared/ContactUsSidebar.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'vi' } },
+    { params: { lang: 'ja' } }
+  ];
+}
+
+const lang = Astro.params.lang;
+const allEntries = await Astro.glob('/src/content/projects/*/*.md');
+const projectEntries = allEntries.filter(entry => entry.file.endsWith(`.${lang}.md`));
+const PAGE_SIZE = 25;
+const pageParam = Astro.url?.searchParams.get('page');
+const currentPage = pageParam ? parseInt(pageParam) : 1;
+const totalProjects = projectEntries.length;
+const totalPages = Math.ceil(totalProjects / PAGE_SIZE);
+const products = projectEntries.map((entry, idx) => {
+  // Lấy slug từ tên file: {folder}/{fileBase}
+  const parts = entry.file.split('/');
+  const folder = parts[parts.length - 2];
+  const fileBase = parts[parts.length - 1].replace(`.${lang}.md`, '');
+  const slug = `${folder}/${fileBase}`;
+  return {
+    id: idx + 1,
+    title: entry.frontmatter.name,
+    description: entry.frontmatter.desc,
+    image: entry.frontmatter.image1,
+    techs: entry.frontmatter.techs,
+    members: entry.frontmatter.members,
+    months: entry.frontmatter.months,
+    category: entry.frontmatter.category,
+    industry: entry.frontmatter.industry,
+    link: `/${lang}/projects/${slug}`,
+  };
+});
+
+const pagedProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+---
+<PageLayout title="Projects">
+  <Fragment slot="sidebar">
+    <ContactUsSidebar />
+  </Fragment>
+  <ProjectListComp products={pagedProducts} />
+</PageLayout>

@@ -1,0 +1,8 @@
+
+---
+// props: { logo: string }
+const { logo } = Astro.props;
+---
+<div class="flex-shrink-0 w-32 h-32 flex items-center justify-center bg-surface rounded-xl shadow">
+  <img src={logo} alt="Customer Logo" class="w-full h-full object-contain rounded-xl grayscale transition-all duration-300 hover:grayscale-0" />
+</div>

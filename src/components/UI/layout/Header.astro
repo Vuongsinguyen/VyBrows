@@ -1,0 +1,21 @@
+---
+// Header.astro - Combined TopBar and Navbar
+import Navbar from './Navbar.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: customClass = '' } = Astro.props;
+---
+
+<header id="header-container" class={`fixed top-0 left-0 right-0 z-[1000] ${customClass} backdrop-blur-md border-b transition-colors duration-200`} style="background: var(--color-navbar-bg); border-color: var(--color-lineblack2white);">
+  <Navbar />
+</header>
+
+<script is:inline>
+document.getElementById('theme-toggle-btn')?.addEventListener('click', () => {
+  const html = document.documentElement;
+  html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+});
+</script>
