@@ -33,19 +33,21 @@ const dropdownId = `mobile-dropdown-${label.toLowerCase().replace(/\s+/g, '-')}`
     id={dropdownId}
     style="background: var(--color-bg);"
   >
-    {items.map((item) => (
-      <a href={item.href}
-        class="block px-3 py-2 text-sm rounded-md transition-colors"
-        style="
-          color: var(--color-text-secondary);
-          background: var(--color-bg);
-        "
-        onmouseover="this.style.color='var(--color-accent)'; this.style.background='var(--color-card-bg)'"
-        onmouseout="this.style.color='var(--color-text-secondary)'; this.style.background='var(--color-bg)'"
-      >
-        {item.title}
-      </a>
-    ))}
+    <div class="... font-playfair ...">
+      {items.map((item) => (
+        <a href={item.href}
+          class="block px-3 py-2 text-sm rounded-md transition-colors"
+          style="
+            color: var(--color-text-secondary);
+            background: var(--color-bg);
+          "
+          onmouseover="this.style.color='var(--color-accent)'; this.style.background='var(--color-card-bg)'"
+          onmouseout="this.style.color='var(--color-text-secondary)'; this.style.background='var(--color-bg)'"
+        >
+          {item.title}
+        </a>
+      ))}
+    </div>
   </div>
 </div>
 
