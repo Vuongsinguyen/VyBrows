@@ -1,14 +1,12 @@
 /* TAILWIND SAFELIST BUTTON HOVER (ép Tailwind build các class hover cho button) */
-.safelist-tailwind-hover {
-  /*
-    hover:bg-blue-700
-    hover:bg-blue-600
-    hover:bg-blue-800
-    hover:text-white
-    hover:text-blue-700
-    hover:text-blue-800
-  */
-}
+/*
+  hover:bg-blue-700
+  hover:bg-blue-600
+  hover:bg-blue-800
+  hover:text-white
+  hover:text-blue-700
+  hover:text-blue-800
+*/
 @import "./color.css";
 @import "tailwindcss";
 
