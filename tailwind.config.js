@@ -22,7 +22,10 @@ export default {
         'warning': 'var(--color-warning)',
         'info': 'var(--color-info)',
         // ...bổ sung các biến khác nếu color.css có thêm...
-      }
+      },
+      fontFamily: {
+        lora: ['Lora', 'serif'],
+      },
     }
   },
   plugins: [],
