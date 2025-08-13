@@ -10,67 +10,10 @@ const { class: customClass = '', heading } = Astro.props;
 // Detect current language from URL
 const currentLang = Astro.url.pathname.split('/')[1] || 'en';
 
-const serviceTitles = {
-  en: [
-    "ONE-STOP SERVICES",
-    "SYSTEM/APP DEVELOPMENT",
-    "MOBILE DEVELOPMENT",
-    "QUALITY CONTROL",
-    "UI/UX DESIGN",
-    "COOPERATIVE RESEARCH & DEVELOPMENT",
-    "DIGITAL TRANSFORMATION SOLUTIONS",
-    "BUSINESS PROCESS OUTSOURCING (BPO)",
-    "SYSTEM MAINTENANCE & OPERATION SERVER/SYSTEM"
-  ],
-  vi: [
-    "DỊCH VỤ TRỌN GÓI",
-    "PHÁT TRIỂN HỆ THỐNG/ỨNG DỤNG",
-    "PHÁT TRIỂN DI ĐỘNG",
-    "KIỂM SOÁT CHẤT LƯỢNG",
-    "THIẾT KẾ UI/UX",
-    "NGHIÊN CỨU & PHÁT TRIỂN HỢP TÁC",
-    "GIẢI PHÁP CHUYỂN ĐỔI SỐ",
-    "DỊCH VỤ BPO (OUTSOURCING QUY TRÌNH)",
-    "BẢO TRÌ & VẬN HÀNH HỆ THỐNG/SERVER"
-  ],
-  ja: [ // giữ key là ja, nhưng nội dung là tiếng Tây Ban Nha
-    "SERVICIOS INTEGRALES",
-    "DESARROLLO DE SISTEMAS/APLICACIONES",
-    "DESARROLLO MÓVIL",
-    "CONTROL DE CALIDAD",
-    "DISEÑO UI/UX",
-    "INVESTIGACIÓN Y DESARROLLO COOPERATIVO",
-    "SOLUCIONES DE TRANSFORMACIÓN DIGITAL",
-    "SUBCONTRATACIÓN DE PROCESOS DE NEGOCIO (BPO)",
-    "MANTENIMIENTO Y OPERACIÓN DE SISTEMAS/SERVIDORES"
-  ]
-};
-
-const serviceIcons = [
-  // ONE-STOP SERVICES (fill style)
-  { path: "M9.4 16.6L4.8 12L9.4 7.4L8 6L2 12L8 18L9.4 16.6ZM14.6 16.6L19.2 12L14.6 7.4L16 6L22 12L16 18L14.6 16.6Z", fill: true },
-  // SYSTEM/APP DEVELOPMENT
-  "M16 18V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12", // icon code
-  // MOBILE DEVELOPMENT
-  "M7 4h10v16H7z", // icon smartphone
-  // QUALITY CONTROL
-  "M9 12l2 2 4-4", // icon check
-  // UI/UX DESIGN
-  "M12 19l9-7-9-7-9 7 9 7z", // icon pencil
-  // COOPERATIVE RESEARCH & DEVELOPMENT
-  "M17 20h5v-2a4 4 0 00-3-3.87", // icon users
-  // DIGITAL TRANSFORMATION SOLUTIONS
-  "M12 4v16m8-8H4", // icon transform
-  // BUSINESS PROCESS OUTSOURCING (BPO)
-  "M3 7v4a1 1 0 001 1h3v4a1 1 0 001 1h3v4a1 1 0 001 1h3v4a1 1 0 001 1h3", // icon flow
-  // SYSTEM MAINTENANCE & OPERATION SERVER/SYSTEM
-  "M4 6h16M4 10h16M4 14h16M4 18h16", // icon server
-];
-
-const services = serviceTitles[currentLang as keyof typeof serviceTitles]?.map((title, idx) => ({
-  title,
-  icon: typeof serviceIcons[idx] === 'string' ? serviceIcons[idx] : (serviceIcons[idx] as { path: string }).path
-})) || [];
+import { getCollection } from 'astro:content';
+const allServices = await getCollection('services');
+const dynamicServices = allServices.filter(s => s.data.lang === currentLang);
+const services = allServices.filter(s => s.data.lang === currentLang);
 
 const sectionTitles = {
   en: "Signature Services by Vybrows Academy",
@@ -101,21 +44,13 @@ const sectionDescription = sectionDescriptions[currentLang as keyof typeof secti
     </p>
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {services.map((service, idx) => (
+      {dynamicServices.map((service) => (
         <ServicesCard
-          title={service.title}
+          title={service.data.title}
+          description={service.data.description}
+          image={service.data.image}
+          link={`/${currentLang}/service/${service.id}`}
           class="h-full"
-          image={[
-            'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80', // phun xăm
-            'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80', // môi
-            'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80', // chân mày
-            'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80', // da
-            'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80', // beauty
-            'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=600&q=80', // spa
-            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80', // makeup
-            'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&w=600&q=80', // skincare
-            'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80'  // model
-          ][idx % 9]}
         />
       ))}
     </div>
