@@ -29,7 +29,7 @@
   /* === Brand Colors === */
   --color-blueWhite: #2563eb; /* blue for light mode */
   --color-blue2white: #2563eb; /* blue for light mode, white for dark mode */
-  --color-primary: #2563eb;        /* blue-600 */
+  --color-primary: #ebd425;        /* blue-600 */
   --color-primary-hover: #1d4ed8;  /* blue-700 */
   --color-primary-ring: #2563eb33; /* blue-600, 20% opacity */
   /* --color-primary-light removed, use --color-white instead */
