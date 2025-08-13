@@ -1,0 +1,24 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  icon?: string;
+  class?: string;
+}
+
+const { title, description = '', icon = '', class: customClass = '' } = Astro.props;
+---
+
+<div class={`bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 flex flex-col items-center justify-center text-center transition hover:shadow-lg ${customClass}`}>
+  {icon && (
+    <img src={icon} alt={title} class="mb-4 h-12 w-12 object-contain" />
+  )}
+  <h3 class="text-xl font-bold font-lora mb-2" style="color: var(--color-black); font-family: 'Lora', serif;">
+    {title}
+  </h3>
+  {description && (
+    <p class="text-base text-gray-600 dark:text-gray-300 font-lora" style="color: var(--color-text-secondary); font-family: 'Lora', serif;">
+      {description}
+    </p>
+  )}
+</div>
