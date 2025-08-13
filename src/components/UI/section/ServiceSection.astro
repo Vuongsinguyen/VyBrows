@@ -33,16 +33,16 @@ const serviceTitles = {
     "DỊCH VỤ BPO (OUTSOURCING QUY TRÌNH)",
     "BẢO TRÌ & VẬN HÀNH HỆ THỐNG/SERVER"
   ],
-  ja: [
-    "ワンストップサービス",
-    "システム・アプリ開発",
-    "モバイル開発",
-    "品質管理",
-    "UI/UXデザイン",
-    "共同研究・開発",
-    "デジタル変革ソリューション",
-    "BPO（ビジネスプロセスアウトソーシング）",
-    "システム・サーバー保守運用"
+  ja: [ // giữ key là ja, nhưng nội dung là tiếng Tây Ban Nha
+    "SERVICIOS INTEGRALES",
+    "DESARROLLO DE SISTEMAS/APLICACIONES",
+    "DESARROLLO MÓVIL",
+    "CONTROL DE CALIDAD",
+    "DISEÑO UI/UX",
+    "INVESTIGACIÓN Y DESARROLLO COOPERATIVO",
+    "SOLUCIONES DE TRANSFORMACIÓN DIGITAL",
+    "SUBCONTRATACIÓN DE PROCESOS DE NEGOCIO (BPO)",
+    "MANTENIMIENTO Y OPERACIÓN DE SISTEMAS/SERVIDORES"
   ]
 };
 
@@ -71,15 +71,34 @@ const services = serviceTitles[currentLang as keyof typeof serviceTitles]?.map((
   title,
   icon: typeof serviceIcons[idx] === 'string' ? serviceIcons[idx] : (serviceIcons[idx] as { path: string }).path
 })) || [];
+
+const sectionTitles = {
+  en: "Signature Services by Vybrows Academy",
+  vi: "Dịch vụ đặc trưng bởi Vybrows Academy",
+  ja: "Servicios exclusivos de Vybrows Academy" // giữ key là ja, nội dung tiếng Tây Ban Nha
+};
+
+const sectionTitle = sectionTitles[currentLang as keyof typeof sectionTitles] || sectionTitles.en;
+
+const sectionDescriptions = {
+  en: `At VyBrows Academy, permanent makeup is both an art and a science, and we’ve mastered the equation to unleash a woman’s true beauty. Every customer’s features are unique, so we attend to each of them with an exceptional level of service to deliver effortlessly natural results. Our team is trained in following the highest standards of hygiene and professionalism to ensure your comfort and safety across all our permanent makeup services.`,
+  vi: `Tại VyBrows Academy, phun xăm thẩm mỹ vừa là nghệ thuật vừa là khoa học, và chúng tôi đã nắm vững công thức để tôn vinh vẻ đẹp thực sự của người phụ nữ. Mỗi khách hàng đều có nét riêng, vì vậy chúng tôi chăm sóc từng người với dịch vụ tận tâm để mang lại kết quả tự nhiên nhất. Đội ngũ của chúng tôi được đào tạo theo tiêu chuẩn vệ sinh và chuyên nghiệp cao nhất để đảm bảo sự thoải mái và an toàn cho bạn ở mọi dịch vụ phun xăm.`,
+  ja: `En VyBrows Academy, el maquillaje permanente es tanto un arte como una ciencia, y hemos dominado la ecuación para revelar la verdadera belleza de una mujer. Cada cliente es único, por eso ofrecemos un nivel excepcional de servicio para lograr resultados naturales sin esfuerzo. Nuestro equipo está capacitado en los más altos estándares de higiene y profesionalismo para garantizar tu comodidad y seguridad en todos nuestros servicios de maquillaje permanente.`
+};
+
+const sectionDescription = sectionDescriptions[currentLang as keyof typeof sectionDescriptions] || sectionDescriptions.en;
 ---
 
 <section class={`py-16 px-6 ${customClass}`} style="background: var(--color-bg);">
   <div class="max-w-7xl mx-auto">
     <!-- Section Title -->
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-black);">
-      {heading || (currentLang === 'vi' ? 'Thúc đẩy chuyển đổi số với dịch vụ của chúng tôi' : currentLang === 'ja' ? 'サービスでDXを加速' : 'Accelerate your DX journey with our services')}
+    <h2 class="text-4xl md:text-5xl font-bold font-lora text-center mb-8" style="color: var(--color-black); font-family: 'Lora', serif;">
+      {sectionTitle}
     </h2>
-
+    <!-- Section Description -->
+    <p class="text-lg md:text-xl text-center mb-10 font-lora" style="color: var(--color-text-secondary); font-family: 'Lora', serif;">
+      {sectionDescription}
+    </p>
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {services.map((service, idx) => (
