@@ -6,6 +6,7 @@
   --color-surface-1: #e0edff; /* xanh dương nhạt */
   --color-black2white: #FFD895;
   --color-white2black: #ffffff; /* White for light mode */
+  --color-primary-gradient: linear-gradient(90deg, #C9A264 0%, #EDDFB8 100%);
 }
 /* Light mode: .bg-surface là trắng */
 
@@ -27,7 +28,7 @@
   --team-avatar-shadow: 0 4px 24px 0 rgba(96, 165, 250, 0.15);
   --color-black-50: rgba(0,0,0,0.5);
   /* === Brand Colors === */
-  --color-blueWhite: #2563eb; /* blue for light mode */
+  --color-blueWhite: #FFD895; /* blue for light mode */
   --color-blue2white: #2563eb; /* blue for light mode, white for dark mode */
   --color-primary: #ebd425;        /* blue-600 */
   --color-primary-hover: #1d4ed8;  /* blue-700 */
@@ -44,7 +45,7 @@
   --color-bg: var(--color-white);
   /* --color-surface removed, use --color-white instead */
   --color-elevated: var(--color-white);       /* cards, dropdowns */
-  --color-text: #fff;
+  --color-text: #213e3c;
   --text-heading: var(--color-white);
   --text-body: var(--color-muted);
   --text-link: var(--color-primary);
@@ -84,7 +85,7 @@
 
 /* === Tech Tag Colors (Fixed, not affected by dark mode) === */
 :root {
-  --color-stroke: #2563eb; /* blue-600, matches primary */
+  --color-stroke: #FFD895; /* blue-600, matches primary */
   --tech-tag-1: #f87171;   /* red-400 */
   --tech-tag-2: #fb923c;   /* orange-400 */
   --tech-tag-3: #fbbf24;   /* yellow-400 */

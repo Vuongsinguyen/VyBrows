@@ -9,7 +9,11 @@ export interface Props {
 const { class: customClass = '' } = Astro.props;
 ---
 
-<header id="header-container" class={`fixed top-0 left-0 right-0 z-[1000] ${customClass} backdrop-blur-md border-b transition-colors duration-200`} style="background: var(--color-navbar-bg); border-color: var(--color-lineblack2white);">
+<header
+  id="header-container"
+  class={`fixed top-0 left-0 right-0 z-[1000] ${customClass} backdrop-blur-md border-b transition-colors duration-200`}
+  style="background: var(--color-primary-gradient); border-color: var(--color-lineblack2white);"
+>
   <Navbar />
 </header>
 
