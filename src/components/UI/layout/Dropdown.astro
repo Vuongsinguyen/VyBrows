@@ -13,11 +13,13 @@ const { label, items, class: customClass = '' } = Astro.props;
 ---
 
 <div class={`group relative dropdown-container w-full ${customClass}`}> 
-  <button 
-    class="dropdown-trigger px-3 py-2 text-sm font-medium transition-colors flex items-center"
-    style="color: var(--color-black);"
+  <button
+    class="dropdown-trigger px-3 py-2 text-sm font-medium transition-colors flex items-center font-lora font-bold"
+    style="font-size:16px; color: var(--color-black);"
   >
-    <span class="whitespace-nowrap" style="color: var(--color-black2white);">{label}</span>
+    <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">
+      {label}
+    </span>
     <svg class="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="var(--color-stroke)" style="stroke: var(--color-stroke);">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
     </svg>
@@ -33,12 +35,10 @@ const { label, items, class: customClass = '' } = Astro.props;
           : 'grid grid-cols-1 md:grid-cols-3 gap-0.5 w-full text-right'
       }>
         {items.map((item) => (
-          <a 
-            href={item.href} 
-            class="block transition-colors group/item px-4 py-3 rounded-md text-left whitespace-nowrap"
-            style="color: var(--color-black2white);"
-            onmouseover="this.style.color='var(--color-accent)';"
-            onmouseout="this.style.color='var(--color-text-secondary)';"
+          <a
+            class="block transition-colors group/item px-4 py-3 rounded-md text-left whitespace-nowrap ... font-lora font-bold"
+            style="font-size:16px; color: var(--color-black2white); font-family: 'Lora', serif;"
+            href={item.href}
           >
             <div class="flex items-center gap-2">
               <span class="mr-2 flex-shrink-0 flex items-center justify-center">
