@@ -1,5 +1,5 @@
 ---
-// ServiceSection.astro - Services grid section with blue cards
+import ServicesCard from "../cards/ServicesCard.astro";
 export interface Props {
   class?: string;
   heading?: string;
@@ -102,48 +102,13 @@ const sectionDescription = sectionDescriptions[currentLang as keyof typeof secti
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {services.map((service, idx) => (
-        <div
-          class="service-card flex flex-row items-center gap-6 transition-all duration-300 rounded-2xl p-8 group cursor-pointer hover:shadow-2xl hover:-translate-y-1 hover:scale-105"
-          style="background: var(--color-surface-1);"
-        >
-          <div class="w-16 h-16 rounded-full flex items-center justify-center border-2" style="border-color: var(--color-primary); background: transparent;">
-          {/* Sử dụng màu xanh nhạt từ color.css */}
-            {idx === 0 ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9.4 16.6L4.8 12L9.4 7.4L8 6L2 12L8 18L9.4 16.6ZM14.6 16.6L19.2 12L14.6 7.4L16 6L22 12L16 18L14.6 16.6Z" fill="var(--color-primary)" />
-              </svg>
-            ) : (
-              <svg class="w-8 h-8 diamond-icon transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d={service.icon}
-                />
-              </svg>
-            )}
-          </div>
-          <h3 class="font-bold text-lg uppercase tracking-wide leading-tight text-left flex-1" style="color: var(--color-primary);">
-            {service.title}
-          </h3>
-          <div class="flex items-center justify-center">
-            <svg class="w-6 h-6 opacity-70 group-hover:opacity-100 transition" fill="none" stroke="var(--color-primary)" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
+        <ServicesCard
+          title={service.title}
+          class="h-full"
+          icon={service.icon}
+        />
       ))}
     </div>
   </div>
 </section>
 
-<style>
-  /* Custom hover effects */
-  .group:hover .diamond-icon {
-    transform: rotate(180deg);
-  }
-  .service-card {
-    background: var(--color-primary);
-    color: var(--color-bg);
-  }
-</style>
