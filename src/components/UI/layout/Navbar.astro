@@ -237,11 +237,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-14">
+  <div class="flex justify-between items-center h-[80px]">
       <!-- Logo/Brand -->
       <div class="flex-shrink-0">
         <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="flex items-center">
-          <img src="/logo-aris.svg" alt="ARIS VIETNAM" class="h-14 w-auto" style="color: var(--color-blue2white);" />
+          <img src="/logo-aris.svg" alt="ARIS VIETNAM" class="h-20 w-auto" style="color: var(--color-blue2white);" />
         </a>
       </div>
 
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   </span>
                 </a>
               ) : (
-                <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center font-lora font-bold" style="font-size:20px;">
+                <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center font-lora font-bold" style="font-size:16px;">
                   <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">{item.label}</span>
                 </a>
               )
