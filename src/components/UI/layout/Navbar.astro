@@ -233,8 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <nav
   id="main-navbar"
-  class={`backdrop-blur-md transition-colors duration-200 ${customClass}`}
-  style="background: var(--color-navbar);"
+  class={`transition-colors duration-200 ${customClass}`}
+  style="background: var(--color-navbar), rgba(255,255,255,0.12); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,0.25);"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="flex justify-between items-center h-[80px]">

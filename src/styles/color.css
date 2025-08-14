@@ -1,6 +1,6 @@
 /* Blue background for Recruitment section */
 :root {
-  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.90) 0%, rgba(7, 87, 67, 0.90) 100%);
+  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.6) 0%, rgba(7, 87, 67, 0.6) 100%);
   --color-lineblack2white: rgb(69, 74, 67); /* Black 5% for light mode */
   --color-white2white: #213e3c;
   --color-blue-bg: #e0edff;
@@ -147,7 +147,7 @@
 
 /* Light mode variables */
 :root:not([data-theme="dark"]) {
-  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.90) 0%, rgba(7, 87, 67, 0.90) 100%);
+  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.6) 0%, rgba(7, 87, 67, 0.6) 100%);
   --color-navbar-bg: rgba(255, 255, 255, 0.8);
   --color-navbar-border: rgba(229,231,235,0.3);
   /* --color-surface-1 removed, use --color-white instead */
@@ -156,7 +156,7 @@
 
 /* Dark mode variables */
 :root[data-theme="dark"] {
-  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.90) 0%, rgba(7, 87, 67, 0.90) 100%);
+  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.6) 0%, rgba(7, 87, 67, 0.6) 100%);
   --color-lineblack2white: rgba(255,255,255,0.05); /* White 5% for dark mode */
   --color-lineblack2white: rgba(0,0,0,0.05); /* Black 5% for light mode */
   --color-navbar-bg: rgba(31,41,55,0.8);
