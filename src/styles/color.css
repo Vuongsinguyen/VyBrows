@@ -41,8 +41,8 @@
   --color-on-primary-hover: var(--color-white);
   --color-button-secondary-text: #2563eb;
   /* === Base Colors === */
-  --color-white: #213e3c; /* White for light mode */
-  --color-black: #000000; /* Black for light mode */
+  --color-white: #f3f4ec; /* White for light mode */
+  --color-black: #213e3c; /* Black for light mode */
   --color-bg: var(--color-white);
   /* --color-surface removed, use --color-white instead */
   --color-elevated: var(--color-white);       /* cards, dropdowns */
