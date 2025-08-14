@@ -151,7 +151,7 @@
 :root:not([data-theme="dark"]) {
   --color-linearGay-border: 1px solid #F8E8C6;
   --color-linearGay-bg: linear-gradient(90deg, #FFFDF7 0%, #BEA776 25%, #FFF9E9 50%, #BEA776 75%, #FFFDF7 100%);
-  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.6) 0%, rgba(7, 87, 67, 0.6) 100%);
+  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.9) 0%, rgba(7, 87, 67, 0.9) 100%);
   --color-navbar-bg: rgba(255, 255, 255, 0.8);
   --color-navbar-border: rgba(229,231,235,0.3);
   /* --color-surface-1 removed, use --color-white instead */
