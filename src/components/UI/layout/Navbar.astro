@@ -160,16 +160,16 @@ const contactMobileItems = t.contactItems.map(item => ({ href: item.href, title:
       <!-- Desktop: show email and phone text, JP phone only on md+ -->
       <span class="items-center gap-1 hidden md:flex" style="color: var(--color-text);">
         <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">mail</span>
-        contact@aris-vn.com
+        contact@vybrows-academy.com
       </span>
-      <span class="items-center gap-1 hidden md:flex" style="color: var(--color-text);">
+      <a href="tel:3464099999" class="items-center gap-1 hidden md:flex" style="color: var(--color-text); text-decoration: none;">
         <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">call</span>
-        VN: (+83) 28 3842-4483
-      </span>
-      <span class="items-center gap-1 hidden md:flex" style="color: var(--color-text);">
+        US: 346-409-9999
+      </a>
+      <a href="tel:3464098888" class="items-center gap-1 hidden md:flex" style="color: var(--color-text); text-decoration: none;">
         <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">call</span>
-        JP: (+81) 3 3340-1053
-      </span>
+        US: 346-409-8888
+      </a>
       <!-- Mobile: only show icons -->
       <a href="/${currentLang}/contact" class="md:hidden flex items-center" aria-label="Gửi email">
         <span class="material-icons-outlined text-white text-base" style="font-size: 20px;">mail</span>
@@ -234,14 +234,14 @@ document.addEventListener('DOMContentLoaded', () => {
 <nav
   id="main-navbar"
   class={`transition-colors duration-200 ${customClass}`}
-  style="background: var(--color-navbar), rgba(255,255,255,0.12); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,0.25);"
+  style="background: var(--color-navbar);"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="flex flex-col items-center justify-center">
     <!-- Logo/Brand Centered -->
     <div id="logo-wrapper" class="w-full flex justify-center py-2 transition-all duration-300">
       <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="flex items-center">
-  <img id="navbar-logo" src="/logo.webp" alt="ARIS VIETNAM" class="h-20 w-auto transition-transform duration-300" style="color: var(--color-blue2white); transform: scale(1.5);" />
+  <img id="navbar-logo" src="/logo.webp" alt="ARIS VIETNAM" class="w-[240px] transition-transform duration-300" style="height: auto; color: var(--color-blue2white); transform: scale(1);" />
       </a>
     </div>
     <!-- Desktop Navigation -->
@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   <!-- Mobile Navigation (hidden by default) -->
   <div class="md:hidden hidden" id="mobile-menu">
-    <div class="px-4 pt-2 pb-3 space-y-2 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200/50 dark:border-gray-600/50">
+  <div class="px-4 pt-2 pb-3 space-y-2 bg-gray-50/95 dark:bg-gray-900/95 border-t border-gray-200/50 dark:border-gray-600/50">
       <a href="/" class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-lora font-bold transition-colors" style="font-size:20px;">
         <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">{t.home}</span>
       </a>
@@ -303,26 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <MobileDropdown label={t.contact} items={contactMobileItems} />
     </div>
   </div>
-<script is:inline>
-let lastScrollY = window.scrollY;
-window.addEventListener('scroll', () => {
-  const logo = document.getElementById('navbar-logo');
-  const wrapper = document.getElementById('logo-wrapper');
-  if (!logo || !wrapper) return;
-  if (window.scrollY > lastScrollY) {
-    // Scroll down: scale down logo and wrapper
-    logo.style.transform = 'scale(0.7)';
-    wrapper.style.paddingTop = '0.2rem';
-    wrapper.style.paddingBottom = '0.2rem';
-  } else {
-    // Scroll up: scale logo and wrapper to normal
-    logo.style.transform = 'scale(1)';
-    wrapper.style.paddingTop = '0.5rem';
-    wrapper.style.paddingBottom = '0.5rem';
-  }
-  lastScrollY = window.scrollY;
-});
-</script>
 </nav>
 
 <!-- Material Icons CDN -->

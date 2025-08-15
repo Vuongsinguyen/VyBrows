@@ -8,14 +8,14 @@
     <!-- Contact Info -->
     <div class="flex items-center space-x-6">
       <!-- Desktop: show email and phone text, JP phone only on md+ -->
-      <span class="items-center gap-1 hidden md:flex" style="color: var(--color-text);">
+      <a href="mailto:contact@vybrows-academy.com" class="items-center gap-1 hidden md:flex" style="color: var(--color-text); text-decoration: none;">
         <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">mail</span>
-        contact@aris-vn.com
-      </span>
-      <span class="items-center gap-1 hidden md:flex" style="color: var(--color-text);">
+        contact@vybrows-academy.com
+      </a>
+      <a href="tel:3464099999" class="items-center gap-1 hidden md:flex" style="color: var(--color-text); text-decoration: none;">
         <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">call</span>
-        VN: (+83) 28 3842-4483
-      </span>
+        VN: 346-409-9999
+      </a>
       <span class="items-center gap-1 hidden md:flex" style="color: var(--color-text);">
         <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">call</span>
         JP: (+81) 3 3340-1053
@@ -30,6 +30,13 @@
     </div>
     <!-- Controls -->
     <div class="flex items-center gap-4">
+      <!-- Custom Topbar Menu -->
+      <div class="flex items-center gap-4 text-sm font-medium" style="color: var(--color-text);">
+        <a href="/dr-anmytas" class="hover:underline" style="color: var(--color-text); text-decoration: none;">Dr.ANMYTAS</a>
+        <a href="/supply-list" class="hover:underline" style="color: var(--color-text); text-decoration: none;">SUPPLY LIST</a>
+      </div>
+      <!-- Blog link bên trái dropdown English -->
+      <a href="/blog" class="hover:underline text-sm font-medium" style="color: var(--color-text); text-decoration: none;">BLOG</a>
       <!-- Language Dropdown -->
       <div class="relative" role="menu" aria-label="Language Switcher">
         <button id="lang-dropdown-btn" class="transition flex items-center gap-1" aria-haspopup="true" aria-expanded="false" type="button" style="color: var(--color-text);">
