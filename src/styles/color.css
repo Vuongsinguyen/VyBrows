@@ -2,14 +2,14 @@
 :root {
   --color-linearGay-border: 1px solid #F8E8C6;
   --color-linearGay-bg: linear-gradient(90deg, #FFFDF7 0%, #BEA776 25%, #FFF9E9 50%, #BEA776 75%, #FFFDF7 100%);
-  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.6) 0%, rgba(7, 87, 67, 0.6) 100%);
+  --color-navbar: #18382b;
   --color-lineblack2white: rgb(69, 74, 67); /* Black 5% for light mode */
   --color-white2white: #213e3c;
   --color-blue-bg: #e0edff;
   --color-surface-1: #e0edff; /* xanh dương nhạt */
   --color-black2white: #FFD895;
   --color-white2black: #ffffff; /* White for light mode */
-  --color-primary-gradient: linear-gradient(90deg, #C9A264 0%, #EDDFB8 100%);
+  --color-primary-gradient: linear-gradient(90deg, rgb(231, 212, 142), rgb(228, 192, 102) 35%, rgb(255, 228, 182) 69%, rgb(172, 144, 74));
 }
 /* Light mode: .bg-surface là trắng */
 
@@ -151,7 +151,7 @@
 :root:not([data-theme="dark"]) {
   --color-linearGay-border: 1px solid #F8E8C6;
   --color-linearGay-bg: linear-gradient(90deg, #FFFDF7 0%, #BEA776 25%, #FFF9E9 50%, #BEA776 75%, #FFFDF7 100%);
-  --color-navbar: linear-gradient(90deg, rgba(23, 75, 67, 0.9) 0%, rgba(7, 87, 67, 0.9) 100%);
+  --color-navbar: linear-gradient(90deg, #003324 100%, #003324 100%);
   --color-navbar-bg: rgba(255, 255, 255, 0.8);
   --color-navbar-border: rgba(229,231,235,0.3);
   /* --color-surface-1 removed, use --color-white instead */
