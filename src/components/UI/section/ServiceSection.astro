@@ -12,7 +12,9 @@ const currentLang = Astro.url.pathname.split('/')[1] || 'en';
 
 import { getCollection } from 'astro:content';
 const allServices = await getCollection('services');
-const dynamicServices = allServices.filter(s => s.data.lang === currentLang);
+const dynamicServices = allServices
+  .filter(s => s.data.lang === currentLang)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 const services = allServices.filter(s => s.data.lang === currentLang);
 
 const sectionTitles = {

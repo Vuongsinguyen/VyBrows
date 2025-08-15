@@ -11,7 +11,7 @@ const { title, description = '', image = '', class: customClass = '', link = '' 
 ---
 
 <a href={link} class="block w-full h-full">
-  <div class={`relative rounded-xl shadow-lg overflow-hidden p-0 flex flex-col items-center text-center transition-transform hover:-translate-y-2 hover:shadow-2xl ${customClass}`} style="min-height:340px;">
+  <div class={`relative rounded-[16px] shadow-2xl overflow-hidden p-0 flex flex-col items-center text-center ${customClass}`} style="min-height:340px; box-shadow: 0 16px 48px 0 rgba(0,0,0,0.18); border: 1px solid; border-image: linear-gradient(135deg, #e7d48e, #f7f3c6, #e7d48e) 1;">
     <!-- Hình nền với hiệu ứng kim tuyến -->
     <div class="absolute inset-0 w-full h-full glitter-bg">
       {image && <img src={image} alt={title} class="w-full h-full object-cover opacity-80" />}
@@ -24,11 +24,7 @@ const { title, description = '', image = '', class: customClass = '', link = '' 
       <div class="px-6 py-3 rounded-lg font-lora font-bold text-2xl mb-2 glitter-title-bg" style="color: var(--color-black); font-family: 'Lora', serif;">
         {title}
       </div>
-      {description && (
-        <p class="text-base text-gray-700 dark:text-gray-300 font-lora px-6" style="color: var(--color-text-secondary); font-family: 'Lora', serif;">
-          {description}
-        </p>
-      )}
+  {/* Không hiển thị mô tả dịch vụ */}
     </div>
   </div>
 </a>
