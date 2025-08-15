@@ -12,11 +12,11 @@ export interface Props {
 const { label, items, class: customClass = '' } = Astro.props;
 ---
 
-<div class="hidden md:flex w-full justify-center" style="position: relative;">
-  <div class={`group dropdown-container w-full ${customClass}`} style="position: static;"> 
+<div class="hidden md:flex w-full justify-center" style="position: static;">
+  <div class="group dropdown-container w-full" style="position: static;"> 
   <button
     class="dropdown-trigger px-3 py-2 text-sm font-medium transition-colors flex items-center font-lora font-bold"
-    style="font-size:16px; color: var(--color-black);"
+    style="font-size:16px; color: var(--color-black); position: static;"
   >
     <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">
       {label}
@@ -26,14 +26,14 @@ const { label, items, class: customClass = '' } = Astro.props;
     </svg>
   </button>
 
-  <div class="dropdown-menu absolute top-full right-0 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] px-2 py-2 bg-[var(--color-card-bg)]"
-    style="box-shadow: var(--color-shadow);"
+  <div class="dropdown-menu absolute top-full w-full shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] px-2 py-2 grid place-items-center"
+  style="box-shadow: var(--color-shadow); width: 100%; background-color: #002319; max-width: 960px; left: 50%; transform: translateX(-50%); border-radius: 20px;"
   >
-  <div class="w-full max-w-[400px] px-2 py-2 flex flex-col items-start mx-auto">
+  <div class="w-full px-4 py-4 grid gap-4">
       <div class={
         label === 'About Us' || label === 'Về chúng tôi' || label === '会社概要'
-          ? 'grid grid-cols-2 md:grid-cols-4 gap-0 w-full text-right'
-          : 'grid grid-cols-1 md:grid-cols-3 gap-0.5 w-full text-right'
+          ? 'grid grid-cols-2 md:grid-cols-4 gap-4 w-full justify-center text-center'
+          : 'grid grid-cols-1 md:grid-cols-3 gap-4 w-full justify-center text-center'
       }>
         {items.map((item) => (
           <a
