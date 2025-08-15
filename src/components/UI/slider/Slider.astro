@@ -19,14 +19,14 @@ export interface Props {
 const { slides, autoSlideInterval = 4000, class: customClass = '' } = Astro.props;
 ---
 
-<section class={`relative overflow-hidden z-0 h-[70vh] ${customClass}`}> 
-  <div class="slider-container relative h-[70vh]" style="background: var(--slider-bg);">
+<section class={`relative overflow-hidden z-0 h-[70vh] min-h-[680px] max-h-[60vh] pb-[50px] ${customClass}`}> 
+  <div class="slider-container relative h-[70vh] min-h-[680px] max-h-[60vh] pb-[50px]" style="background: var(--slider-bg);">
     {slides.map((slide, index) => (
       <div class={`slide ${index === 0 ? 'active' : ''} flex items-center justify-center`}>
-        <div
-          class="w-full max-w-[1180px] h-[480px] rounded-[2rem] border mx-auto mt-[60px]"
-          style="border-color: #e7d48e; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18); background: transparent;"
-        >
+            <div
+              class="w-full max-w-[1180px] h-[90%] rounded-[2rem] border mt-[310px] pb-[30px] mb-[80px] mx-[20px]"
+              style="border-color: #e7d48e; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18); background: transparent; padding-bottom: 30px;"
+            >
           {/* Nội dung slide ở đây */}
         </div>
       </div>
