@@ -19,11 +19,16 @@ export interface Props {
 const { slides, autoSlideInterval = 4000, class: customClass = '' } = Astro.props;
 ---
 
-<section class={`relative overflow-hidden z-0 ${customClass}`}>
-  <div class="slider-container relative h-[600px]" style="background: var(--slider-bg);">
+<section class={`relative overflow-hidden z-0 h-[70vh] ${customClass}`}> 
+  <div class="slider-container relative h-[70vh]" style="background: var(--slider-bg);">
     {slides.map((slide, index) => (
-  <div class={`slide ${index === 0 ? 'active' : ''} flex items-center justify-center`}>
-        {/* Removed text-center px-6 content as requested */}
+      <div class={`slide ${index === 0 ? 'active' : ''} flex items-center justify-center`}>
+        <div
+          class="w-full max-w-[1180px] h-[480px] rounded-[2rem] border mx-auto mt-[60px]"
+          style="border-color: #e7d48e; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18); background: transparent;"
+        >
+          {/* Nội dung slide ở đây */}
+        </div>
       </div>
     ))}
 
@@ -39,12 +44,12 @@ const { slides, autoSlideInterval = 4000, class: customClass = '' } = Astro.prop
 
     <!-- Arrow Navigation -->
     <button class="prev-btn absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full transition-all" style="background-color: var(--slider-arrow-bg);">
-      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="var(--slider-dot-active)" style="opacity:0.6;">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="rgba(231, 212, 142, 0.3)" style="opacity:1;">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
     <button class="next-btn absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full transition-all" style="background-color: var(--slider-arrow-bg);">
-      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="var(--slider-dot-active)" style="opacity:0.6;">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="rgba(231, 212, 142, 0.3)" style="opacity:1;">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
     </button>
@@ -56,7 +61,7 @@ const { slides, autoSlideInterval = 4000, class: customClass = '' } = Astro.prop
     position: relative;
     overflow: hidden;
     z-index: 1;
-    background: var(--slider-bg);
+    background: #003324 !important;
   }
 
   .slide {
@@ -75,7 +80,7 @@ const { slides, autoSlideInterval = 4000, class: customClass = '' } = Astro.prop
   }
 
   .dot {
-    background-color: var(--slider-dot);
+    background-color: rgba(231, 212, 142, 0.3);
   }
   .dot.active {
     background-color: var(--color-blueWhite);
