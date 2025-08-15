@@ -237,17 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
   style="background: var(--color-navbar), rgba(255,255,255,0.12); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,0.25);"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="flex justify-between items-center h-[80px]">
-      <!-- Logo/Brand -->
-      <div class="flex-shrink-0">
-        <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="flex items-center">
-          <img src="/logo-aris.svg" alt="ARIS VIETNAM" class="h-20 w-auto" style="color: var(--color-blue2white);" />
-        </a>
-      </div>
-
-      <!-- Desktop Navigation -->
-      <div class="hidden md:block">
-  <div class="ml-10 flex items-center space-x-1 font-lora font-bold" style="font-size:20px;">
+  <div class="flex flex-col items-center justify-center">
+    <!-- Logo/Brand Centered -->
+    <div id="logo-wrapper" class="w-full flex justify-center py-2 transition-all duration-300">
+      <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="flex items-center">
+        <img id="navbar-logo" src="/logo-aris.svg" alt="ARIS VIETNAM" class="h-20 w-auto transition-transform duration-300" style="color: var(--color-blue2white);" />
+      </a>
+    </div>
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex w-full justify-center">
+      <div class="flex items-center space-x-1 font-lora font-bold" style="font-size:20px;">
           {menuItems.map((item: MenuItem) =>
             item.children && item.children.length > 0 ? (
               <Dropdown label={item.label} items={item.children} />
@@ -304,6 +303,26 @@ document.addEventListener('DOMContentLoaded', () => {
       <MobileDropdown label={t.contact} items={contactMobileItems} />
     </div>
   </div>
+<script is:inline>
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  const logo = document.getElementById('navbar-logo');
+  const wrapper = document.getElementById('logo-wrapper');
+  if (!logo || !wrapper) return;
+  if (window.scrollY > lastScrollY) {
+    // Scroll down: scale down logo and wrapper
+    logo.style.transform = 'scale(0.7)';
+    wrapper.style.paddingTop = '0.2rem';
+    wrapper.style.paddingBottom = '0.2rem';
+  } else {
+    // Scroll up: scale logo and wrapper to normal
+    logo.style.transform = 'scale(1)';
+    wrapper.style.paddingTop = '0.5rem';
+    wrapper.style.paddingBottom = '0.5rem';
+  }
+  lastScrollY = window.scrollY;
+});
+</script>
 </nav>
 
 <!-- Material Icons CDN -->
