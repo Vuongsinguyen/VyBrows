@@ -1,6 +1,13 @@
 // src/content/menu.ts
 // Centralized menu config for all languages
 
+import matter from 'gray-matter';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export interface MenuItem {
   label: string;
   href: string;
@@ -9,22 +16,28 @@ export interface MenuItem {
   children?: MenuItem[];
 }
 
+function getServiceMenu(lang: string): MenuItem[] {
+  const dir = path.resolve(__dirname, './services');
+  const files = fs.readdirSync(dir).filter(f => f.endsWith(`.${lang}.md`));
+  return files.map(f => {
+    const file = fs.readFileSync(path.join(dir, f), 'utf8');
+    const fm = matter(file).data;
+    return {
+      href: `/${lang}/service/${fm.slug}`,
+      title: fm.title,
+      description: fm.description || '',
+      label: fm.title,
+      order: fm.order
+    };
+  }).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+}
+
 export const menus: Record<string, MenuItem[]> = {
   en: [
     { label: 'HOME', href: '/en/', title: 'Home', description: 'Go to homepage' },
     {
       label: 'SERVICES', href: '/en/#services', title: 'Services', description: 'Our services',
-      children: [
-        { href: '/en/service/web-development', title: 'PMU — PERMANENT MAKEUP', description: 'Modern and responsive websites', label: 'PMU — PERMANENT MAKEUP' },
-        { href: '/en/service/mobile-app', title: 'MOBILE APPS', description: 'Professional iOS and Android apps', label: 'MOBILE APPS' },
-        { href: '/en/service/design', title: 'UI/UX DESIGN', description: 'Beautiful and user-friendly interfaces', label: 'UI/UX DESIGN' },
-        { href: '/en/service/consulting', title: 'IT CONSULTING', description: 'Comprehensive technology solutions', label: 'IT CONSULTING' },
-        { href: '/en/service/ai', title: 'AI SOLUTIONS', description: 'Artificial Intelligence and Machine Learning', label: 'AI SOLUTIONS' },
-        { href: '/en/service/iot', title: 'IOT SOLUTIONS', description: 'Internet of Things and smart devices', label: 'IOT SOLUTIONS' },
-        { href: '/en/service/cloud', title: 'CLOUD SERVICES', description: 'Cloud migration and management', label: 'CLOUD SERVICES' },
-        { href: '/en/service/testing', title: 'TESTING & QA', description: 'Quality assurance and software testing', label: 'TESTING & QA' },
-        { href: '/en/service/maintenance', title: 'MAINTENANCE & SUPPORT', description: 'Ongoing support and maintenance', label: 'MAINTENANCE & SUPPORT' }
-      ]
+      children: getServiceMenu('en')
     },
     {
       label: 'ABOUT US', href: '/en/about-us', title: 'About Us', description: 'Learn about ARIS Vietnam',
