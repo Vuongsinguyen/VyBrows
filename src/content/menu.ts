@@ -31,7 +31,7 @@ export const menus: Record<string, MenuItem[]> = {
     { label: 'HOME', href: '/en/', title: 'Home', description: 'Go to homepage' },
     {
       label: 'SERVICES', href: '/en/#services', title: 'Services', description: 'Our services',
-      children: getServiceMenu('en')
+      // children will be populated asynchronously elsewhere
     },
     {
       label: 'ABOUT US', href: '/en/about-us', title: 'About Us', description: 'Learn about ARIS Vietnam',
