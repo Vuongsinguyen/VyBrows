@@ -27,11 +27,11 @@ const { title, description, image, link } = Astro.props;
   </div>
   <div class="relative z-10 flex flex-col justify-center items-center h-full p-6">
     <!-- Hiển thị description khi hover, nằm trên Title -->
-    <p class="text-base text-[var(--color-black2white)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center mb-2">{description}</p>
+  <p class="text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center mb-2" style="font-family: 'Lora', serif; color: #FFD97A;">{description}</p>
   </div>
   </a>
   <div class="gold-title-border px-3 py-1" style="position: absolute; left: 50%; bottom: 0; transform: translateX(-50%) translateY(50%); z-index: 20;">
-  <h3 class="font-bold text-xl rounded-md px-3 py-1 whitespace-nowrap text-center" style="color: #003324; background: transparent; min-width: 200px; width: fit-content; max-width: 320px; display: block; margin: 0 auto; font-family: 'Lora', serif;">{title}</h3>
+  <h3 class="font-bold text-xl rounded-md px-4 py-1 whitespace-nowrap text-center" style="color: #003324; background: transparent; min-width: 200px; width: fit-content; max-width: 100vw; display: block; margin: 0 auto; font-family: 'Lora', serif;">{title}</h3>
   </div>
   </div>
 </a>

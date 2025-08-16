@@ -1,9 +1,9 @@
 ---
-title: Diseño de labios
+title: PMU - MAQUILLAJE PERMANENTE
 lang: es
-slug: diseno-labios
+slug: pmu-maquillaje-permanente
 order: 1
-description: "Servicio de maquillaje permanente de labios, natural y seguro."
+description: "Resalta tu belleza natural con nuestras técnicas avanzadas de Maquillaje Permanente. Cejas perfectamente diseñadas, delineado de ojos definido y labios radiantes — PMU te ahorra tiempo cada día mientras mantiene tu look impecable, seguro y duradero."
 image: "/images/service01.avif"
 ---
-Nuestro equipo profesional ofrece labios hermosos y naturales con la última tecnología de maquillaje permanente.
+Resalta tu belleza natural con nuestras técnicas avanzadas de Maquillaje Permanente. Cejas perfectamente diseñadas, delineado de ojos definido y labios radiantes — PMU te ahorra tiempo cada día mientras mantiene tu look impecable, seguro y duradero.

@@ -1,9 +1,9 @@
 ---
-title: Eyebrow Tattoo
+title: SKINCARE — ACNE TREATMENT
 lang: en
-slug: eyebrow-tattoo
+slug: skincare-acne-treatment
 order: 2
-description: "Professional eyebrow tattooing for natural beauty."
+description: "Restore your skin’s clarity and confidence with our advanced Acne Treatments. From deep cleansing and gentle extractions to calming therapies, we target breakouts effectively while promoting smooth, healthy, and radiant skin."
 image: "/images/service02.avif"
 ---
-Get perfectly shaped eyebrows with our expert tattooing service.
+Restore your skin’s clarity and confidence with our advanced Acne Treatments. From deep cleansing and gentle extractions to calming therapies, we target breakouts effectively while promoting smooth, healthy, and radiant skin.

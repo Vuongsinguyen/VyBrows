@@ -1,0 +1,61 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/UI/layout/Header.astro';
+import Button from '../../components/UI/shared/Button.astro';
+import Slider from '../../components/UI/slider/Slider.astro';
+import ServiceSection from '../../components/UI/section/ServiceSection.astro';
+import AboutUsSection from '../../components/UI/section/AboutUsSection.astro';
+import CompanyPhotoGallery from '../../components/UI/gallery/CompanyPhotoGallery.astro';
+import ProjectSection from '../../components/UI/section/ProjectSection.astro';
+import IndustrySection from '../../components/UI/section/IndustrySection.astro';
+import NewsSection from '../../components/UI/section/NewsSection.astro';
+import FooterSection from '../../components/UI/layout/FooterSection.astro';
+import TeamMembersSection from '../../components/UI/section/TeamMembersSection.astro';
+import RecruitmentSection from '../../components/UI/section/RecruitmentSection.astro';
+import FullContactSection from '../../components/UI/section/FullContactSection.astro';
+import UseCaseSection from '../../components/UI/section/UseCaseSection.astro';
+
+// Slides data for Spanish
+const slides = [
+  {
+    title: "Bienvenido a ARIS Vietnam",
+    subtitle: "Innovación",
+    description: "Soluciones tecnológicas innovadoras para negocios modernos",
+    primaryButton: "Comenzar",
+    secondaryButton: "Ver más",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Desarrollo web profesional",
+    subtitle: "Desarrollo",
+    description: "Sitios web modernos y responsivos para impulsar el crecimiento empresarial",
+    primaryButton: "Ver proyectos",
+    secondaryButton: "Contáctanos",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Soluciones de aplicaciones móviles",
+    subtitle: "Móvil",
+    description: "Aplicaciones nativas de alto rendimiento para iOS y Android",
+    primaryButton: "Ver apps",
+    secondaryButton: "Contáctanos",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  }
+];
+
+---
+<MainLayout title="ARIS Vietnam">
+  <Header />
+  <Slider slides={slides} />
+  <ServiceSection />
+  <AboutUsSection />
+  <CompanyPhotoGallery />
+  <ProjectSection />
+  <IndustrySection />
+  <NewsSection />
+  <TeamMembersSection />
+  <RecruitmentSection />
+  <FullContactSection />
+  <UseCaseSection />
+  <FooterSection />
+</MainLayout>

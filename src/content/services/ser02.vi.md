@@ -1,9 +1,9 @@
 ---
-title: Phun chân mày
+title: SKINCARE — CHĂM SÓC DA
 lang: vi
-slug: phun-chan-may
+slug: skincare-cham-soc-da
 order: 2
-description: "Dịch vụ phun chân mày sắc nét, tự nhiên."
+description: "Khôi phục làn da sáng khỏe và tự tin với dịch vụ điều trị mụn chuyên sâu. Làm sạch sâu, lấy nhân mụn nhẹ nhàng, kết hợp liệu pháp làm dịu giúp kiểm soát mụn hiệu quả, mang lại làn da mịn màng, khỏe mạnh và rạng rỡ."
 image: "/images/service02.avif"
 ---
-Chân mày đẹp tự nhiên, sắc nét với kỹ thuật phun hiện đại.
+Khôi phục làn da sáng khỏe và tự tin với dịch vụ điều trị mụn chuyên sâu. Làm sạch sâu, lấy nhân mụn nhẹ nhàng, kết hợp liệu pháp làm dịu giúp kiểm soát mụn hiệu quả, mang lại làn da mịn màng, khỏe mạnh và rạng rỡ.

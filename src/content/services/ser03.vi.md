@@ -1,9 +1,9 @@
 ---
-title: Chăm sóc da
+title: LIỆU TRÌNH CHĂM SÓC TÓC
 lang: vi
-slug: cham-soc-da
+slug: lieu-trinh-cham-soc-toc
 order: 3
-description: "Liệu trình chăm sóc da chuyên sâu, an toàn."
+description: "Thanh lọc da đầu với liệu trình Gội thảo dược Detox. Sự kết hợp giữa làm sạch sâu và thảo mộc tự nhiên giúp loại bỏ bã nhờn, làm dịu kích ứng, nuôi dưỡng chân tóc — cho mái tóc sạch khỏe, cân bằng và tràn đầy sức sống."
 image: "/images/service03.avif"
 ---
-Làn da khỏe mạnh, rạng rỡ với liệu trình chăm sóc chuyên nghiệp.
+Thanh lọc da đầu với liệu trình Gội thảo dược Detox. Sự kết hợp giữa làm sạch sâu và thảo mộc tự nhiên giúp loại bỏ bã nhờn, làm dịu kích ứng, nuôi dưỡng chân tóc — cho mái tóc sạch khỏe, cân bằng và tràn đầy sức sống.
