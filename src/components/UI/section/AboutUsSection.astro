@@ -178,8 +178,9 @@ const stats = [
       <!-- Right Content - Stats -->
       <div class="grid grid-cols-2 gap-6">
         {stats.map((stat, idx) => (
-          <div style="border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255,255,0.15);">
-            <div class="p-6 text-center stat-card-gradient" style="font-family: 'Lora', serif; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: inherit;">
+          <div class="stat-card-border-gradient" style="border-radius: 40px; padding: 1px;">
+            <div class="p-6 text-center stat-card-gradient" style="font-family: 'Lora', serif; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 38px; background: #003324;">
+              <div class="card-shine" id={`card-shine-${idx}`}></div>
               <div>
                 <div 
                   class="mb-2"
@@ -190,7 +191,7 @@ const stats = [
                     color: var(--color-black2white);
                     font-family: 'SF Pro Display', 'Lato', 'Lora', serif;
                     font-weight: 100;
-                    font-size: 100px;
+                    font-size: 80px;
                   "
                   id={`stat-anim-${idx}`}
                   data-target={stat.value}
@@ -204,12 +205,49 @@ const stats = [
     </div>
   </div>
   <style>
+  .stat-card-border-gradient {
+    border-radius: 40px;
+    padding: 1px;
+    background: linear-gradient(-45deg, #FFFACD, rgba(255, 250, 205, 0) 40%, #F5DEB3 60%, rgba(255, 250, 205, 0) 100%);
+    background-clip: border-box;
+    overflow: visible;
+    /* Hiệu ứng viền gradient bo góc */
+  }
+  .card-shine {
+    position: absolute;
+    top: 70%; left: 70%;
+    width: 80%; height: 80%;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 60%, rgba(255,255,255,0.7) 80%, rgba(255,255,255,0) 100%);
+    filter: blur(40px);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2;
+  }
   .stat-card-gradient {
-    border-radius: 20px;
+    border-radius: 36px;
+    background: linear-gradient(to bottom, #1e6a46 0%, #174c34 100%);
     overflow: hidden;
+    box-shadow: 8px 16px 32px 0 rgba(0,0,0,0.10), 4px 8px 16px 0 rgba(255, 215, 0, 0.10);
+    position: relative;
+    transition: background 0.3s;
+  }
+  .stat-card-gradient:hover {
+    background: linear-gradient(to bottom, #2bb673 0%, #1e6a46 100%);
+    transform: translateY(-12px);
+    box-shadow: 0 24px 48px 0 rgba(0,0,0,0.18), 0 8px 32px 0 rgba(255, 215, 0, 0.18);
+    transition: background 0.3s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .stat-card-gradient {
+    /* Khi hover out, thả xuống chậm hơn */
+    transition: background 0.3s, transform 0.8s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  .stat-card-gradient:hover .card-shine {
+    opacity: 1;
+    transition: opacity 0.3s;
   }
   </style>
-</section>
+ </section>
 
 <script is:inline>
 document.addEventListener('DOMContentLoaded', () => {
@@ -217,6 +255,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let animated = false;
   if (!statsSection) return;
 
+  // Shine effect every 10s
+  function triggerShine(card) {
+    const shine = card.querySelector('.card-shine');
+    if (!shine) return;
+    shine.classList.remove('active');
+    void shine.offsetWidth;
+    shine.classList.add('active');
+    setTimeout(() => shine.classList.remove('active'), 500);
+  }
+  document.querySelectorAll('.stat-card-gradient').forEach(card => {
+    card.addEventListener('mouseenter', () => triggerShine(card));
+  });
+
+  // Stat animation
   const animateStats = () => {
     if (animated) return;
     animated = true;
