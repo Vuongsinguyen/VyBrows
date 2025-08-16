@@ -15,7 +15,7 @@ export const menus: Record<string, MenuItem[]> = {
     {
       label: 'SERVICES', href: '/en/#services', title: 'Services', description: 'Our services',
       children: [
-        { href: '/en/service/web-development', title: 'WEB DEVELOPMENT', description: 'Modern and responsive websites', label: 'WEB DEVELOPMENT' },
+        { href: '/en/service/web-development', title: 'PMU — PERMANENT MAKEUP', description: 'Modern and responsive websites', label: 'PMU — PERMANENT MAKEUP' },
         { href: '/en/service/mobile-app', title: 'MOBILE APPS', description: 'Professional iOS and Android apps', label: 'MOBILE APPS' },
         { href: '/en/service/design', title: 'UI/UX DESIGN', description: 'Beautiful and user-friendly interfaces', label: 'UI/UX DESIGN' },
         { href: '/en/service/consulting', title: 'IT CONSULTING', description: 'Comprehensive technology solutions', label: 'IT CONSULTING' },
