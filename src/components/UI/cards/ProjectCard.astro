@@ -5,15 +5,18 @@ export interface Props {
   image1?: string;
   image2?: string;
   desc?: string;
-  techs?: string[];
   features?: string[];
 }
-const { name, category, image1, image2, desc, techs, features } = Astro.props;
+const { name, category, image1, image2, desc, features } = Astro.props;
 ---
 
-<div class="rounded-xl border border-border bg-surface shadow-sm group overflow-hidden transition-all duration-300 hover:shadow-xl">
+<div 
+  class="relative rounded-xl bg-surface overflow-hidden transition-all duration-300 group" 
+  style="height: 500px; min-height: 500px; box-shadow: 0 4px 24px 0 rgba(218, 165, 32, 0.18), 0 1.5px 6px 0 rgba(255, 215, 0, 0.12); border: 1px solid #003324;"
+>
+  <!-- Background Images -->
   {image1 && image2 ? (
-    <div class="relative aspect-[16/9] w-full">
+    <>
       <img
         src={image1}
         alt={name}
@@ -22,39 +25,74 @@ const { name, category, image1, image2, desc, techs, features } = Astro.props;
       <img
         src={image2}
         alt={name + ' alt'}
-        class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"
+        class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-0"
       />
-    </div>
+    </>
   ) : image1 ? (
-    <img src={image1} alt={name} class="mb-4" />
+    <img 
+      src={image1} 
+      alt={name} 
+      class="absolute inset-0 w-full h-full object-cover z-0" 
+    />
   ) : null}
 
-  <div class="p-6">
-    <h3 class="text-xl font-semibold mb-2 text-on-surface">{name}</h3>
-    <p class="text-sm text-on-surface/70 mb-3">{desc}</p>
+  <!-- Overlay -->
+  <div 
+    class="absolute inset-0 pointer-events-none z-10 card-bg-gradient"
+    style="background: linear-gradient(0deg, #003324 90%, rgba(0,51,36,0) 100%);"
+  ></div>
 
-    {techs && techs.length > 0 && (
-      <ul class="flex flex-wrap gap-2 mb-3">
-        {techs.map((tech, idx) => {
-          const colorVar = `--tech-tag-${(idx % 10) + 1}`;
-          return (
-            <li
-              class="text-xs px-2 py-1 rounded text-white"
-              style={{ background: `var(${colorVar})` }}
-            >
-              {tech}
-            </li>
-          );
-        })}
-      </ul>
-    )}
-
+  <!-- Content -->
+  <div class="relative z-20 flex flex-col items-center justify-end h-full p-6 text-center card-content">
+    <h3 
+      class="text-xl font-semibold mb-2 text-on-surface font-lora"
+      style="font-family: 'Lora', serif; color: var(--color-black2white);"
+    >
+      {name}
+    </h3>
+    <p 
+      class="text-sm text-on-surface/70 mb-3 font-lora" 
+      style="font-family: 'Lora', serif; color: var(--color-bg);"
+    >
+      {desc}
+    </p>
     {features && features.length > 0 && (
-      <ul class="list-disc list-inside text-sm text-on-surface/80">
+      <ul class="list-disc list-inside text-sm text-on-surface/80 mb-4">
         {features.map(feature => (
           <li>{feature}</li>
         ))}
       </ul>
     )}
+    <button 
+      class="center-course-btn px-6 py-2 rounded-full font-lora text-base font-semibold bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 text-[#003324] shadow-lg"
+      style="font-family: 'Lora', serif;"
+    >
+      Find Course
+    </button>
   </div>
+
+  <style>
+    .card-bg-gradient {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .group:hover .card-bg-gradient {
+      opacity: 1;
+    }
+    .card-content {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .group:hover .card-content {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .center-course-btn {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 30;
+    }
+  </style>
 </div>
