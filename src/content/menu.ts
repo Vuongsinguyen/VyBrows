@@ -1,12 +1,6 @@
 // src/content/menu.ts
 // Centralized menu config for all languages
 
-import matter from 'gray-matter';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path from 'path';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export interface MenuItem {
   label: string;
@@ -16,20 +10,20 @@ export interface MenuItem {
   children?: MenuItem[];
 }
 
-function getServiceMenu(lang: string): MenuItem[] {
-  const dir = path.resolve(__dirname, './services');
-  const files = fs.readdirSync(dir).filter(f => f.endsWith(`.${lang}.md`));
-  return files.map(f => {
-    const file = fs.readFileSync(path.join(dir, f), 'utf8');
-    const fm = matter(file).data;
-    return {
-      href: `/${lang}/service/${fm.slug}`,
-      title: fm.title,
-      description: fm.description || '',
-      label: fm.title,
-      order: fm.order
-    };
-  }).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+// Use Astro's getCollection for dynamic SERVICES menu
+export async function getServiceMenu(lang: string) {
+  const { getCollection } = await import('astro:content');
+  const allServices = await getCollection('services');
+  return allServices
+    .filter(s => s.data.lang === lang)
+    .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
+    .map(s => ({
+      href: `/${lang}/service/${s.data.slug}`,
+      title: s.data.title,
+      description: s.data.description || '',
+      label: s.data.title,
+      order: s.data.order
+    }));
 }
 
 export const menus: Record<string, MenuItem[]> = {

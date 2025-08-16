@@ -12,7 +12,19 @@ const { class: customClass = '' } = Astro.props;
 
 // Detect current language from URL
 const currentLang = Astro.url.pathname.split('/')[1] || 'en';
-const menuItems: MenuItem[] = menus[currentLang] || menus['en'];
+import { getServiceMenu } from '../../../content/menu.ts';
+
+let menuItems: MenuItem[] = menus[currentLang] || menus['en'];
+
+// Inject dynamic SERVICES children from getServiceMenu
+const serviceMenuIdx = menuItems.findIndex(item => item.label?.toLowerCase().includes('service') || item.label?.toLowerCase().includes('dịch vụ') || item.label?.toLowerCase().includes('サービス'));
+if (serviceMenuIdx !== -1) {
+  menuItems = [...menuItems]; // clone to avoid mutation
+  menuItems[serviceMenuIdx] = {
+    ...menuItems[serviceMenuIdx],
+    children: await getServiceMenu(currentLang)
+  };
+}
 
 // Language mapping for TopBar
 const langMap = {
