@@ -1,10 +1,10 @@
 ---
 title: PMU — PERMANENT MAKEUP
 lang: en
-slug: design
+slug: pmu-permanent-makeup
 order: 1
-description: "Creative and user-centric UI/UX design services."
+description: "Enhance your natural beauty with our advanced Permanent Makeup techniques. From perfectly shaped eyebrows and defined eyeliner to radiant, youthful lips — PMU saves you time every day while keeping your look flawless, safe, and long-lasting."
 image: "/images/service01.avif"
 ---
 
-Our UI/UX design team crafts intuitive and visually appealing interfaces that enhance user engagement and satisfaction.
+Enhance your natural beauty with our advanced Permanent Makeup techniques. From perfectly shaped eyebrows and defined eyeliner to radiant, youthful lips — PMU saves you time every day while keeping your look flawless, safe, and long-lasting.

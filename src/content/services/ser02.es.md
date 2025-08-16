@@ -1,9 +1,9 @@
 ---
-title: Tatuaje de cejas
-lang: es
-slug: tatuaje-cejas
-order: 2
-description: "Cejas perfectas y naturales con nuestro servicio profesional."
-image: "/images/service02.avif"
+ title: SKINCARE — TRATAMIENTO DEL ACNÉ
+ lang: es
+ slug: skincare-tratamiento-acne
+ order: 2
+ description: "Recupera la claridad y confianza de tu piel con nuestros tratamientos avanzados para el acné. Limpieza profunda, extracciones suaves y terapias calmantes para combatir los brotes y lograr una piel suave, saludable y radiante."
+ image: "/images/service02.avif"
 ---
-Cejas definidas y naturales gracias a nuestra técnica avanzada de tatuaje.
+ Recupera la claridad y confianza de tu piel con nuestros tratamientos avanzados para el acné. Limpieza profunda, extracciones suaves y terapias calmantes para combatir los brotes y lograr una piel suave, saludable y radiante.

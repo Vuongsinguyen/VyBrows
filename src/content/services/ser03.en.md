@@ -1,9 +1,9 @@
 ---
-title: Skin Care
+title: DETOX SCALP & HERBAL HAIR WASH
 lang: en
-slug: skin-care
+slug: detox-scalp-&-herbal-hair-wash
 order: 3
-description: "Advanced skin care treatments for healthy, glowing skin."
+description: "Revitalize your scalp with our Detox & Herbal Hair Wash. Combining deep cleansing with natural botanicals, this treatment removes buildup, soothes irritation, and nourishes roots — leaving your hair refreshed, balanced, and full of vitality."
 image: "/images/service03.avif"
 ---
-Experience rejuvenating skin care with our expert therapists.
+Revitalize your scalp with our Detox & Herbal Hair Wash. Combining deep cleansing with natural botanicals, this treatment removes buildup, soothes irritation, and nourishes roots — leaving your hair refreshed, balanced, and full of vitality.

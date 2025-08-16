@@ -1,9 +1,9 @@
 ---
-title: Eyeliner Tattoo
+title: SHADING OMBRÉ
 lang: en
-slug: eyeliner-tattoo
+slug: shading-ombre
 order: 4
-description: "Long-lasting eyeliner tattoo for beautiful eyes."
+description: "Use specific shading machine to create a most natural shape for eyebrows. Create a very neat and light color shape like when doing makeup. This technique lasts up to 1 year and a half (depends on skin type and aftercare). Good for all types of skin and age."
 image: "/images/service04.avif"
 ---
-Enhance your eyes with our precise eyeliner tattooing.
+Use specific shading machine to create a most natural shape for eyebrows. Create a very neat and light color shape like when doing makeup. This technique lasts up to 1 year and a half (depends on skin type and aftercare). Good for all types of skin and age.

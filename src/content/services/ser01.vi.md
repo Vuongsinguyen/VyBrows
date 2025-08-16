@@ -1,9 +1,9 @@
 ---
-title: Phun xăm môi
+title: PMU — PHUN XĂM THẨM MỸ
 lang: vi
-slug: phun-xam-moi
+slug: pmu-phun-xam-moi
 order: 1
-description: "Dịch vụ phun xăm môi tự nhiên, an toàn."
+description: "Tôn vinh vẻ đẹp tự nhiên của bạn với kỹ thuật PMU hiện đại. Từ đôi chân mày sắc nét, mí mắt tinh tế cho đến bờ môi rạng rỡ – phun xăm thẩm mỹ giúp bạn tiết kiệm thời gian trang điểm hằng ngày, mang lại vẻ đẹp tự tin, an toàn và bền lâu."
 image: "/images/service01.avif"
 ---
-Đội ngũ chuyên viên phun xăm môi chuyên nghiệp, mang lại đôi môi đẹp tự nhiên và quyến rũ.
+Tôn vinh vẻ đẹp tự nhiên của bạn với kỹ thuật PMU hiện đại. Từ đôi chân mày sắc nét, mí mắt tinh tế cho đến bờ môi rạng rỡ – phun xăm thẩm mỹ giúp bạn tiết kiệm thời gian trang điểm hằng ngày, mang lại vẻ đẹp tự tin, an toàn và bền lâu.
