@@ -1,9 +1,9 @@
 ---
-title: Body Treatment
+title: EYELINERS
 lang: en
-slug: body-treatment
+slug: eyeliners
 order: 7
-description: "Body treatments for smooth and healthy skin."
+description: "You can choose to have a natural open eye eyeliner, or a more artistic like makeup eyeliner or Smokey eyeliner which create a very charming look. Last up to 8 years (depends on skin types and aftercare)"
 image: "/images/service07.avif"
 ---
-Achieve smooth and healthy skin with our body treatments.
+you can choose to have a natural open eye eyeliner, or a more artistic like makeup eyeliner or Smokey eyeliner which create a very charming look. Last up to 8 years (depends on skin types and aftercare)
