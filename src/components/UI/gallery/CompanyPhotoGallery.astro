@@ -43,8 +43,8 @@ const loopColumns = [...columns, ...columns];
 ---
 
 <section class="relative" style="background: var(--color-bg); margin-top:-30px;">
-  <div class="overflow-x-auto no-scrollbar" id="gallery-scroll" style="background: var(--color-bg);">
-    <div class="flex gap-6 w-max scroll-smooth snap-x py-[30px]" id="gallery-track">
+  <div class="overflow-x-auto no-scrollbar" id="gallery-scroll" style="background: #003324;">
+  <div class="flex gap-6 w-max scroll-smooth snap-x pb-[30px]" id="gallery-track">
       {loopColumns.map((col, colIdx) => (
         <div class="flex flex-col gap-6 items-center">
           {col.map(img => (
