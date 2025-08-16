@@ -225,27 +225,30 @@ const stats = [
     z-index: 2;
   }
   .stat-card-gradient {
-    border-radius: 36px;
-    background: linear-gradient(to bottom, #1e6a46 0%, #174c34 100%);
-    overflow: hidden;
-    box-shadow: 8px 16px 32px 0 rgba(0,0,0,0.10), 4px 8px 16px 0 rgba(255, 215, 0, 0.10);
-    position: relative;
-    transition: background 0.3s;
+  border-radius: 36px;
+  background: #003324;
+  overflow: hidden;
+  box-shadow: 8px 16px 32px 0 rgba(0,0,0,0.10), 4px 8px 16px 0 rgba(255, 215, 0, 0.10);
+  position: relative;
+  transition: background 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.8s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.8s cubic-bezier(0.33, 1, 0.68, 1);
   }
   .stat-card-gradient:hover {
-    background: linear-gradient(to bottom, #2bb673 0%, #1e6a46 100%);
-    transform: translateY(-12px);
-    box-shadow: 0 24px 48px 0 rgba(0,0,0,0.18), 0 8px 32px 0 rgba(255, 215, 0, 0.18);
-    transition: background 0.3s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  background: #014A2D;
+  transform: translateY(-12px);
+  box-shadow: 0 24px 48px 0 rgba(0,0,0,0.18), 0 8px 32px 0 rgba(255, 215, 0, 0.18);
+  transition: background 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .stat-card-gradient {
-    /* Khi hover out, thả xuống chậm hơn */
-    transition: background 0.3s, transform 0.8s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+    background: #003324;
+    transition: background 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.8s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.8s cubic-bezier(0.33, 1, 0.68, 1);
   }
   .stat-card-gradient:hover .card-shine {
     opacity: 1;
     transition: opacity 0.3s;
   }
+    .stat-card-gradient:hover {
+  /* background: #8fffd2; */
+    }
   </style>
  </section>
 
