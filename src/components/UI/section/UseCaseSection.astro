@@ -77,7 +77,7 @@ function handleClick(idx: number) {
 }
 </style>
 
-<section class="px-0 py-[34px]" style="background: #003324;">
+<section class="px-0 pt-[50px] pb-[34px]" style="background: #003324;">
   <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">
   Your Beauty — Our Commitment
   </h2>
@@ -124,7 +124,7 @@ function handleClick(idx: number) {
               description: data.desc || uc.body?.slice(0, 120) || '',
               techs,
             };
-            return <UseCaseCard uc={mapped} expanded={expandedIndex === idx} />;
+            return <UseCaseCard uc={mapped} expanded={expandedIndex === idx} avatarIndex={idx} />;
           })}
         </div>
       </div>
