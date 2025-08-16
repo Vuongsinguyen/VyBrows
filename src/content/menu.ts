@@ -13,6 +13,20 @@ export const menus: Record<string, MenuItem[]> = {
   en: [
     { label: 'HOME', href: '/en/', title: 'Home', description: 'Go to homepage' },
     {
+      label: 'SERVICES', href: '/en/#services', title: 'Services', description: 'Our services',
+      children: [
+        { href: '/en/service/web-development', title: 'WEB DEVELOPMENT', description: 'Modern and responsive websites', label: 'WEB DEVELOPMENT' },
+        { href: '/en/service/mobile-app', title: 'MOBILE APPS', description: 'Professional iOS and Android apps', label: 'MOBILE APPS' },
+        { href: '/en/service/design', title: 'UI/UX DESIGN', description: 'Beautiful and user-friendly interfaces', label: 'UI/UX DESIGN' },
+        { href: '/en/service/consulting', title: 'IT CONSULTING', description: 'Comprehensive technology solutions', label: 'IT CONSULTING' },
+        { href: '/en/service/ai', title: 'AI SOLUTIONS', description: 'Artificial Intelligence and Machine Learning', label: 'AI SOLUTIONS' },
+        { href: '/en/service/iot', title: 'IOT SOLUTIONS', description: 'Internet of Things and smart devices', label: 'IOT SOLUTIONS' },
+        { href: '/en/service/cloud', title: 'CLOUD SERVICES', description: 'Cloud migration and management', label: 'CLOUD SERVICES' },
+        { href: '/en/service/testing', title: 'TESTING & QA', description: 'Quality assurance and software testing', label: 'TESTING & QA' },
+        { href: '/en/service/maintenance', title: 'MAINTENANCE & SUPPORT', description: 'Ongoing support and maintenance', label: 'MAINTENANCE & SUPPORT' }
+      ]
+    },
+    {
       label: 'ABOUT US', href: '/en/about-us', title: 'About Us', description: 'Learn about ARIS Vietnam',
       children: [
         { href: '/en/about-us#overview', label: 'OVERVIEW', title: 'Overview', description: 'Overview' },
@@ -31,38 +45,17 @@ export const menus: Record<string, MenuItem[]> = {
       ]
     },
     {
-      label: 'PROJECTS',
-      href: '/en/projects',
-      title: 'Projects',
-      description: 'Our project portfolio',
-      children: [
-        { href: '/en/projects/project-001/ai-chatbot', label: 'AI CHATBOT', title: 'AI Chatbot', description: 'AI Chatbot' },
-        { href: '/en/projects/project-002/e-commerce-platform', label: 'E-COMMERCE PLATFORM', title: 'E-Commerce Platform', description: 'E-Commerce Platform' },
-        { href: '/en/projects/project-003/iot-dashboard', label: 'IOT DASHBOARD', title: 'IoT Dashboard', description: 'IoT Dashboard' },
-        { href: '/en/projects/project-004/mobile-banking-app', label: 'MOBILE BANKING APP', title: 'Mobile Banking App', description: 'Mobile Banking App' },
-        { href: '/en/projects/project-005/portfolio-website', label: 'PORTFOLIO WEBSITE', title: 'Portfolio Website', description: 'Portfolio Website' },
-        { href: '/en/projects/project-006/project-001', label: 'PROJECT 001', title: 'Project 001', description: 'Project 001' },
-        { href: '/en/projects/project-007/project-002', label: 'PROJECT 002', title: 'Project 002', description: 'Project 002' },
-        { href: '/en/projects/project-008/project-003', label: 'PROJECT 003', title: 'Project 003', description: 'Project 003' }
-      ]
+      label: 'TRAINING', href: '/en/training', title: 'Training', description: 'Training programs and workshops'
     },
     {
-      label: 'SERVICES', href: '/en/#services', title: 'Services', description: 'Our services',
-      children: [
-        { href: '/en/service/web-development', title: 'WEB DEVELOPMENT', description: 'Modern and responsive websites', label: 'WEB DEVELOPMENT' },
-        { href: '/en/service/mobile-app', title: 'MOBILE APPS', description: 'Professional iOS and Android apps', label: 'MOBILE APPS' },
-        { href: '/en/service/design', title: 'UI/UX DESIGN', description: 'Beautiful and user-friendly interfaces', label: 'UI/UX DESIGN' },
-        { href: '/en/service/consulting', title: 'IT CONSULTING', description: 'Comprehensive technology solutions', label: 'IT CONSULTING' },
-        { href: '/en/service/ai', title: 'AI SOLUTIONS', description: 'Artificial Intelligence and Machine Learning', label: 'AI SOLUTIONS' },
-        { href: '/en/service/iot', title: 'IOT SOLUTIONS', description: 'Internet of Things and smart devices', label: 'IOT SOLUTIONS' },
-        { href: '/en/service/cloud', title: 'CLOUD SERVICES', description: 'Cloud migration and management', label: 'CLOUD SERVICES' },
-        { href: '/en/service/testing', title: 'TESTING & QA', description: 'Quality assurance and software testing', label: 'TESTING & QA' },
-        { href: '/en/service/maintenance', title: 'MAINTENANCE & SUPPORT', description: 'Ongoing support and maintenance', label: 'MAINTENANCE & SUPPORT' }
-      ]
+      label: 'SOLUTIONS', href: '/en/solutions', title: 'Solutions', description: 'Our solutions'
     },
-    { label: 'NEWS', href: '/en/news', title: 'News', description: 'Latest news and updates' },
-    { label: 'TRAINING', href: '/en/training', title: 'Training', description: 'Training programs and workshops' },
-    { label: 'CONTACT', href: '/en/#contact', title: 'Contact', description: 'Contact us' }
+    {
+      label: 'COMMUNICATION', href: '/en/communication', title: 'Communication', description: 'Communication'
+    },
+    {
+      label: 'CONTACT', href: '/en/#contact', title: 'Contact', description: 'Contact us'
+    }
   ],
   vi: [
     { label: 'TRANG CHỦ', href: '/vi/', title: 'Trang chủ', description: 'Về trang chủ' },
