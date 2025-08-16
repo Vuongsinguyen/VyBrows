@@ -1,6 +1,6 @@
 ---
 // FooterSection.astro - Professional footer with 4 columns
-import { menus } from '../../../content/menu.ts';
+import { getServiceMenu, menus } from '../../../content/menu.ts';
 export interface Props {
   class?: string;
 }
@@ -11,9 +11,8 @@ const { class: customClass = '' } = Astro.props;
 const currentLang = Astro.url.pathname.split('/')[1] || 'en';
 const menuItems = menus[currentLang] || menus['en'];
 
-// Lấy danh sách dịch vụ từ menu.ts (service menu)
-const serviceMenu = menuItems.find(item => item.label?.toLowerCase().includes('service') || item.label?.toLowerCase().includes('dịch vụ') || item.label?.toLowerCase().includes('サービス'));
-const serviceLinks = serviceMenu?.children || [];
+// Lấy danh sách dịch vụ từ getServiceMenu (async)
+const serviceLinks = await getServiceMenu(currentLang);
 
 const socialLinks = [
   {
@@ -41,7 +40,7 @@ const socialLinks = [
       
       <!-- Services Column -->
       <div>
-        <h3 class="text-lg font-bold uppercase tracking-wide mb-6">{serviceMenu?.label || 'SERVICES'}</h3>
+  <h3 class="text-lg font-bold uppercase tracking-wide mb-6">SERVICES</h3>
         <ul class="space-y-3">
           {serviceLinks.map((service) => (
             <li>
