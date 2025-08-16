@@ -53,24 +53,24 @@ const stats = [
 ];
 ---
 
-<section class="px-6 py-16" style="background: var(--color-bg);">
+<section class="px-6 py-16" style="background: #003324;">
   <div class="max-w-6xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-black);">
         {
           Astro.url.pathname.startsWith('/vi') ? 'Tại Sao Chọn Chúng Tôi?'
-          : Astro.url.pathname.startsWith('/ja') ? 'Por qué elegirnos?'
+          : Astro.url.pathname.startsWith('/es') ? 'Por qué elegirnos?'
           : 'Why Choose Us?'
         }
       </h2>
-      <p class="text-xl max-w-3xl mx-auto" style="color: var(--color-text-secondary);">
+  <p class="text-xl max-w-3xl mx-auto font-lora" style="color: var(--color-text-secondary); font-family: 'Lora', serif;">
         {
           Astro.url.pathname.startsWith('/vi')
-            ? 'Chúng tôi là công ty công nghệ hàng đầu chuyên về các giải pháp số sáng tạo giúp chuyển đổi doanh nghiệp và thúc đẩy tăng trưởng trong kỷ nguyên số.'
-            : Astro.url.pathname.startsWith('/ja')
-            ? '私たちは、革新的なデジタルソリューションを専門とする先進的なテクノロジー企業であり、企業の変革と成長を支援します。'
-            : 'We are a leading technology company specializing in innovative digital solutions that transform businesses and drive growth in the digital age.'
+            ? 'Tại VyBrows Academy, chúng tôi kết hợp chuyên môn, sự sáng tạo và niềm đam mê để mang đến dịch vụ và đào tạo PMU đẳng cấp quốc tế. Với hơn 20 năm kinh nghiệm, chúng tôi đảm bảo kỹ thuật an toàn, nhẹ nhàng, không đau và kết quả tự nhiên, rạng rỡ, tôn vinh vẻ đẹp của bạn một cách dễ dàng.'
+            : Astro.url.pathname.startsWith('/es')
+            ? 'En VyBrows Academy, combinamos experiencia, innovación y pasión para ofrecer servicios y capacitación de PMU de clase mundial. Con más de 20 años de experiencia, garantizamos técnicas seguras, indoloras y resultados naturales y deslumbrantes que realzan tu belleza sin esfuerzo.'
+            : 'At VyBrows Academy, we combine expertise, innovation, and passion to deliver world-class PMU services and training. With over 20 years of experience, we ensure safe, painless techniques and natural, stunning results that enhance your beauty effortlessly.'
         }
       </p>
     </div>
