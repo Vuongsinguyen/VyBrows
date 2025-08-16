@@ -20,7 +20,7 @@ const stats = [
     label:
       currentLang === 'vi' ? 'Dự án hoàn thành'
       : currentLang === 'ja' ? '件のプロジェクト完了'
-      : 'Projects Completed',
+  : 'Trainings Completed',
     color: 'emerald-600',
     darkColor: 'emerald-400',
     bg: 'from-emerald-50 to-emerald-100',
@@ -58,13 +58,14 @@ const stats = [
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-black);">
+  <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-black2white); font-family: 'Lora', serif;">
         {
           Astro.url.pathname.startsWith('/vi') ? 'Tại Sao Chọn Chúng Tôi?'
           : Astro.url.pathname.startsWith('/es') ? 'Por qué elegirnos?'
           : 'Why Choose Us?'
         }
       </h2>
-  <p class="text-xl max-w-3xl mx-auto font-lora" style="color: var(--color-text-secondary); font-family: 'Lora', serif;">
+  <p class="text-xl max-w-3xl mx-auto font-lora" style="color: var(--color-bg); font-family: 'Lora', serif; opacity: 0.9;">
         {
           Astro.url.pathname.startsWith('/vi')
             ? 'Tại VyBrows Academy, chúng tôi kết hợp chuyên môn, sự sáng tạo và niềm đam mê để mang đến dịch vụ và đào tạo PMU đẳng cấp quốc tế. Với hơn 20 năm kinh nghiệm, chúng tôi đảm bảo kỹ thuật an toàn, nhẹ nhàng, không đau và kết quả tự nhiên, rạng rỡ, tôn vinh vẻ đẹp của bạn một cách dễ dàng.'
@@ -78,62 +79,136 @@ const stats = [
     <!-- Main Content Grid -->
     <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
       <!-- Left Content -->
-      <div class="space-y-6">
+  <div class="space-y-6" x-data="{ open: 0 }">
         <div class="space-y-4">
-          <h3 class="text-2xl font-semibold" style="color: var(--color-text);">
-            {
-              currentLang === 'vi' ? 'Sứ mệnh của chúng tôi'
-              : currentLang === 'ja' ? '私たちのミッション'
-              : 'Our Mission'
-            }
+          <h3 class="text-2xl font-semibold cursor-pointer flex items-center gap-2" style="color: var(--color-black2white); font-family: 'Lora', serif; text-transform: uppercase;" @click="open = 0">
+            <span>
+              {
+                currentLang === 'vi' ? 'SỨ MỆNH CỦA CHÚNG TÔI'
+                : currentLang === 'ja' ? '私たちのミッション'.toUpperCase()
+                : 'EXPERTISE & EXPERIENCE'
+              }
+            </span>
+            <svg :class="open === 0 ? 'rotate-180' : ''" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </h3>
-          <p class="leading-relaxed" style="color: var(--color-text-secondary);">
-            {
-              currentLang === 'vi'
-                ? 'Trao quyền cho doanh nghiệp bằng các giải pháp công nghệ tiên tiến giúp tăng năng suất, tối ưu vận hành và tạo ra trải nghiệm người dùng xuất sắc. Chúng tôi tin vào sự đổi mới tạo ra giá trị thực.'
-                : currentLang === 'ja'
-                ? '最先端の技術ソリューションで企業の生産性を高め、業務を効率化し、優れたユーザー体験を創出します。私たちは本当に価値あるイノベーションを信じています。'
-                : 'To empower businesses with cutting-edge technology solutions that enhance productivity, streamline operations, and create exceptional user experiences. We believe in innovation that makes a real difference.'
-            }
-          </p>
+          <template x-if="open === 0">
+            <p class="leading-relaxed transition-all duration-300" style="color: var(--color-black2white); opacity: 0.6;">
+              {
+                currentLang === 'vi'
+                  ? 'Trao quyền cho doanh nghiệp bằng các giải pháp công nghệ tiên tiến giúp tăng năng suất, tối ưu vận hành và tạo ra trải nghiệm người dùng xuất sắc. Chúng tôi tin vào sự đổi mới tạo ra giá trị thực.'
+                  : currentLang === 'ja'
+                  ? '最先端の技術ソリューションで企業の生産性を高め、業務を効率化し、優れたユーザー体験を創出します。私たちは本当に価値あるイノベーションを信じています。'
+                  : 'To empower businesses with cutting-edge technology solutions that enhance productivity, streamline operations, and create exceptional user experiences. We believe in innovation that makes a real difference.'
+              }
+            </p>
+          </template>
         </div>
 
         <div class="space-y-4">
-          <h3 class="text-2xl font-semibold" style="color: var(--color-text);">
-            {
-              currentLang === 'vi' ? 'Tầm nhìn của chúng tôi'
-              : currentLang === 'ja' ? '私たちのビジョン'
-              : 'Our Vision'
-            }
+          <h3 class="text-2xl font-semibold cursor-pointer flex items-center gap-2" style="color: var(--color-black2white); font-family: 'Lora', serif; text-transform: uppercase;" @click="open = 1">
+            <span>
+              {
+                currentLang === 'vi' ? 'TẦM NHÌN CỦA CHÚNG TÔI'
+                : currentLang === 'es' ? '私たちのビジョン'.toUpperCase()
+                : 'SAFE & PAINLESS TECHNIQUES'
+              }
+            </span>
+            <svg :class="open === 1 ? 'rotate-180' : ''" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </h3>
-          <p class="leading-relaxed" style="color: var(--color-text-secondary);">
-            {
-              currentLang === 'vi'
-                ? 'Trở thành đối tác tin cậy trong chuyển đổi số, giúp doanh nghiệp tự tin thích ứng với công nghệ mới và tăng trưởng bền vững nhờ các giải pháp sáng tạo.'
-                : currentLang === 'ja'
-                ? 'デジタル変革の信頼できるパートナーとして、企業が進化する技術環境に自信を持って対応し、革新的なソリューションで持続的な成長を実現します。'
-                : 'To be the trusted partner for digital transformation, helping companies navigate the evolving technological landscape with confidence and achieve sustainable growth through innovative solutions.'
-            }
-          </p>
+          <template x-if="open === 1">
+            <p class="leading-relaxed transition-all duration-300" style="color: var(--color-black2white); opacity: 0.6;">
+              {
+                currentLang === 'vi'
+                  ? 'Trở thành đối tác tin cậy trong chuyển đổi số, giúp doanh nghiệp tự tin thích ứng với công nghệ mới và tăng trưởng bền vững nhờ các giải pháp sáng tạo.'
+                  : currentLang === 'es'
+                  ? 'デジタル変革の信頼できるパートナーとして、企業が進化する技術環境に自信を持って対応し、革新的なソリューションで持続的な成長を実現します。'
+                  : 'To be the trusted partner for digital transformation, helping companies navigate the evolving technological landscape with confidence and achieve sustainable growth through innovative solutions.'
+              }
+            </p>
+          </template>
+        </div>
+        <div class="space-y-4">
+          <h3 class="text-2xl font-semibold cursor-pointer flex items-center gap-2" style="color: var(--color-black2white); font-family: 'Lora', serif; text-transform: uppercase;" @click="open = 2">
+            <span>
+              {
+                currentLang === 'vi' ? 'TẦM NHÌN CỦA CHÚNG TÔI'
+                : currentLang === 'es' ? '私たちのビジョン'.toUpperCase()
+                : 'WORLD-CLASS TRAINING'
+              }
+            </span>
+            <svg :class="open === 2 ? 'rotate-180' : ''" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </h3>
+          <template x-if="open === 2">
+            <p class="leading-relaxed transition-all duration-300" style="color: var(--color-black2white); opacity: 0.6;">
+              {
+                currentLang === 'vi'
+                  ? 'Trở thành đối tác tin cậy trong chuyển đổi số, giúp doanh nghiệp tự tin thích ứng với công nghệ mới và tăng trưởng bền vững nhờ các giải pháp sáng tạo.'
+                  : currentLang === 'es'
+                  ? 'デジタル変革の信頼できるパートナーとして、企業が進化する技術環境に自信を持って対応し、革新的なソリューションで持続的な成長を実現します。'
+                  : 'To be the trusted partner for digital transformation, helping companies navigate the evolving technological landscape with confidence and achieve sustainable growth through innovative solutions.'
+              }
+            </p>
+          </template>
+        </div>
+        <div class="space-y-4">
+          <h3 class="text-2xl font-semibold cursor-pointer flex items-center gap-2" style="color: var(--color-black2white); font-family: 'Lora', serif; text-transform: uppercase;" @click="open = 3">
+            <span>
+              {
+                currentLang === 'vi' ? 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ'
+                : currentLang === 'es' ? 'RESULTADOS NATURALES Y DESLUMBRANTES'.toUpperCase()
+                : 'NATUAL & STUNNING RESULTS'
+              }
+            </span>
+            <svg :class="open === 3 ? 'rotate-180' : ''" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </h3>
+          <template x-if="open === 3">
+            <p class="leading-relaxed transition-all duration-300" style="color: var(--color-black2white); opacity: 0.6;">
+              {
+                currentLang === 'vi'
+                  ? 'Trở thành đối tác tin cậy trong chuyển đổi số, giúp doanh nghiệp tự tin thích ứng với công nghệ mới và tăng trưởng bền vững nhờ các giải pháp sáng tạo.'
+                  : currentLang === 'es'
+                  ? 'デジタル変革の信頼できるパートナーとして、企業が進化する技術環境に自信を持って対応し、革新的なソリューションで持続的な成長を実現します。'
+                  : 'To be the trusted partner for digital transformation, helping companies navigate the evolving technological landscape with confidence and achieve sustainable growth through innovative solutions.'
+              }
+            </p>
+          </template>
         </div>
       </div>
 
       <!-- Right Content - Stats -->
       <div class="grid grid-cols-2 gap-6">
         {stats.map((stat, idx) => (
-          <div class="rounded-2xl p-6 text-center" style="background: var(--color-card-bg);">
-            <div 
-              class="text-3xl font-bold mb-2"
-              style="color: var(--color-accent);"
-              id={`stat-anim-${idx}`}
-              data-target={stat.value}
-            >0{stat.suffix}</div>
-            <div style="color: var(--color-text-secondary);" class="font-medium">{stat.label}</div>
+          <div style="border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255,255,0.15);">
+            <div class="p-6 text-center stat-card-gradient" style="font-family: 'Lora', serif; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: inherit;">
+              <div>
+                <div 
+                  class="mb-2"
+                  style="
+                    background: linear-gradient(to top, transparent 0%, transparent 20%, var(--color-black2white) 20%, var(--color-black2white) 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    color: var(--color-black2white);
+                    font-family: 'SF Pro Display', 'Lato', 'Lora', serif;
+                    font-weight: 100;
+                    font-size: 100px;
+                  "
+                  id={`stat-anim-${idx}`}
+                  data-target={stat.value}
+                >0{stat.suffix}</div>
+                <div style="color: var(--color-bg); font-size: 1.25rem;" class="font-medium">{stat.label}</div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </div>
+  <style>
+  .stat-card-gradient {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  </style>
 </section>
 
 <script is:inline>
