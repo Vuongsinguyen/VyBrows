@@ -1,6 +1,10 @@
 ---
 import ServicesCard from "../cards/ServicesCard.astro";
 export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  link?: string;
   class?: string;
   heading?: string;
 }
@@ -23,7 +27,7 @@ const sectionTitles = {
   ja: "Servicios exclusivos de Vybrows Academy" // giữ key là ja, nội dung tiếng Tây Ban Nha
 };
 
-const sectionTitle = sectionTitles[currentLang as keyof typeof sectionTitles] || sectionTitles.en;
+const sectionTitle = heading || sectionTitles[currentLang as keyof typeof sectionTitles] || sectionTitles.en;
 
 const sectionDescriptions = {
   en: `At VyBrows Academy, permanent makeup is both an art and a science, and we’ve mastered the equation to unleash a woman’s true beauty. Every customer’s features are unique, so we attend to each of them with an exceptional level of service to deliver effortlessly natural results. Our team is trained in following the highest standards of hygiene and professionalism to ensure your comfort and safety across all our permanent makeup services.`,

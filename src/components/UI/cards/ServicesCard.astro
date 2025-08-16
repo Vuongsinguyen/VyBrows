@@ -4,11 +4,12 @@ export interface Props {
   description: string;
   image?: string;
   link?: string;
+  class?: string;
 }
-const { title, description, image, link } = Astro.props;
+const { title, description, image, link, class: customClass = "" } = Astro.props;
 ---
 
-<div class="relative" style="height: 250px; margin-bottom: 10px; background: #003324; border: 2px solid #E1C18D; border-radius: 1rem;">
+<div class={`relative ${customClass}`} style="height: 250px; margin-bottom: 10px; background: #003324; border: 2px solid #E1C18D; border-radius: 1rem;">
   <a href={link} class="block w-full h-full group relative overflow-hidden" style="height: 100%; border-radius: calc(1rem - 2px);">
   <!-- Hiệu ứng stroke vàng chạy xung quanh khi hover -->
   <div class="absolute inset-0 rounded-2xl pointer-events-none z-20 transition-all duration-300 group-hover:animate-gold-stroke"></div>
