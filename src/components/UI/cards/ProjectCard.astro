@@ -39,7 +39,7 @@ const { name, category, image1, image2, desc, features } = Astro.props;
   <!-- Overlay -->
   <div 
     class="absolute inset-0 pointer-events-none z-10 card-bg-gradient"
-    style="background: linear-gradient(0deg, #003324 90%, rgba(0,51,36,0) 100%);"
+  style="background: linear-gradient(0deg, #003324 15%, rgba(0,51,36,0) 100%);"
   ></div>
 
   <!-- Content -->
@@ -51,10 +51,10 @@ const { name, category, image1, image2, desc, features } = Astro.props;
       {name}
     </h3>
     <p 
-      class="text-sm text-on-surface/70 mb-3 font-lora" 
-      style="font-family: 'Lora', serif; color: var(--color-bg);"
+  class="text-sm text-on-surface/70 mb-3" 
+  style="font-family: 'SF Pro Display', 'SF Pro Text', 'San Francisco', Arial, sans-serif; color: var(--color-bg);"
     >
-      {desc}
+  {name === 'Emily Bui' ? 'GENERAL MANAGER / INSTRUCTOR' : name === 'Vy Nguyen' ? 'CEO / FOUNDER / CONSTRUCTOR' : desc === 'A dashboard for monitoring and managing IoT devices in real time.' ? 'VICE PRESIDENT / INSTRUCTOR' : desc === 'A secure and user-friendly mobile banking application for enterprises.' ? 'CHIEF ASSISTANT' : desc}
     </p>
     {features && features.length > 0 && (
       <ul class="list-disc list-inside text-sm text-on-surface/80 mb-4">
@@ -64,8 +64,8 @@ const { name, category, image1, image2, desc, features } = Astro.props;
       </ul>
     )}
     <button 
-      class="center-course-btn px-6 py-2 rounded-full font-lora text-base font-semibold bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 text-[#003324] shadow-lg"
-      style="font-family: 'Lora', serif;"
+  class="center-course-btn px-6 py-2 rounded-full font-lora text-base font-semibold bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 text-[#003324] shadow-lg border border-yellow-300"
+  style="font-family: 'Lora', serif;"
     >
       Find Course
     </button>
@@ -93,6 +93,7 @@ const { name, category, image1, image2, desc, features } = Astro.props;
       margin-left: auto;
       margin-right: auto;
       z-index: 30;
+      margin-bottom: 50px;
     }
   </style>
 </div>
