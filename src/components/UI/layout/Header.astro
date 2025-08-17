@@ -17,12 +17,21 @@ const { class: customClass = '' } = Astro.props;
 </header>
 
 <style>
-  /* slide header up by 170px when scrolling down */
+  /* slide header up by different amounts on mobile vs desktop */
   #header-container {
     transition: transform 0.5s ease;
   }
-  #header-container.scrolled {
-    transform: translateY(-170px);
+  /* desktop: hide full header area (~170px) */
+  @media (min-width: 768px) {
+    #header-container.scrolled {
+      transform: translateY(-170px);
+    }
+  }
+  /* mobile: hide only 70px */
+  @media (max-width: 767px) {
+    #header-container.scrolled {
+      transform: translateY(-40px);
+    }
   }
 </style>
 
