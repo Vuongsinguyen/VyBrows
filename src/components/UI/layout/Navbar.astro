@@ -255,9 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
   style="background: var(--color-navbar); padding-bottom: 10px;"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="flex flex-col items-center justify-center">
+  <div class="flex flex-row items-center justify-between md:flex-col md:items-center md:justify-center">
     <!-- Logo/Brand Centered -->
-    <div id="logo-wrapper" class="w-full flex justify-center py-2 transition-all duration-300">
+    <div id="logo-wrapper" class="w-auto flex-shrink-0 flex justify-center py-2 transition-all duration-300 md:w-full md:justify-center">
       <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="flex items-center">
   <img id="navbar-logo" src="/logo.webp" alt="ARIS VIETNAM" class="w-[240px] transition-transform duration-300" style="height: auto; color: var(--color-blue2white); transform: scale(1);" />
       </a>
