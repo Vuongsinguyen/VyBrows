@@ -1,5 +1,5 @@
 ---
-title: DETOX SCALP & HERBAL HAIR WASH
+title: DETOX & HERBAL HAIR WASH
 lang: en
 slug: detox-scalp-&-herbal-hair-wash
 order: 3
