@@ -1,13 +1,32 @@
 ---
 import CompareCard from '../cards/CompareCard.astro';
 
-// define 4 items to render
-const compareItems = Array.from({ length: 4 }).map((_, idx) => ({
-  before:    `https://picsum.photos/seed/before${idx}/600/400`,
-  after:     `https://picsum.photos/seed/after${idx}/600/400`,
-  altBefore: `Before ${idx + 1}`,
-  altAfter:  `After ${idx + 1}`,
-}));
+const compareItems = [
+  {
+    before: '/images/Comparision/compare1_1.avif',
+    after:  '/images/Comparision/compare1_2.avif',
+    altBefore: 'Before 1',
+    altAfter:  'After 1',
+  },
+  {
+    before: '/images/Comparision/compare2_1.avif',
+    after:  '/images/Comparision/compare2_2.avif',
+    altBefore: 'Before 2',
+    altAfter:  'After 2',
+  },
+  {
+    before: '/images/Comparision/compare3_1.avif',
+    after:  '/images/Comparision/compare3_2.avif',
+    altBefore: 'Before 3',
+    altAfter:  'After 3',
+  },
+  {
+    before: '/images/Comparision/compare4_1.avif',
+    after:  '/images/Comparision/compare4_2.avif',
+    altBefore: 'Before 4',
+    altAfter:  'After 4',
+  },
+];
 ---
 
 <style global>
@@ -28,6 +47,8 @@ const compareItems = Array.from({ length: 4 }).map((_, idx) => ({
         <CompareCard
           before={item.before}
           after={item.after}
+          altBefore={item.altBefore}
+          altAfter={item.altAfter}
           width={300}
           height={300}
         />
