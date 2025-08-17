@@ -8,18 +8,38 @@ export interface Props {
 
 const { class: customClass = '' } = Astro.props;
 ---
-
 <header
   id="header-container"
-  class={`fixed top-0 left-0 right-0 z-[1000] ${customClass} border-b transition-colors duration-200`}
+  class={`fixed top-0 left-0 right-0 z-[1000] ${customClass} border-b`}
   style="border-color: #003324;"
 >
   <Navbar />
 </header>
 
+<style>
+  /* slide header up by 170px when scrolling down */
+  #header-container {
+    transition: transform 0.5s ease;
+  }
+  #header-container.scrolled {
+    transform: translateY(-170px);
+  }
+</style>
+
 <script is:inline>
-document.getElementById('theme-toggle-btn')?.addEventListener('click', () => {
-  const html = document.documentElement;
-  html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-});
+  const header = document.getElementById('header-container');
+  let lastScrollY = window.scrollY;
+  const threshold = 100; // only hide after scrolling down 100px
+
+  window.addEventListener('scroll', () => {
+    const currentY = window.scrollY;
+    if (currentY > lastScrollY && currentY > threshold) {
+      // user is scrolling down past threshold → hide header
+      header.classList.add('scrolled');
+    } else if (currentY < lastScrollY || currentY <= threshold) {
+      // user is scrolling up or hasn't passed threshold → show header
+      header.classList.remove('scrolled');
+    }
+    lastScrollY = currentY;
+  });
 </script>
