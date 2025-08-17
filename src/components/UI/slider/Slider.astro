@@ -29,8 +29,10 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
     {slides.map((slide, index) => (
       <div class={`slide ${index === 0 ? 'active' : ''} flex items-center justify-center`}>
         <div
-          class="w-full max-w-[1180px] h-[90%] rounded-[2rem] border mt-[310px] pb-[30px] mb-[80px] mx-[20px] overflow-hidden relative"
-          style="border-color: #e7d48e; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18); background: transparent; padding-bottom: 30px;"
+          class="w-full max-w-[1080px] md:max-w-[1180px] h-[90%] rounded-[2rem] border
+                 mt-[100px] md:mt-[310px]
+                 pb-[30px] mb-[80px] mx-[25px] md:mx-[20px] overflow-hidden relative"
+          style="border-color: #e7d48e; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18); background: transparent;"
         >
           <!-- Static slide image -->
           <img
