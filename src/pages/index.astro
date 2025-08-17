@@ -124,6 +124,43 @@ const slides = [
   </main>
   <!-- Footer Section -->
   <FooterSection />
+
+  <!-- Chat & Call Buttons -->
+  <div class="fixed bottom-4 right-4 flex flex-col items-end gap-[10px] z-50">
+    <!-- Secondary Call Button -->
+    <a
+      href="tel:+842812345678"
+      class="w-12 h-12 bg-green-500 text-white flex items-center justify-center rounded-lg shadow-lg hover:bg-green-600"
+    >
+      <span class="sr-only">Call us</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19 19 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12 1.21.35 2.4.68 3.55a2 2 0 01-.45 2L10 12.34a16 16 0 006.34 6.34l1.09-1.09a2 2 0 012-.45c1.15.33 2.34.56 3.55.68a2 2 0 011.72 2z"/>
+      </svg>
+    </a>
+    <!-- Call Button -->
+    <a
+      href="tel:+842812345678"
+      class="w-12 h-12 bg-green-500 text-white flex items-center justify-center rounded-lg shadow-lg hover:bg-green-600"
+    >
+      <span class="sr-only">Call us</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19 19 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12 1.21.35 2.4.68 3.55a2 2 0 01-.45 2L10 12.34a16 16 0 006.34 6.34l1.09-1.09a2 2 0 012-.45c1.15.33 2.34.56 3.55.68a2 2 0 011.72 2z"/>
+      </svg>
+    </a>
+    <!-- Messenger Chat Button -->
+    <a
+      href="https://m.me/vybrows"
+      target="_blank"
+      rel="noopener"
+      class="w-12 h-12 bg-[#0084FF] text-white flex items-center justify-center rounded-lg shadow-lg hover:bg-[#006FCC]"
+    >
+      <span class="sr-only">Open Messenger chat</span>
+      <!-- Chat icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 3.37 1.7 6.34 4.29 8.22L6 22l2.08-1.09C10.06 21.18 11.99 22 14 22c5.52 0 10-4.48 10-10S17.52 2 12 2zM9.5 13.5l2.5-2.5 3 3 4-4-9-9-4 4 3 3L9.5 13.5z"/>
+      </svg>
+    </a>
+  </div>
 </MainLayout>
 
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">

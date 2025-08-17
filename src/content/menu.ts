@@ -44,11 +44,6 @@ export const menus: Record<string, MenuItem[]> = {
         { href: '/en/about-us#why-choose-us', label: 'WHY CHOOSE US?', title: 'Why Choose Us?', description: 'Why Choose Us?' },
         { href: '/en/about-us#our-customer', label: 'OUR CUSTOMER', title: 'Our Customer', description: 'Our Customer' },
         { href: '/en/about-us#skills', label: 'SKILL & ABILITIES', title: 'Skill & Abilities', description: 'Skill & Abilities' },
-        { href: '/en/about-us#technologies', label: 'TECHNOLOGIES', title: 'Technologies', description: 'Technologies' },
-        { href: '/en/about-us#project-flow', label: 'PROJECT FLOW', title: 'Project Flow', description: 'Project Flow' },
-        { href: '/en/about-us#team-structure', label: 'PROJECT TEAM STRUCTURE', title: 'Project Team Structure', description: 'Project Team Structure' },
-        { href: '/en/about-us#sustainability', label: 'SUSTAINABILITY', title: 'Sustainability', description: 'Sustainability' },
-        { href: '/en/about-us#community', label: 'COMMUNITY CONNECT', title: 'Community Connect', description: 'Community Connect' }
       ]
     },
     {
@@ -77,11 +72,6 @@ export const menus: Record<string, MenuItem[]> = {
         { href: '/vi/about-us#why-choose-us', label: 'TẠI SAO CHỌN CHÚNG TÔI?', title: 'Tại sao chọn chúng tôi?', description: 'Tại sao chọn chúng tôi?' },
         { href: '/vi/about-us#our-customer', label: 'KHÁCH HÀNG', title: 'Khách hàng', description: 'Khách hàng' },
         { href: '/vi/about-us#skills', label: 'KỸ NĂNG & NĂNG LỰC', title: 'Kỹ năng & Năng lực', description: 'Kỹ năng & Năng lực' },
-        { href: '/vi/about-us#technologies', label: 'CÔNG NGHỆ', title: 'Công nghệ', description: 'Công nghệ' },
-        { href: '/vi/about-us#project-flow', label: 'QUY TRÌNH DỰ ÁN', title: 'Quy trình dự án', description: 'Quy trình dự án' },
-        { href: '/vi/about-us#team-structure', label: 'CƠ CẤU DỰ ÁN', title: 'Cơ cấu dự án', description: 'Cơ cấu dự án' },
-        { href: '/vi/about-us#sustainability', label: 'PHÁT TRIỂN BỀN VỮNG', title: 'Phát triển bền vững', description: 'Phát triển bền vững' },
-        { href: '/vi/about-us#community', label: 'KẾT NỐI CỘNG ĐỒNG', title: 'Kết nối cộng đồng', description: 'Kết nối cộng đồng' }
       ]
     },
     { label: 'DỰ ÁN', href: '/vi/projects', title: 'Dự án', description: 'Danh mục dự án' },
@@ -116,11 +106,6 @@ export const menus: Record<string, MenuItem[]> = {
         { href: '/ja/about-us#why-choose-us', label: '¿POR QUÉ ELEGIRNOS?', title: '¿Por qué elegirnos?', description: '¿Por qué elegirnos?' },
         { href: '/ja/about-us#our-customer', label: 'CLIENTES', title: 'Clientes', description: 'Clientes' },
         { href: '/ja/about-us#skills', label: 'HABILIDADES Y CAPACIDADES', title: 'Habilidades y Capacidades', description: 'Habilidades y Capacidades' },
-        { href: '/ja/about-us#technologies', label: 'TECNOLOGÍAS', title: 'Tecnologías', description: 'Tecnologías' },
-        { href: '/ja/about-us#project-flow', label: 'FLUJO DE PROYECTO', title: 'Flujo de Proyecto', description: 'Flujo de Proyecto' },
-        { href: '/ja/about-us#team-structure', label: 'ESTRUCTURA DEL EQUIPO', title: 'Estructura del Equipo', description: 'Estructura del Equipo' },
-        { href: '/ja/about-us#sustainability', label: 'SOSTENIBILIDAD', title: 'Sostenibilidad', description: 'Sostenibilidad' },
-        { href: '/ja/about-us#community', label: 'CONEXIÓN COMUNITARIA', title: 'Conexión Comunitaria', description: 'Conexión Comunitaria' }
       ]
     },
     { label: 'PROYECTOS', href: '/ja/projects', title: 'Proyectos', description: 'Lista de proyectos' },

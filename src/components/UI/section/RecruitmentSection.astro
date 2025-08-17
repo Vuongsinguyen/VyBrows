@@ -1,14 +1,14 @@
 ---
 const jobs = [
   {
-    title: "Frontend Developer",
+    title: "🌸 We’re Hiring Beauty Artists",
     location: "Hanoi, Vietnam",
     level: "Senior",
     expDate: "2025-08-31",
     description: "Work with React, Astro, and Tailwind to build modern web apps."
   },
   {
-    title: "AI Engineer",
+    title: "🎓 Join Our Beauty Training",
     location: "Remote",
     level: "Internship",
     expDate: "2025-09-15",
@@ -18,32 +18,41 @@ const jobs = [
 import Button from '../shared/Button.astro';
 ---
 
-<section class="px-6 py-16" style="background: var(--color-blue-bg, #2563eb);">
+<section class="px-6 py-16" style="background: var(--color-bg);">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-8" style="color: var(--color-text);">
-       Recruitment
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 font-lora" style="color: var(--color-text); font-family: 'Lora', serif;">
+      Be Part of Our Journey
     </h2>
     <div class="grid md:grid-cols-2 gap-8">
-      {jobs.map(job => (
+  {jobs.map(job => (
         <div
-          class="rounded-2xl p-6 shadow-lg flex flex-col hover:shadow-2xl hover:-translate-y-1 transition duration-200 bg-white/80 dark:bg-gray-800/80"
-          style="background: var(--color-card-bg);"
+          class="rounded-2xl p-6 shadow-lg flex flex-col hover:shadow-2xl hover:-translate-y-1 transition duration-200"
+          style="background: #003324;"
         >
-          <div class="text-xl font-semibold mb-2" style="color: var(--color-text);">{job.title}</div>
-          <div class="flex items-center gap-2 mb-2">
-            <span class="text-sm font-medium" style="color: var(--color-accent);">{job.location}</span>
-            <span class="text-xs px-2 py-1 rounded" style="background: var(--color-accent-bg); color: var(--color-text-secondary);">{job.level}</span>
+          <div class="text-xl font-semibold mb-2 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">{job.title}</div>
+          <div class="text-xs mb-4" style="color: var(--color-bg);">
+            EXP Date: <span class="font-semibold" style="color: var(--color-bg);">{job.expDate}</span>
           </div>
-          <div class="mb-2" style="color: var(--color-text-secondary);">{job.description}</div>
-          <div class="text-xs mb-4" style="color: var(--color-text-secondary);">
-            EXP Date: <span class="font-semibold" style="color: var(--color-accent);">{job.expDate}</span>
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold mb-2 font-lora" style="color: var(--color-bg); font-family: 'Lora', serif;">Requirements</h3>
+            <ul class="list-disc list-inside mb-4" style="color: var(--color-bg);">
+              <li>Experience in beauty industry (certificate preferred)</li>
+              <li>Passionate, professional & eager to learn</li>
+            </ul>
+            <h3 class="text-xl font-semibold mb-2 font-lora" style="color: var(--color-bg); font-family: 'Lora', serif;">Benefits</h3>
+            <ul class="list-disc list-inside" style="color: var(--color-bg);">
+              <li>Competitive income + bonus</li>
+              <li>Expert training & skill development</li>
+              <li>Friendly, modern work environment</li>
+            </ul>
           </div>
           <div class="flex justify-end mt-auto">
             <Button
               href="mailto:contact@arisvietnam.com"
-              variant="primary"
+              variant="ghost"
+              class="text-yellow-400 border border-yellow-400 hover:text-yellow-800 hover:bg-yellow-50"
             >
-              View Detail
+              APPLY NOW
             </Button>
           </div>
         </div>

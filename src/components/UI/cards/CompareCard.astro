@@ -12,7 +12,7 @@ const {
   before,
   after,
   altBefore = "Before",
-  altAfter  = "After",
+  altAfter  = "After with VyBrows",
   width     = 600,
   height    = 400
 } = Astro.props;
@@ -108,7 +108,10 @@ const maxWidth = width + 60;
   z-index: 4;
 }
 .compare-label.before { left: 0.5rem; }
-.compare-label.after  { right: 0.5rem; }
+.compare-label.after  {
+  right: 0.5rem;
+  background: #005333; /* light yellow */
+}
 </style>
 
 <div
@@ -139,44 +142,44 @@ const maxWidth = width + 60;
   <div class="compare-label after">{afterLabel}</div>
 </div>
 
-<script is:client>
+<script>
 (() => {
-  document.querySelectorAll('.compare-container').forEach(container => {
-    const overlay = container.querySelector('.compare-overlay');
-    const slider  = container.querySelector('.compare-slider');
+  document.querySelectorAll<HTMLElement>('.compare-container').forEach(container => {
+    const overlay = container.querySelector<HTMLElement>('.compare-overlay')!;
+    const slider  = container.querySelector<HTMLElement>('.compare-slider')!;
     let dragging = false;
-    let pct      = 50;
+    let pct = 50;
 
-    const update = newPct => {
+    const update = (newPct: number) => {
       pct = Math.max(0, Math.min(100, newPct));
       overlay.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-      slider.style.left      = `${pct}%`;
+      slider.style.left = `${pct}%`;
       slider.setAttribute('aria-valuenow', pct.toFixed(0));
     };
 
-    const onMove = e => {
+    const onMove = (e: MouseEvent | TouchEvent) => {
       if (!dragging) return;
       const rect = container.getBoundingClientRect();
-      const clientX = e.changedTouches
-        ? e.changedTouches[0].clientX
-        : e.clientX;
+      const clientX = (e as TouchEvent).changedTouches
+        ? (e as TouchEvent).changedTouches[0].clientX
+        : (e as MouseEvent).clientX;
       update(((clientX - rect.left) / rect.width) * 100);
     };
 
-    slider.addEventListener('mousedown',  e => { e.preventDefault(); dragging = true; });
-    window.addEventListener('mousemove',  onMove);
-    window.addEventListener('mouseup',    () => dragging = false);
+  slider.addEventListener('mousedown', (e: MouseEvent) => { e.preventDefault(); dragging = true; });
+  window.addEventListener('mousemove', onMove as EventListener);
+  window.addEventListener('mouseup', () => { dragging = false; });
 
-    slider.addEventListener('touchstart', () => dragging = true);
-    window.addEventListener('touchmove',  onMove);
-    window.addEventListener('touchend',   () => dragging = false);
+  slider.addEventListener('touchstart', () => { dragging = true; });
+  window.addEventListener('touchmove', onMove as EventListener);
+  window.addEventListener('touchend', () => { dragging = false; });
 
-    slider.addEventListener('keydown', e => {
+    slider.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft')  update(pct - 1);
       if (e.key === 'ArrowRight') update(pct + 1);
     });
 
-    window.addEventListener('resize', () => update(pct));
+  window.addEventListener('resize', () => { update(pct); });
 
     // init in the middle
     update(pct);
