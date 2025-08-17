@@ -31,16 +31,12 @@ const { slides, autoSlideInterval = 4000, class: customClass = '' } = Astro.prop
           class="w-full max-w-[1180px] h-[90%] rounded-[2rem] border mt-[310px] pb-[30px] mb-[80px] mx-[20px] overflow-hidden relative"
           style="border-color: #e7d48e; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18); background: transparent; padding-bottom: 30px;"
         >
-          {/* Static slide image */}
-          {
-            // Derive image name from index
-            (() => {
-              const idx = index + 1;
-              const name = idx < 10 ? `slide0${idx}` : `slide${idx}`;
-              const src = `/Slide/${name}.avif`;
-              return (<img src={src} alt={name} class="w-full h-full object-cover rounded-[2rem]" />);
-            })()
-          }
+          <!-- Static slide image -->
+          <img
+            src={`/images/Slide/slide${(index+1).toString().padStart(2, '0')}.avif`}
+            alt={`slide${(index+1).toString().padStart(2, '0')}`}
+            class="w-full h-full object-cover rounded-[2rem]"
+          />
         </div>
       </div>
     ))}
