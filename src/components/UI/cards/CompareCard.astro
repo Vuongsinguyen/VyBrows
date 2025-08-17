@@ -16,6 +16,13 @@ const {
   width     = 600,
   height    = 400
 } = Astro.props;
+
+// remove trailing numbers from labels
+const beforeLabel = altBefore.replace(/\s*\d+$/, '');
+const afterLabel  = altAfter.replace(/\s*\d+$/, '');
+
+// increase horizontal max-width by 60px
+const maxWidth = width + 60;
 ---
 
 <style>
@@ -27,6 +34,8 @@ const {
   max-width: var(--max-w);
   height: var(--h);
   overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .compare-base,
@@ -54,18 +63,45 @@ const {
   position: absolute;
   top: 0; bottom: 0;
   left: 50%;
-  width: 2px;               /* straight line */
-  transform: translateX(-1px);
+  width: 20px;
+  transform: translateX(-10px);
   cursor: ew-resize;
   z-index: 3;
-  background: #2196F3;       /* give the slider a color */
+  background: transparent;
 }
+
+.compare-slider::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-1px);
+  /* smooth gradient from red to cream to pink */
+  background: linear-gradient(to bottom, #ff000000 0%, #f8f7dc 50%, #e6b7b700 100%);
+}
+
+/* arrow icons inside slider */
+.compare-slider .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: calc(0.75rem + 3px);
+  color: #fff;
+  background: none;
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.25rem;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.compare-slider .arrow-left { left: -1rem; }
+.compare-slider .arrow-right { right: -1rem; }
 
 .compare-label {
   position: absolute;
   top: 0.5rem;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
+  background: rgba(0, 23, 18, 0.5);
+  color: #f8f7dc;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   font-size: 0.875rem;
@@ -77,7 +113,7 @@ const {
 
 <div
   class="compare-container"
-  style={`--max-w:${width}px;--h:${height}px;`}
+  style={`--max-w:${maxWidth}px;--h:${height}px;`}
 >
   <div class="compare-base">
     <img src={after}  alt={altAfter}  loading="lazy" />
@@ -94,13 +130,16 @@ const {
     aria-valuemin="0"
     aria-valuemax="100"
     aria-valuenow="50"
-  ></div>
+  >
+    <div class="arrow arrow-left">◀</div>
+    <div class="arrow arrow-right">▶</div>
+  </div>
 
-  <div class="compare-label before">{altBefore}</div>
-  <div class="compare-label after">{altAfter}</div>
+  <div class="compare-label before">{beforeLabel}</div>
+  <div class="compare-label after">{afterLabel}</div>
 </div>
 
-<script is:client="load">
+<script is:client>
 (() => {
   document.querySelectorAll('.compare-container').forEach(container => {
     const overlay = container.querySelector('.compare-overlay');
@@ -118,18 +157,19 @@ const {
     const onMove = e => {
       if (!dragging) return;
       const rect = container.getBoundingClientRect();
-      const clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-      const newPct = ((clientX - rect.left) / rect.width) * 100;
-      update(newPct);
+      const clientX = e.changedTouches
+        ? e.changedTouches[0].clientX
+        : e.clientX;
+      update(((clientX - rect.left) / rect.width) * 100);
     };
 
-    slider.addEventListener('mousedown',   e => { e.preventDefault(); dragging = true; });
-    window.addEventListener('mousemove',   onMove);
-    window.addEventListener('mouseup',     () => dragging = false);
+    slider.addEventListener('mousedown',  e => { e.preventDefault(); dragging = true; });
+    window.addEventListener('mousemove',  onMove);
+    window.addEventListener('mouseup',    () => dragging = false);
 
-    slider.addEventListener('touchstart',  () => dragging = true);
-    window.addEventListener('touchmove',   onMove);
-    window.addEventListener('touchend',    () => dragging = false);
+    slider.addEventListener('touchstart', () => dragging = true);
+    window.addEventListener('touchmove',  onMove);
+    window.addEventListener('touchend',   () => dragging = false);
 
     slider.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft')  update(pct - 1);
@@ -138,7 +178,7 @@ const {
 
     window.addEventListener('resize', () => update(pct));
 
-    // init center
+    // init in the middle
     update(pct);
   });
 })();

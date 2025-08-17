@@ -20,12 +20,6 @@ const compareItems = [
     altBefore: 'Before 3',
     altAfter:  'After 3',
   },
-  {
-    before: '/images/Comparision/compare4_1.avif',
-    after:  '/images/Comparision/compare4_2.avif',
-    altBefore: 'Before 4',
-    altAfter:  'After 4',
-  },
 ];
 ---
 
@@ -39,10 +33,10 @@ const compareItems = [
       class="text-4xl md:text-5xl font-bold text-center mb-8" 
       style="color: var(--color-text); font-family: 'Lora', serif;"
     >
-      And thousands of other clients have trusted and experienced our services!
+      Your Beauty — Our Commitment
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[10px]">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[20px]">
       {compareItems.map(item => (
         <CompareCard
           before={item.before}
