@@ -72,4 +72,24 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
   border: 2px solid rgba(255, 214, 10, 0.8);
   box-shadow: 0 0 8px 2px rgba(255, 214, 10, 0.6);
 }
+
+/* Disable hover‐only effects on touch devices so scrolling won't trigger hover */
+@media (hover: none) and (pointer: coarse) {
+  /* Stop the gold stroke animation */
+  .group-hover\:animate-gold-stroke {
+    animation: none !important;
+  }
+  /* Prevent image scale on touch */
+  .group-hover\:scale-110 {
+    transform: none !important;
+  }
+  /* Disable background tint on touch */
+  .group-hover\:bg-\[\#002319\] {
+    background-color: transparent !important;
+  }
+  /* Ensure description stays hidden until explicit tap */
+  .group-hover\:opacity-100 {
+    opacity: 0 !important;
+  }
+}
 </style>
