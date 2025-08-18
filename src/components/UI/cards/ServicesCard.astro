@@ -124,66 +124,29 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
 </style>
 
 <script is:inline>
-  // On touch devices, first tap “hovers” the card, second tap follows link
-  if (typeof window !== 'undefined' && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+  if (typeof window !== 'undefined'
+      && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
     document.querySelectorAll('.services-card').forEach(card => {
-      const link = card.querySelector('a')
-      let tapped = false
-      link.addEventListener('click', e => {
+      let tapped = false;
+      const link = card.querySelector('a');
+
+      card.addEventListener('click', e => {
         if (!tapped) {
-          e.preventDefault()
-          tapped = true
-          card.classList.add('hover')
-          // remove the anchor wrapper and make the card a <div>
-          <div class="block w-full h-full group relative overflow-hidden" style="height: 100%; border-radius: calc(1rem - 2px);">
-            <!-- Hiệu ứng stroke vàng chạy xung quanh khi hover -->
-            <div class="absolute inset-0 rounded-2xl pointer-events-none z-20 transition-all duration-300 group-hover:animate-gold-stroke"></div>
-            <div class="absolute inset-0 w-full h-full">
-              {image && (
-                <img
-                  src={image}
-                  alt={title}
-                  class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
-                  style="border-radius: calc(1rem - 2px);"
-                />
-              )}
-              <div class="absolute inset-0 w-full h-full pointer-events-none glitter-overlay"></div>
-              <!-- Nền xanh khi hover -->
-              <div class="absolute inset-0 w-full h-full transition-colors duration-300 group-hover:bg-[#002319] opacity-80"></div>
-            </div>
-            <div class="relative z-10 flex flex-col justify-center items-center h-full p-6">
-              <!-- Hiển thị description khi hover, nằm trên Title -->
-              <p class="text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center mb-2"
-                 style="font-family: 'Lora', serif; color: #FFD97A;">
-                {description}
-              </p>
-              <!-- Details & Book Now buttons -->
-              <div class="mt-4 flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a
-                  href={link}
-                  class="px-4 py-2 rounded-full bg-yellow-200 text-[#003324] font-semibold"
-                >
-                  Details
-                </a>
-                <a
-                  href={link}
-                  class="px-4 py-2 rounded-full bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 text-[#003324] font-semibold"
-                >
-                  Book Now
-                </a>
-              </div>
-            </div>
-          </div>
-          // rest of file unchanged
+          e.preventDefault();
+          tapped = true;
+          card.classList.add('hover');
+        } else if (link) {
+          // second tap: follow link
+          window.location.href = link.href;
         }
-      })
-      // If user taps outside, reset
+      });
+
       document.addEventListener('touchstart', e => {
         if (!card.contains(e.target)) {
-          tapped = false
-          card.classList.remove('hover')
+          tapped = false;
+          card.classList.remove('hover');
         }
-      })
-    })
+      });
+    });
   }
 </script>
