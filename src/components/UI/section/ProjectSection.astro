@@ -50,7 +50,11 @@ for (const cat of categories) {
     </p>
 
     <div class="w-full flex justify-center">
-      <div class="flex md:flex-row flex-col gap-[5px] project-container" style="margin:30px; max-width:1180px; width:100%;">
+      <div
+        class="flex md:flex-row flex-col gap-[5px] project-container
+                mx-0 md:mx-[30px]"
+        style="max-width:1180px; width:100%;"
+      >
         {projects["All"].slice(0, 4).map((proj, idx) => {
           const isWide = idx === 1;
           let cardProps = proj;
