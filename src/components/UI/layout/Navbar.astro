@@ -307,19 +307,25 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 
-  <!-- Mobile Navigation (hidden by default) -->
+  <!-- Mobile Navigation (mirror desktop menu) -->
   <div class="md:hidden hidden" id="mobile-menu">
-  <div class="px-4 pt-2 pb-3 space-y-2 bg-gray-50/95 dark:bg-gray-900/95 border-t border-gray-200/50 dark:border-gray-600/50">
-      <a href="/" class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-lora font-bold transition-colors" style="font-size:20px;">
-        <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">{t.home}</span>
-      </a>
-      
-      <!-- Mobile Dropdown Components -->
-      <MobileDropdown label={t.about} items={aboutMobileItems} />
-      <MobileDropdown label={t.services} items={serviceMobileItems} />
-      <MobileDropdown label={t.products} items={productMobileItems} />
-      <MobileDropdown label={t.news} items={newsMobileItems} />
-      <MobileDropdown label={t.contact} items={contactMobileItems} />
+    <div class="px-4 pt-2 pb-3 space-y-2 bg-gray-50/95 dark:bg-gray-900/95 border-t border-gray-200/50 dark:border-gray-600/50">
+      {menuItems.map(item => (
+        item.children && item.children.length > 0 ? (
+          <MobileDropdown
+            label={item.label}
+            items={item.children.map(child => ({ href: child.href, title: child.label }))}
+          />
+        ) : (
+          <a
+            href={item.href}
+            class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 rounded-md text-base font-lora font-bold transition-colors"
+            style="font-size:20px;"
+          >
+            <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">{item.label}</span>
+          </a>
+        )
+      ))}
     </div>
   </div>
 </nav>
