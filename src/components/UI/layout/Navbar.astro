@@ -308,26 +308,30 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 
   <!-- Mobile Navigation (mirror desktop menu) -->
-  <div class="md:hidden hidden" id="mobile-menu">
-    <div class="px-4 pt-2 pb-3 space-y-2 bg-gray-50/95 dark:bg-gray-900/95 border-t border-gray-200/50 dark:border-gray-600/50">
-      {menuItems.map(item => (
-        item.children && item.children.length > 0 ? (
-          <MobileDropdown
-            label={item.label}
-            items={item.children.map(child => ({ href: child.href, title: child.label }))}
-          />
-        ) : (
+  <div 
+    id="mobile-menu" 
+    class="md:hidden hidden" 
+    style="background: var(--color-navbar);"
+  >
+    <div class="px-4 pt-2 pb-3 space-y-2">
+       {menuItems.map(item => (
+         item.children && item.children.length > 0 ? (
+           <MobileDropdown
+             label={item.label}
+             items={item.children.map(child => ({ href: child.href, title: child.label }))}
+           />
+         ) : (
           <a
             href={item.href}
-            class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 rounded-md text-base font-lora font-bold transition-colors"
-            style="font-size:20px;"
+            class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors"
+            style="font-size:16px; color: var(--color-black2white);"
           >
-            <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">{item.label}</span>
+            {item.label}
           </a>
-        )
-      ))}
-    </div>
-  </div>
+         )
+       ))}
+     </div>
+   </div>
 </nav>
 
 <!-- Material Icons CDN -->
