@@ -39,7 +39,7 @@ function handleClick(idx: number) {
   overflow-x: auto; /* Cho phép scroll ngang */
   overflow-y: visible;
   position: relative;
-  touch-action: pan-x; /* Đảm bảo swipe ngang */
+  touch-action: pan-x pan-y; /* allow both horizontal and vertical pan */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
