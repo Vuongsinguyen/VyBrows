@@ -76,10 +76,10 @@ const stats = [
       </p>
     </div>
 
-    <!-- Main Content Grid -->
-    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+    <!-- Main Content Grid (stretch each column to equal height) -->
+    <div class="grid lg:grid-cols-2 gap-12 items-stretch mb-16">
       <!-- Left Content -->
-  <div class="space-y-6" x-data="{ open: 0 }">
+      <div class="space-y-6" x-data="{ open: 0 }">
         <div class="space-y-4">
           <h3 class="text-2xl font-semibold cursor-pointer flex items-center gap-2" style="color: var(--color-black2white); font-family: 'Lora', serif; text-transform: uppercase;" @click="open = 0">
             <span>
@@ -178,8 +178,8 @@ const stats = [
       <!-- Right Content - Stats -->
       <div class="grid grid-cols-2 gap-6">
         {stats.map((stat, idx) => (
-          <div class="stat-card-border-gradient" style="border-radius: 40px; padding: 1px;">
-            <div class="p-4 md:p-6 text-center stat-card-gradient" style="font-family: 'Lora', serif; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 38px; background: #003324;">
+          <div class="stat-card-border-gradient h-full" style="border-radius: 40px; padding: 1px;">
+            <div class="p-4 md:p-6 text-center stat-card-gradient h-full" style="font-family: 'Lora', serif; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 38px; background: #003324;">
                <div class="card-shine" id={`card-shine-${idx}`}></div>
                <div>
                  <div
@@ -189,7 +189,7 @@ const stats = [
                     mb-2
                     text-[48px]    /* mobile: 40px */
                     sm:text-[60px] /* ≥640px: 60px */
-                    md:text-[79px] /* ≥768px: 80px */
+                    md:text-[70px] /* ≥768px: 80px */
                     font-light
                     bg-gradient-to-t
                     from-transparent
