@@ -58,14 +58,40 @@ for (const cat of categories) {
         {projects["All"].slice(0, 4).map((proj, idx) => {
           const isWide = idx === 1;
           let cardProps = proj;
-          if (idx === 0) cardProps = { ...proj, name: 'Emily Bui' };
-          if (idx === 1) cardProps = { ...proj, name: 'Vy Nguyen' };
-          if (idx === 2) cardProps = { ...proj, name: 'Kim Nguyen' };
-          if (idx === 3) cardProps = { ...proj, name: 'Vanessa Nguyen' };
+          if (idx === 0) {
+            cardProps = {
+              ...proj,
+              name: 'Emily Bui',
+              image1: '/images/mem01.avif',
+              image2: '/images/mem01-2.avif'
+            };
+          }
+          if (idx === 1) {
+            cardProps = {
+              ...proj,
+              name: 'Vy Nguyen',
+              image1: '/images/mem02.avif',
+              image2: '/images/mem02-2.avif'
+            };
+          }
+          if (idx === 2) {
+            cardProps = {
+              ...proj,
+              name: 'Kim Nguyen',
+              image1: '/images/mem03.avif',
+              image2: '/images/mem03-2.avif'
+            };
+          }
+          if (idx === 3) {
+            cardProps = {
+              ...proj,
+              name: 'Vanessa Nguyen',
+              image1: '/images/mem04.avif',
+              image2: '/images/mem04-2.avif'
+            };
+          }
           return (
-            <div
-              class={`project-card-link group${isWide ? ' card-wide' : ''}`}
-            >
+            <div class={`project-card-link group${isWide ? ' card-wide' : ''}`}>
               <ProjectCard {...cardProps} />
             </div>
           );
