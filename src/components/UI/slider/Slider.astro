@@ -21,10 +21,10 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
 ---
 
 <section class={`relative overflow-hidden z-0 
-  h-[calc(70vh-30px)] md:h-[70vh] 
-  min-h-[580px] md:min-h-[680px] 
-  max-h-[calc(60vh-30px)] md:max-h-[60vh] 
-  pb-[50px] ${customClass}`}> 
+  h-[calc(50vh-30px)] md:h-[70vh] 
+  min-h-[200px] md:min-h-[680px] 
+  max-h-[calc(60vh-50px)] md:max-h-[60vh] 
+  pb-[0px] ${customClass}`}> 
   
   <!-- Canvas cho fireflies -->
   <canvas class="fireflies absolute top-0 left-0 w-full h-full z-[2] pointer-events-none"></canvas>
@@ -33,9 +33,9 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
     {slides.map((slide, index) => (
       <div class={`slide ${index === 0 ? 'active' : ''} flex items-center justify-center`}>
         <div
-          class="w-[96%] md:w-full max-w-[1080px] md:max-w-[1180px] h-[calc(90%-250px)] md:h-[90%] rounded-[2rem] border
+          class="w-[96%] md:w-full max-w-[1080px] md:max-w-[1180px] h-[calc(64%-40px)] md:h-[90%] rounded-[2rem] border
                  mt-[0px] md:mt-[310px]
-                 pb-[0px] mb-[80px] mx-auto md:mx-[20px] overflow-hidden relative"
+                 pb-[0px] mb-[225px] mx-auto md:mx-[20px] overflow-hidden relative"
           style="border-color: #e7d48e; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18); background: transparent;"
         >
           <!-- Static slide image -->
