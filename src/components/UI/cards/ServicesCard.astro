@@ -8,8 +8,8 @@ export interface Props {
 }
 const { title, description, image, link, class: customClass = "" } = Astro.props;
 ---
-
-<div class={`relative ${customClass}`} style="height: 250px; margin-bottom: 10px; background: #003324; border: 2px solid #E1C18D; border-radius: 1rem;">
+<!-- Wrap root in a marker class -->
+<div class={`services-card relative ${customClass}`} style="height: 250px; margin-bottom: 10px; background: #003324; border: 2px solid #E1C18D; border-radius: 1rem;">
   <a href={link} class="block w-full h-full group relative overflow-hidden" style="height: 100%; border-radius: calc(1rem - 2px);">
   <!-- Hiệu ứng stroke vàng chạy xung quanh khi hover -->
   <div class="absolute inset-0 rounded-2xl pointer-events-none z-20 transition-all duration-300 group-hover:animate-gold-stroke"></div>
@@ -36,6 +36,7 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
   </div>
   </div>
 </a>
+</div>
 
 <style>
 .glitter-overlay {
@@ -91,5 +92,44 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
   .group-hover\:opacity-100 {
     opacity: 0 !important;
   }
+
+  /* When .hover is applied, mimic the hover styles */
+  .services-card.hover .animate-gold-stroke {
+    animation: gold-stroke 1.2s linear infinite !important;
+  }
+  .services-card.hover img.group-hover\:scale-110 {
+    transform: scale(1.1) !important;
+  }
+  .services-card.hover .group-hover\:bg-\[\#002319\] {
+    background-color: #002319 !important;
+    opacity: 0.8 !important;
+  }
+  .services-card.hover .group-hover\:opacity-100 {
+    opacity: 1 !important;
+  }
 }
 </style>
+
+<script is:inline>
+  // On touch devices, first tap “hovers” the card, second tap follows link
+  if (typeof window !== 'undefined' && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+    document.querySelectorAll('.services-card').forEach(card => {
+      const link = card.querySelector('a')
+      let tapped = false
+      link.addEventListener('click', e => {
+        if (!tapped) {
+          e.preventDefault()
+          tapped = true
+          card.classList.add('hover')
+        }
+      })
+      // If user taps outside, reset
+      document.addEventListener('touchstart', e => {
+        if (!card.contains(e.target)) {
+          tapped = false
+          card.classList.remove('hover')
+        }
+      })
+    })
+  }
+</script>
