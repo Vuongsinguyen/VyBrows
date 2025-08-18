@@ -1,5 +1,5 @@
 ---
-name: "CRMプラットフォーム 001"
+name: "Khanh Pham"
 category: "エンタープライズ"
 industry: "IT"
 member: []

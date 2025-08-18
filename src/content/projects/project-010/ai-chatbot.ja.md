@@ -1,5 +1,5 @@
 ---
-name: "CRMプラットフォーム 001"
+name: "Duy Anh Nghiem"
 category: "エンタープライズ"
 industry: "IT"
 member: []

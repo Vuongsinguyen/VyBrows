@@ -1,6 +1,6 @@
 ---
 name: "Lowan Denise"
-category: "Enterprise"
+category: "Vuong Si Nguyen"
 industry: "IT"
 member: []
 month: 3

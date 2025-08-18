@@ -1,5 +1,5 @@
 ---
-name: "モバイルバンキングアプリ"
+name: "James Duvall"
 category: "エンタープライズ"
 industry: "IT"
 member: []

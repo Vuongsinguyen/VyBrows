@@ -1,5 +1,5 @@
 ---
-name: "Nền tảng CRM 001"
+name: "Donna Evans"
 category: "Doanh nghiệp"
 industry: "CNTT"
 member: []

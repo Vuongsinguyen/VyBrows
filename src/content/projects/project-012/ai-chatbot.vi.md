@@ -1,12 +1,12 @@
 ---
-name: "Nền tảng CRM 001"
+name: "Delia Presillas"
 category: "Doanh nghiệp"
 industry: "CNTT"
 member: []
 month: 3
 image1: "/images/prc-1.avif"
 image2: "/images/prc-2.avif"
-desc: "Quản lý quan hệ khách hàng cho doanh nghiệp."
+desc: "Emily did a fabulous job with my brows  I was so pleased with the results. May your business be blessed with more happy customers!"
 techs:
   - .NET
   - Azure

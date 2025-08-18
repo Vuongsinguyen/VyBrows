@@ -1,5 +1,5 @@
 ---
-name: "CRMプラットフォーム 001"
+name: "Le Nguyen"
 category: "エンタープライズ"
 industry: "IT"
 member: []

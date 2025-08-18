@@ -1,5 +1,5 @@
 ---
-name: "Nền tảng CRM 001"
+name: "Kat McGibb"
 category: "Doanh nghiệp"
 industry: "CNTT"
 member: []

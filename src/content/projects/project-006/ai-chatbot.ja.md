@@ -1,5 +1,5 @@
 ---
-name: "CRMプラットフォーム 001"
+name: "Kat McGibb"
 category: "エンタープライズ"
 industry: "IT"
 member: []

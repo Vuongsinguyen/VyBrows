@@ -1,5 +1,5 @@
 ---
-name: "CRMプラットフォーム 001"
+name: "Trang Do"
 category: "エンタープライズ"
 industry: "IT"
 member: []

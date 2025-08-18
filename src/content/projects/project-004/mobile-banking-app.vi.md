@@ -1,5 +1,5 @@
 ---
-name: "Ứng dụng ngân hàng di động"
+name: "James Duvall"
 category: "Doanh nghiệp"
 industry: "CNTT"
 member: []
