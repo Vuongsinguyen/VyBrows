@@ -24,80 +24,89 @@ const sendEmail = (e) => {
 };
 ---
 
-<form 
-  ref={el => formRef = el}
-  onSubmit={sendEmail}
-  class="rounded-2xl p-8 shadow-lg flex flex-col gap-4"
-  style="background: var(--color-card-bg);"
->
-  <h3 class="text-2xl font-bold mb-1 text-center font-lora" style="color: var(--color-text); font-family: 'Lora', serif;">
-    Contact Us
-  </h3>
-  <div class="text-sm text-center mb-4" style="color: var(--color-text-secondary);">
-    We will get back to you asap!
-  </div>
+<section class="px-6 py-8 bg-[#003324]">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch gap-8">
 
-  <!-- Name -->
-  <div class="relative flex-1">
-    <input
-      type="text"
-      name="name"
-      placeholder="Please enter your Name"
-      required
-      class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
-      style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
-    />
-  </div>
+    <!-- Google Map on left -->
+    <div class="w-full md:w-1/2 m-6 md:m-8 rounded-2xl shadow-lg bg-[var(--color-card-bg)] overflow-hidden">
+      <iframe
+        class="w-full h-64 md:h-[500px] object-cover"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123456789012!2d106.123456789012!3d10.123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752e1234567890%3A0xabcdef1234567890!2sVyBrows!5e0!3m2!1svi!2s!4v1234567890123"
+        frameborder="0"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
 
-  <!-- Email -->
-  <div class="relative">
-    <input
-      type="email"
-      name="email"
-      placeholder="Please enter your Email"
-      required
-      class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
-      style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
-    />
-  </div>
+    <!-- Contact Form on right -->
+    <div class="w-full md:w-1/2 m-6 md:m-8 rounded-2xl shadow-lg bg-[var(--color-card-bg)]">
+      <form
+        ref={el => formRef = el}
+        onSubmit={sendEmail}
+        class="p-8 flex flex-col gap-4"
+      >
+        <h3 class="text-2xl font-bold mb-1 text-center font-lora"
+            style="color: var(--color-text);">
+          Contact Us
+        </h3>
+        <div class="text-sm text-center mb-4" style="color: var(--color-text-secondary);">
+          We will get back to you asap!
+        </div>
 
-  <!-- Phone -->
-  <div class="relative">
-    <input
-      type="tel"
-      name="phone"
-      placeholder="Please enter your Phone number"
-      required
-      class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
-      style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
-    />
-  </div>
+        <!-- Name -->
+        <input
+          type="text"
+          name="name"
+          placeholder="Please enter your Name"
+          required
+          class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
+          style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
+        />
+        <!-- Email -->
+        <input
+          type="email"
+          name="email"
+          placeholder="Please enter your Email"
+          required
+          class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
+          style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
+        />
+        <!-- Phone -->
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Please enter your Phone number"
+          required
+          class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
+          style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
+        />
+        <!-- Services -->
+        <select
+          name="service"
+          required
+          class="pl-10 pr-3 py-2 rounded border-gray-200 w-full appearance-none"
+          style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
+        >
+          <option value="" disabled selected>Select our Signature Services</option>
+          <option value="brows">Brows</option>
+          <option value="lips">Lips</option>
+          <option value="training">Training</option>
+        </select>
 
-  <!-- Services -->
-  <div class="relative">
-    <select
-      name="service"
-      required
-      class="pl-10 pr-3 py-2 rounded border-gray-200 w-full appearance-none"
-      style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
-    >
-      <option value="" disabled selected>Select our Signature Services</option>
-      <option value="brows">Brows</option>
-      <option value="lips">Lips</option>
-      <option value="training">Training</option>
-    </select>
-  </div>
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="mx-auto inline-flex items-center justify-center px-6 rounded font-semibold font-lora transition mt-2"
+          style="background: #003324; color: var(--color-black2white); font-family: 'Lora', serif; height: 50px;"
+        >
+          Submit your Information!
+        </button>
 
-  <!-- Submit -->
-  <button
-    type="submit"
-    class="mx-auto inline-flex items-center justify-center px-6 rounded font-semibold font-lora transition mt-2"
-    style="background: #003324; color: var(--color-black2white); font-family: 'Lora', serif; height: 50px;"
-  >
-    Submit your Information!
-  </button>
-
-  <div class="text-sm text-center mt-2" style="color: var(--color-text-secondary);">
-    You may also call us at (346)-409-9999
+        <div class="text-sm text-center mt-2" style="color: var(--color-text-secondary);">
+          You may also call us at (346)-409-9999
+        </div>
+      </form>
+    </div>
   </div>
-</form>
+</section>
