@@ -10,31 +10,20 @@ const { name, category, image1, image2, features } = Astro.props;
 ---
 
 <div 
-  class="relative rounded-xl bg-surface overflow-hidden transition-all duration-300 group" 
+  class="relative rounded-xl bg-surface overflow-hidden group"
   style="height: 500px; min-height: 500px; box-shadow: 0 4px 24px 0 rgba(218, 165, 32, 0.18), 0 1.5px 6px 0 rgba(255, 215, 0, 0.12); border: 1px solid #003324;"
 >
   <!-- Background Images -->
-  {image1 && image2 ? (
-    <>
-      <img
-        src={image1}
-        alt={name}
-        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0 z-0"
-      />
-      <img
-        src={image2}
-        alt={name + ' alt'}
-        class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-0"
-      />
-    </>
-  ) : image1 ? (
-    <img 
-      src={image1} 
-      alt={name} 
-      class="absolute inset-0 w-full h-full object-cover z-0" 
+  {image1 && (
+    <img
+      src={image1}
+      alt={name}
+      class="absolute inset-0 w-full h-full object-cover z-0
+             transform transition-transform duration-300
+             group-hover:scale-105"
     />
-  ) : null}
-
+  )}
+  
   <!-- Overlay -->
   <div 
     class="absolute inset-0 pointer-events-none z-10 card-bg-gradient"

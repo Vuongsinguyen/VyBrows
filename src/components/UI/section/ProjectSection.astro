@@ -57,8 +57,10 @@ for (const cat of categories) {
       >
         {projects["All"].slice(0, 4).map((proj, idx) => {
           const isWide = idx === 1;
-          // only override text, keep original images
+          // clone props so we can override images
           const cardProps = { ...proj };
+
+          // override text
           if (idx === 0) {
             cardProps.name = 'Emily Bui';
             cardProps.category = 'GENERAL MANAGER / INSTRUCTOR';
@@ -75,6 +77,12 @@ for (const cat of categories) {
             cardProps.name = 'Vanessa Nguyen';
             cardProps.category = 'CHIEF ASSISTANT';
           }
+
+          // override images to use mem01…mem04
+          const num = String(idx + 1).padStart(2, '0');  
+          cardProps.image1 = `/images/mem${num}.avif`;
+          cardProps.image2 = `/images/mem${num}-2.avif`;
+
           return (
             <div class={`project-card-link group${isWide ? ' card-wide' : ''}`}>
               <ProjectCard {...cardProps} />
