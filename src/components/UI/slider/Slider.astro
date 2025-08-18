@@ -33,9 +33,19 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
     {slides.map((slide, index) => (
       <div class={`slide ${index === 0 ? 'active' : ''} flex items-center justify-center`}>
         <div
-          class="w-[96%] md:w-full max-w-[1080px] md:max-w-[1180px] h-[calc(64%-40px)] md:h-[90%] rounded-[2rem] border
-                 mt-[0px] md:mt-[310px]
-                 pb-[0px] mb-[225px] mx-auto md:mx-[20px] overflow-hidden relative"
+          class="
+            w-[96%] md:w-full
+            max-w-[1080px] md:max-w-[1180px]
+            h-[calc(64%-40px)] md:h-[90%]
+            rounded-[2rem] border
+            mt-[0px] md:mt-[310px]
+            pb-[0px]
+            mb-[225px]
+            mx-auto md:mx-[20px]    /* existing desktop horiz. margin */
+            md:my-[90px]            /* ↑ add 30px top/bottom margin on desktop */
+            overflow-hidden
+            relative
+          "
           style="border-color: #e7d48e; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18); background: transparent;"
         >
           <!-- Static slide image -->
