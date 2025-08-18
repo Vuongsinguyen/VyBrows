@@ -27,7 +27,7 @@ const stats = [
     darkBg: 'from-emerald-900/20 to-emerald-800/20',
   },
   {
-    value: 200,
+    value: 800,
     suffix: '+',
     label:
       currentLang === 'vi' ? 'Khách hàng hài lòng'
@@ -154,7 +154,7 @@ const stats = [
           <h3 class="text-2xl font-semibold cursor-pointer flex items-center gap-2" style="color: var(--color-black2white); font-family: 'Lora', serif; text-transform: uppercase;" @click="open = 3">
             <span>
               {
-                currentLang === 'vi' ? 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ'
+                currentLang === 'vi' ? 'KẾT QUẢ TỰ NHIÊN & RẠNG RỎ'
                 : currentLang === 'es' ? 'RESULTADOS NATURALES Y DESLUMBRANTES'.toUpperCase()
                 : 'NATUAL & STUNNING RESULTS'
               }
@@ -179,23 +179,29 @@ const stats = [
       <div class="grid grid-cols-2 gap-6">
         {stats.map((stat, idx) => (
           <div class="stat-card-border-gradient" style="border-radius: 40px; padding: 1px;">
-            <div class="p-6 text-center stat-card-gradient" style="font-family: 'Lora', serif; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 38px; background: #003324;">
-              <div class="card-shine" id={`card-shine-${idx}`}></div>
-              <div>
-                <div 
-                  class="mb-2"
-                  style="
-                    background: linear-gradient(to top, transparent 0%, transparent 20%, var(--color-black2white) 20%, var(--color-black2white) 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    color: var(--color-black2white);
-                    font-family: 'SF Pro Display', 'Lato', 'Lora', serif;
-                    font-weight: 100;
-                    font-size: 80px;
-                  "
+            <div class="p-3 md:p-6 text-center stat-card-gradient" style="font-family: 'Lora', serif; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 38px; background: #003324;">
+               <div class="card-shine" id={`card-shine-${idx}`}></div>
+               <div>
+                 <div
                   id={`stat-anim-${idx}`}
                   data-target={stat.value}
-                >0{stat.suffix}</div>
+                  class="
+                    mb-2
+                    text-[48px]    /* mobile: 40px */
+                    sm:text-[60px] /* ≥640px: 60px */
+                    md:text-[79px] /* ≥768px: 80px */
+                    font-light
+                    bg-gradient-to-t
+                    from-transparent
+                    via-[var(--color-black2white)]
+                    to-[var(--color-black2white)]
+                    bg-clip-text
+                    text-transparent
+                  "
+                  style="font-family: 'SF Pro Display','Lato','Lora', serif;"
+                >
+                  0{stat.suffix}
+                </div>
                 <div style="color: var(--color-bg); font-size: 1.25rem;" class="font-medium">{stat.label}</div>
               </div>
             </div>
