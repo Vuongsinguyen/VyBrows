@@ -57,38 +57,23 @@ for (const cat of categories) {
       >
         {projects["All"].slice(0, 4).map((proj, idx) => {
           const isWide = idx === 1;
-          let cardProps = proj;
+          // only override text, keep original images
+          const cardProps = { ...proj };
           if (idx === 0) {
-            cardProps = {
-              ...proj,
-              name: 'Emily Bui',
-              image1: '/images/mem01.avif',
-              image2: '/images/mem01-2.avif'
-            };
+            cardProps.name = 'Emily Bui';
+            cardProps.category = 'GENERAL MANAGER / INSTRUCTOR';
           }
           if (idx === 1) {
-            cardProps = {
-              ...proj,
-              name: 'Vy Nguyen',
-              image1: '/images/mem02.avif',
-              image2: '/images/mem02-2.avif'
-            };
+            cardProps.name = 'Vy Nguyen';
+            cardProps.category = 'CEO | FOUNDER / CONSTRUCTOR';
           }
           if (idx === 2) {
-            cardProps = {
-              ...proj,
-              name: 'Kim Nguyen',
-              image1: '/images/mem03.avif',
-              image2: '/images/mem03-2.avif'
-            };
+            cardProps.name = 'Kim Nguyen';
+            cardProps.category = 'VICE PRESIDENT / CONSTRUCTOR';
           }
           if (idx === 3) {
-            cardProps = {
-              ...proj,
-              name: 'Vanessa Nguyen',
-              image1: '/images/mem04.avif',
-              image2: '/images/mem04-2.avif'
-            };
+            cardProps.name = 'Vanessa Nguyen';
+            cardProps.category = 'CHIEF ASSISTANT';
           }
           return (
             <div class={`project-card-link group${isWide ? ' card-wide' : ''}`}>

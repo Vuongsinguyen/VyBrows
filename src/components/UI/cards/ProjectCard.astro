@@ -4,10 +4,9 @@ export interface Props {
   category: string;
   image1?: string;
   image2?: string;
-  desc?: string;
   features?: string[];
 }
-const { name, category, image1, image2, desc, features } = Astro.props;
+const { name, category, image1, image2, features } = Astro.props;
 ---
 
 <div 
@@ -51,11 +50,12 @@ const { name, category, image1, image2, desc, features } = Astro.props;
       {name}
     </h3>
     <p 
-  class="text-sm text-on-surface/70 mb-3" 
-  style="font-family: 'SF Pro Display', 'SF Pro Text', 'San Francisco', Arial, sans-serif; color: var(--color-bg);"
+      class="text-sm text-on-surface/70 mb-3" 
+      style="font-family: 'SF Pro Display', 'SF Pro Text', 'San Francisco', Arial, sans-serif; color: var(--color-bg);"
     >
-  {name === 'Emily Bui' ? 'GENERAL MANAGER / INSTRUCTOR' : name === 'Vy Nguyen' ? 'CEO / FOUNDER / CONSTRUCTOR' : desc === 'A dashboard for monitoring and managing IoT devices in real time.' ? 'VICE PRESIDENT / INSTRUCTOR' : desc === 'A secure and user-friendly mobile banking application for enterprises.' ? 'CHIEF ASSISTANT' : desc}
+      {category}
     </p>
+
     {features && features.length > 0 && (
       <ul class="list-disc list-inside text-sm text-on-surface/80 mb-4">
         {features.map(feature => (
