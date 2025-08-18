@@ -6,7 +6,7 @@ member: []
 month: 3
 image1: "/images/prc-1.avif"
 image2: "/images/prc-2.avif"
-desc: "Quản lý quan hệ khách hàng cho doanh nghiệp."
+desc: "Emily took really good care of me. Feeling younger and more beautiful 😍 had my lips and Brows done. Highly recommend!!!!"
 techs:
   - .NET
   - Azure

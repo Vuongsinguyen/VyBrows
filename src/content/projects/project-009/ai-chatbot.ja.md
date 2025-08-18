@@ -6,7 +6,7 @@ member: []
 month: 3
 image1: "/images/prc-1.avif"
 image2: "/images/prc-2.avif"
-desc: "企業向け顧客管理システム。"
+desc: "I highly recommend Emily for eyebrows. She explained everything before the procedure. An artist at work. My husband approved!"
 techs:
   - .NET
   - Azure

@@ -6,7 +6,7 @@ member: []
 month: 3
 image1: "/images/prc-1.avif"
 image2: "/images/prc-2.avif"
-desc: "企業向け顧客管理システム。"
+desc: "Emily took really good care of me. Feeling younger and more beautiful 😍 had my lips and Brows done. Highly recommend!!!!"
 techs:
   - .NET
   - Azure

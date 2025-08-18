@@ -6,7 +6,7 @@ member: []
 month: 3
 image1: "/images/prc-1.avif"
 image2: "/images/prc-2.avif"
-desc: "企業向けの安全で使いやすいモバイルバンキングアプリ。"
+desc: "I recently had a herbal hairwash relaxation and the eyedetox treatment done and I love them both!! Emily and her colleague did such a wonderful job and they come highly recommended!"
 techs:
   - .NET
   - Azure
