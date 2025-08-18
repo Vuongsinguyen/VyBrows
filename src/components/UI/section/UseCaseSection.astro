@@ -102,11 +102,11 @@ section .text-4xl.font-bold {
   <div class="relative overflow-x-hidden">
     <div>
       <div class="usecase-slider"
-        style="touch-action: pan-x; background: var(--color-section-card-bg);"
-        data-paused={isPaused ? "true" : "false"}
-        id="usecase-slider"
-        onmouseenter="this.setAttribute('data-paused','true')"
-        onmouseleave="this.setAttribute('data-paused','false')"
+         style="touch-action: pan-x pan-y; background: var(--color-section-card-bg);"
+          data-paused={isPaused ? "true" : "false"}
+          id="usecase-slider"
+          onmouseenter="this.setAttribute('data-paused','true')"
+          onmouseleave="this.setAttribute('data-paused','false')"
       >
         <div class="usecase-track mt-[30px] mb-[30px]">
           {useCases.concat(useCases).map((uc, idx) => {
