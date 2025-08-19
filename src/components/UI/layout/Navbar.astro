@@ -207,12 +207,33 @@ const contactMobileItems = t.contactItems.map(item => ({ href: item.href, title:
           </svg>
         </button>
         <div id="lang-dropdown-menu" class="absolute right-0 top-full pt-2 hidden z-[99999]">
-          <div class="bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 min-w-[140px]">
-            <a role="menuitem" href="#" class={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 first:rounded-t-md lang-switch ${currentLang === 'vi' ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}`} data-lang="vi">Tiếng Việt</a>
-            <a role="menuitem" href="/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 lang-switch bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400" data-lang="en">English</a>
-            <a role="menuitem" href="#" class={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 last:rounded-b-md lang-switch ${currentLang === 'ja' ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}`} data-lang="ja">Español</a>
+          <div class="bg-[#003324] rounded-md shadow-lg border border-gray-200 min-w-[140px]">
+            <a
+              role="menuitem"
+              href="#"
+              class="block px-4 py-3 bg-[#003324] text-white rounded-md transition-colors duration-200 hover:bg-[#00553a]"
+              style="font-size:17px;"
+            >
+              Tiếng Việt
+            </a>
+            <a
+              role="menuitem"
+              href="/"
+              class="block px-4 py-3 bg-[#003324] text-white rounded-md transition-colors duration-200 hover:bg-[#00553a]"
+              style="font-size:17px;"
+            >
+              English
+            </a>
+            <a
+              role="menuitem"
+              href="#"
+              class="block px-4 py-3 bg-[#003324] text-white rounded-md transition-colors duration-200 hover:bg-[#00553a]"
+              style="font-size:17px;"
+            >
+              Español
+            </a>
 </style>
-<script is:inline>
+<script is:inline><a role="menuitem" ... class="block px-4 py-2 bg-[#003324] text-white">Tiếng Việt</a>
 // Language dropdown: always keep current path, only change lang prefix
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.lang-switch').forEach(link => {
