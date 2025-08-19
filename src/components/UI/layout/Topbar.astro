@@ -59,7 +59,9 @@
                   e.preventDefault();
                   const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
                   if (lang === 'en') {
-                    window.location.pathname = '/';
+                    window.location.pathname = '/';                    <a role="menuitem" href="#" class="block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100 dark:hover:bg-gray-700 first:rounded-t-md lang-switch" data-lang="vi">Tiếng Việt</a>
+                    <a role="menuitem" href="/" class="block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100 dark:hover:bg-gray-700 lang-switch" data-lang="en">English</a>
+                    <a role="menuitem" href="#" class="block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100 dark:hover:bg-gray-700 last:rounded-b-md lang-switch" data-lang="ja">Español</a>
                   } else if (lang) {
                     const path = window.location.pathname.replace(/^\/(en|vi|ja)(\/)?/, '');
                     window.location.pathname = `/${lang}/${path}`.replace(/\/+/g, '/');
