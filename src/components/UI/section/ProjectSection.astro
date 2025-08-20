@@ -56,7 +56,8 @@ for (const cat of categories) {
         style="max-width:1180px; width:100%;"
       >
         {projects["All"].slice(0, 4).map((proj, idx) => {
-          const isWide = idx === 1;
+          const isWide = idx === 2; // card thứ 3 là card lớn
+          const isColor = idx === 2; // card 3 có màu từ đầu
           // clone props so we can override images
           const cardProps = { ...proj };
 
@@ -85,7 +86,9 @@ for (const cat of categories) {
 
           return (
             <div class={`project-card-link group${isWide ? ' card-wide' : ''}`}>
-              <ProjectCard {...cardProps} />
+              <div class={`overflow-hidden rounded-xl ${!isColor ? 'grayscale group-hover:grayscale-0 transition-all duration-300' : ''}`}>
+                <ProjectCard {...cardProps} />
+              </div>
             </div>
           );
         })}
