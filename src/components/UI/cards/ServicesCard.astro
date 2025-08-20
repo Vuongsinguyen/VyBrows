@@ -130,23 +130,11 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
   if (typeof window !== 'undefined'
       && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
     document.querySelectorAll('.services-card').forEach(card => {
-      let tapped = false;
-      const link = card.querySelector('a');
-
-      card.addEventListener('click', e => {
-        if (!tapped) {
-          e.preventDefault();
-          tapped = true;
-          card.classList.add('hover');
-        } else if (link) {
-          // second tap: follow link
-          window.location.href = link.href;
-        }
+      card.addEventListener('touchstart', () => {
+        card.classList.add('hover');
       });
-
       document.addEventListener('touchstart', e => {
         if (!card.contains(e.target)) {
-          tapped = false;
           card.classList.remove('hover');
         }
       });
