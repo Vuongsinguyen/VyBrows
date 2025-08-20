@@ -12,7 +12,7 @@ exports.handler = async function(event) {
     secure: true,
     auth: {
       user: 'contact@vybrows-academy.com',
-      pass: 'YOUR_ZOHO_APP_PASSWORD'
+  pass: 'LUFzRYc6puHJ'
     }
   });
 
