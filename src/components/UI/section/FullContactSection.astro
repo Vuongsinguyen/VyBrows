@@ -3,12 +3,11 @@
 
 let formRef: HTMLFormElement | null = null;
 
-const sendEmail = async (e) => {
+const sendEmail = async (e: Event) => {
   e.preventDefault();
-  const form = document.getElementById('contactForm');
-  if (!form) return;
+  const form = e.target as HTMLFormElement;
   const formData = new FormData(form);
-  const data = {};
+  const data: { [key: string]: string } = {};
   formData.forEach((value, key) => { data[key] = String(value); });
   try {
     const res = await fetch('/.netlify/functions/sendMail', {
@@ -23,8 +22,12 @@ const sendEmail = async (e) => {
     } else {
       alert('❌ Lỗi: ' + result.error);
     }
-  } catch (err) {
-    alert('❌ Lỗi: ' + (err?.message || 'Unknown error'));
+  } catch (err: unknown) {
+    let msg = 'Unknown error';
+    if (err && typeof err === 'object' && 'message' in err) {
+      msg = (err as { message: string }).message;
+    }
+    alert('❌ Lỗi: ' + msg);
   }
 };
 
@@ -119,66 +122,34 @@ if (typeof window !== 'undefined') {
       <!-- Contact Form -->
       <div class="w-full md:w-1/2 my-6 md:my-8 mx-0 rounded-2xl shadow-lg bg-[var(--color-card-bg)]">
         <form id="contactForm" class="px-4 py-8 flex flex-col gap-4">
-          <h3 class="text-2xl font-bold mb-1 text-center font-lora"
-              style="color: var(--color-text);">
-            Contact Us
-          </h3>
-          <div class="text-sm text-center mb-4" style="color: var(--color-text-secondary);">
-            We will get back to you asap!
-          </div>
-
-          <!-- Name -->
-          <input
-            type="text"
-            name="name"
-            placeholder="Please enter your Name"
-            required
-            class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
-            style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
-          />
-          <!-- Email -->
-          <input
-            type="email"
-            name="email"
-            placeholder="Please enter your Email"
-            required
-            class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
-            style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
-          />
-          <!-- Phone -->
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Please enter your Phone number"
-            required
-            class="pl-10 pr-3 py-2 rounded border-gray-200 w-full"
-            style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
-          />
-          <!-- Services -->
-          <select
-            name="service"
-            required
-            class="pl-10 pr-3 py-2 rounded border-gray-200 w-full appearance-none"
-            style="background: var(--color-input-bg); color: var(--color-text); border-color: var(--color-input-border);"
-          >
-            <option value="" disabled selected>Select our Signature Services</option>
-            <option value="brows">Brows</option>
-            <option value="lips">Lips</option>
-            <option value="training">Training</option>
-          </select>
-
-          <!-- Submit -->
-          <button
-            type="submit"
-            class="mx-auto inline-flex items-center justify-center px-6 rounded font-semibold font-lora transition mt-2"
-            style="background: #003324; color: var(--color-black2white); font-family: 'Lora', serif; height: 50px;"
-          >
-            Submit your Information!
-          </button>
-
-          <div class="text-sm text-center mt-2" style="color: var(--color-text-secondary);">
-            You may also call us at (346)-409-9999
-          </div>
+          <!-- Các input -->
+            <div class="mb-4">
+              <label for="name" class="block text-sm font-medium text-gray-200 mb-1">Name</label>
+              <input type="text" name="name" id="name" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your Name" />
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-sm font-medium text-gray-200 mb-1">Email</label>
+              <input type="email" name="email" id="email" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your Email" />
+            </div>
+            <div class="mb-4">
+              <label for="phone" class="block text-sm font-medium text-gray-200 mb-1">Phone</label>
+              <input type="text" name="phone" id="phone" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Phone Number" />
+            </div>
+            <div class="mb-4">
+              <label for="service" class="block text-sm font-medium text-gray-200 mb-1">Service</label>
+              <select name="service" id="service" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400">
+                <option value="">Select Service</option>
+                <option value="brows">Brows</option>
+                <option value="lashes">Lashes</option>
+                <option value="facial">Facial</option>
+                <option value="training">Training</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="message" class="block text-sm font-medium text-gray-200 mb-1">Message</label>
+              <textarea name="message" id="message" rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your message..."></textarea>
+            </div>
+            <button type="submit" class="mt-2 py-2 px-6 rounded-lg bg-green-500 hover:bg-green-600 text-white font-bold text-lg shadow transition">Submit</button>
         </form>
       </div>
     </div>
