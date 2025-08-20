@@ -127,17 +127,18 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
 </style>
 
 <script is:inline>
-  if (typeof window !== 'undefined'
-      && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
-    document.querySelectorAll('.services-card').forEach(card => {
-      card.addEventListener('touchstart', () => {
-        card.classList.add('hover');
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+      document.querySelectorAll('.services-card').forEach(card => {
+        card.addEventListener('touchstart', () => {
+          card.classList.add('hover');
+        });
+        document.addEventListener('touchstart', e => {
+          if (!card.contains(e.target)) {
+            card.classList.remove('hover');
+          }
+        });
       });
-      document.addEventListener('touchstart', e => {
-        if (!card.contains(e.target)) {
-          card.classList.remove('hover');
-        }
-      });
-    });
-  }
+    }
+  });
 </script>
