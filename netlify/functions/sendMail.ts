@@ -31,6 +31,9 @@ export const handler: Handler = async (event) => {
 
   const { name='', email='', phone='', service='', message='' } = data;
 
+  // Thêm dòng này để khai báo subject
+  const subject = `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`;
+
   const text = [
     'New Contact Form Submission',
     `Name: ${name}`,
