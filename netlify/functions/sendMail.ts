@@ -1,14 +1,22 @@
 import type { Handler } from '@netlify/functions';
 import nodemailer from 'nodemailer';
 
+const { ZOHO_USER, ZOHO_PASS } = process.env;
+
+if (!ZOHO_USER || !ZOHO_PASS) {
+  console.warn('Missing ZOHO_USER or ZOHO_PASS env variables');
+}
+
 const transporter = nodemailer.createTransport({
   host: 'smtp.zoho.com',
   port: 465,
   secure: true,
   auth: {
-    user: process.env.ZOHO_USER, // contact@vybrows-academy.com
-    pass: process.env.ZOHO_PASS  // App password (NOT normal password)
-  }
+    user: ZOHO_USER,
+    pass: ZOHO_PASS
+  },
+  logger: true,   // thêm log (xóa khi ok)
+  debug: true
 });
 
 export const handler: Handler = async (event) => {
@@ -19,11 +27,20 @@ export const handler: Handler = async (event) => {
   let data: any = {};
   try {
     data = JSON.parse(event.body || '{}');
-  } catch {
+  } catch (e) {
+    console.error('Bad JSON', e);
     return { statusCode: 400, body: JSON.stringify({ success:false, error:'Bad JSON' }) };
   }
 
   const { name = '', email = '', phone = '', service = '', message = '' } = data;
+  console.log('Incoming form data:', data);
+
+  if (!name && !email && !message) {
+    return { statusCode: 400, body: JSON.stringify({ success:false, error:'Missing required fields' }) };
+  }
+  if (!ZOHO_USER || !ZOHO_PASS) {
+    return { statusCode: 500, body: JSON.stringify({ success:false, error:'Mail env not set' }) };
+  }
 
   const html = `
     <h2>New Contact Form Submission</h2>
@@ -37,22 +54,20 @@ export const handler: Handler = async (event) => {
   `;
 
   try {
-    await transporter.sendMail({
-      from: `"VyBrows Contact" <${process.env.ZOHO_USER}>`,
-      to: [
-        'contact@vybrows-academy.com',
-        'vuongsi.nguyen@gmail.com'
-      ],
-      replyTo: email || process.env.ZOHO_USER,
+    const info = await transporter.sendMail({
+      from: `"VyBrows Contact" <${ZOHO_USER}>`,
+      to: ['contact@vybrows-academy.com','vuongsi.nguyen@gmail.com'],
+      replyTo: email || ZOHO_USER,
       subject: `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`,
       html
     });
-
+    console.log('Mail sent id:', info.messageId);
     return { statusCode: 200, body: JSON.stringify({ success: true }) };
   } catch (err: any) {
+    console.error('Send error:', err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ success: false, error: err.message || 'Send failed' })
+      body: JSON.stringify({ success: false, error: err?.message || 'Send failed' })
     };
   }
 };
