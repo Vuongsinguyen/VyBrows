@@ -29,6 +29,8 @@ export const handler: Handler = async (event) => {
 
   const { name='', email='', phone='', service='', message='' } = data;
 
+  console.log('Payload:', data);
+
   let transporter = createTransport(true);
   try {
     await transporter.verify();
