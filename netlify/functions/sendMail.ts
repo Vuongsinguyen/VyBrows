@@ -27,6 +27,8 @@ export const handler: Handler = async (event) => {
   try { data = JSON.parse(event.body || '{}'); }
   catch { return { statusCode:400, body: JSON.stringify({ success:false, error:'Bad JSON' }) }; }
 
+  console.log('Payload:', data);
+
   const { name='', email='', phone='', service='', message='' } = data;
 
   const text = [
