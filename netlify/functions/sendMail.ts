@@ -23,7 +23,7 @@ export const handler: Handler = async (event) => {
 
   const { name='', email='', phone='', service='', message='' } = data;
 
-  const plain = [
+  const text = [
     'New Contact Form Submission',
     `Name: ${name}`,
     `Email: ${email}`,
@@ -46,18 +46,13 @@ export const handler: Handler = async (event) => {
   try {
     const info = await transporter.sendMail({
       from: `"VyBrows Contact" <${ZOHO_USER}>`,
-  // Gửi trực tiếp tới Gmail theo yêu cầu
-  to: 'vuongsi.nguyen@gmail.com',
-  // Nếu muốn vẫn nhận bản sao nội bộ, bật dòng dưới:
-  // bcc: 'contact@vybrows-academy.com',
+      to: 'vuongsi.nguyen@gmail.com',          // gửi thẳng Gmail
+      bcc: 'contact@vybrows-academy.com',       // giữ bản sao nội bộ (có thể bỏ)
       replyTo: email || ZOHO_USER,
       subject: `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`,
-      text: plain,
+      text,
       html,
-      headers: {
-        'List-Unsubscribe': `<mailto:${ZOHO_USER}>`,
-        'X-Source': 'vybrows-form'
-      }
+      headers: { 'X-Source':'vybrows-form' }
     });
     console.log('Accepted:', info.accepted, 'Rejected:', info.rejected);
     return { statusCode:200, body: JSON.stringify({ success:true }) };
