@@ -46,9 +46,9 @@ export const handler: Handler = async (event) => {
   try {
     const info = await transporter.sendMail({
       from: `"VyBrows Contact" <${ZOHO_USER}>`,
-      to: 'vuongsi.nguyen@gmail.com',          // gửi thẳng Gmail
-      bcc: 'contact@vybrows-academy.com',       // giữ bản sao nội bộ (có thể bỏ)
-      replyTo: email || ZOHO_USER,
+      to: 'contact@vybrows-academy.com',          // Zoho chính
+      cc: 'vuongsi.nguyen@gmail.com',             // CC Gmail (hiển thị người nhận)
+      replyTo: email || ZOHO_USER,                // Reply sẽ về khách
       subject: `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`,
       text,
       html,
