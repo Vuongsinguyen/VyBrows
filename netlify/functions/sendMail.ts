@@ -53,7 +53,15 @@ export const handler: Handler = async (event) => {
     'Message:',
     message
   ].join('\n');
-  const html = text.replace(/\n/g,'<br>');
+  const html = `
+    <h2>New Contact Form Submission</h2>
+    <p><b>Name:</b> ${name}</p>
+    <p><b>Email:</b> ${email}</p>
+    <p><b>Phone:</b> ${phone}</p>
+    <p><b>Service:</b> ${service}</p>
+    <p><b>Message:</b><br>${String(message).replace(/\n/g,'<br>')}</p>
+    <p style="margin-top:18px;font-size:12px;color:#666">Sent from website form.</p>
+  `;
 
   try {
     const info = await transporter.sendMail({
