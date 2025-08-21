@@ -58,7 +58,7 @@ export const handler: Handler = async (event) => {
   try {
     const info = await transporter.sendMail({
       from: `"VyBrows Contact" <${ZOHO_USER}>`,
-      to: 'contact@vybrows-academy.com',   // Zoho hộp thư chính (Zoho đã tự CC Gmail bằng rule)
+      to: 'contact@vybrows-academy.com',
       replyTo: email || ZOHO_USER,
       subject,
       text,
@@ -74,48 +74,3 @@ export const handler: Handler = async (event) => {
     }) };
   }
 };
-
-<script>
-(function(){
-  function showStatus(msg,type){
-    const box=document.getElementById('formStatus');
-    if(!box) return;
-    box.className='';
-    box.classList.add('show', type==='error'?'error':(type==='success'?'success':''));
-    box.textContent=msg;
-    setTimeout(()=>{ if(type==='success') box.classList.remove('show'); },4000);
-  }
-  document.addEventListener('DOMContentLoaded',()=>{
-    const form=document.getElementById('contactForm');
-    if(!form) return;
-    const btn=form.querySelector('button[type="submit"]');
-    form.addEventListener('submit',async e=>{
-      e.preventDefault();
-      if(form.dataset.sending==='1') return;
-      form.dataset.sending='1';
-      btn.disabled=true; const old=btn.textContent; btn.textContent='Sending...';
-      showStatus('Đang gửi...','info');
-      const fd=new FormData(form); const payload:any={}; fd.forEach((v,k)=>payload[k]=String(v));
-      try{
-        const r=await fetch('/.netlify/functions/sendMail',{
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify(payload)
-        });
-        let j={}; try{ j=await r.json(); }catch{}
-        if(r.ok && (j as any).success){
-          showStatus('✅ Gửi thành công!','success');
-          form.reset();
-        } else {
-          showStatus('❌ Gửi thất bại: '+((j as any).error||r.status),'error');
-        }
-      }catch{
-        showStatus('❌ Lỗi mạng','error');
-      }finally{
-        btn.disabled=false; btn.textContent=old;
-        delete form.dataset.sending;
-      }
-    });
-  });
-})();
-</script>
