@@ -99,8 +99,12 @@ document.querySelectorAll('.lang-switch').forEach(btn => {
     let path = window.location.pathname.replace(/^\/(en|vi|ja|es)(\/|$)/, '/');
     if (lang === 'en') {
       window.location.pathname = path === '/' ? '/' : path;
-    } else {
-      window.location.pathname = `/${lang}${path}`.replace(/\/+/g, '/');
+    } else if (lang === 'ja') {
+      window.location.pathname = `/ja${path}`.replace(/\/+/g, '/');
+    } else if (lang === 'vi') {
+      window.location.pathname = `/vi${path}`.replace(/\/+/g, '/');
+    } else if (lang === 'es') {
+      window.location.pathname = `/es${path}`.replace(/\/+/g, '/');
     }
   });
 });
