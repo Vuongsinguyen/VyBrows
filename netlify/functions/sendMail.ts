@@ -50,6 +50,14 @@ export const handler: Handler = async (event) => {
     <p style="margin-top:18px;font-size:12px;color:#666">Sent from website form.</p>
   `;
 
+  let transporter = createTransport(true);
+  try {
+    await transporter.verify();
+  } catch {
+    transporter = createTransport(false);
+    await transporter.verify();
+  }
+
   try {
     const info = await transporter.sendMail({
       from: `"VyBrows Contact" <${ZOHO_USER}>`,
