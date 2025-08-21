@@ -29,9 +29,6 @@ export const handler: Handler = async (event) => {
 
   const { name='', email='', phone='', service='', message='' } = data;
 
-  // Hard code message để test
-  const testMessage = 'Đây là nội dung test message!';
-  // Dùng testMessage thay cho message
   const text = [
     'New Contact Form Submission',
     `Name: ${name}`,
@@ -39,7 +36,7 @@ export const handler: Handler = async (event) => {
     `Phone: ${phone}`,
     `Service: ${service}`,
     'Message:',
-    testMessage
+    message
   ].join('\n');
   const html = `
     <h2>New Contact Form Submission</h2>
@@ -47,7 +44,7 @@ export const handler: Handler = async (event) => {
     <p><b>Email:</b> ${email}</p>
     <p><b>Phone:</b> ${phone}</p>
     <p><b>Service:</b> ${service}</p>
-    <p><b>Message:</b><br>${testMessage}</p>
+    <p><b>Message:</b><br>${String(message).replace(/\n/g,'<br>')}</p>
     <p style="margin-top:18px;font-size:12px;color:#666">Sent from website form.</p>
   `;
 
