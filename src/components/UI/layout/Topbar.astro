@@ -47,29 +47,11 @@
           </svg>
         </button>
         <div id="lang-dropdown-menu" class="absolute right-0 top-full pt-2 hidden z-[99999]">
-                    <div class="rounded-md shadow-lg border border-gray-200 min-w-[140px]" style="background: var(--color-black2white);">
-            <a role="menuitem" href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 first:rounded-t-md lang-switch text-gray-700 dark:text-gray-200" data-lang="vi">Tiếng Việt</a>
-            <a role="menuitem" href="/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 lang-switch bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400" data-lang="en">English</a>
-            <a role="menuitem" href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 last:rounded-b-md lang-switch text-gray-700 dark:text-gray-200" data-lang="ja">Español</a>
-            <script>
-            // Language dropdown: always keep current path, only change lang prefix
-            document.addEventListener('DOMContentLoaded', () => {
-              document.querySelectorAll('.lang-switch').forEach(link => {
-                link.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
-                  if (lang === 'en') {
-                    window.location.pathname = '/';                    <a role="menuitem" href="#" class="block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100 dark:hover:bg-gray-700 first:rounded-t-md lang-switch" data-lang="vi">Tiếng Việt</a>
-                    <a role="menuitem" href="/" class="block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100 dark:hover:bg-gray-700 lang-switch" data-lang="en">English</a>
-                    <a role="menuitem" href="#" class="block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100 dark:hover:bg-gray-700 last:rounded-b-md lang-switch" data-lang="ja">Español</a>
-                  } else if (lang) {
-                    const path = window.location.pathname.replace(/^\/(en|vi|ja)(\/)?/, '');
-                    window.location.pathname = `/${lang}/${path}`.replace(/\/+/g, '/');
-                  }
-                });
-              });
-            });
-            </script>
+          <div class="rounded-md shadow-lg border border-gray-200 min-w-[140px]" style="background: var(--color-black2white);">
+            <button class="lang-switch block px-4 py-3 bg-[#003324] text-white rounded-md transition-colors duration-200 hover:bg-[#00553a]" data-lang="vi">Tiếng Việt</button>
+            <button class="lang-switch block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100" data-lang="en">English</button>
+            <button class="lang-switch block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100 last:rounded-b-md" data-lang="ja">日本語</button>
+            <button class="lang-switch block px-4 py-2 bg-[#003324] text-white hover:bg-gray-100 last:rounded-b-md" data-lang="es">Español</button>
           </div>
         </div>
       </div>
@@ -87,3 +69,39 @@
     </div>
   </div>
 </div>
+
+<script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Toggle dropdown
+  const btn = document.getElementById('lang-dropdown-btn');
+  const menu = document.getElementById('lang-dropdown-menu');
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+  });
+
+  // Đóng dropdown khi bấm ra ngoài
+  document.addEventListener('mousedown', (e) => {
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+
+// Gom event chuyển ngôn ngữ về một nơi duy nhất
+document.querySelectorAll('.lang-switch').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const lang = btn.dataset.lang;
+    if (!lang) return;
+    let path = window.location.pathname.replace(/^\/(en|vi|ja|es)(\/|$)/, '/');
+    if (lang === 'en') {
+      window.location.pathname = path === '/' ? '/' : path;
+    } else {
+      window.location.pathname = `/${lang}${path}`.replace(/\/+/g, '/');
+    }
+  });
+});
+</script>ipt>
