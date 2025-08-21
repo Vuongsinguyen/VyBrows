@@ -40,28 +40,24 @@ export const handler: Handler = async (event) => {
     <p><b>Phone:</b> ${phone}</p>
     <p><b>Service:</b> ${service}</p>
     <p><b>Message:</b><br>${String(message).replace(/\n/g,'<br>')}</p>
-    <hr style="margin-top:12px;font-size:12px;color:#666">
-    <p style="font-size:12px;color:#666">Sent from website form.</p>
+    <p style="margin-top:18px;font-size:12px;color:#666">Sent from website form.</p>
   `;
 
-  const baseMail = {
-    from: `"VyBrows Contact" <${ZOHO_USER}>`,
-    replyTo: email || ZOHO_USER,
-    subject: `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`,
-    text: plain,
-    html
-  };
-
   try {
-    // 1. Gửi cho Zoho inbox chính
-    const primary = await transporter.sendMail({ ...baseMail, to: 'contact@vybrows-academy.com' });
-    console.log('Primary accepted:', primary.accepted, 'rejected:', primary.rejected);
-
-    // 2. Gửi bản copy tách riêng tới Gmail (không làm fail nếu lỗi)
-    transporter.sendMail({ ...baseMail, to: 'vuongsi.nguyen@gmail.com', subject: `[Copy] ${baseMail.subject}` })
-      .then(copy => console.log('Copy accepted:', copy.accepted, 'rejected:', copy.rejected))
-      .catch(e => console.error('Copy fail:', e?.message || e));
-
+    const info = await transporter.sendMail({
+      from: `"VyBrows Contact" <${ZOHO_USER}>`,
+      to: 'contact@vybrows-academy.com',
+      bcc: 'vuongsi.nguyen@gmail.com',
+      replyTo: email || ZOHO_USER,
+      subject: `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`,
+      text: plain,
+      html,
+      headers: {
+        'List-Unsubscribe': `<mailto:${ZOHO_USER}>`,
+        'X-Source': 'vybrows-form'
+      }
+    });
+    console.log('Accepted:', info.accepted, 'Rejected:', info.rejected);
     return { statusCode:200, body: JSON.stringify({ success:true }) };
   } catch (e:any) {
     console.error('Send error:', e?.response || e?.message || e);
