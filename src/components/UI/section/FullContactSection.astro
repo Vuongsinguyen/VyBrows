@@ -26,8 +26,8 @@
           </div>
           <div class="border border-white/20 rounded-xl px-4 py-3 flex items-center">
             <span class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/80 mr-3" style="border-width:1px; background:transparent;">
-              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-black2white);">
-                <path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h13A1.5 1.5 0 0 1 18 3.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 2 16.5v-13zm2 0v13h12v-13H4zm6 2a1 1 0 0 1 1 1v1h2a1 1 0 1 1 0 2h-2v2a1 1 0 1 1-2 0v-2H6a1 1 0 1 1 0-2h2V6a1 1 0 0 1 1-1z"/>
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 26 26" style="color: var(--color-black2white);">
+                <path d="M5.59347 10.624C7.51347 14.3973 10.6068 17.4773 14.3801 19.4106L17.3135 16.4773C17.6735 16.1173 18.2068 15.9973 18.6735 16.1573C20.1668 16.6506 21.7801 16.9173 23.4335 16.9173C24.1668 16.9173 24.7668 17.5173 24.7668 18.2506V22.904C24.7668 23.6373 24.1668 24.2373 23.4335 24.2373C10.9135 24.2373 0.7668 14.0906 0.7668 1.57064C0.7668 0.837305 1.3668 0.237305 2.10013 0.237305H6.7668C7.50013 0.237305 8.10013 0.837305 8.10013 1.57064C8.10013 3.2373 8.3668 4.83731 8.86013 6.33064C9.0068 6.79731 8.90013 7.31731 8.5268 7.69064L5.59347 10.624Z"/>
               </svg>
             </span>
             <div>
@@ -50,7 +50,7 @@
           </div>
           <div class="border border-white/20 rounded-xl px-4 py-3 flex items-center">
             <span class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/80 mr-3" style="border-width:1px; background:transparent;">
-              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-black2white);">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 36 36" style="color: var(--color-black2white);">
                 <path d="M18.3259 0.237305C8.38992 0.237305 0.343918 8.3013 0.343918 18.2373C0.343918 28.1733 8.38992 36.2373 18.3259 36.2373C28.2799 36.2373 36.3439 28.1733 36.3439 18.2373C36.3439 8.3013 28.2799 0.237305 18.3259 0.237305ZM18.3439 32.6373C10.3879 32.6373 3.94392 26.1933 3.94392 18.2373C3.94392 10.2813 10.3879 3.8373 18.3439 3.8373C26.2999 3.8373 32.7439 10.2813 32.7439 18.2373C32.7439 26.1933 26.2999 32.6373 18.3439 32.6373ZM19.2439 9.2373H16.5439V20.0373L25.9939 25.7073L27.3439 23.4933L19.2439 18.6873V9.2373Z"/>
               </svg>
             </span>
@@ -75,7 +75,7 @@
       </div>
 
       <div class="w-full md:w-1/2 my-6 md:my-8 mx-0 rounded-2xl shadow-lg bg-[var(--color-card-bg)]">
-        <form id="contactForm" class="px-4 py-8 flex flex-col gap-0">
+        <form id="contactForm" class="px-8 py-8 flex flex-col gap-0">
           <div class="mb-4">
             <label for="name" class="block text-sm font-medium mb-1 font-lora text-[#003324]">Name</label>
             <input type="text" name="name" id="name" required
@@ -99,10 +99,16 @@
               <select name="service" id="service" required
                 class="field-input">
                 <option value="">Select Service</option>
-                <option value="brows">Brows</option>
-                <option value="lashes">Lashes</option>
-                <option value="facial">Facial</option>
-                <option value="training">Training</option>
+                <option value="brows">PMU — Permanent Makeup</option>
+                <option value="lashes">Skincare - Acne Treatment</option>
+                <option value="detox">Detox & Herbal Hair Wash</option>
+                <option value="shading">Shading Ombré</option>
+                <option value="microblading">Micro Blading</option>
+                <option value="hairstrokes">Hairs Strokes</option>
+                <option value="eyeliners">EyeLiners</option>
+                <option value="lip_treatments">Lip Treatments</option>
+                <option value="dark_lips_remover">Dark Lips Remover</option>
+                <option value="training">Beauty Training Course</option>
               </select>
             </div>
             <div class="mb-4">
@@ -114,7 +120,7 @@
             <div id="formStatusWrapper">
               <button
                 type="submit"
-                class="mt-2 px-6 rounded-lg bg-[#003324] hover:bg-[#004d39] text-white font-bold text-lg shadow transition self-center"
+                class="mt-2 px-6 rounded-lg bg-[#003324] hover:bg-[#004d39] text-white font-bold text-lg shadow transition self-center submit-btn"
                 style="min-width:120px; padding-top:14px; padding-bottom:14px;"
               >
                 Submit
@@ -148,6 +154,33 @@ contact-section p {
 }
 
 /* giữ nguyên kích thước h2 do tailwind đặt */
+#formStatusWrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 16px;
+  width: auto;
+}
+.submit-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  width: auto !important;
+}
+#formStatus {
+  margin: 0 !important;
+}
+#formStatusWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+  width: auto;
+}
+#formStatus {
+  margin: 0;
+  min-width: 120px;
+  max-width: 360px;
+}
 #formStatusWrapper { position:relative; display:inline-block; }
 #formStatus { position:relative; margin-top:.6rem; padding:.65rem .9rem; border-radius:.6rem; font-size:.85rem; line-height:1.3; background:#003324; color:#f8f7dc; border:1px solid rgba(255,255,255,.18); box-shadow:0 4px 14px -4px rgba(0,0,0,.45); opacity:0; transform:translateY(-4px); transition:opacity .25s ease, transform .25s ease; max-width:360px; }
 #formStatus.show { opacity:1; transform:translateY(0); }
