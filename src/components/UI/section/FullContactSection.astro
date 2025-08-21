@@ -1,69 +1,8 @@
 ---
-// import emailjs from "emailjs-com"; // Đã bỏ EmailJS, dùng API backend
-
-let formRef: HTMLFormElement | null = null;
-
-const showToast = (msg: string, type: 'success' | 'error' = 'success') => {
-  if (typeof window === 'undefined') return;
-  let wrap = document.getElementById('toast-wrap');
-  if (!wrap) {
-    wrap = document.createElement('div');
-    wrap.id = 'toast-wrap';
-    document.body.appendChild(wrap);
-  }
-  const el = document.createElement('div');
-  el.className = `toast-item ${type}`;
-  el.role = 'status';
-  el.innerText = msg;
-  wrap.appendChild(el);
-  // animate in
-  requestAnimationFrame(() => el.classList.add('show'));
-  setTimeout(() => {
-    el.classList.remove('show');
-    setTimeout(() => el.remove(), 300);
-  }, 4000);
-};
-
-const sendEmail = async (e: Event) => {
-  e.preventDefault();
-  const form = e.target as HTMLFormElement;
-  const formData = new FormData(form);
-  const data: { [key: string]: string } = {};
-  formData.forEach((value, key) => { data[key] = String(value); });
-  try {
-    const res = await fetch('/.netlify/functions/sendMail', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    const result = await res.json();
-    if (res.ok && result.success) {
-      showToast('✅ Gửi thành công!', 'success');
-      form.reset();
-    } else {
-      showToast('❌ Lỗi: ' + (result.error || 'Send failed'), 'error');
-    }
-  } catch (err: unknown) {
-    let msg = 'Unknown error';
-    if (err && typeof err === 'object' && 'message' in err) {
-      msg = (err as { message: string }).message;
-    }
-    showToast('❌ Lỗi: ' + msg, 'error');
-  }
-};
-
-if (typeof window !== 'undefined') {
-  window.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    if (form) form.addEventListener('submit', sendEmail);
-  });
-}
+/* Frontmatter có thể để trống hoặc thêm logic server nếu cần */
 ---
-
 <section class="pt-16 pb-8 px-4 md:px-0 bg-[#003324]">
   <div class="max-w-7xl mx-auto">
-
-    <!-- Heading của section -->
     <h2
       class="text-4xl md:text-5xl font-extrabold text-center mb-8 font-lora tracking-tight"
       style="color: var(--color-black2white); font-family: 'Lora', serif;"
@@ -71,7 +10,6 @@ if (typeof window !== 'undefined') {
       Contact Us
     </h2>
 
-    <!-- Thông tin liên hệ: nằm ngang, có icon -->
     <div class="w-full mb-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#003324] text-white rounded-2xl text-base items-start">
         <div class="flex flex-col gap-4">
@@ -129,7 +67,6 @@ if (typeof window !== 'undefined') {
     </div>
 
     <div class="flex flex-col md:flex-row items-stretch gap-[34px]">
-      <!-- Google Map -->
       <div class="w-full md:w-1/2 my-6 md:my-8 rounded-2xl shadow-lg bg-[var(--color-card-bg)] overflow-hidden">
         <iframe
           class="w-full h-64 md:h-[500px] object-cover"
@@ -137,18 +74,16 @@ if (typeof window !== 'undefined') {
         ></iframe>
       </div>
 
-      <!-- Contact Form -->
       <div class="w-full md:w-1/2 my-6 md:my-8 mx-0 rounded-2xl shadow-lg bg-[var(--color-card-bg)]">
         <form id="contactForm" class="px-4 py-8 flex flex-col gap-4">
-          <!-- Các input -->
-            <div class="mb-4">
-              <label for="name" class="block text-sm font-medium text-gray-200 mb-1">Name</label>
-              <input type="text" name="name" id="name" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your Name" />
-            </div>
-            <div class="mb-4">
-              <label for="email" class="block text-sm font-medium text-gray-200 mb-1">Email</label>
-              <input type="email" name="email" id="email" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your Email" />
-            </div>
+          <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-200 mb-1">Name</label>
+            <input type="text" name="name" id="name" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your Name" />
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-200 mb-1">Email</label>
+            <input type="email" name="email" id="email" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your Email" />
+          </div>
             <div class="mb-4">
               <label for="phone" class="block text-sm font-medium text-gray-200 mb-1">Phone</label>
               <input type="text" name="phone" id="phone" required class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Phone Number" />
@@ -174,36 +109,83 @@ if (typeof window !== 'undefined') {
   </div>
 </section>
 
-<!-- Thêm CSS toast (có thể chuyển ra global nếu muốn) -->
 <style>
-#toast-wrap {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-.toast-item {
-  min-width: 220px;
-  max-width: 320px;
-  background: #003324;
-  color: #f8f7dc;
-  padding: .75rem 1rem;
-  border-radius: .5rem;
-  box-shadow: 0 6px 18px -4px rgba(0,0,0,.35);
-  font-size: .9rem;
-  line-height: 1.3;
-  opacity: 0;
-  transform: translateY(-8px) scale(.96);
-  transition: opacity .25s ease, transform .25s ease;
-  border: 1px solid rgba(255,255,255,.15);
-}
-.toast-item.success { border-color: #16a34a; }
-.toast-item.error { border-color: #dc2626; }
-.toast-item.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+#toast-wrap { position:fixed; top:1rem; right:1rem; z-index:9999; display:flex; flex-direction:column; gap:.5rem; }
+.toast-item { min-width:220px; max-width:320px; background:#003324; color:#f8f7dc; padding:.75rem 1rem; border-radius:.5rem; box-shadow:0 6px 18px -4px rgba(0,0,0,.35); font-size:.9rem; line-height:1.3; opacity:0; transform:translateY(-8px) scale(.96); transition:opacity .25s, transform .25s; border:1px solid rgba(255,255,255,.15); }
+.toast-item.success { border-color:#16a34a; }
+.toast-item.error { border-color:#dc2626; }
+.toast-item.show { opacity:1; transform:translateY(0) scale(1); }
 </style>
+
+<script>
+(function() {
+  function showToast(msg, type = 'success') {
+    let wrap = document.getElementById('toast-wrap');
+    if (!wrap) {
+      wrap = document.createElement('div');
+      wrap.id = 'toast-wrap';
+      document.body.appendChild(wrap);
+    }
+    const el = document.createElement('div');
+    el.className = 'toast-item ' + type;
+    el.role = 'status';
+    el.innerText = msg;
+    wrap.appendChild(el);
+    requestAnimationFrame(() => el.classList.add('show'));
+    setTimeout(() => {
+      el.classList.remove('show');
+      setTimeout(() => el.remove(), 300);
+    }, 4000);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    // Prefill từ query params
+    const params = new URLSearchParams(location.search);
+    ['name','email','phone','service','message'].forEach(k => {
+      const v = params.get(k);
+      if (!v) return;
+      const field = form.querySelector('[name="'+k+'"]');
+      if (field) field.value = v;
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+      }
+      const fd = new FormData(form);
+      const payload = {};
+      fd.forEach((val, key) => payload[key] = String(val));
+
+      try {
+        const res = await fetch('/.netlify/functions/sendMail', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        let result = {};
+        try { result = await res.json(); } catch {}
+        if (res.ok && result.success) {
+          showToast('✅ Gửi thành công!', 'success');
+          form.reset();
+        } else {
+          showToast('❌ Lỗi: ' + (result.error || 'Send failed'), 'error');
+        }
+      } catch (err) {
+        showToast('❌ Lỗi mạng', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
+        }
+      }
+    });
+  });
+})();
+</script>
