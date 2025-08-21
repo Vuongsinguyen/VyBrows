@@ -12,7 +12,7 @@ exports.handler = async function(event) {
     secure: true,
     auth: {
       user: 'contact@vybrows-academy.com',
-  pass: '2jGsTQ1DVTNQ'
+  pass: 'LbhMfXpLtxQ8'
     }
   });
 
