@@ -1,10 +1,14 @@
 import type { Handler } from '@netlify/functions';
 import nodemailer from 'nodemailer';
 
-const { ZOHO_USER, ZOHO_PASS } = process.env;
+const {
+  ZOHO_USER,
+  ZOHO_PASS,
+  ZOHO_SMTP_HOST = 'smtp.zoho.com'   // nếu account EU: đặt env ZOHO_SMTP_HOST=smtp.zoho.eu
+} = process.env;
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.zoho.com',
+  host: ZOHO_SMTP_HOST,
   port: 465,
   secure: true,
   auth: { user: ZOHO_USER, pass: ZOHO_PASS }
@@ -24,7 +28,8 @@ function buildPlain({ name, email, phone, service, message }: any) {
 }
 
 // Tùy biến HTML ở đây
-function buildHtml({ name, email, phone, service, message }: any) {
+function buildHtml(data: any) {
+  const { name, email, phone, service, message } = data;
   return `
     <h2 style="margin:0 0 12px;font-family:Lora,serif;">New Contact Form Submission</h2>
     <p><b>Name:</b> ${name}</p>
@@ -39,17 +44,27 @@ function buildHtml({ name, email, phone, service, message }: any) {
 
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST')
-    return { statusCode: 405, body: 'Method Not Allowed' };
+    return { statusCode:405, body:'Method Not Allowed' };
 
   if (!ZOHO_USER || !ZOHO_PASS)
-    return { statusCode: 500, body: JSON.stringify({ success:false, error:'Env missing' }) };
+    return { statusCode:500, body: JSON.stringify({ success:false, error:'Env missing' }) };
 
-  let data: any = {};
+  // Kiểm tra đăng nhập trước
+  try {
+    await transporter.verify();
+  } catch (e:any) {
+    console.error('SMTP verify error:', e?.message || e);
+    return { statusCode:500, body: JSON.stringify({
+      success:false,
+      error:'SMTP auth failed (kiểm tra App Password / host / env)'
+    }) };
+  }
+
+  let data:any = {};
   try { data = JSON.parse(event.body || '{}'); }
   catch { return { statusCode:400, body: JSON.stringify({ success:false, error:'Bad JSON' }) }; }
 
   const { name='', email='', phone='', service='', message='' } = data;
-
   const subject = `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`;
   const text = buildPlain({ name, email, phone, service, message });
   const html = buildHtml({ name, email, phone, service, message });
@@ -63,11 +78,17 @@ export const handler: Handler = async (event) => {
       text,
       html
     });
-    console.log('Accepted:', info.accepted);
+    console.log('Accepted:', info.accepted, 'Rejected:', info.rejected);
     return { statusCode:200, body: JSON.stringify({ success:true }) };
   } catch (e:any) {
-    console.error('Send error:', e);
-    return { statusCode:500, body: JSON.stringify({ success:false, error: e?.message || 'Send failed' }) };
+    console.error('Send error:', e?.message || e);
+    const raw = e?.message || '';
+    return { statusCode:500, body: JSON.stringify({
+      success:false,
+      error: /535/i.test(raw)
+        ? 'SMTP auth failed (App Password sai / chưa cập nhật / host sai)'
+        : raw
+    }) };
   }
 };
 
