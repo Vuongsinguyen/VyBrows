@@ -10,7 +10,7 @@ export async function post({ request }) {
     secure: true,
     auth: {
       user: 'contact@vybrows-academy.com', // Thay bằng email Zoho của bạn
-      pass: '2jGsTQ1DVTNQ' // Thay bằng app password Zoho
+      pass: 'LbhMfXpLtxQ8' // Thay bằng app password Zoho
     }
   });
 
