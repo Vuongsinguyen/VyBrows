@@ -10,6 +10,33 @@ const transporter = nodemailer.createTransport({
   auth: { user: ZOHO_USER, pass: ZOHO_PASS }
 });
 
+// Tùy biến format dòng text ở đây
+function buildPlain({ name, email, phone, service, message }: any) {
+  return [
+    'New Contact Form Submission',
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    `Service: ${service}`,
+    'Message:',
+    message
+  ].join('\n');
+}
+
+// Tùy biến HTML ở đây
+function buildHtml({ name, email, phone, service, message }: any) {
+  return `
+    <h2 style="margin:0 0 12px;font-family:Lora,serif;">New Contact Form Submission</h2>
+    <p><b>Name:</b> ${name}</p>
+    <p><b>Email:</b> ${email}</p>
+    <p><b>Phone:</b> ${phone}</p>
+    <p><b>Service:</b> ${service}</p>
+    <p><b>Message:</b><br>${String(message).replace(/\n/g,'<br>')}</p>
+    <hr style="margin:16px 0;border:none;border-top:1px solid #ddd">
+    <p style="font-size:12px;color:#666">Sent from website form.</p>
+  `;
+}
+
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST')
     return { statusCode: 405, body: 'Method Not Allowed' };
@@ -23,41 +50,23 @@ export const handler: Handler = async (event) => {
 
   const { name='', email='', phone='', service='', message='' } = data;
 
-  const text = [
-    'New Contact Form Submission',
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Phone: ${phone}`,
-    `Service: ${service}`,
-    'Message:',
-    message
-  ].join('\n');
-
-  const html = `
-    <h2>New Contact Form Submission</h2>
-    <p><b>Name:</b> ${name}</p>
-    <p><b>Email:</b> ${email}</p>
-    <p><b>Phone:</b> ${phone}</p>
-    <p><b>Service:</b> ${service}</p>
-    <p><b>Message:</b><br>${String(message).replace(/\n/g,'<br>')}</p>
-    <p style="margin-top:18px;font-size:12px;color:#666">Sent from website form.</p>
-  `;
+  const subject = `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`;
+  const text = buildPlain({ name, email, phone, service, message });
+  const html = buildHtml({ name, email, phone, service, message });
 
   try {
     const info = await transporter.sendMail({
       from: `"VyBrows Contact" <${ZOHO_USER}>`,
-      to: 'contact@vybrows-academy.com',          // Zoho chính
-      cc: 'vuongsi.nguyen@gmail.com',             // CC Gmail (hiển thị người nhận)
-      replyTo: email || ZOHO_USER,                // Reply sẽ về khách
-      subject: `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`,
+      to: 'contact@vybrows-academy.com',
+      replyTo: email || ZOHO_USER,
+      subject,
       text,
-      html,
-      headers: { 'X-Source':'vybrows-form' }
+      html
     });
-    console.log('Accepted:', info.accepted, 'Rejected:', info.rejected);
+    console.log('Accepted:', info.accepted);
     return { statusCode:200, body: JSON.stringify({ success:true }) };
   } catch (e:any) {
-    console.error('Send error:', e?.response || e?.message || e);
+    console.error('Send error:', e);
     return { statusCode:500, body: JSON.stringify({ success:false, error: e?.message || 'Send failed' }) };
   }
 };
