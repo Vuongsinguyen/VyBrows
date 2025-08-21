@@ -102,7 +102,10 @@
               <label for="message" class="block text-sm font-medium text-gray-200 mb-1">Message</label>
               <textarea name="message" id="message" rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your message..."></textarea>
             </div>
-            <button type="submit" class="mt-2 py-2 px-6 rounded-lg bg-green-500 hover:bg-green-600 text-white font-bold text-lg shadow transition">Submit</button>
+            <div id="formStatusWrapper">
+              <button type="submit" class="mt-2 py-2 px-6 rounded-lg bg-green-500 hover:bg-green-600 text-white font-bold text-lg shadow transition">Submit</button>
+              <div id="formStatus" aria-live="polite"></div>
+            </div>
         </form>
       </div>
     </div>
@@ -110,58 +113,62 @@
 </section>
 
 <style>
-#toast-wrap { position:fixed; top:1rem; right:1rem; z-index:9999; display:flex; flex-direction:column; gap:.5rem; }
-.toast-item { min-width:220px; max-width:320px; background:#003324; color:#f8f7dc; padding:.75rem 1rem; border-radius:.5rem; box-shadow:0 6px 18px -4px rgba(0,0,0,.35); font-size:.9rem; line-height:1.3; opacity:0; transform:translateY(-8px) scale(.96); transition:opacity .25s, transform .25s; border:1px solid rgba(255,255,255,.15); }
-.toast-item.success { border-color:#16a34a; }
-.toast-item.error { border-color:#dc2626; }
-.toast-item.show { opacity:1; transform:translateY(0) scale(1); }
+/* Inline popup status dưới nút submit */
+#formStatusWrapper { position:relative; display:inline-block; }
+#formStatus { position:relative; margin-top:.6rem; padding:.65rem .9rem; border-radius:.6rem; font-size:.85rem; line-height:1.3; background:#003324; color:#f8f7dc; border:1px solid rgba(255,255,255,.18); box-shadow:0 4px 14px -4px rgba(0,0,0,.45); opacity:0; transform:translateY(-4px); transition:opacity .25s ease, transform .25s ease; max-width:360px; }
+#formStatus.show { opacity:1; transform:translateY(0); }
+#formStatus.success { border-color:#16a34a; }
+#formStatus.error { border-color:#dc2626; }
+#formStatus .close-btn { position:absolute; top:4px; right:6px; cursor:pointer; font-weight:600; opacity:.65; }
+#formStatus .close-btn:hover { opacity:1; }
 </style>
 
 <script>
 (function() {
-  function showToast(msg, type = 'success') {
-    let wrap = document.getElementById('toast-wrap');
-    if (!wrap) {
-      wrap = document.createElement('div');
-      wrap.id = 'toast-wrap';
-      document.body.appendChild(wrap);
-    }
-    const el = document.createElement('div');
-    el.className = 'toast-item ' + type;
-    el.role = 'status';
-    el.innerText = msg;
-    wrap.appendChild(el);
-    requestAnimationFrame(() => el.classList.add('show'));
-    setTimeout(() => {
-      el.classList.remove('show');
-      setTimeout(() => el.remove(), 300);
-    }, 4000);
+  const statusEl = () => document.getElementById('formStatus');
+  function setStatus(msg: string, type?: string) {
+    const el = statusEl();
+    if (!el) return;
+    el.className = '';
+    el.id = 'formStatus';
+    if (type) el.classList.add(type);
+    el.innerHTML = `<span class="close-btn" aria-label="Close" title="Close">×</span>${msg}`;
+    requestAnimationFrame(()=> el.classList.add('show'));
+    el.querySelector('.close-btn')?.addEventListener('click', () => el.classList.remove('show'));
+  }
+  function autoHide(ms:number=3500) {
+    const el = statusEl();
+    if (!el) return;
+    setTimeout(()=> el.classList.remove('show'), ms);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-    const submitBtn = form.querySelector('button[type="submit"]');
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  if (!form) return;
+  const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
-    // Prefill từ query params
     const params = new URLSearchParams(location.search);
     ['name','email','phone','service','message'].forEach(k => {
       const v = params.get(k);
       if (!v) return;
-      const field = form.querySelector('[name="'+k+'"]');
-      if (field) field.value = v;
+  const field = form.querySelector('[name="'+k+'"]') as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null;
+  if (field) (field as any).value = v;
     });
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async (e: SubmitEvent) => {
       e.preventDefault();
+      if (form.dataset.sending === '1') return;
+      form.dataset.sending = '1';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.dataset.originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
       }
-      const fd = new FormData(form);
-      const payload = {};
-      fd.forEach((val, key) => payload[key] = String(val));
+      setStatus('Đang gửi...', 'info');
+
+      const fd = new FormData(form as HTMLFormElement);
+      const payload: Record<string,string> = {};
+      fd.forEach((val, key) => { payload[key] = String(val); });
 
       try {
         const res = await fetch('/.netlify/functions/sendMail', {
@@ -169,21 +176,23 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-        let result = {};
+        let result: any = {};
         try { result = await res.json(); } catch {}
-        if (res.ok && result.success) {
-          showToast('✅ Gửi thành công!', 'success');
+        if (res.ok && (result as any).success) {
+          setStatus('✅ Gửi thành công!', 'success');
           form.reset();
+          autoHide();
         } else {
-          showToast('❌ Lỗi: ' + (result.error || 'Send failed'), 'error');
+          setStatus('❌ Gửi thất bại: ' + ((result as any).error || 'Send failed'), 'error');
         }
       } catch (err) {
-        showToast('❌ Lỗi mạng', 'error');
+        setStatus('❌ Lỗi mạng (không gửi được)', 'error');
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-            submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
+          submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
         }
+        delete form.dataset.sending;
       }
     });
   });
