@@ -1,37 +1,47 @@
 import nodemailer from 'nodemailer';
 
-export async function post({ request }) {
-  const data = await request.json();
+const { ZOHO_USER, ZOHO_PASS, ZOHO_SMTP_HOST = 'smtp.zoho.com' } = process.env;
 
-  // Tạo transporter với Zoho SMTP
+export async function post({ request }) {
+  if (!ZOHO_USER || !ZOHO_PASS)
+    return new Response(JSON.stringify({ success:false, error:'Env missing' }), { status:500 });
+
+  const data = await request.json().catch(()=> ({}));
+  const { name='', email='', phone='', service='', message='' } = data;
+
   const transporter = nodemailer.createTransport({
-    host: 'smtp.zoho.com',
+    host: ZOHO_SMTP_HOST,
     port: 465,
     secure: true,
-    auth: {
-      user: 'contact@vybrows-academy.com', // Thay bằng email Zoho của bạn
-      pass: 'LbhMfXpLtxQ8' // Thay bằng app password Zoho
-    }
+    auth: { user: ZOHO_USER, pass: ZOHO_PASS }
   });
 
-  // Nội dung email
-  const mailOptions = {
-    from: 'VyBrows Website <contact@vybrows-academy.com>',
-    to: 'contact@vybrows-academy.com',
-    subject: 'New Contact Form Submission',
-    html: `
-      <b>Name:</b> ${data.name}<br>
-      <b>Email:</b> ${data.email}<br>
-      <b>Phone:</b> ${data.phone}<br>
-      <b>Service:</b> ${data.service}<br>
-      <b>Message:</b> ${data.message}
-    `
-  };
+  try { await transporter.verify(); }
+  catch (e) {
+    return new Response(JSON.stringify({ success:false, error:'SMTP auth failed' }), { status:500 });
+  }
+
+  const subject = `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`;
+  const text = [
+    'New Contact Form Submission',
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    `Service: ${service}`,
+    'Message:',
+    message
+  ].join('\n');
 
   try {
-    await transporter.sendMail(mailOptions);
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
-  } catch (err) {
-    return new Response(JSON.stringify({ success: false, error: err.message }), { status: 500 });
+    await transporter.sendMail({
+      from: `"VyBrows" <${ZOHO_USER}>`,
+      to: 'contact@vybrows-academy.com',
+      replyTo: email || ZOHO_USER,
+      subject, text,
+      html: text.replace(/\n/g,'<br>')
+    });
+    return new Response(JSON.stringify({ success:true }), { status:200 });
+  } catch (e:any) {
+    return new Response(JSON.stringify({ success:false, error:e?.message || 'Send failed' }), { status:500 });
   }
 }

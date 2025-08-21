@@ -4,42 +4,16 @@ import nodemailer from 'nodemailer';
 const {
   ZOHO_USER,
   ZOHO_PASS,
-  ZOHO_SMTP_HOST = 'smtp.zoho.com'   // nếu account EU: đặt env ZOHO_SMTP_HOST=smtp.zoho.eu
+  ZOHO_SMTP_HOST = 'smtppro.zoho.com'
 } = process.env;
 
-const transporter = nodemailer.createTransport({
-  host: ZOHO_SMTP_HOST,
-  port: 465,
-  secure: true,
-  auth: { user: ZOHO_USER, pass: ZOHO_PASS }
-});
-
-// Tùy biến format dòng text ở đây
-function buildPlain({ name, email, phone, service, message }: any) {
-  return [
-    'New Contact Form Submission',
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Phone: ${phone}`,
-    `Service: ${service}`,
-    'Message:',
-    message
-  ].join('\n');
-}
-
-// Tùy biến HTML ở đây
-function buildHtml(data: any) {
-  const { name, email, phone, service, message } = data;
-  return `
-    <h2 style="margin:0 0 12px;font-family:Lora,serif;">New Contact Form Submission</h2>
-    <p><b>Name:</b> ${name}</p>
-    <p><b>Email:</b> ${email}</p>
-    <p><b>Phone:</b> ${phone}</p>
-    <p><b>Service:</b> ${service}</p>
-    <p><b>Message:</b><br>${String(message).replace(/\n/g,'<br>')}</p>
-    <hr style="margin:16px 0;border:none;border-top:1px solid #ddd">
-    <p style="font-size:12px;color:#666">Sent from website form.</p>
-  `;
+function createTransport(port465 = true) {
+  return nodemailer.createTransport({
+    host: ZOHO_SMTP_HOST,
+    port: port465 ? 465 : 587,
+    secure: port465,
+    auth: { user: ZOHO_USER, pass: ZOHO_PASS }
+  });
 }
 
 export const handler: Handler = async (event) => {
@@ -49,30 +23,42 @@ export const handler: Handler = async (event) => {
   if (!ZOHO_USER || !ZOHO_PASS)
     return { statusCode:500, body: JSON.stringify({ success:false, error:'Env missing' }) };
 
-  // Kiểm tra đăng nhập trước
-  try {
-    await transporter.verify();
-  } catch (e:any) {
-    console.error('SMTP verify error:', e?.message || e);
-    return { statusCode:500, body: JSON.stringify({
-      success:false,
-      error:'SMTP auth failed (kiểm tra App Password / host / env)'
-    }) };
-  }
-
   let data:any = {};
   try { data = JSON.parse(event.body || '{}'); }
   catch { return { statusCode:400, body: JSON.stringify({ success:false, error:'Bad JSON' }) }; }
 
   const { name='', email='', phone='', service='', message='' } = data;
+
+  let transporter = createTransport(true);
+  try {
+    await transporter.verify();
+  } catch {
+    transporter = createTransport(false);
+    try { await transporter.verify(); }
+    catch {
+      return { statusCode:500, body: JSON.stringify({
+        success:false,
+        error:'SMTP auth failed (kiểm tra App Password / host / env)'
+      }) };
+    }
+  }
+
   const subject = `Contact Form: ${service || 'General'} - ${name || 'Visitor'}`;
-  const text = buildPlain({ name, email, phone, service, message });
-  const html = buildHtml({ name, email, phone, service, message });
+  const text = [
+    'New Contact Form Submission',
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    `Service: ${service}`,
+    'Message:',
+    message
+  ].join('\n');
+  const html = text.replace(/\n/g,'<br>');
 
   try {
     const info = await transporter.sendMail({
       from: `"VyBrows Contact" <${ZOHO_USER}>`,
-      to: 'contact@vybrows-academy.com',
+      to: 'contact@vybrows-academy.com',   // Zoho hộp thư chính (Zoho đã tự CC Gmail bằng rule)
       replyTo: email || ZOHO_USER,
       subject,
       text,
@@ -81,92 +67,52 @@ export const handler: Handler = async (event) => {
     console.log('Accepted:', info.accepted, 'Rejected:', info.rejected);
     return { statusCode:200, body: JSON.stringify({ success:true }) };
   } catch (e:any) {
-    console.error('Send error:', e?.message || e);
     const raw = e?.message || '';
     return { statusCode:500, body: JSON.stringify({
       success:false,
-      error: /535/i.test(raw)
-        ? 'SMTP auth failed (App Password sai / chưa cập nhật / host sai)'
-        : raw
+      error:/535/i.test(raw)?'SMTP auth failed (App Password sai / chưa cập nhật)':raw
     }) };
   }
 };
 
 <script>
-(function() {
-  function showToast(msg, type = 'info') {
-    let wrap = document.getElementById('toast-wrap');
-    if (!wrap) {
-      wrap = document.createElement('div');
-      wrap.id = 'toast-wrap';
-      document.body.appendChild(wrap);
-    }
-    const el = document.createElement('div');
-    el.className = 'toast-item ' + (type === 'error' ? 'error' : (type === 'success' ? 'success' : ''));
-    el.role = 'status';
-    el.innerText = msg;
-    wrap.appendChild(el);
-    requestAnimationFrame(() => el.classList.add('show'));
-    setTimeout(() => {
-      el.classList.remove('show');
-      setTimeout(() => el.remove(), 300);
-    }, 4000);
+(function(){
+  function showStatus(msg,type){
+    const box=document.getElementById('formStatus');
+    if(!box) return;
+    box.className='';
+    box.classList.add('show', type==='error'?'error':(type==='success'?'success':''));
+    box.textContent=msg;
+    setTimeout(()=>{ if(type==='success') box.classList.remove('show'); },4000);
   }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-    const submitBtn = form.querySelector('button[type="submit"]');
-
-    // Prefill từ query params
-    const params = new URLSearchParams(location.search);
-    ['name','email','phone','service','message'].forEach(k => {
-      const v = params.get(k);
-      if (!v) return;
-      const field = form.querySelector('[name="'+k+'"]');
-      if (field) field.value = v;
-    });
-
-    form.addEventListener('submit', async (e) => {
+  document.addEventListener('DOMContentLoaded',()=>{
+    const form=document.getElementById('contactForm');
+    if(!form) return;
+    const btn=form.querySelector('button[type="submit"]');
+    form.addEventListener('submit',async e=>{
       e.preventDefault();
-      if (form.dataset.sending === '1') return; // chặn double submit
-      form.dataset.sending = '1';
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.dataset.originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-      }
-
-      showToast('Đang gửi...', 'info');
-
-      const fd = new FormData(form);
-      const payload = {};
-      fd.forEach((val, key) => payload[key] = String(val));
-
-      try {
-        const res = await fetch('/.netlify/functions/sendMail', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+      if(form.dataset.sending==='1') return;
+      form.dataset.sending='1';
+      btn.disabled=true; const old=btn.textContent; btn.textContent='Sending...';
+      showStatus('Đang gửi...','info');
+      const fd=new FormData(form); const payload:any={}; fd.forEach((v,k)=>payload[k]=String(v));
+      try{
+        const r=await fetch('/.netlify/functions/sendMail',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify(payload)
         });
-
-        let result = {};
-        try { result = await res.json(); } catch {}
-
-        if (res.ok && result.success) {
-          showToast('✅ Gửi thành công!', 'success');
+        let j={}; try{ j=await r.json(); }catch{}
+        if(r.ok && (j as any).success){
+          showStatus('✅ Gửi thành công!','success');
           form.reset();
         } else {
-          showToast('❌ Gửi thất bại: ' + (result.error || res.status + ' Error'), 'error');
+          showStatus('❌ Gửi thất bại: '+((j as any).error||r.status),'error');
         }
-      } catch (err) {
-        showToast('❌ Lỗi mạng (không gửi được)', 'error');
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
-        }
+      }catch{
+        showStatus('❌ Lỗi mạng','error');
+      }finally{
+        btn.disabled=false; btn.textContent=old;
         delete form.dataset.sending;
       }
     });
