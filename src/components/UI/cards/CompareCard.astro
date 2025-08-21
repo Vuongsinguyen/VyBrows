@@ -159,6 +159,8 @@ const maxWidth = width + 60;
 
     const onMove = (e: MouseEvent | TouchEvent) => {
       if (!dragging) return;
+      // Ngăn scroll dọc khi kéo slider
+      e.preventDefault?.();
       const rect = container.getBoundingClientRect();
       const clientX = (e as TouchEvent).changedTouches
         ? (e as TouchEvent).changedTouches[0].clientX
