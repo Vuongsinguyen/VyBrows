@@ -6,8 +6,12 @@ export interface Props { class?: string; }
 const { class: customClass = '' } = Astro.props;
 
 // Language mapping + detect current language
-const langMap = { vi: 'Tiếng Việt', en: 'English', es: 'Español', ja: '日本語', ko: '한국어' };
-const currentLang = Astro.url.pathname.match(/^\/(vi|en|es|ja|ko)(\/|$)/)?.[1] || 'en';
+const langMap = { vi: 'Tiếng Việt', en: 'English', es: 'Español', ja: '日本語', ko: '한국어' } as const;
+type Lang = keyof typeof langMap;
+
+const rawLang = Astro.url.pathname.split('/')[1] || 'en';
+const currentLang: Lang = (Object.keys(langMap) as Lang[]).includes(rawLang as Lang) ? (rawLang as Lang) : 'en';
+
 const currentLangDisplay = langMap[currentLang] || langMap.en;
 ---
 <header
