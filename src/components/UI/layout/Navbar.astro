@@ -114,12 +114,22 @@ const extra = ({
     style="background: var(--color-navbar);"
   >
     <div class="px-4 pt-2 pb-3 space-y-2">
-      <!-- HOME dynamic -->
-      <a href={`${basePrefix}/`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">
-        {t.home}
-      </a>
-
-      <!-- ...existing mobile items & SERVICES dropdown... -->
+      {menuItems.map((item: MenuItem) =>
+        item.children && item.children.length > 0 ? (
+          <MobileDropdown
+            label={item.label}
+            items={item.children.map(child => ({
+              href: child.href,
+              title: child.label,
+              description: child.description ?? ''
+            }))}
+          />
+        ) : (
+          <a href={item.href} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">
+            {item.label}
+          </a>
+        )
+      )}
 
       <hr class="opacity-30 my-2" />
 
@@ -168,13 +178,14 @@ const extra = ({
     const sunIcon = document.getElementById('sun-icon');
     const moonIcon = document.getElementById('moon-icon');
 
-    function updateIcons(isDark: boolean) {
+    function updateIcons(isDark) {
+      if (!sunIcon || !moonIcon) return;
       if (isDark) {
-        sunIcon?.classList.add('hidden');
-        moonIcon?.classList.remove('hidden');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
       } else {
-        sunIcon?.classList.remove('hidden');
-        moonIcon?.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
       }
     }
 

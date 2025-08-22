@@ -89,5 +89,26 @@ export const menus: Record<string, MenuItem[]> = {
     { label: 'PROYECTOS', href: '/es/projects', title: 'Proyectos', description: 'Lista de proyectos' },
     { label: 'NOTICIAS', href: '/es/news', title: 'Noticias', description: 'Últimas noticias y actualizaciones' },
     { label: 'CONTACTO', href: '/es/#contact', title: 'Contacto', description: 'Contáctanos' }
+  ],
+  ko: [
+    { label: '홈', href: '/ko/', title: '홈' },
+    { label: '서비스', href: '/ko/#services', title: '서비스' },
+    {
+      label: '회사 소개', href: '/ko/about-us', title: '회사 소개', description: 'ARIS Vietnam 소개',
+      children: [
+        { href: '/ko/about-us#overview', label: '개요', title: '개요', description: '개요' },
+        { href: '/ko/about-us#ceo-message', label: 'CEO 메시지', title: 'CEO 메시지', description: 'CEO 메시지' },
+        { href: '/ko/about-us#vision-mission', label: '비전과 미션', title: '비전과 미션', description: '비전과 미션' },
+        { href: '/ko/about-us#profile', label: '회사 프로필', title: '회사 프로필', description: '회사 프로필' },
+        { href: '/ko/about-us#timeline', label: '연혁', title: '연혁', description: '연혁' },
+        { href: '/ko/about-us#why-choose-us', label: '선택받는 이유', title: '선택받는 이유', description: '선택받는 이유' },
+        { href: '/ko/about-us#our-customer', label: '고객사', title: '고객사', description: '고객사' },
+        { href: '/ko/about-us#skills', label: '역량 및 기술', title: '역량 및 기술', description: '역량 및 기술' },
+      ]
+    },
+    { label: '교육', href: '/ko/training', title: '교육', description: '교육 및 워크숍' },
+    { label: '솔루션', href: '/ko/solutions', title: '솔루션', description: '비즈니스 솔루션' },
+    { label: '커뮤니케이션', href: '/ko/communication', title: '커뮤니케이션', description: '소통' },
+    { label: '문의', href: '/ko/#contact', title: '문의', description: '문의하기' }
   ]
 };
