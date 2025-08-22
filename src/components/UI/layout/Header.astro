@@ -20,8 +20,8 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
   style="border-color: #003324; z-index: 9999 !important;"
 >
   <!-- Topbar Section -->
-  <div id="topbar" class="text-white w-full block" style="background: var(--color-primary-gradient); display: block !important; height: 60px; overflow: visible; position: relative; z-index: 9999;">
-    <div class="max-w-[1280px] mx-auto flex justify-between items-center px-6 py-0 text-sm font-medium" style="height: 60px; display: flex !important; overflow: visible; position: relative;">
+  <div id="topbar" class="text-white w-full block" style="background: var(--color-primary-gradient); display: block !important; height: 40px; overflow: visible; position: relative; z-index: 9999;">
+    <div class="max-w-[1280px] mx-auto flex justify-between items-center px-6 py-0 text-sm font-medium" style="height: 40px; display: flex !important; overflow: visible; position: relative;">
       <!-- Contact Info -->
       <div class="flex items-center space-x-6">
         <a href="mailto:contact@vybrows-academy.com" class="items-center gap-1 hidden md:flex" style="color: var(--color-text); text-decoration: none;">
@@ -37,23 +37,31 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
           US: (346)-409.8888
         </a>
         <!-- Mobile: only icons -->
-        <a href={`/${currentLang}/contact`} class="md:hidden flex items-center" aria-label="Gửi email">
-          <span class="material-icons-outlined text-white text-base" style="font-size: 20px;">mail</span>
+        <a href={`/${currentLang}/contact`} class="md:hidden flex items-center" aria-label="Gửi email" style="color: var(--color-text);">
+          <span class="material-icons-outlined text-base" style="font-size: 20px; color: inherit;">mail</span>
         </a>
-        <a href="tel:+832838424483" class="md:hidden flex items-center" aria-label="Gọi điện thoại">
-          <span class="material-icons-outlined text-white text-base" style="font-size: 20px;">call</span>
+        <a href="tel:+3464099999" class="md:hidden flex items-center" aria-label="Gọi điện thoại" style="color: var(--color-text);">
+          <span class="material-icons-outlined text-base" style="font-size: 20px; color: inherit;">call</span>
         </a>
       </div>
 
       <!-- Right controls -->
       <div class="flex items-center gap-4" style="position: static; overflow: visible;">
-        <a href="/dr-anmytas" class="hover:underline text-sm font-medium" style="color: var(--color-text);">Dr.ANMYTAS</a>
-        <a href="/supply-list" class="hover:underline text-sm font-medium" style="color: var(--color-text);">SUPPLY LIST</a>
-        <a href="/blog" class="hover:underline text-sm font-medium" style="color: var(--color-text);">BLOG</a>
+        <a href="/dr-anmytas" class="hidden md:inline-block hover:underline text-sm font-medium" style="color: var(--color-text);">Dr.ANMYTAS</a>
+        <a href="/supply-list" class="hidden md:inline-block hover:underline text-sm font-medium" style="color: var(--color-text);">SUPPLY LIST</a>
+        <a href="/blog" class="hidden md:inline-block hover:underline text-sm font-medium" style="color: var(--color-text);">BLOG</a>
 
         <!-- Language Dropdown -->
         <div class="language-dropdown-container" style="position: relative; z-index: 10000 !important;" role="menu" aria-label="Language Switcher">
-          <button id="lang-dropdown-btn" class="flex items-center gap-1 px-3 py-2 rounded border border-gray-300 hover:bg-white/10 transition-all cursor-pointer" type="button" aria-haspopup="true" aria-expanded="false" style="color: var(--color-text); border-color: var(--color-text); position: relative; z-index: 10001 !important;" onclick="console.log('🔥 DIRECT CLICK WORKS!'); const menu = document.getElementById('lang-dropdown-menu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block';">
+          <button
+            id="lang-dropdown-btn"
+            class="flex items-center gap-1 px-3 py-1.5 rounded border border-gray-300 hover:bg-white/10 transition-all cursor-pointer"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            style="color: var(--color-text); border-color: var(--color-text); position: relative; z-index: 10001 !important;"
+            onclick="console.log('🔥 DIRECT CLICK WORKS!'); const menu = document.getElementById('lang-dropdown-menu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block';"
+          >
             <span>{currentLangDisplay}</span>
             <svg class="w-4 h-4" fill="var(--color-text)" viewBox="0 0 24 24"><path d="M7 9.5L12 14.5L17 9.5H7Z"/></svg>
           </button>
@@ -61,11 +69,11 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
           <!-- Dropdown Menu (child of container, sibling of button) -->
           <div id="lang-dropdown-menu" style="position: absolute; right: 0; top: calc(100% + 8px); display: none; min-width: 120px; z-index: 10002 !important;">
             <div style="background: rgba(0, 51, 36, 0.98) !important; border-radius: 6px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.1); min-width: 120px;">
-              <div class="lang-switch" data-lang="vi" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; border-top-left-radius: 6px; border-top-right-radius: 6px; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Tiếng Việt</div>
-              <div class="lang-switch" data-lang="en" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">English</div>
-              <div class="lang-switch" data-lang="ja" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">日本語</div>
-              <div class="lang-switch" data-lang="es" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Español</div>
-              <div class="lang-switch" data-lang="ko" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">한국어</div>
+              <div class="lang-switch" data-lang="vi" style="display: block; width: 100%; padding: 12px 16px; background: transparent; color: white; cursor: pointer; border-top-left-radius: 6px; border-top-right-radius: 6px; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Tiếng Việt</div>
+              <div class="lang-switch" data-lang="en" style="display: block; width: 100%; padding: 12px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">English</div>
+              <div class="lang-switch" data-lang="ja" style="display: block; width: 100%; padding: 12px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">日本語</div>
+              <div class="lang-switch" data-lang="es" style="display: block; width: 100%; padding: 12px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Español</div>
+              <div class="lang-switch" data-lang="ko" style="display: block; width: 100%; padding: 12px 16px; background: transparent; color: white; cursor: pointer; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">한국어</div>
             </div>
           </div>
         </div>
@@ -90,60 +98,61 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
 <style>
   #header-container {
     transform: translateY(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); /* mượt hơn so với 0.3s ease */
     will-change: transform;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     z-index: 9999 !important;
 
-    /* có thể chỉnh con số này để thay đổi phần hiển thị khi ẩn */
-    --hide-amount: 0px; /* sẽ được JS cập nhật thành (headerHeight - 60px) */
+    --hide-amount: 0px; /* sẽ được JS cập nhật */
   }
-  /* Scroll xuống: ẩn header nhưng chừa lại 60px */
   #header-container.header-hidden {
     transform: translateY(calc(-1 * var(--hide-amount, 0px)));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #header-container { transition-duration: 0.2s; }
   }
 </style>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header-container');
-    
-    if (!header) {
-      console.error('Header container not found');
-      return;
-    }
-    
+    if (!header) return;
+
     let lastScrollY = window.scrollY;
     let ticking = false;
 
-    // TÍNH khoảng cần ẩn: max(headerHeight - 60px, 0)
+    // NEW: visible height per breakpoint (desktop:55, mobile:65)
+    function getVisible() {
+      return window.matchMedia('(min-width: 768px)').matches ? 55 : 65;
+    }
+
     function updateHideAmount() {
       const headerHeight = header.offsetHeight || 0;
-      const visible = 60; // chừa lại 60px
+      const visible = getVisible(); // 55 desktop, 65 mobile
       const hide = Math.max(headerHeight - visible, 0);
       header.style.setProperty('--hide-amount', hide + 'px');
     }
 
-    // gọi ngay khi load và khi resize
     updateHideAmount();
 
     function onScroll() {
       const currentY = window.scrollY;
-      
-      // Debug log
-      console.log('Scroll position:', currentY, 'Last:', lastScrollY);
-      
+      const threshold = getVisible();
+
       if (currentY === 0) {
         header.classList.remove('header-hidden');
-      } else if (currentY > lastScrollY && currentY > 60) {
-        header.classList.add('header-hidden'); // ẩn chừa 60px
+      } else if (currentY > lastScrollY && currentY > threshold) {
+        header.classList.add('header-hidden'); // ẩn chừa 55/65
       } else if (currentY < lastScrollY) {
         header.classList.remove('header-hidden');
       }
-      
+
       lastScrollY = currentY;
       ticking = false;
     }
@@ -155,13 +164,11 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
       }
     }, { passive: true });
 
-    // Reset header khi resize (tránh lỗi khi thay đổi layout)
     window.addEventListener('resize', () => {
       header.classList.remove('header-hidden');
-      updateHideAmount();
-      console.log('Window resized - showing header');
+      updateHideAmount(); // cập nhật 55/65 khi đổi breakpoint
     });
-    
+
     // Kiểm tra header có tồn tại
     console.log('Header script loaded, element:', header);
     

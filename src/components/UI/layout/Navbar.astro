@@ -13,6 +13,7 @@ const { class: customClass = '' } = Astro.props;
 
 // Detect current language from URL
 const currentLang = Astro.url.pathname.split('/')[1] || 'en';
+const basePrefix = currentLang === 'en' ? '' : `/${currentLang}`;
 
 let menuItems: MenuItem[] = menus[currentLang] || menus['en'];
 
@@ -91,28 +92,39 @@ if (serviceMenuIdx !== -1) {
   <!-- Mobile Navigation (mirror desktop menu) -->
   <div 
     id="mobile-menu" 
-    class="md:hidden hidden" 
+    class="md:hidden hidden font-lora" 
     style="background: var(--color-navbar);"
   >
     <div class="px-4 pt-2 pb-3 space-y-2">
-       {menuItems.map(item => (
-         item.children && item.children.length > 0 ? (
-           <MobileDropdown
-             label={item.label}
-             items={item.children.map(child => ({ href: child.href, title: child.label }))}
-           />
-         ) : (
-          <a
-            href={item.href}
-            class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors"
-            style="font-size:16px; color: var(--color-black2white);"
-          >
+      <a href="/" class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);"> HOME </a>
+      <!-- ...existing mobile items & SERVICES dropdown... -->
+
+      <!-- Added to mobile menu -->
+      {menuItems.map((item: MenuItem) =>
+        item.children && item.children.length > 0 ? (
+          <MobileDropdown
+            label={item.label}
+            items={item.children.map(child => ({
+              href: child.href,
+              title: child.label,
+              description: child.description ?? ''
+            }))}
+          />
+        ) : (
+          <a href={item.href} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">
             {item.label}
           </a>
-         )
-       ))}
-     </div>
-   </div>
+        )
+      )}
+
+      <hr class="opacity-30 my-2" />
+
+      <!-- Bổ sung các mục mới, giữ nguyên menu cũ phía trên -->
+      <a href={`${basePrefix}/dr-anmytas`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">Dr.ANMYTAS</a>
+      <a href={`${basePrefix}/supply-list`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">SUPPLY LIST</a>
+      <a href={`${basePrefix}/blog`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">BLOG</a>
+    </div>
+  </div>
 </nav>
 
 <!-- Material Icons CDN -->
@@ -204,4 +216,7 @@ if (serviceMenuIdx !== -1) {
 header, nav, main, section, body {
   overflow: visible !important;
 }
+
+/* Ensure hamburger menu uses Lora even nếu thiếu utility */
+#mobile-menu { font-family: 'Lora', serif; }
 </style>
