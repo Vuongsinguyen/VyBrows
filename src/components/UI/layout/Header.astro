@@ -49,17 +49,17 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
 
         <!-- Language Dropdown -->
         <div class="relative" role="menu" aria-label="Language Switcher">
-          <button id="lang-dropdown-btn" class="flex items-center gap-1" type="button" aria-haspopup="true" aria-expanded="false" style="color: var(--color-text);">
+          <button id="lang-dropdown-btn" class="flex items-center gap-1 px-3 py-2 rounded border border-gray-300 hover:bg-white/10 transition-all" type="button" aria-haspopup="true" aria-expanded="false" style="color: var(--color-text); border-color: var(--color-text);">
             {currentLangDisplay}
             <svg class="w-4 h-4" fill="var(--color-text)" viewBox="0 0 24 24"><path d="M7 9.5L12 14.5L17 9.5H7Z"/></svg>
           </button>
           <div id="lang-dropdown-menu" class="absolute right-0 top-full pt-2 hidden z-[99999]">
-            <div class="rounded-md shadow-lg border border-gray-200 min-w-[140px]" style="background: var(--color-black2white);">
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white first:rounded-t-md" data-lang="vi">Tiếng Việt</button>
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="en">English</button>
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="ja">日本語</button>
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="es">Español</button>
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white last:rounded-b-md" data-lang="ko">한국어</button>
+            <div class="rounded-md shadow-lg border border-gray-200 min-w-[100px]" style="background: var(--color-black2white);">
+              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white first:rounded-t-md" data-lang="vi" style="height: 40px;">Tiếng Việt</button>
+              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="en" style="height: 40px;">English</button>
+              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="ja" style="height: 40px;">日本語</button>
+              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="es" style="height: 40px;">Español</button>
+              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white last:rounded-b-md" data-lang="ko" style="height: 40px;">한국어</button>
             </div>
           </div>
         </div>
@@ -147,5 +147,51 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
     
     // Kiểm tra header có tồn tại
     console.log('Header script loaded, element:', header);
+    
+    // Language dropdown functionality
+    const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+    const langDropdownMenu = document.getElementById('lang-dropdown-menu');
+    const langSwitchButtons = document.querySelectorAll('.lang-switch');
+    
+    // Toggle dropdown menu
+    if (langDropdownBtn && langDropdownMenu) {
+      langDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdownMenu.classList.toggle('hidden');
+        langDropdownBtn.setAttribute('aria-expanded', 
+          langDropdownMenu.classList.contains('hidden') ? 'false' : 'true'
+        );
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!langDropdownBtn.contains(e.target) && !langDropdownMenu.contains(e.target)) {
+          langDropdownMenu.classList.add('hidden');
+          langDropdownBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+    
+    // Language switch functionality
+    langSwitchButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetLang = button.getAttribute('data-lang');
+        const currentPath = window.location.pathname;
+        
+        // Remove current language from path
+        const pathWithoutLang = currentPath.replace(/^\/(vi|en|es|ja|ko)(\/|$)/, '/');
+        
+        // Build new URL with target language
+        const newPath = targetLang === 'en' 
+          ? pathWithoutLang === '/' ? '/' : pathWithoutLang
+          : `/${targetLang}${pathWithoutLang === '/' ? '' : pathWithoutLang}`;
+        
+        // Navigate to new URL
+        window.location.href = newPath;
+        
+        console.log('Language switched to:', targetLang, 'New path:', newPath);
+      });
+    });
   });
 </script>
