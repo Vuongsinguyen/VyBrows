@@ -12,11 +12,11 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
 ---
 <header
   id="header-container"
-  class={`fixed top-0 left-0 right-0 z-[9999] ${customClass} border-b`}
-  style="border-color: #003324; z-index: 9999 !important;"
+  class={`fixed top-0 left-0 right-0 z-[1000] ${customClass} border-b`}
+  style="border-color: #003324;"
 >
   <!-- Topbar Section -->
-  <div id="topbar" class="text-white w-full block" style="background: var(--color-primary-gradient); display: block !important; height: 100px; overflow: visible; position: relative; z-index: 9999;">
+  <div id="topbar" class="text-white w-full block" style="background: var(--color-primary-gradient); display: block !important; height: 100px; overflow: visible; position: relative; z-index: 1001;">
     <div class="max-w-[1280px] mx-auto flex justify-between items-center px-6 py-0 text-sm font-medium" style="height: 100px; display: flex !important; overflow: visible; position: relative;">
       <!-- Contact Info -->
       <div class="flex items-center space-x-6">
@@ -48,20 +48,18 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
         <a href="/blog" class="hover:underline text-sm font-medium" style="color: var(--color-text);">BLOG</a>
 
         <!-- Language Dropdown -->
-        <div class="language-dropdown-container" style="position: relative; z-index: 10000 !important;" role="menu" aria-label="Language Switcher">
-          <button id="lang-dropdown-btn" class="flex items-center gap-1 px-3 py-2 rounded border border-gray-300 hover:bg-white/10 transition-all cursor-pointer" type="button" aria-haspopup="true" aria-expanded="false" style="color: var(--color-text); border-color: var(--color-text); position: relative; z-index: 10001 !important;" onclick="console.log('🔥 DIRECT CLICK WORKS!'); const menu = document.getElementById('lang-dropdown-menu'); menu.style.display = menu.style.display === 'block' ? 'none' : 'block';">
-            <span>{currentLangDisplay}</span>
+        <div style="position: relative; z-index: 999999;" role="menu" aria-label="Language Switcher">
+          <button id="lang-dropdown-btn" class="lang-dropdown-btn flex items-center gap-1 px-3 py-2 rounded border border-gray-300 hover:bg-white/10 transition-all cursor-pointer" type="button" aria-haspopup="true" aria-expanded="false" style="color: var(--color-text); border-color: var(--color-text); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'; this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            {currentLangDisplay}
             <svg class="w-4 h-4" fill="var(--color-text)" viewBox="0 0 24 24"><path d="M7 9.5L12 14.5L17 9.5H7Z"/></svg>
           </button>
-          
-          <!-- Dropdown Menu (child of container, sibling of button) -->
-          <div id="lang-dropdown-menu" style="position: absolute; right: 0; top: calc(100% + 8px); display: none; min-width: 120px; z-index: 10002 !important;">
-            <div style="background: rgba(0, 51, 36, 0.98) !important; border-radius: 6px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.1); min-width: 120px;">
-              <div class="lang-switch" data-lang="vi" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; border-top-left-radius: 6px; border-top-right-radius: 6px; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Tiếng Việt</div>
-              <div class="lang-switch" data-lang="en" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">English</div>
-              <div class="lang-switch" data-lang="ja" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">日本語</div>
-              <div class="lang-switch" data-lang="es" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Español</div>
-              <div class="lang-switch" data-lang="ko" style="display: block; width: 100%; padding: 8px 16px; background: transparent; color: white; cursor: pointer; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; text-align: left; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">한국어</div>
+          <div id="lang-dropdown-menu" style="position: absolute !important; right: 0; top: calc(100% + 8px); z-index: 999999; display: none; min-width: 120px; animation: fadeInDown 0.3s ease; transform-origin: top right;">
+            <div style="background: var(--color-black2white); border-radius: 6px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 1px solid #d1d5db; min-width: 120px;">
+              <button class="lang-switch" data-lang="vi" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; border-top-left-radius: 6px; border-top-right-radius: 6px; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.background='#004d3a'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 12px rgba(0, 77, 58, 0.3)'" onmouseout="this.style.background='#003324'; this.style.transform='translateX(0)'; this.style.boxShadow='none'">Tiếng Việt</button>
+              <button class="lang-switch" data-lang="en" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.background='#004d3a'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 12px rgba(0, 77, 58, 0.3)'" onmouseout="this.style.background='#003324'; this.style.transform='translateX(0)'; this.style.boxShadow='none'">English</button>
+              <button class="lang-switch" data-lang="ja" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.background='#004d3a'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 12px rgba(0, 77, 58, 0.3)'" onmouseout="this.style.background='#003324'; this.style.transform='translateX(0)'; this.style.boxShadow='none'">日本語</button>
+              <button class="lang-switch" data-lang="es" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.background='#004d3a'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 12px rgba(0, 77, 58, 0.3)'" onmouseout="this.style.background='#003324'; this.style.transform='translateX(0)'; this.style.boxShadow='none'">Español</button>
+              <button class="lang-switch" data-lang="ko" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.background='#004d3a'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 12px rgba(0, 77, 58, 0.3)'" onmouseout="this.style.background='#003324'; this.style.transform='translateX(0)'; this.style.boxShadow='none'">한국어</button>
             </div>
           </div>
         </div>
@@ -90,11 +88,33 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    z-index: 9999 !important;
+    z-index: 1000 !important;
   }
   /* Scroll xuống: ẩn header */
   #header-container.header-hidden {
     transform: translateY(-100%);
+  }
+  
+  /* Dropdown animations */
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Additional hover effects for dropdown container */
+  #lang-dropdown-menu {
+    backdrop-filter: blur(10px);
+  }
+  
+  #lang-dropdown-menu:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
   }
 </style>
 
@@ -157,43 +177,86 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
       const langDropdownMenu = document.getElementById('lang-dropdown-menu');
       const langSwitchButtons = document.querySelectorAll('.lang-switch');
       
-      console.log('🔍 DEBUG: Language elements found:', {
+      console.log('Language elements found:', {
         button: langDropdownBtn,
         menu: langDropdownMenu,
-        switches: langSwitchButtons.length,
-        buttonExists: !!langDropdownBtn,
-        menuExists: !!langDropdownMenu,
-        buttonId: langDropdownBtn?.id,
-        menuId: langDropdownMenu?.id
+        switches: langSwitchButtons.length
+      });
+      
+      // Debug: Check if elements exist
+      console.log('Button element details:', {
+        exists: !!langDropdownBtn,
+        id: langDropdownBtn?.id,
+        className: langDropdownBtn?.className
+      });
+      console.log('Menu element details:', {
+        exists: !!langDropdownMenu,
+        id: langDropdownMenu?.id,
+        display: langDropdownMenu?.style.display
       });
       
       // Toggle dropdown menu
       if (langDropdownBtn && langDropdownMenu) {
-        console.log('✅ SETTING UP EVENT LISTENERS...');
+        console.log('✅ Setting up dropdown event listeners...');
+        
+        // Initialize dropdown as hidden and track state
+        langDropdownMenu.style.display = 'none';
         let isDropdownOpen = false;
-        let clickTimeout;
+        
+        console.log('✅ Dropdown initialized as hidden');
         
         langDropdownBtn.addEventListener('click', (e) => {
+          console.log('🚨 BUTTON CLICKED! Event triggered');
           e.preventDefault();
           e.stopPropagation();
-          console.log('🚨 JAVASCRIPT CLICK TRIGGERED!');
+          console.log('Dropdown button clicked, current state:', isDropdownOpen);
           
-          // Clear any pending timeout
-          clearTimeout(clickTimeout);
-          
-          // Toggle state
-          isDropdownOpen = !isDropdownOpen;
-          langDropdownMenu.style.display = isDropdownOpen ? 'block' : 'none';
-          langDropdownBtn.setAttribute('aria-expanded', isDropdownOpen.toString());
-          console.log('Dropdown is now:', isDropdownOpen ? 'OPEN' : 'CLOSED');
+          if (isDropdownOpen) {
+            langDropdownMenu.style.display = 'none';
+            langDropdownBtn.setAttribute('aria-expanded', 'false');
+            isDropdownOpen = false;
+            console.log('Dropdown hidden');
+          } else {
+            langDropdownMenu.style.display = 'block';
+            langDropdownBtn.setAttribute('aria-expanded', 'true');
+            isDropdownOpen = true;
+            console.log('Dropdown shown');
+          }
         });
         
-        console.log('✅ CLICK LISTENER ADDED SUCCESSFULLY');
+        console.log('✅ Button click listener added successfully');
+      } else {
+        console.error('❌ Language dropdown elements not found:', {
+          button: !!langDropdownBtn,
+          menu: !!langDropdownMenu
+        });
+        
+        // Fallback: Try again with different selector
+        const fallbackBtn = document.querySelector('.lang-dropdown-btn');
+        const fallbackMenu = document.querySelector('#lang-dropdown-menu');
+        console.log('Fallback elements:', {
+          button: !!fallbackBtn,
+          menu: !!fallbackMenu
+        });
+        
+        if (fallbackBtn) {
+          console.log('✅ Using fallback button selector');
+          fallbackBtn.addEventListener('click', (e) => {
+            console.log('🚨 FALLBACK BUTTON CLICKED!');
+            e.preventDefault();
+            e.stopPropagation();
+          });
+        }
+      }
         
         // Close dropdown when clicking outside (with debounce)
+        let outsideClickTimeout;
         document.addEventListener('click', (e) => {
-          clearTimeout(clickTimeout);
-          clickTimeout = setTimeout(() => {
+          // Clear previous timeout
+          clearTimeout(outsideClickTimeout);
+          
+          // Add small delay to prevent conflict with button click
+          outsideClickTimeout = setTimeout(() => {
             if (!langDropdownBtn.contains(e.target) && !langDropdownMenu.contains(e.target) && isDropdownOpen) {
               langDropdownMenu.style.display = 'none';
               langDropdownBtn.setAttribute('aria-expanded', 'false');
@@ -203,10 +266,23 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
           }, 10);
         });
       } else {
-        console.error('Language dropdown elements not found:', {
+        console.error('❌ Language dropdown elements not found:', {
           button: !!langDropdownBtn,
           menu: !!langDropdownMenu
         });
+        
+        // Fallback: Try again with different selector
+        const fallbackBtn = document.querySelector('.lang-dropdown-btn');
+        console.log('Fallback button found:', !!fallbackBtn);
+        
+        if (fallbackBtn) {
+          console.log('✅ Using fallback button selector');
+          fallbackBtn.addEventListener('click', (e) => {
+            console.log('🚨 FALLBACK BUTTON CLICKED!');
+            e.preventDefault();
+            e.stopPropagation();
+          });
+        }
       }
       
       // Language switch functionality
