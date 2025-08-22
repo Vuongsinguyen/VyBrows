@@ -2,17 +2,25 @@
 // Header.astro - Combined TopBar and Navbar
 import Navbar from './Navbar.astro';
 
-export interface Props { class?: string; }
-const { class: customClass = '' } = Astro.props;
+export interface Props { class?: string; currentLang?: string; }
+const { class: customClass = '', currentLang: langProp } = Astro.props;
 
 // Language mapping + detect current language
 const langMap = { vi: 'Tiếng Việt', en: 'English', es: 'Español', ja: '日本語', ko: '한국어' } as const;
 type Lang = keyof typeof langMap;
 
-const rawLang = Astro.url.pathname.split('/')[1] || 'en';
-const currentLang: Lang = (Object.keys(langMap) as Lang[]).includes(rawLang as Lang) ? (rawLang as Lang) : 'en';
+// Ưu tiên prop currentLang, fallback theo URL
+const rawLang = (langProp as Lang) || (Astro.url.pathname.split('/')[1] as Lang) || 'en';
+const currentLang: Lang = (Object.keys(langMap) as Lang[]).includes(rawLang) ? rawLang : 'en';
 
 const currentLangDisplay = langMap[currentLang] || langMap.en;
+
+// Translation object
+const t = {
+  vi: { home: 'Trang chủ', services: 'Dịch vụ', about: 'Về chúng tôi', projects: 'Dự án', news: 'Tin tức', recruitment: 'Tuyển dụng', contact: 'Liên hệ' },
+  ja: { home: 'ホーム', services: 'サービス', about: '私たちについて', projects: 'プロジェクト', news: 'ニュース', recruitment: '採用情報', contact: 'お問い合わせ' },
+  es: { home: 'Inicio', services: 'Servicios', about: 'Sobre nosotros', projects: 'Proyectos', news: 'Noticias', recruitment: 'Reclutamiento', contact: 'Contacto' },
+}[currentLang] ?? {};
 ---
 <header
   id="header-container"
@@ -92,7 +100,7 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
   </div>
   
   <!-- Import Navbar component -->
-  <Navbar />
+  <Navbar currentLang={currentLang} labels={t} />
 </header>
 
 <style>

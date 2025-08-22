@@ -48,37 +48,24 @@ export const menus: Record<string, MenuItem[]> = {
   ],
   ja: [
     { label: 'ホーム', href: '/ja/', title: 'ホーム' },
+    { label: 'サービス', href: '/ja/#services', title: 'サービス' },
     {
-      label: 'SOBRE NOSOTROS', href: '/ja/about-us', title: 'Sobre nosotros', description: 'Conoce ARIS Vietnam',
+      label: '会社情報', href: '/ja/about-us', title: '会社情報', description: 'ARIS Vietnam について',
       children: [
-        { href: '/ja/about-us#overview', label: 'RESUMEN', title: 'Resumen', description: 'Resumen' },
-        { href: '/ja/about-us#ceo-message', label: 'MENSAJE DEL CEO', title: 'Mensaje del CEO', description: 'Mensaje del CEO' },
-        { href: '/ja/about-us#vision-mission', label: 'VISIÓN Y MISIÓN', title: 'Visión y Misión', description: 'Visión y Misión' },
-        { href: '/ja/about-us#profile', label: 'PERFIL DE LA EMPRESA', title: 'Perfil de la empresa', description: 'Perfil de la empresa' },
-        { href: '/ja/about-us#timeline', label: 'CRONOLOGÍA', title: 'Cronología', description: 'Cronología' },
-        { href: '/ja/about-us#why-choose-us', label: '¿POR QUÉ ELEGIRNOS?', title: '¿Por qué elegirnos?', description: '¿Por qué elegirnos?' },
-        { href: '/ja/about-us#our-customer', label: 'CLIENTES', title: 'Clientes', description: 'Clientes' },
-        { href: '/ja/about-us#skills', label: 'HABILIDADES Y CAPACIDADES', title: 'Habilidades y Capacidades', description: 'Habilidades y Capacidades' },
+        { href: '/ja/about-us#overview', label: '概要', title: '概要', description: '概要' },
+        { href: '/ja/about-us#ceo-message', label: 'CEOメッセージ', title: 'CEOメッセージ', description: 'CEOメッセージ' },
+        { href: '/ja/about-us#vision-mission', label: 'ビジョンとミッション', title: 'ビジョンとミッション', description: 'ビジョンとミッション' },
+        { href: '/ja/about-us#profile', label: '会社概要', title: '会社概要', description: '会社概要' },
+        { href: '/ja/about-us#timeline', label: '沿革', title: '沿革', description: '沿革' },
+        { href: '/ja/about-us#why-choose-us', label: '選ばれる理由', title: '選ばれる理由', description: '選ばれる理由' },
+        { href: '/ja/about-us#our-customer', label: 'お客様', title: 'お客様', description: 'お客様' },
+        { href: '/ja/about-us#skills', label: 'スキルとケイパビリティ', title: 'スキルとケイパビリティ', description: 'スキルとケイパビリティ' },
       ]
     },
-    { label: 'PROYECTOS', href: '/ja/projects', title: 'Proyectos', description: 'Lista de proyectos' },
-    {
-      label: 'SERVICIOS', href: '/ja/#services', title: 'Servicios', description: 'Nuestros servicios',
-      children: [
-        { href: '/ja/service/web-development', title: 'DESARROLLO WEB', description: 'Sitios web modernos y responsivos', label: 'DESARROLLO WEB' },
-        { href: '/ja/service/mobile-app', title: 'APLICACIONES MÓVILES', description: 'Apps profesionales para iOS y Android', label: 'APLICACIONES MÓVILES' },
-        { href: '/ja/service/design', title: 'DISEÑO UI/UX', description: 'Interfaces bonitas y fáciles de usar', label: 'DISEÑO UI/UX' },
-        { href: '/ja/service/consulting', title: 'CONSULTORÍA IT', description: 'Soluciones tecnológicas integrales', label: 'CONSULTORÍA IT' },
-        { href: '/ja/service/ai', title: 'SOLUCIONES DE IA', description: 'Inteligencia Artificial y Machine Learning', label: 'SOLUCIONES DE IA' },
-        { href: '/ja/service/iot', title: 'SOLUCIONES IOT', description: 'Internet de las cosas y dispositivos inteligentes', label: 'SOLUCIONES IOT' },
-        { href: '/ja/service/cloud', title: 'SERVICIOS EN LA NUBE', description: 'Migración y gestión de la nube', label: 'SERVICIOS EN LA NUBE' },
-        { href: '/ja/service/testing', title: 'PRUEBAS Y QA', description: 'Aseguramiento de calidad y pruebas de software', label: 'PRUEBAS Y QA' },
-        { href: '/ja/service/maintenance', title: 'MANTENIMIENTO Y SOPORTE', description: 'Soporte y mantenimiento continuo', label: 'MANTENIMIENTO Y SOPORTE' }
-      ]
-    },
-    { label: 'NOTICIAS', href: '/ja/news', title: 'Noticias', description: 'Últimas noticias y actualizaciones' },
-    { label: 'CAPACITACIONES', href: '/ja/training', title: 'Capacitaciones', description: 'Programas de capacitación y talleres' },
-    { label: 'CONTACTO', href: '/ja/#contact', title: 'Contacto', description: 'Contáctanos' }
+    { label: 'プロジェクト', href: '/ja/projects', title: 'プロジェクト', description: 'プロジェクト一覧' },
+    { label: 'ニュース', href: '/ja/news', title: 'ニュース', description: '最新ニュースとアップデート' },
+    { label: 'トレーニング', href: '/ja/training', title: 'トレーニング', description: '研修・ワークショップ' },
+    { label: 'お問い合わせ', href: '/ja/#contact', title: 'お問い合わせ', description: 'お問い合わせ' }
   ],
   es: [
     { label: 'Inicio', href: '/es/', title: 'Inicio' },

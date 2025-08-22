@@ -3,7 +3,7 @@ import '../styles/global.css';
 export interface Props {
   title: string;
 }
-const { title } = Astro.props;
+const { title, currentLang = 'vi' } = Astro.props;
 
 // Lấy ngôn ngữ từ URL
 const lang = Astro.url.pathname.split('/')[1] || 'en';
@@ -43,7 +43,7 @@ import Header from '../components/UI/layout/Header.astro';
     <!-- Header space for fixed header -->
     <div class="h-[88px]"></div> <!-- TopBar height ~40px + Navbar height ~64px -->
     
-    <Header />
+    <Header currentLang={currentLang} />
     <main>
       <slot />
     </main>

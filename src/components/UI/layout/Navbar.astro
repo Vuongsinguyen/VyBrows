@@ -7,22 +7,35 @@ import { getServiceMenu } from '../../../content/menu.ts';
 
 export interface Props {
   class?: string;
+  currentLang?: 'vi' | 'en' | 'es' | 'ja' | 'ko';
+  labels?: {
+    home: string; services: string; about: string; projects: string;
+    news: string; recruitment: string; contact: string;
+  };
 }
 
-const { class: customClass = '' } = Astro.props;
+const { class: customClass = '', currentLang = 'en', labels } = Astro.props;
 
 // Detect current language from URL
-const currentLang = Astro.url.pathname.split('/')[1] || 'en';
 const basePrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+
+const t = labels ?? ({
+  vi: { home: 'Trang chủ', services: 'Dịch vụ', about: 'Về chúng tôi', projects: 'Dự án', news: 'Tin tức', recruitment: 'Tuyển dụng', contact: 'Liên hệ' },
+  ja: { home: 'ホーム', services: 'サービス', about: '私たちについて', projects: 'プロジェクト', news: 'ニュース', recruitment: '採用情報', contact: 'お問い合わせ' },
+  es: { home: 'Inicio', services: 'Servicios', about: 'Sobre nosotros', projects: 'Proyectos', news: 'Noticias', recruitment: 'Reclutamiento', contact: 'Contacto' },
+  en: { home: 'Home', services: 'Services', about: 'About', projects: 'Projects', news: 'News', recruitment: 'Recruitment', contact: 'Contact' },
+  ko: { home: '홈', services: '서비스', about: '회사 소개', projects: '프로젝트', news: '뉴스', recruitment: '채용 정보', contact: '문의' },
+} as const)[currentLang];
 
 let menuItems: MenuItem[] = menus[currentLang] || menus['en'];
 
-// Inject dynamic SERVICES children from getServiceMenu
+// Inject dynamic SERVICES children
 const serviceMenuIdx = menuItems.findIndex(
   item =>
     item.label?.toLowerCase().includes('service') ||
+    item.label?.toLowerCase().includes('servicio') || // ES
     item.label?.toLowerCase().includes('dịch vụ') ||
-    item.label?.toLowerCase().includes('サービス')
+    item.label?.includes('サービス') // JA
 );
 if (serviceMenuIdx !== -1) {
   menuItems = [...menuItems];
@@ -32,12 +45,17 @@ if (serviceMenuIdx !== -1) {
   };
 }
 
-// XÓA: langMap, currentLangDisplay, dropdown ngôn ngữ, TopBar Section
-// ...keep translations and the rest if bạn đang dùng cho mobile/desktop menu...
+// Extra labels for mobile extras
+const extra = ({
+  vi: { dr: 'Dr.ANMYTAS', supply: 'DANH SÁCH VẬT TƯ', blog: 'BLOG' },
+  en: { dr: 'Dr.ANMYTAS', supply: 'SUPPLY LIST', blog: 'BLOG' },
+  es: { dr: 'Dr.ANMYTAS', supply: 'Lista de suministros', blog: 'Blog' },
+  ja: { dr: 'Dr.ANMYTAS', supply: 'サプライリスト', blog: 'ブログ' },
+  ko: { dr: 'Dr.ANMYTAS', supply: '자재 목록', blog: '블로그' },
+})[currentLang];
 ---
-<!-- XÓA NGUYÊN KHỐI TopBar Section Ở ĐÂY -->
+<!-- ĐÃ XOÁ text thừa "Noticias" ở đầu file -->
 
-<!-- Navbar Section -->
 <nav
   id="main-navbar"
   class="transition-colors duration-200 backdrop-blur-md pb-0 md:pb-[10px]"
@@ -89,40 +107,26 @@ if (serviceMenuIdx !== -1) {
       </div>
     </div>
 
-  <!-- Mobile Navigation (mirror desktop menu) -->
+  <!-- Mobile Navigation -->
   <div 
     id="mobile-menu" 
     class="md:hidden hidden font-lora" 
     style="background: var(--color-navbar);"
   >
     <div class="px-4 pt-2 pb-3 space-y-2">
-      <a href="/" class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);"> HOME </a>
-      <!-- ...existing mobile items & SERVICES dropdown... -->
+      <!-- HOME dynamic -->
+      <a href={`${basePrefix}/`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">
+        {t.home}
+      </a>
 
-      <!-- Added to mobile menu -->
-      {menuItems.map((item: MenuItem) =>
-        item.children && item.children.length > 0 ? (
-          <MobileDropdown
-            label={item.label}
-            items={item.children.map(child => ({
-              href: child.href,
-              title: child.label,
-              description: child.description ?? ''
-            }))}
-          />
-        ) : (
-          <a href={item.href} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">
-            {item.label}
-          </a>
-        )
-      )}
+      <!-- ...existing mobile items & SERVICES dropdown... -->
 
       <hr class="opacity-30 my-2" />
 
-      <!-- Bổ sung các mục mới, giữ nguyên menu cũ phía trên -->
-      <a href={`${basePrefix}/dr-anmytas`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">Dr.ANMYTAS</a>
-      <a href={`${basePrefix}/supply-list`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">SUPPLY LIST</a>
-      <a href={`${basePrefix}/blog`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">BLOG</a>
+      <!-- Extras translated -->
+      <a href={`${basePrefix}/dr-anmytas`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">{extra.dr}</a>
+      <a href={`${basePrefix}/supply-list`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">{extra.supply}</a>
+      <a href={`${basePrefix}/blog`} class="block px-3 py-2 rounded-md text-sm font-medium font-lora font-bold transition-colors" style="font-size:16px; color: var(--color-black2white);">{extra.blog}</a>
     </div>
   </div>
 </nav>
