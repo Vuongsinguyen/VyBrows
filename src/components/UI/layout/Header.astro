@@ -15,9 +15,9 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
   class={`fixed top-0 left-0 right-0 z-[1000] ${customClass} border-b`}
   style="border-color: #003324;"
 >
-  <!-- Topbar + Navbar như bạn có sẵn -->
-  <div id="topbar" class="text-white w-full" style="background: var(--color-primary-gradient);">
-    <div class="max-w-[1280px] mx-auto flex justify-between items-center px-6 py-0 text-sm font-medium" style="height: 32px;">
+  <!-- Topbar Section -->
+  <div id="topbar" class="text-white w-full block" style="background: var(--color-primary-gradient); display: block !important; height: 100px; overflow: visible; position: relative; z-index: 1001;">
+    <div class="max-w-[1280px] mx-auto flex justify-between items-center px-6 py-0 text-sm font-medium" style="height: 100px; display: flex !important; overflow: visible; position: relative;">
       <!-- Contact Info -->
       <div class="flex items-center space-x-6">
         <a href="mailto:contact@vybrows-academy.com" class="items-center gap-1 hidden md:flex" style="color: var(--color-text); text-decoration: none;">
@@ -42,24 +42,24 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
       </div>
 
       <!-- Right controls -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4" style="position: static; overflow: visible;">
         <a href="/dr-anmytas" class="hover:underline text-sm font-medium" style="color: var(--color-text);">Dr.ANMYTAS</a>
         <a href="/supply-list" class="hover:underline text-sm font-medium" style="color: var(--color-text);">SUPPLY LIST</a>
         <a href="/blog" class="hover:underline text-sm font-medium" style="color: var(--color-text);">BLOG</a>
 
         <!-- Language Dropdown -->
-        <div class="relative" role="menu" aria-label="Language Switcher">
-          <button id="lang-dropdown-btn" class="flex items-center gap-1 px-3 py-2 rounded border border-gray-300 hover:bg-white/10 transition-all" type="button" aria-haspopup="true" aria-expanded="false" style="color: var(--color-text); border-color: var(--color-text);">
+        <div style="position: relative; z-index: 999999;" role="menu" aria-label="Language Switcher">
+          <button id="lang-dropdown-btn" class="flex items-center gap-1 px-3 py-2 rounded border border-gray-300 hover:bg-white/10 transition-all cursor-pointer" type="button" aria-haspopup="true" aria-expanded="false" style="color: var(--color-text); border-color: var(--color-text);">
             {currentLangDisplay}
             <svg class="w-4 h-4" fill="var(--color-text)" viewBox="0 0 24 24"><path d="M7 9.5L12 14.5L17 9.5H7Z"/></svg>
           </button>
-          <div id="lang-dropdown-menu" class="absolute right-0 top-full pt-2 hidden z-[99999]">
-            <div class="rounded-md shadow-lg border border-gray-200 min-w-[100px]" style="background: var(--color-black2white);">
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white first:rounded-t-md" data-lang="vi" style="height: 40px;">Tiếng Việt</button>
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="en" style="height: 40px;">English</button>
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="ja" style="height: 40px;">日本語</button>
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white" data-lang="es" style="height: 40px;">Español</button>
-              <button class="lang-switch block px-4 py-2 bg-[#003324] text-white last:rounded-b-md" data-lang="ko" style="height: 40px;">한국어</button>
+          <div id="lang-dropdown-menu" style="position: absolute !important; right: 0; top: calc(100% + 8px); z-index: 999999; display: none; min-width: 120px;">
+            <div style="background: var(--color-black2white); border-radius: 6px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 1px solid #d1d5db; min-width: 120px;">
+              <button class="lang-switch" data-lang="vi" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; border-top-left-radius: 6px; border-top-right-radius: 6px; text-align: left;">Tiếng Việt</button>
+              <button class="lang-switch" data-lang="en" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; text-align: left;">English</button>
+              <button class="lang-switch" data-lang="ja" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; text-align: left;">日本語</button>
+              <button class="lang-switch" data-lang="es" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; text-align: left;">Español</button>
+              <button class="lang-switch" data-lang="ko" style="display: block; width: 100%; padding: 8px 16px; background: #003324; color: white; border: none; height: 40px; cursor: pointer; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; text-align: left;">한국어</button>
             </div>
           </div>
         </div>
@@ -148,50 +148,78 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
     // Kiểm tra header có tồn tại
     console.log('Header script loaded, element:', header);
     
-    // Language dropdown functionality
-    const langDropdownBtn = document.getElementById('lang-dropdown-btn');
-    const langDropdownMenu = document.getElementById('lang-dropdown-menu');
-    const langSwitchButtons = document.querySelectorAll('.lang-switch');
-    
-    // Toggle dropdown menu
-    if (langDropdownBtn && langDropdownMenu) {
-      langDropdownBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langDropdownMenu.classList.toggle('hidden');
-        langDropdownBtn.setAttribute('aria-expanded', 
-          langDropdownMenu.classList.contains('hidden') ? 'false' : 'true'
-        );
+    // Đợi một chút để đảm bảo DOM được render hoàn toàn
+    setTimeout(() => {
+      // Language dropdown functionality
+      const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+      const langDropdownMenu = document.getElementById('lang-dropdown-menu');
+      const langSwitchButtons = document.querySelectorAll('.lang-switch');
+      
+      console.log('Language elements found:', {
+        button: langDropdownBtn,
+        menu: langDropdownMenu,
+        switches: langSwitchButtons.length
       });
       
-      // Close dropdown when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!langDropdownBtn.contains(e.target) && !langDropdownMenu.contains(e.target)) {
-          langDropdownMenu.classList.add('hidden');
-          langDropdownBtn.setAttribute('aria-expanded', 'false');
-        }
+      // Toggle dropdown menu
+      if (langDropdownBtn && langDropdownMenu) {
+        langDropdownBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Dropdown button clicked');
+          
+          const isVisible = langDropdownMenu.style.display === 'block';
+          if (isVisible) {
+            langDropdownMenu.style.display = 'none';
+            langDropdownBtn.setAttribute('aria-expanded', 'false');
+            console.log('Dropdown hidden');
+          } else {
+            langDropdownMenu.style.display = 'block';
+            langDropdownBtn.setAttribute('aria-expanded', 'true');
+            console.log('Dropdown shown');
+          }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!langDropdownBtn.contains(e.target) && !langDropdownMenu.contains(e.target)) {
+            langDropdownMenu.style.display = 'none';
+            langDropdownBtn.setAttribute('aria-expanded', 'false');
+            console.log('Dropdown closed by outside click');
+          }
+        });
+      } else {
+        console.error('Language dropdown elements not found:', {
+          button: !!langDropdownBtn,
+          menu: !!langDropdownMenu
+        });
+      }
+      
+      // Language switch functionality
+      langSwitchButtons.forEach((button, index) => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetLang = button.getAttribute('data-lang');
+          console.log(`Language button ${index + 1} clicked:`, targetLang);
+          
+          const currentPath = window.location.pathname;
+          console.log('Current path:', currentPath);
+          
+          // Remove current language from path
+          const pathWithoutLang = currentPath.replace(/^\/(vi|en|es|ja|ko)(\/|$)/, '/');
+          console.log('Path without lang:', pathWithoutLang);
+          
+          // Build new URL with target language
+          const newPath = targetLang === 'en' 
+            ? pathWithoutLang === '/' ? '/' : pathWithoutLang
+            : `/${targetLang}${pathWithoutLang === '/' ? '' : pathWithoutLang}`;
+          
+          console.log('New path will be:', newPath);
+          
+          // Navigate to new URL
+          window.location.href = newPath;
+        });
       });
-    }
-    
-    // Language switch functionality
-    langSwitchButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetLang = button.getAttribute('data-lang');
-        const currentPath = window.location.pathname;
-        
-        // Remove current language from path
-        const pathWithoutLang = currentPath.replace(/^\/(vi|en|es|ja|ko)(\/|$)/, '/');
-        
-        // Build new URL with target language
-        const newPath = targetLang === 'en' 
-          ? pathWithoutLang === '/' ? '/' : pathWithoutLang
-          : `/${targetLang}${pathWithoutLang === '/' ? '' : pathWithoutLang}`;
-        
-        // Navigate to new URL
-        window.location.href = newPath;
-        
-        console.log('Language switched to:', targetLang, 'New path:', newPath);
-      });
-    });
+    }, 100); // Đợi 100ms để DOM render xong
   });
 </script>
