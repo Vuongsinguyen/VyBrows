@@ -3,6 +3,7 @@ import Dropdown from '../layout/Dropdown.astro';
 import { menus } from '../../../content/menu.ts';
 import type { MenuItem } from '../../../content/menu.ts';
 import MobileDropdown from '../layout/MobileDropdown.astro';
+import { getServiceMenu } from '../../../content/menu.ts';
 
 export interface Props {
   class?: string;
@@ -12,272 +13,30 @@ const { class: customClass = '' } = Astro.props;
 
 // Detect current language from URL
 const currentLang = Astro.url.pathname.split('/')[1] || 'en';
-import { getServiceMenu } from '../../../content/menu.ts';
 
 let menuItems: MenuItem[] = menus[currentLang] || menus['en'];
 
 // Inject dynamic SERVICES children from getServiceMenu
-const serviceMenuIdx = menuItems.findIndex(item => item.label?.toLowerCase().includes('service') || item.label?.toLowerCase().includes('dịch vụ') || item.label?.toLowerCase().includes('サービス'));
+const serviceMenuIdx = menuItems.findIndex(
+  item =>
+    item.label?.toLowerCase().includes('service') ||
+    item.label?.toLowerCase().includes('dịch vụ') ||
+    item.label?.toLowerCase().includes('サービス')
+);
 if (serviceMenuIdx !== -1) {
-  menuItems = [...menuItems]; // clone to avoid mutation
+  menuItems = [...menuItems];
   menuItems[serviceMenuIdx] = {
     ...menuItems[serviceMenuIdx],
-    children: await getServiceMenu(currentLang)
+    children: await getServiceMenu(currentLang),
   };
 }
 
-// Language mapping for TopBar
-const langMap = {
-  'vi': 'Tiếng Việt',
-  'en': 'English', 
-  'ja': 'Español'
-};
-
-const currentLangDisplay = langMap[currentLang as keyof typeof langMap] || langMap['en'];
-
-// Multi-language content
-const translations = {
-  en: {
-    home: "Home",
-    about: "About",
-    services: "Services", 
-    products: "Products",
-    news: "News",
-    contact: "Contact",
-    aboutItems: [
-      { href: currentLang === 'en' ? '/about-us' : `/${currentLang}/about-us`, title: "About Us", description: "Learn about ARIS Vietnam" },
-      { href: currentLang === 'en' ? '/history' : `/${currentLang}/history`, title: "Our History", description: "Our development journey" },
-      { href: currentLang === 'en' ? '/team' : `/${currentLang}/team`, title: "Our Team", description: "Talented people" },
-      { href: currentLang === 'en' ? '/vision' : `/${currentLang}/vision`, title: "Vision & Mission", description: "Future orientation" }
-    ],
-    serviceItems: [
-      { href: currentLang === 'en' ? '/web-development' : `/${currentLang}/web-development`, title: "Web Development", description: "Modern and responsive websites" },
-      { href: currentLang === 'en' ? '/mobile-app' : `/${currentLang}/mobile-app`, title: "Mobile Apps", description: "Professional iOS and Android apps" },
-      { href: currentLang === 'en' ? '/design' : `/${currentLang}/design`, title: "UI/UX Design", description: "Beautiful and user-friendly interfaces" },
-      { href: currentLang === 'en' ? '/consulting' : `/${currentLang}/consulting`, title: "IT Consulting", description: "Comprehensive technology solutions" }
-    ],
-    productItems: [
-      { href: currentLang === 'en' ? '/erp-system' : `/${currentLang}/erp-system`, title: "ERP System", description: "Comprehensive business management" },
-      { href: currentLang === 'en' ? '/crm-solution' : `/${currentLang}/crm-solution`, title: "CRM Solution", description: "Effective customer management" },
-      { href: currentLang === 'en' ? '/ecommerce' : `/${currentLang}/ecommerce`, title: "E-commerce", description: "Online sales platform" },
-      { href: currentLang === 'en' ? '/pos-system' : `/${currentLang}/pos-system`, title: "POS System", description: "Point of sale and sales management" }
-    ],
-    newsItems: [
-      { href: currentLang === 'en' ? '/news' : `/${currentLang}/news`, title: "Company News", description: "Latest updates from ARIS" },
-      { href: currentLang === 'en' ? '/blog' : `/${currentLang}/blog`, title: "Tech Blog", description: "IT knowledge and trends" },
-      { href: currentLang === 'en' ? '/events' : `/${currentLang}/events`, title: "Events", description: "Activities and workshops" },
-      { href: currentLang === 'en' ? '/press' : `/${currentLang}/press`, title: "Press Coverage", description: "News about ARIS Vietnam" }
-    ],
-    contactItems: [
-      { href: currentLang === 'en' ? '/contact' : `/${currentLang}/contact`, title: "Contact Info", description: "Address, phone and email" },
-      { href: currentLang === 'en' ? '/quote' : `/${currentLang}/quote`, title: "Request Quote", description: "Send your project request" },
-      { href: currentLang === 'en' ? '/support' : `/${currentLang}/support`, title: "Technical Support", description: "24/7 help and consultation" },
-      { href: currentLang === 'en' ? '/career' : `/${currentLang}/career`, title: "Careers", description: "Career opportunities at ARIS" }
-    ]
-  },
-  vi: {
-    home: "Trang chủ",
-    about: "Giới thiệu",
-    services: "Dịch vụ",
-    products: "Sản phẩm", 
-    news: "Tin tức",
-    contact: "Liên hệ",
-    aboutItems: [
-      { href: `/${currentLang}/about-us`, title: "Về chúng tôi", description: "Tìm hiểu về ARIS Vietnam" },
-      { href: `/${currentLang}/history`, title: "Lịch sử phát triển", description: "Chặng đường phát triển của chúng tôi" },
-      { href: `/${currentLang}/team`, title: "Đội ngũ", description: "Những con người tài năng" },
-      { href: `/${currentLang}/vision`, title: "Tầm nhìn sứ mệnh", description: "Định hướng tương lai" }
-    ],
-    serviceItems: [
-      { href: `/${currentLang}/web-development`, title: "Phát triển Web", description: "Trang web hiện đại và responsive" },
-      { href: `/${currentLang}/mobile-app`, title: "Ứng dụng Mobile", description: "App iOS và Android chuyên nghiệp" },
-      { href: `/${currentLang}/design`, title: "Thiết kế UI/UX", description: "Giao diện đẹp và dễ sử dụng" },
-      { href: `/${currentLang}/consulting`, title: "Tư vấn IT", description: "Giải pháp công nghệ toàn diện" }
-    ],
-    productItems: [
-      { href: `/${currentLang}/erp-system`, title: "Hệ thống ERP", description: "Quản lý doanh nghiệp toàn diện" },
-      { href: `/${currentLang}/crm-solution`, title: "Giải pháp CRM", description: "Quản lý khách hàng hiệu quả" },
-      { href: `/${currentLang}/ecommerce`, title: "E-commerce", description: "Nền tảng bán hàng trực tuyến" },
-      { href: `/${currentLang}/pos-system`, title: "Hệ thống POS", description: "Thanh toán và quản lý bán hàng" }
-    ],
-    newsItems: [
-      { href: `/${currentLang}/news`, title: "Tin công ty", description: "Cập nhật mới nhất từ ARIS" },
-      { href: `/${currentLang}/blog`, title: "Blog công nghệ", description: "Kiến thức và xu hướng IT" },
-      { href: `/${currentLang}/events`, title: "Sự kiện", description: "Các hoạt động và workshop" },
-      { href: `/${currentLang}/press`, title: "Báo chí nói về", description: "Đưa tin về ARIS Vietnam" }
-    ],
-    contactItems: [
-      { href: `/${currentLang}/contact`, title: "Thông tin liên hệ", description: "Địa chỉ, điện thoại và email" },
-      { href: `/${currentLang}/quote`, title: "Yêu cầu báo giá", description: "Gửi yêu cầu dự án của bạn" },
-      { href: `/${currentLang}/support`, title: "Hỗ trợ kỹ thuật", description: "Trợ giúp và tư vấn 24/7" },
-      { href: `/${currentLang}/career`, title: "Tuyển dụng", description: "Cơ hội nghề nghiệp tại ARIS" }
-    ]
-  },
-  ja: {
-    home: "ホーム",
-    about: "会社紹介",
-    services: "サービス",
-    products: "製品",
-    news: "ニュース", 
-    contact: "お問い合わせ",
-    aboutItems: [
-      { href: `/${currentLang}/about-us`, title: "会社概要", description: "ARIS Vietnamについて" },
-      { href: `/${currentLang}/history`, title: "沿革", description: "私たちの発展の歩み" },
-      { href: `/${currentLang}/team`, title: "チーム", description: "才能ある人材" },
-      { href: `/${currentLang}/vision`, title: "ビジョン・ミッション", description: "将来の方向性" }
-    ],
-    serviceItems: [
-      { href: `/${currentLang}/web-development`, title: "Webサイト開発", description: "モダンでレスポンシブなウェブサイト" },
-      { href: `/${currentLang}/mobile-app`, title: "モバイルアプリ", description: "プロフェッショナルなiOS・Androidアプリ" },
-      { href: `/${currentLang}/design`, title: "UI/UXデザイン", description: "美しく使いやすいインターフェース" },
-      { href: `/${currentLang}/consulting`, title: "ITコンサルティング", description: "包括的な技術ソリューション" }
-    ],
-    productItems: [
-      { href: `/${currentLang}/erp-system`, title: "ERPシステム", description: "包括的な業務管理" },
-      { href: `/${currentLang}/crm-solution`, title: "CRMソリューション", description: "効果的な顧客管理" },
-      { href: `/${currentLang}/ecommerce`, title: "Eコマース", description: "オンライン販売プラットフォーム" },
-      { href: `/${currentLang}/pos-system`, title: "POSシステム", description: "販売時点管理システム" }
-    ],
-    newsItems: [
-      { href: `/${currentLang}/news`, title: "会社ニュース", description: "ARISからの最新情報" },
-      { href: `/${currentLang}/blog`, title: "技術ブログ", description: "IT知識とトレンド" },
-      { href: `/${currentLang}/events`, title: "イベント", description: "活動とワークショップ" },
-      { href: `/${currentLang}/press`, title: "プレス", description: "ARIS Vietnamに関する報道" }
-    ],
-    contactItems: [
-      { href: `/${currentLang}/contact`, title: "連絡先", description: "住所、電話、メール" },
-      { href: `/${currentLang}/quote`, title: "お見積り依頼", description: "プロジェクトのご依頼" },
-      { href: `/${currentLang}/support`, title: "技術サポート", description: "24時間サポートとコンサルテーション" },
-      { href: `/${currentLang}/career`, title: "採用情報", description: "ARISでのキャリア機会" }
-    ]
-  }
-};
-
-// Get current language content with fallback to English
-const t = translations[currentLang as keyof typeof translations] || translations.en;
-
-// Mobile dropdown items (simplified)
-const aboutMobileItems = t.aboutItems.map(item => ({ href: item.href, title: item.title }));
-const serviceMobileItems = t.serviceItems.map(item => ({ href: item.href, title: item.title }));
-const productMobileItems = t.productItems.map(item => ({ href: item.href, title: item.title }));
-const newsMobileItems = t.newsItems.map(item => ({ href: item.href, title: item.title }));
-const contactMobileItems = t.contactItems.map(item => ({ href: item.href, title: item.title }));
+// XÓA: langMap, currentLangDisplay, dropdown ngôn ngữ, TopBar Section
+// ...keep translations and the rest if bạn đang dùng cho mobile/desktop menu...
 ---
-
-<!-- TopBar Section -->
-<div id="topbar" class="text-white w-full" style="background: var(--color-primary-gradient);">
-  <div class="max-w-[1280px] mx-auto flex justify-between items-center px-6 py-0.1 text-sm font-medium transition-colors text-[15px]">
-    <!-- Contact Info -->
-    <div class="flex items-center space-x-6">
-      <!-- Desktop: show email and phone text, JP phone only on md+ -->
-      <span class="items-center gap-1 hidden md:flex" style="color: var(--color-text);">
-        <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">mail</span>
-        contact@vybrows-academy.com
-      </span>
-      <a href="tel:3464099999" class="items-center gap-1 hidden md:flex" style="color: var(--color-text); text-decoration: none;">
-        <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">call</span>
-        US: 346-409-9999
-      </a>
-      <a href="tel:3464098888" class="items-center gap-1 hidden md:flex" style="color: var(--color-text); text-decoration: none;">
-        <span class="material-icons-outlined text-base" style="font-size: 20px; color: var(--color-text);">call</span>
-        US: 346-409-8888
-      </a>
-      <!-- Mobile: only show icons -->
-      <a href="/${currentLang}/contact" class="md:hidden flex items-center" aria-label="Gửi email">
-        <span
-  class="material-icons-outlined text-[#003324] text-base"
-  style="font-size: 20px;"
->mail</span>
-      </a>
-      <a href="tel:+832838424483" class="md:hidden flex items-center" aria-label="Gọi điện thoại">
-        <span
-  class="material-icons-outlined text-[#003324] text-base"
-  style="font-size: 20px;"
->call</span>
-      </a>
-    </div>
-    <!-- Controls -->
-    <div class="flex items-center gap-4">
-      <!-- Language Dropdown -->
-      <div class="relative" role="menu" aria-label="Language Switcher">
-        <button id="lang-dropdown-btn" class="transition flex items-center gap-1" aria-haspopup="true" aria-expanded="false" type="button" style="color: var(--color-text);">
-          {currentLangDisplay}
-          <svg id="lang-dropdown-icon" class="w-4 h-4 transition-transform duration-300" fill="#003324" viewBox="0 0 24 24" stroke="none" style="color: var(--color-text);">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 9.5L12 14.5L17 9.5H7Z"></path>
-          </svg>
-        </button>
-        <div id="lang-dropdown-menu" class="absolute right-0 top-full pt-2 hidden z-[99999]">
-          <div class="bg-[#003324] rounded-md shadow-lg border border-gray-200 min-w-[140px]">
-            <a
-              role="menuitem"
-              href="#"
-              class="block px-4 py-3 bg-[#003324] text-white rounded-md transition-colors duration-200 hover:bg-[#00553a]"
-              style="font-size:17px;"
-            >
-              Tiếng Việt
-            </a>
-            <a
-              role="menuitem"
-              href="/"
-              class="block px-4 py-3 bg-[#003324] text-white rounded-md transition-colors duration-200 hover:bg-[#00553a]"
-              style="font-size:17px;"
-            >
-              English
-            </a>
-            <a
-              role="menuitem"
-              href="#"
-              class="block px-4 py-3 bg-[#003324] text-white rounded-md transition-colors duration-200 hover:bg-[#00553a]"
-              style="font-size:17px;"
-            >
-              Español
-            </a>
-              <a
-                role="menuitem"
-                href="#"
-                class="block px-4 py-3 bg-[#003324] text-white rounded-md transition-colors duration-200 hover:bg-[#00553a]"
-                style="font-size:17px;"
-              >
-                日本語
-              </a>
-</style>
-<script is:inline><a role="menuitem" ... class="block px-4 py-2 bg-[#003324] text-white">Tiếng Việt</a>
-// Language dropdown: always keep current path, only change lang prefix
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.lang-switch').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const lang = this.getAttribute('data-lang');
-      if (lang === 'en') {
-        window.location.pathname = '/';
-      } else if (lang) {
-        const path = window.location.pathname.replace(/^\/(en|vi|ja)(\/)?/, '');
-        window.location.pathname = `/${lang}/${path}`.replace(/\/+/g, '/');
-      }
-    });
-  });
-});
-</script>
-          </div>
-        </div>
-      </div>
-      <!-- Dark Mode Toggle -->
-      <button id="toggle-dark" style="background-color: transparent;" class="px-4 py-2 rounded cursor-pointer hover:bg-white/10 dark:hover:bg-gray-800/30 transition-all flex items-center gap-2" aria-label="Toggle dark mode">
-        <!-- Sun icon for light mode -->
-        <svg id="sun-icon" class="w-5 h-5" fill="var(--color-white2white)" viewBox="0 0 24 24">
-          <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" style="fill:var(--color-white2white)!important;" />
-        </svg>
-        <!-- Moon icon for dark mode (balanced crescent) -->
-        <svg id="moon-icon" class="w-5 h-5 hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14.5 2C16.32 2 18.03 2.5 19.5 3.35C16.51 5.08 14.5 8.3 14.5 12C14.5 15.7 16.51 18.92 19.5 20.65C18.03 21.5 16.32 22 14.5 22C8.98 22 4.5 17.52 4.5 12C4.5 6.48 8.98 2 14.5 2Z" fill="var(--color-black2white)"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
+<!-- XÓA NGUYÊN KHỐI TopBar Section Ở ĐÂY -->
 
 <!-- Navbar Section -->
-
 <nav
   id="main-navbar"
   class="transition-colors duration-200 backdrop-blur-md pb-0 md:pb-[10px]"
@@ -298,21 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
             item.children && item.children.length > 0 ? (
               <Dropdown label={item.label} items={item.children} />
             ) : (
-              item.label === t.home ? (
-                <a
-                  href="/"
-                  class="px-3 py-2 rounded-md font-lora font-bold flex items-center justify-center"
-                  style="font-size:20px;"
-                >
-                  <span class="whitespace-nowrap font-lora font-bold" style="font-family: 'Lora', serif;">
-                    {item.label}
-                  </span>
-                </a>
-              ) : (
-                <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center font-lora font-bold" style="font-size:16px;">
-                  <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">{item.label}</span>
-                </a>
-              )
+              <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center font-lora font-bold" style="font-size:16px;">
+                <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">{item.label}</span>
+              </a>
             )
           )}
         </div>
@@ -366,52 +113,28 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- Material Icons CDN -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
+<!-- REPLACE to only keep theme + mobile menu (XÓA code dropdown ngôn ngữ) -->
 <script>
   // Apply theme immediately to prevent flash
-  (function() {
+  (function () {
     if (typeof window !== 'undefined') {
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark" || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add("dark");
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
       }
     }
   })();
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Language dropdown toggle for mobile
-    const langBtn = document.getElementById('lang-dropdown-btn');
-    const langMenu = document.getElementById('lang-dropdown-menu');
-    if (langBtn && langMenu) {
-      const langIcon = document.getElementById('lang-dropdown-icon');
-      langBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        langMenu.classList.toggle('hidden');
-        if (langIcon) {
-          langIcon.classList.toggle('rotate-180');
-        }
-      });
-      // Hide dropdown when clicking outside
-      document.addEventListener('click', function(e) {
-        const target = e.target as Node;
-        if (!langBtn.contains(target) && !langMenu.contains(target)) {
-          langMenu.classList.add('hidden');
-        }
-      });
-    }
+  document.addEventListener('DOMContentLoaded', function () {
+    // Mobile menu toggle
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
     const closeIcon = document.getElementById('close-icon');
-    const topbar = document.getElementById('topbar');
-    const navbar = document.getElementById('main-navbar');
-    
-    // Mobile menu toggle
+
     if (menuButton && mobileMenu && menuIcon && closeIcon) {
-      menuButton.addEventListener('click', function() {
-        // Toggle menu visibility
+      menuButton.addEventListener('click', function () {
         mobileMenu.classList.toggle('hidden');
-        
-        // Toggle icons
         menuIcon.classList.toggle('hidden');
         menuIcon.classList.toggle('block');
         closeIcon.classList.toggle('hidden');
@@ -419,13 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Dark mode functionality
-    const toggleBtn = document.getElementById("toggle-dark");
-    const sunIcon = document.getElementById("sun-icon");
-    const moonIcon = document.getElementById("moon-icon");
+    // Dark mode
+    const toggleBtn = document.getElementById('toggle-dark');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
 
-    // Function to update icons based on theme
-    function updateIcons(isDark: boolean) {
+    function updateIcons(isDark) {
       if (isDark) {
         sunIcon?.classList.add('hidden');
         moonIcon?.classList.remove('hidden');
@@ -435,56 +157,36 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Function to toggle theme
     function toggleTheme() {
-      console.log('Toggle theme clicked'); // Debug log
       const html = document.documentElement;
-      const isDark = html.classList.contains("dark");
-      console.log('Current is dark:', isDark); // Debug log
-
+      const isDark = html.classList.contains('dark');
       if (isDark) {
-        html.classList.remove("dark");
-        localStorage.setItem("theme", "light");
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
         updateIcons(false);
-        console.log('Switched to light mode'); // Debug log
       } else {
-        html.classList.add("dark");
-        localStorage.setItem("theme", "dark");
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
         updateIcons(true);
-        console.log('Switched to dark mode'); // Debug log
       }
     }
 
-    // Initialize theme and icons
-    const theme = localStorage.getItem("theme");
+    const theme = localStorage.getItem('theme');
     let isDarkMode;
-    
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
       isDarkMode = true;
-    } else if (theme === "light") {
-      document.documentElement.classList.remove("dark");
+    } else if (theme === 'light') {
+      document.documentElement.classList.remove('dark');
       isDarkMode = false;
     } else {
-      // Default to system preference
       isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (isDarkMode) {
-        document.documentElement.classList.add("dark");
-      }
+      if (isDarkMode) document.documentElement.classList.add('dark');
     }
-    
     updateIcons(isDarkMode);
 
-    // Add click event listener
-    toggleBtn?.addEventListener("click", toggleTheme);
+    toggleBtn?.addEventListener('click', toggleTheme);
   });
-</script>
-
-<script is:inline>
-document.getElementById('theme-toggle-btn')?.addEventListener('click', () => {
-  const html = document.documentElement;
-  html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-});
 </script>
 
 <style>
