@@ -14,11 +14,19 @@ export interface Props {
   };
 }
 
-const { class: customClass = '', currentLang = 'en', labels } = Astro.props;
+const { class: customClass = '', currentLang: langProp = 'en', labels } = Astro.props;
 
-// Detect current language from URL
+// Robust lang resolve: prefer prop, else URL, else 'en'
+const urlLang = (Astro.url.pathname.split('/')[1] || '') as Props['currentLang'];
+const supported = ['vi','en','es','ja','ko'] as const;
+const currentLang = (supported as readonly string[]).includes(langProp) ? langProp
+  : (supported as readonly string[]).includes(urlLang) ? urlLang
+  : 'en';
+
+// Base prefix by lang
 const basePrefix = currentLang === 'en' ? '' : `/${currentLang}`;
 
+// Translations for small labels (fallback to computed set)
 const t = labels ?? ({
   vi: { home: 'Trang chủ', services: 'Dịch vụ', about: 'Về chúng tôi', projects: 'Dự án', news: 'Tin tức', recruitment: 'Tuyển dụng', contact: 'Liên hệ' },
   ja: { home: 'ホーム', services: 'サービス', about: '私たちについて', projects: 'プロジェクト', news: 'ニュース', recruitment: '採用情報', contact: 'お問い合わせ' },
@@ -27,6 +35,7 @@ const t = labels ?? ({
   ko: { home: '홈', services: '서비스', about: '회사 소개', projects: '프로젝트', news: '뉴스', recruitment: '채용 정보', contact: '문의' },
 } as const)[currentLang];
 
+// Menu items by resolved lang
 let menuItems: MenuItem[] = menus[currentLang] || menus['en'];
 
 // Inject dynamic SERVICES children
@@ -34,8 +43,9 @@ const serviceMenuIdx = menuItems.findIndex(
   item =>
     item.label?.toLowerCase().includes('service') ||
     item.label?.toLowerCase().includes('servicio') || // ES
-    item.label?.toLowerCase().includes('dịch vụ') ||
-    item.label?.includes('サービス') // JA
+    item.label?.toLowerCase().includes('dịch vụ') ||  // VI
+    item.label?.includes('サービス') ||               // JA
+    item.label?.includes('서비스')                    // KO
 );
 if (serviceMenuIdx !== -1) {
   menuItems = [...menuItems];

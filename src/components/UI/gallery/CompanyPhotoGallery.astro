@@ -50,12 +50,17 @@ const loopColumns = [...columns, ...columns];
           {col.map(img => (
             <button
               type="button"
-              class={`open-modal-btn flex-shrink-0 rounded-xl overflow-hidden shadow-lg border-2 hover:scale-105 transition-transform duration-200 ${img.w} ${img.h} snap-start`}
+              class={`open-modal-btn flex-shrink-0 rounded-xl overflow-hidden shadow-lg border hover:scale-105 transition-transform duration-200 ${img.w} ${img.h} snap-start`}
               style="background: var(--color-card-bg); border-color: var(--color-bg);"
               data-full={images[img.idx % images.length]?.full}
               data-desc={images[img.idx % images.length]?.desc}
             >
-              <img src={images[img.idx % images.length]?.thumb} alt={`Company photo ${img.idx + 1}`} class="w-full h-full object-cover" loading="lazy" />
+              <img
+                src={images[img.idx % images.length]?.thumb}
+                alt={`Company photo ${img.idx + 1}`}
+                class="w-full h-full object-cover block"
+                loading="lazy"
+              />
             </button>
           ))}
         </div>
@@ -65,7 +70,16 @@ const loopColumns = [...columns, ...columns];
 
   <div id="gallery-modal" class="fixed inset-0 items-center justify-center z-[99999] hidden" style="background: rgba(0,0,0,0.7); display: none;">
     <div class="relative flex flex-col items-center">
-      <img id="gallery-modal-img" src="" alt="Full size photo" class="max-w-3xl max-h-[80vh] rounded-2xl shadow-2xl border-4 mb-4" style="border-color: var(--color-bg);" />
+      <!-- Khung cố định: cao 80vh để ảnh fill-height -->
+      <div class="w-[90vw] max-w-3xl h-[80vh] rounded-2xl overflow-hidden mb-4">
+        <img
+          id="gallery-modal-img"
+          src=""
+          alt="Full size photo"
+          class="w-full h-full object-cover border"
+          style="border-color: var(--color-bg);"
+        />
+      </div>
       <div id="gallery-modal-desc" class="text-base text-center max-w-2xl mb-2" style="color: var(--color-text);"></div>
       <button
         class="absolute top-[-32px] right-[-32px] text-3xl font-bold"
