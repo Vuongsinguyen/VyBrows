@@ -1,61 +1,175 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import Header from '../../components/UI/layout/Header.astro';
-import Button from '../../components/UI/shared/Button.astro';
-import Slider from '../../components/UI/slider/Slider.astro';
-import ServiceSection from '../../components/UI/section/ServiceSection.astro';
-import AboutUsSection from '../../components/UI/section/AboutUsSection.astro';
-import CompanyPhotoGallery from '../../components/UI/gallery/CompanyPhotoGallery.astro';
-import ProjectSection from '../../components/UI/section/ProjectSection.astro';
-import IndustrySection from '../../components/UI/section/IndustrySection.astro';
-import NewsSection from '../../components/UI/section/NewsSection.astro';
-import FooterSection from '../../components/UI/layout/FooterSection.astro';
-import TeamMembersSection from '../../components/UI/section/TeamMembersSection.astro';
-import RecruitmentSection from '../../components/UI/section/RecruitmentSection.astro';
-import FullContactSection from '../../components/UI/section/FullContactSection.astro';
-import UseCaseSection from '../../components/UI/section/UseCaseSection.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import Slider from '../components/UI/slider/Slider.astro';
+import ServiceSection from '../components/UI/section/ServiceSection.astro';
+import AboutUsSection from '../components/UI/section/AboutUsSection.astro';
+import CompanyPhotoGallery from '../components/UI/gallery/CompanyPhotoGallery.astro';
+import ProjectSection from '../components/UI/section/ProjectSection.astro';
+import NewsSection from '../components/UI/section/NewsSection.astro';
+import FooterSection from '../components/UI/layout/FooterSection.astro';
+import TeamMembersSection from '../components/UI/section/TeamMembersSection.astro';
+import CustomerSection from '../components/UI/section/CustomerSection.astro';
+import RecruitmentSection from '../components/UI/section/RecruitmentSection.astro';
+import FullContactSection from '../components/UI/section/FullContactSection.astro';
+import UseCaseSection from '../components/UI/section/UseCaseSection.astro';
 
-// Slides data for Spanish
+// Slides en Español
 const slides = [
   {
     title: "Bienvenido a ARIS Vietnam",
     subtitle: "Innovación",
-    description: "Soluciones tecnológicas innovadoras para negocios modernos",
-    primaryButton: "Comenzar",
-    secondaryButton: "Ver más",
+    description: "Soluciones tecnológicas innovadoras para empresas modernas",
+    primaryButton: "Empezar",
+    secondaryButton: "Más información",
     backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
   },
   {
-    title: "Desarrollo web profesional",
+    title: "Desarrollo web experto",
     subtitle: "Desarrollo",
-    description: "Sitios web modernos y responsivos para impulsar el crecimiento empresarial",
+    description: "Sitios modernos y responsivos que impulsan el crecimiento",
     primaryButton: "Ver proyectos",
     secondaryButton: "Contáctanos",
     backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
   },
   {
-    title: "Soluciones de aplicaciones móviles",
+    title: "Soluciones para apps móviles",
     subtitle: "Móvil",
-    description: "Aplicaciones nativas de alto rendimiento para iOS y Android",
-    primaryButton: "Ver apps",
-    secondaryButton: "Contáctanos",
+    description: "Aplicaciones nativas iOS y Android con gran rendimiento",
+    primaryButton: "Nuestras apps",
+    secondaryButton: "Solicitar presupuesto",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Excelencia en diseño UI/UX",
+    subtitle: "Diseño",
+    description: "Interfaces bellas y usables que convierten visitantes en clientes",
+    primaryButton: "Portafolio de diseño",
+    secondaryButton: "Proceso de diseño",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Soluciones empresariales",
+    subtitle: "Empresarial",
+    description: "Sistemas ERP y CRM escalables para grandes organizaciones",
+    primaryButton: "Demo empresarial",
+    secondaryButton: "Agendar llamada",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Cloud y DevOps",
+    subtitle: "Cloud",
+    description: "Infraestructura moderna y prácticas DevOps para mayor eficiencia",
+    primaryButton: "Servicios Cloud",
+    secondaryButton: "Guía de migración",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "IA y Aprendizaje Automático",
+    subtitle: "IA/ML",
+    description: "Soluciones inteligentes con inteligencia artificial y ML",
+    primaryButton: "Soluciones de IA",
+    secondaryButton: "Casos de éxito",
+    backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
+  },
+  {
+    title: "Soporte y formación 24/7",
+    subtitle: "Soporte",
+    description: "Soporte integral y capacitación para todas nuestras soluciones",
+    primaryButton: "Obtener soporte",
+    secondaryButton: "Programas de formación",
     backgroundGradient: "bg-gradient-to-r from-white to-blue-100"
   }
 ];
-
 ---
-<MainLayout title="ARIS Vietnam">
-  <Header />
-  <Slider slides={slides} />
-  <ServiceSection />
-  <AboutUsSection />
-  <CompanyPhotoGallery />
-  <ProjectSection />
-  <IndustrySection />
-  <NewsSection />
-  <TeamMembersSection />
-  <RecruitmentSection />
-  <FullContactSection />
-  <UseCaseSection />
+
+<MainLayout title="Inicio - Español">
+  <!-- Main Content -->
+  <main class="min-h-screen bg-[#003324]">
+    <!-- Hero Section - Slider -->
+    <Slider slides={slides} autoSlideInterval={4000} />
+
+    <!-- Services Section -->
+    <ServiceSection heading="Servicios destacados de Vybrows Academy" />
+
+    <!-- About Us Section -->
+    <AboutUsSection />
+
+    <!-- Company Photo Gallery Section -->
+    <CompanyPhotoGallery />
+
+    <!-- Project Section -->
+    <ProjectSection />
+
+
+    <!-- UseCase Section -->
+    <UseCaseSection />
+
+
+    <!-- Team Members Section -->
+    <TeamMembersSection />
+    
+
+    <!-- News Section -->
+    <NewsSection />
+
+    <!-- Recruitment Section -->
+    <RecruitmentSection />
+
+    <!-- Full Contact Section -->
+    <FullContactSection />
+
+  </main>
+  <!-- Footer Section -->
   <FooterSection />
+
+  <!-- Chat & Call Buttons -->
+  <div class="fixed bottom-4 right-4 flex flex-col items-end gap-[10px] z-50">
+    <!-- Secondary Call Button -->
+    <a
+      href="tel:(346)-409-9999"
+      class="w-12 h-12 flex items-center justify-center rounded-lg shadow-lg transition-colors duration-200 backdrop-blur-md"
+      style="background: rgba(0,51,36,0.7); color: var(--color-black2white);"
+    >
+      <span class="sr-only">Call us</span>
+      <svg xmlns="http://www.w3.org/2000/svg"
+           class="w-6 h-6"
+           fill="currentColor"
+           viewBox="0 0 18 18">
+        <path d="M3.62 7.79C5.06 10.62 7.38 12.93 10.21 14.38L12.41 12.18C12.68 11.91 13.08 11.82 13.43 11.94C14.55 12.31 15.76 12.51 17 12.51C17.55 12.51 18 12.96 18 13.51V17C18 17.55 17.55 18 17 18C7.61 18 0 10.39 0 1C0 0.45 0.45 0 1 0H4.5C5.05 0 5.5 0.45 5.5 1C5.5 2.25 5.7 3.45 6.07 4.57C6.18 4.92 6.1 5.31 5.82 5.59L3.62 7.79Z"/>
+      </svg>
+    </a>
+
+    <!-- Call Button -->
+    <a
+      href="tel:(346)-409-8888"
+      class="w-12 h-12 flex items-center justify-center rounded-lg shadow-lg transition-colors duration-200 backdrop-blur-md"
+      style="background: rgba(0,51,36,0.7); color: var(--color-black2white);"
+    >
+      <span class="sr-only">Call us</span>
+      <svg xmlns="http://www.w3.org/2000/svg"
+           class="w-6 h-6"
+           fill="currentColor"
+           viewBox="0 0 18 18">
+        <path d="M3.62 7.79C5.06 10.62 7.38 12.93 10.21 14.38L12.41 12.18C12.68 11.91 13.08 11.82 13.43 11.94C14.55 12.31 15.76 12.51 17 12.51C17.55 12.51 18 12.96 18 13.51V17C18 17.55 17.55 18 17 18C7.61 18 0 10.39 0 1C0 0.45 0.45 0 1 0H4.5C5.05 0 5.5 0.45 5.5 1C5.5 2.25 5.7 3.45 6.07 4.57C6.18 4.92 6.1 5.31 5.82 5.59L3.62 7.79Z"/>
+      </svg>
+    </a>
+    <!-- Messenger Chat Button -->
+    <a
+      href="https://www.facebook.com/messages/t/155331141313064"
+      target="_blank"
+      rel="noopener"
+      class="w-12 h-12 flex items-center justify-center rounded-lg shadow-lg transition-colors duration-200 backdrop-blur-md"
+      style="background: rgba(0,51,36,0.7); color: var(--color-black2white);"
+    >
+      <span class="sr-only">Open Messenger chat</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 25">
+        <path d="M12 0.766602C18.759 0.766602 24 5.72316 24 12.4102C23.9998 19.097 18.7589 24.0498 12 24.0498C10.7851 24.0498 9.62126 23.8878 8.52637 23.5879C8.31337 23.5309 8.08479 23.5457 7.88379 23.6357L5.50195 24.6855C5.35809 24.749 5.20076 24.7762 5.04395 24.7646C4.88723 24.7531 4.73549 24.7039 4.60254 24.6201C4.46955 24.5363 4.3593 24.4206 4.28125 24.2842C4.2032 24.1477 4.16009 23.9941 4.15527 23.8369L4.08887 21.7012C4.08287 21.4372 3.96258 21.1906 3.76758 21.0166C1.43387 18.9287 0.000103985 15.9049 0 12.4072C0 5.72023 5.241 0.766602 12 0.766602ZM19.209 9.72461C19.5448 9.18765 18.8848 8.58186 18.3809 8.96582L14.5947 11.8398C14.4702 11.9344 14.3184 11.9858 14.1621 11.9863C14.0057 11.9869 13.8528 11.9365 13.7275 11.8428L10.9229 9.74023C10.7239 9.59082 10.4961 9.48371 10.2539 9.42676C10.0118 9.36985 9.76026 9.36409 9.51562 9.40918C9.271 9.4543 9.03797 9.54992 8.83203 9.68945C8.62633 9.82892 8.45182 10.0095 8.31934 10.2197L4.79395 15.8115C4.45495 16.3485 5.11514 16.9514 5.61914 16.5674L9.40527 13.6934C9.52974 13.599 9.68167 13.5474 9.83789 13.5469C9.99432 13.5463 10.1472 13.5967 10.2725 13.6904L13.0771 15.7939C13.2761 15.9433 13.5039 16.0495 13.7461 16.1064C13.9883 16.1634 14.2397 16.1701 14.4844 16.125C14.729 16.0799 14.962 15.9843 15.168 15.8447C15.3738 15.7052 15.5481 15.5239 15.6807 15.3135L19.209 9.72461Z"/>
+      </svg>
+    </a>
+  </div>
 </MainLayout>
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
