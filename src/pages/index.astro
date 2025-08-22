@@ -1,6 +1,5 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import Header from '../components/UI/layout/Header.astro';
 import Slider from '../components/UI/slider/Slider.astro';
 import ServiceSection from '../components/UI/section/ServiceSection.astro';
 import AboutUsSection from '../components/UI/section/AboutUsSection.astro';
@@ -84,8 +83,9 @@ const slides = [
 ---
 
 <MainLayout title="Homepage - English">
-  <Header />
-  
+  <!-- Remove duplicate header -->
+  <!-- <Header /> -->
+
   <!-- Main Content -->
   <main class="min-h-screen bg-[#003324]">
     <!-- Hero Section - Slider -->
