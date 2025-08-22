@@ -15,7 +15,7 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
   class={`fixed top-0 left-0 right-0 z-[1000] ${customClass} border-b`}
   style="border-color: #003324;"
 >
-  <!-- Topbar with contact + language + theme -->
+  <!-- Topbar + Navbar như bạn có sẵn -->
   <div id="topbar" class="text-white w-full" style="background: var(--color-primary-gradient);">
     <div class="max-w-[1280px] mx-auto flex justify-between items-center px-6 py-0 text-sm font-medium" style="height: 32px;">
       <!-- Contact Info -->
@@ -76,78 +76,76 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
       </div>
     </div>
   </div>
-
-  <!-- Navbar -->
   <Navbar />
 </header>
 
 <style>
-  #header-container { transition: transform 0.5s ease; }
-  @media (min-width: 768px) { #header-container.scrolled { transform: translateY(-170px); } }
-  @media (max-width: 767px) { #header-container.scrolled { transform: translateY(-40px); } }
+  #header-container {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    will-change: transform;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+  /* Scroll xuống: ẩn header */
+  #header-container.header-hidden {
+    transform: translateY(-100%);
+  }
 </style>
 
 <script is:inline>
-  // Hide/show header on scroll
-  const header = document.getElementById('header-container');
-  let lastScrollY = window.scrollY;
-  const threshold = 100;
-  window.addEventListener('scroll', () => {
-    const currentY = window.scrollY;
-    if (currentY > lastScrollY && currentY > threshold) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-    lastScrollY = currentY;
-  });
-
   document.addEventListener('DOMContentLoaded', () => {
-    // Language dropdown
-    try {
-      const btn = document.getElementById('lang-dropdown-btn');
-      const menu = document.getElementById('lang-dropdown-menu');
-      if (btn && menu) {
-        btn.addEventListener('click', () => {
-          menu.classList.toggle('hidden');
-          btn.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
-        });
-        document.addEventListener('mousedown', (e) => {
-          if (!menu.contains(e.target) && !btn.contains(e.target)) {
-            menu.classList.add('hidden');
-            btn.setAttribute('aria-expanded', 'false');
-          }
-        });
+    const header = document.getElementById('header-container');
+    
+    if (!header) {
+      console.error('Header container not found');
+      return;
+    }
+    
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function onScroll() {
+      const currentY = window.scrollY;
+      
+      // Debug log
+      console.log('Scroll position:', currentY, 'Last:', lastScrollY);
+      
+      if (currentY === 0) {
+        // Luôn hiện header khi ở đầu trang
+        header.classList.remove('header-hidden');
+        console.log('At top - showing header');
+      } else if (currentY > lastScrollY && currentY > 100) {
+        // Scroll xuống: ẩn header (tăng threshold lên 100px)
+        header.classList.add('header-hidden');
+        console.log('Scrolling down - hiding header');
+      } else if (currentY < lastScrollY) {
+        // Scroll lên: hiện header
+        header.classList.remove('header-hidden');
+        console.log('Scrolling up - showing header');
       }
-      document.querySelectorAll('.lang-switch').forEach((el) => {
-        el.addEventListener('click', (e) => {
-          e.preventDefault();
-          const lang = el.getAttribute('data-lang');
-          if (!lang) return;
-          let path = window.location.pathname.replace(/^\/(en|vi|ja|es|ko)(\/|$)/, '/');
-          window.location.pathname = lang === 'en'
-            ? (path === '/' ? '/' : path)
-            : `/${lang}${path}`.replace(/\/+/g, '/');
-        });
-      });
-    } catch {}
+      
+      lastScrollY = currentY;
+      ticking = false;
+    }
 
-    // Theme toggle (single source)
-    const toggleBtn = document.getElementById('toggle-dark');
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-
-    const applyTheme = (isDark) => {
-      document.documentElement.classList.toggle('dark', isDark);
-      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch {}
-      if (sunIcon && moonIcon) {
-        sunIcon.classList.toggle('hidden', isDark);
-        moonIcon.classList.toggle('hidden', !isDark);
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
       }
-    };
+    }, { passive: true });
 
-    // Đồng bộ icon với trạng thái hiện tại (đã được set sớm ở MainLayout)
-    applyTheme(document.documentElement.classList.contains('dark'));
-
-    toggleBtn?.addEventListener('click', () => {
-      applyTheme(!document.documentElement.classList.contains('dark'));
+    // Reset header khi resize (tránh lỗi khi thay đổi layout)
+    window.addEventListener('resize', () => {
+      header.classList.remove('header-hidden');
+      console.log('Window resized - showing header');
     });
+    
+    // Kiểm tra header có tồn tại
+    console.log('Header script loaded, element:', header);
   });
 </script>
