@@ -12,7 +12,7 @@ techs:
   - Azure
   - SQL Server
 features:
-  - "Quản lý liên hệ và khách hàng tiềm năng"
+  - "Quản lý liên lạc và khách hàng tiềm năng"
   - "Quản lý pipeline bán hàng"
   - "Tự động hóa email marketing"
   - "Báo cáo tùy chỉnh"

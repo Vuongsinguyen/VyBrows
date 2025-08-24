@@ -44,7 +44,7 @@ export const menus: Record<string, MenuItem[]> = {
     { label: 'ĐÀO TẠO', href: '/vi/training', title: 'Đào tạo' },
     { label: 'GIẢI PHÁP', href: '/vi/solutions', title: 'Giải pháp' },
     { label: 'TRUYỀN THÔNG', href: '/vi/communication', title: 'Truyền thông' },
-    { label: 'LIÊN HỆ', href: '/vi/#contact', title: 'Liên hệ' }
+    { label: 'LIÊN LẠC', href: '/vi/#contact', title: 'Liên lạc' }
   ],
   ja: [
     { label: 'ホーム', href: '/ja/', title: 'ホーム' },

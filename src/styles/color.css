@@ -37,7 +37,7 @@
   --color-primary-hover: #1d4ed8;  /* blue-700 */
   --color-primary-ring: #2563eb33; /* blue-600, 20% opacity */
   /* --color-primary-light removed, use --color-white instead */
-  --color-primary-dark: #1e40af;   /* blue-800 */
+  --color-primary-dark: #003324;   /* blue-800 */
   /* === Button Colors === */
   --color-on-primary: var(--color-white);
   --color-on-primary-hover: var(--color-white);
@@ -49,6 +49,7 @@
   /* --color-surface removed, use --color-white instead */
   --color-elevated: var(--color-white);       /* cards, dropdowns */
   --color-text: #213e3c;
+  --color-text-secondary: #002319; /* secondary text */
   --text-heading: var(--color-white);
   --text-body: var(--color-muted);
   --text-link: var(--color-primary);
@@ -109,8 +110,8 @@
 :root.dark, .dark {
   --color-lineblack2white: rgb(42, 42, 42); /* White 5% for dark mode */
   --color-white2white: #fff;
-  --color-stroke: #3b82f6;
-  --color-black2white: #fff;
+  --color-stroke: #FFD895;
+  --color-black2white: #FFD895;
   --color-blue2white: #fff; /* white for dark mode */
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
@@ -119,9 +120,10 @@
   --color-on-primary: var(--color-white);
   --color-on-primary-hover: var(--color-white);
   --color-button-secondary-text: #3b82f6;
-  --color-bg: #0f172a;
+  --color-bg: #002319;
   --color-elevated: #1e293b;
-  --color-text: #fff;
+  --color-text: #003324;
+  --color-text-secondary: #002319; /* secondary text */
   --color-muted: #94a3b8;
   --color-border: #334155;
   --text-heading: var(--color-white);
@@ -136,7 +138,7 @@
   --nav-text-hover: var(--color-primary);
   --nav-border: rgba(100, 116, 139, 0.3);
   --color-white: #e9f4ee;
-  --color-black: #ffffff;
+  --color-black: #FFD895;
   --header-bg: var(--color-white);
   --slider-bg: #1e293b;
   --slider-dot: #475569;

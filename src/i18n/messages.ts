@@ -31,7 +31,7 @@ export const messages = {
       "Liên tục cải tiến"
     ],
     teamIntro: "Đội ngũ tài năng của chúng tôi kết hợp chuyên môn về phần mềm, thiết kế và tư vấn để mang lại kết quả vượt trội cho khách hàng.",
-    contactCta: "Sẵn sàng chuyển đổi doanh nghiệp? Liên hệ ngay để được tư vấn miễn phí."
+    contactCta: "Sẵn sàng chuyển đổi doanh nghiệp? Liên lạc ngay để được tư vấn miễn phí."
   },
   ja: {
     aboutTitle: "会社紹介 - 日本語",

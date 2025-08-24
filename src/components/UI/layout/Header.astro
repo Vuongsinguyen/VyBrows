@@ -17,9 +17,11 @@ const currentLangDisplay = langMap[currentLang] || langMap.en;
 
 // Translation object
 const t = {
-  vi: { home: 'Trang chủ', services: 'Dịch vụ', about: 'Về chúng tôi', projects: 'Dự án', news: 'Tin tức', recruitment: 'Tuyển dụng', contact: 'Liên hệ' },
+  vi: { home: 'Trang chủ', services: 'Dịch vụ', about: 'Về chúng tôi', projects: 'Dự án', news: 'Tin tức', recruitment: 'Tuyển dụng', contact: 'Liên lạc' },
+  en: { home: 'Home', services: 'Services', about: 'About Us', projects: 'Projects', news: 'News', recruitment: 'Recruitment', contact: 'Contact' },
   ja: { home: 'ホーム', services: 'サービス', about: '私たちについて', projects: 'プロジェクト', news: 'ニュース', recruitment: '採用情報', contact: 'お問い合わせ' },
   es: { home: 'Inicio', services: 'Servicios', about: 'Sobre nosotros', projects: 'Proyectos', news: 'Noticias', recruitment: 'Reclutamiento', contact: 'Contacto' },
+  ko: { home: '홈', services: '서비스', about: '회사 소개', projects: '프로젝트', news: '뉴스', recruitment: '채용', contact: '문의하기' },
 }[currentLang] ?? {};
 ---
 <header
@@ -106,7 +108,7 @@ const t = {
 <style>
   #header-container {
     transform: translateY(0);
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); /* mượt hơn so với 0.3s ease */
+    transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1); /* mượt hơn so với 0.3s ease */
     will-change: transform;
     backface-visibility: hidden;
     transform-style: preserve-3d;
