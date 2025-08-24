@@ -8,6 +8,8 @@ export interface Slide {
   primaryButton: string;
   secondaryButton: string;
   backgroundGradient: string;
+  primaryHref?: string;    // thêm
+  secondaryHref?: string;  // thêm
 }
 
 export interface Props {
@@ -54,12 +56,34 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
             alt={`slide${(index+1).toString().padStart(2, '0')}`}
             class="w-full h-full object-cover rounded-[2rem]"
           />
+          {slide.primaryButton && (
+            <div class="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none">
+              <div class="flex flex-row items-center mt-[200px] md:mt-[240px]">
+                <!-- Gradient border wrapper -->
+                <span
+                  class="pointer-events-auto rounded-[10px] p-[1px]"
+                  style="background: linear-gradient(90deg, #e7d48e, #fff4b0, #e7d48e);"
+                >
+                  <a
+                    href={slide.primaryHref || '#'}
+                    class="inline-flex items-center justify-center px-5 py-4 min-w-[200px] rounded-[8px] text-sm font-semibold uppercase tracking-wide font-lora
+                      shadow-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40
+                      hover:bg-[#002319]"
+                    style="background:#003324; color: var(--color-black2white); font-family:'Lora', serif;"
+                    aria-label="BOOK A CONSULTATION"
+                  >
+                    BOOK A FREE CONSULTATION
+                  </a>
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     ))}
 
     <!-- Navigation -->
-    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-[10] flex space-x-2">
       {slides.map((_, index) => (
         <button 
           class={`dot w-3 h-3 rounded-full transition-all duration-300${index === 0 ? ' active' : ''}`}
@@ -69,12 +93,12 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
     </div>
 
     <!-- Arrows -->
-    <button class="prev-btn absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full transition-all" style="background-color: var(--slider-arrow-bg);">
+    <button class="prev-btn absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full transition-all z-[10]" style="background-color: var(--slider-arrow-bg);">
       <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="rgba(231, 212, 142, 0.3)">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
-    <button class="next-btn absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full transition-all" style="background-color: var(--slider-arrow-bg);">
+    <button class="next-btn absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full transition-all z-[10]" style="background-color: var(--slider-arrow-bg);">
       <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="rgba(231, 212, 142, 0.3)">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
