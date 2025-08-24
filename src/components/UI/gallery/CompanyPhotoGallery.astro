@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Infinity auto slide logic (chậm và mượt hơn)
   let isPaused = false;
-  let scrollAmount = 0.5; // Giảm tốc độ xuống
+  let scrollAmount = window.innerWidth < 600 ? 1.2 : 0.5;
   let interval;
   let galleryLength = track.scrollWidth / 2; // vì bạn lặp gallery 2 lần
 
@@ -187,7 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
   scrollContainer.addEventListener('mouseenter', () => { isPaused = true; });
   scrollContainer.addEventListener('mouseleave', () => { isPaused = false; });
   scrollContainer.addEventListener('touchstart', () => { isPaused = true; });
-  scrollContainer.addEventListener('touchend', () => { isPaused = false; });
+  scrollContainer.addEventListener('touchend', () => {
+    isPaused = false;
+    if (!interval) startAutoScroll();
+  });
 
   // Manual scroll disables auto for a short time
   let manualTimeout;
@@ -200,6 +203,13 @@ document.addEventListener('DOMContentLoaded', () => {
     isPaused = true;
     clearTimeout(manualTimeout);
     manualTimeout = setTimeout(() => { isPaused = false; }, 2000);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      isPaused = false;
+      if (!interval) startAutoScroll();
+    }
   });
 });
 </script>
