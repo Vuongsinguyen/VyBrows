@@ -5,14 +5,38 @@ const jobs = [
     location: "Hanoi, Vietnam",
     level: "Senior",
     expDate: "2025-08-31",
-    description: "Work with React, Astro, and Tailwind to build modern web apps."
+    description: "Join our team of top beauty artists in Hanoi!",
+    requirements: [
+      "2+ years experience in beauty industry (certificate preferred)",
+      "Skilled in PMU, skincare, or lash extensions",
+      "Passionate, professional & eager to learn",
+      "Good communication & teamwork skills"
+    ],
+    benefits: [
+      "Competitive income + bonus",
+      "Expert training & skill development",
+      "Friendly, modern work environment",
+      "Flexible schedule, career growth"
+    ]
   },
   {
     title: "🎓 Join Our Beauty Training",
     location: "Remote",
     level: "Internship",
     expDate: "2025-09-15",
-    description: "Develop and deploy AI/ML models for real-world business solutions."
+    description: "Kickstart your beauty career with our remote training program!",
+    requirements: [
+      "No prior experience required",
+      "Interest in beauty, PMU, or skincare",
+      "Motivated, responsible & willing to learn",
+      "Able to attend online sessions"
+    ],
+    benefits: [
+      "Free professional training",
+      "Certificate upon completion",
+      "Mentorship from industry experts",
+      "Opportunity for paid position after internship"
+    ]
   }
 ];
 import Button from '../shared/Button.astro';
@@ -20,7 +44,7 @@ import Button from '../shared/Button.astro';
 
 <section class="px-6 py-16" style="background: var(--color-bg);">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 font-lora" style="color: var(--color-text); font-family: 'Lora', serif;">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 font-lora" style="color: var(--color-text-secondary); font-family: 'Lora', serif;">
       Be Part of Our Journey
     </h2>
     <div class="grid md:grid-cols-2 gap-8">
@@ -36,14 +60,11 @@ import Button from '../shared/Button.astro';
           <div class="mb-4">
             <h3 class="text-xl font-semibold mb-2 font-lora" style="color: var(--color-bg); font-family: 'Lora', serif;">Requirements</h3>
             <ul class="list-disc list-inside mb-4" style="color: var(--color-bg);">
-              <li>Experience in beauty industry (certificate preferred)</li>
-              <li>Passionate, professional & eager to learn</li>
+              {job.requirements.map(req => <li>{req}</li>)}
             </ul>
             <h3 class="text-xl font-semibold mb-2 font-lora" style="color: var(--color-bg); font-family: 'Lora', serif;">Benefits</h3>
             <ul class="list-disc list-inside" style="color: var(--color-bg);">
-              <li>Competitive income + bonus</li>
-              <li>Expert training & skill development</li>
-              <li>Friendly, modern work environment</li>
+              {job.benefits.map(ben => <li>{ben}</li>)}
             </ul>
           </div>
           <div class="flex justify-end mt-auto">

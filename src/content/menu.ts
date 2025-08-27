@@ -31,7 +31,16 @@ export const menus: Record<string, MenuItem[]> = {
   en: [
     { label: 'HOME', href: '/', title: 'Home' },
     { label: 'SERVICES', href: '/#services', title: 'Services' },
-    { label: 'ABOUT US', href: '/about-us', title: 'About Us' },
+    {
+      label: 'ABOUT US', href: '/about-us', title: 'About Us',
+      children: [
+  { href: '/#why-choose-us', label: 'WHY CHOOSE US', title: 'WHY CHOOSE US', description: 'Why Choose Us section' },
+  { href: '/#expertise-experience', label: 'EXPERTISE & EXPERIENCE', title: 'EXPERTISE & EXPERIENCE', description: 'Expertise & Experience section' },
+  { href: '/#safe-painless', label: 'SAFE & PAINLESS TECHNIQUES', title: 'SAFE & PAINLESS TECHNIQUES', description: 'Safe & Painless Techniques section' },
+  { href: '/#world-class-training', label: 'WORLD-CLASS TRAINING', title: 'WORLD-CLASS TRAINING', description: 'World-Class Training section' },
+  { href: '/#natural-stunning', label: 'NATURAL & STUNNING RESULTS', title: 'NATURAL & STUNNING RESULTS', description: 'Natural & Stunning Results section' }
+      ]
+    },
     { label: 'TRAINING', href: '/training', title: 'Training' },
     { label: 'SOLUTIONS', href: '/solutions', title: 'Solutions' },
     { label: 'COMMUNICATION', href: '/communication', title: 'Communication' },
@@ -40,7 +49,16 @@ export const menus: Record<string, MenuItem[]> = {
   vi: [
     { label: 'TRANG CHỦ', href: '/vi/', title: 'Trang chủ' },
     { label: 'DỊCH VỤ', href: '/vi/#services', title: 'Dịch vụ' },
-    { label: 'GIỚI THIỆU', href: '/vi/about-us', title: 'Giới thiệu' },
+    {
+      label: 'GIỚI THIỆU', href: '/vi/about-us', title: 'Giới thiệu',
+      children: [
+  { href: '/vi/#why-choose-us', label: 'VÌ SAO CHỌN CHÚNG TÔI', title: 'VÌ SAO CHỌN CHÚNG TÔI', description: 'Why Choose Us section' },
+  { href: '/vi/#expertise-experience', label: 'CHUYÊN MÔN & KINH NGHIỆM', title: 'CHUYÊN MÔN & KINH NGHIỆM', description: 'Expertise & Experience section' },
+  { href: '/vi/#safe-painless', label: 'KỸ THUẬT AN TOÀN & KHÔNG ĐAU', title: 'KỸ THUẬT AN TOÀN & KHÔNG ĐAU', description: 'Safe & Painless Techniques section' },
+  { href: '/vi/#world-class-training', label: 'ĐÀO TẠO ĐẲNG CẤP QUỐC TẾ', title: 'ĐÀO TẠO ĐẲNG CẤP QUỐC TẾ', description: 'World-Class Training section' },
+  { href: '/vi/#natural-stunning', label: 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ', title: 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ', description: 'Natural & Stunning Results section' }
+      ]
+    },
     { label: 'ĐÀO TẠO', href: '/vi/training', title: 'Đào tạo' },
     { label: 'GIẢI PHÁP', href: '/vi/solutions', title: 'Giải pháp' },
     { label: 'TRUYỀN THÔNG', href: '/vi/communication', title: 'Truyền thông' },
