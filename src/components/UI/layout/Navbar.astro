@@ -36,7 +36,7 @@ const t = labels ?? ({
 } as const)[currentLang];
 
 // Menu items by resolved lang
-let menuItems: MenuItem[] = menus[currentLang] || menus['en'];
+let menuItems: MenuItem[] = (menus[currentLang] || menus['en']).filter((item: MenuItem) => typeof item.label === 'string' && !item.label.toLowerCase().includes('communication'));
 
 // Inject dynamic SERVICES children
 const serviceMenuIdx = menuItems.findIndex(
@@ -92,7 +92,12 @@ const extra = ({
                 }))}
               />
             ) : (
-              <a href={item.href} class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center font-lora font-bold" style="font-size:16px;">
+              <a
+                href={item.label.toLowerCase().includes('training') ? '#pmu-training' : item.label.toLowerCase().includes('solution') ? '#signature-services' : (item.href.startsWith('/') ? item.href : `#${item.href}`)}
+                onclick={item.label.toLowerCase().includes('training') ? "event.preventDefault(); const el=document.querySelector('#pmu-training'); if(el){ window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80, behavior:'smooth'}); }" : item.label.toLowerCase().includes('solution') ? "event.preventDefault(); const el=document.querySelector('#signature-services'); if(el){ window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80, behavior:'smooth'}); }" : (item.href.startsWith('#') ? "event.preventDefault(); const el=document.querySelector(this.getAttribute('href')); if(el){ window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80, behavior:'smooth'}); }" : undefined)}
+                class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center font-lora font-bold"
+                style="font-size:16px;"
+              >
                 <span class="whitespace-nowrap font-lora font-bold" style="color: var(--color-black2white); font-family: 'Lora', serif;">{item.label}</span>
               </a>
             )
