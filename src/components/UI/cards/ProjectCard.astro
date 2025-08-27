@@ -53,8 +53,9 @@ const { name, category, image1, image2, features } = Astro.props;
       </ul>
     )}
     <button 
-  class="center-course-btn px-6 py-2 rounded-full font-lora text-base font-semibold bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 text-[#003324] shadow-lg border border-yellow-300"
-  style="font-family: 'Lora', serif;"
+      class="center-course-btn px-6 py-2 rounded-full font-lora text-base font-semibold bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 text-[#003324] shadow-lg border border-yellow-300"
+      style="font-family: 'Lora', serif;"
+      onclick="event.preventDefault(); const el=document.querySelector('#contact'); if(el){ window.smoothScrollTo(el.getBoundingClientRect().top+window.scrollY-80,700); }"
     >
       Find Course
     </button>
