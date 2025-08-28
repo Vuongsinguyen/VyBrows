@@ -1,9 +1,11 @@
 ---
-title: PMU — PHUN XĂM THẨM MỸ
+title: PHUN XĂM THẨM MỸ
 lang: vi
-slug: pmu-phun-xam-moi
+slug: pmu-permanent-makeup
 order: 1
-description: "Tôn vinh vẻ đẹp tự nhiên của bạn với kỹ thuật PMU hiện đại. Từ đôi chân mày sắc nét, mí mắt tinh tế cho đến bờ môi rạng rỡ – phun xăm thẩm mỹ giúp bạn tiết kiệm thời gian trang điểm hằng ngày, mang lại vẻ đẹp tự tin, an toàn và bền lâu."
+description: "Kỹ thuật phun xăm thẩm mỹ tiên tiến - Môi trẻ trung — Đẹp hoàn hảo, an toàn và bền lâu."
+full-description: "Tôn lên vẻ đẹp tự nhiên với kỹ thuật phun xăm thẩm mỹ tiên tiến. Từ dáng mày chuẩn, viền mắt sắc nét đến đôi môi trẻ trung rạng rỡ — PMU giúp bạn tiết kiệm thời gian mỗi ngày mà vẫn giữ vẻ đẹp hoàn hảo, an toàn và lâu dài."
 image: "/images/service01.avif"
 ---
-Tôn vinh vẻ đẹp tự nhiên của bạn với kỹ thuật PMU hiện đại. Từ đôi chân mày sắc nét, mí mắt tinh tế cho đến bờ môi rạng rỡ – phun xăm thẩm mỹ giúp bạn tiết kiệm thời gian trang điểm hằng ngày, mang lại vẻ đẹp tự tin, an toàn và bền lâu.
+
+Tôn lên vẻ đẹp tự nhiên với kỹ thuật phun xăm thẩm mỹ tiên tiến. Từ dáng mày chuẩn, viền mắt sắc nét đến đôi môi trẻ trung rạng rỡ — PMU giúp bạn tiết kiệm thời gian mỗi ngày mà vẫn giữ vẻ đẹp hoàn hảo, an toàn và lâu dài.

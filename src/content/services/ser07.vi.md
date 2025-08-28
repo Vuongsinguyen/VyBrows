@@ -1,9 +1,10 @@
 ---
-title: Chăm sóc cơ thể
+title: KẺ VIỀN MẮT
 lang: vi
-slug: cham-soc-co-the
+slug: eyeliners
 order: 7
-description: "Liệu trình chăm sóc cơ thể mịn màng, khỏe mạnh."
+description: "Kẻ viền mắt tự nhiên giúp mở rộng ánh nhìn, hoặc kiểu nghệ thuật như makeup eyeliner hay Smokey eyeliner tạo vẻ quyến rũ nổi bật."
+full-description: "Bạn có thể chọn kẻ viền mắt tự nhiên giúp mở rộng ánh nhìn, hoặc kiểu nghệ thuật như makeup eyeliner hay Smokey eyeliner tạo vẻ quyến rũ nổi bật. Hiệu quả kéo dài đến 8 năm (tùy loại da và cách chăm sóc)."
 image: "/images/service07.avif"
 ---
-Làn da mịn màng, khỏe mạnh với liệu trình chăm sóc cơ thể.
+Bạn có thể chọn kẻ viền mắt tự nhiên giúp mở rộng ánh nhìn, hoặc kiểu nghệ thuật như makeup eyeliner hay Smokey eyeliner tạo vẻ quyến rũ nổi bật. Hiệu quả kéo dài đến 8 năm (tùy loại da và cách chăm sóc).

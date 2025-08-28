@@ -1,9 +1,10 @@
 ---
-title: SKINCARE — CHĂM SÓC DA
+title: CHĂM SÓC DA — ĐIỀU TRỊ MỤN
 lang: vi
-slug: skincare-cham-soc-da
+slug: skincare-acne-treatment
 order: 2
-description: "Khôi phục làn da sáng khỏe và tự tin với dịch vụ điều trị mụn chuyên sâu. Làm sạch sâu, lấy nhân mụn nhẹ nhàng, kết hợp liệu pháp làm dịu giúp kiểm soát mụn hiệu quả, mang lại làn da mịn màng, khỏe mạnh và rạng rỡ."
+description: "Làn da sáng khỏe - Điều trị mụn chuyên sâu - Làm sạch sâu, lấy nhân mụn nhẹ nhàng, kết hợp liệu trình làm dịu da."
+full-description: "Khôi phục làn da sáng khỏe và sự tự tin với liệu trình điều trị mụn chuyên sâu. Từ làm sạch sâu, lấy nhân mụn nhẹ nhàng đến các liệu pháp làm dịu, chúng tôi giúp kiểm soát mụn hiệu quả, đồng thời nuôi dưỡng làn da mịn màng, khỏe mạnh và rạng rỡ."
 image: "/images/service02.avif"
 ---
-Khôi phục làn da sáng khỏe và tự tin với dịch vụ điều trị mụn chuyên sâu. Làm sạch sâu, lấy nhân mụn nhẹ nhàng, kết hợp liệu pháp làm dịu giúp kiểm soát mụn hiệu quả, mang lại làn da mịn màng, khỏe mạnh và rạng rỡ.
+Khôi phục làn da sáng khỏe và sự tự tin với liệu trình điều trị mụn chuyên sâu. Từ làm sạch sâu, lấy nhân mụn nhẹ nhàng đến các liệu pháp làm dịu, chúng tôi giúp kiểm soát mụn hiệu quả, đồng thời nuôi dưỡng làn da mịn màng, khỏe mạnh và rạng rỡ.

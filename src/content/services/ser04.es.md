@@ -1,10 +1,10 @@
 ---
-title: SHADING OMBRÉ
+title: SOMBREADO OMBRÉ
 lang: es
 slug: tatuaje-delineador
 order: 4
-description: "Specific shading machine - Most natural shape for eyebrows. Create a very neat and light color shape like when doing makeup."
-full-description: "Use specific shading machine to create a most natural shape for eyebrows. Create a very neat and light color shape like when doing makeup. This technique lasts up to 1 year and a half (depends on skin type and aftercare). Good for all types of skin and age."
+description: "Máquina de sombreado especializada - Forma de ceja más natural. Crea una ceja definida y color suave como el maquillaje."
+full-description: "Se utiliza una máquina de sombreado especializada para crear la forma más natural de las cejas. Crea una ceja definida y color suave como el maquillaje. Esta técnica dura hasta 1 año y medio (depende del tipo de piel y los cuidados posteriores). Adecuado para todo tipo de piel y edad."
 image: "/images/service04.avif"
 ---
-Use specific shading machine to create a most natural shape for eyebrows. Create a very neat and light color shape like when doing makeup. This technique lasts up to 1 year and a half (depends on skin type and aftercare). Good for all types of skin and age.
+Se utiliza una máquina de sombreado especializada para crear la forma más natural de las cejas. Crea una ceja definida y color suave como el maquillaje. Esta técnica dura hasta 1 año y medio (depende del tipo de piel y los cuidados posteriores). Adecuado para todo tipo de piel y edad.

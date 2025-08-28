@@ -1,9 +1,10 @@
 ---
-title: Terapia de spa
+title: CEJAS PEINADAS (HAIRS STROKES)
 lang: es
-slug: terapia-spa
+slug: hairs-strokes
 order: 6
-description: "Terapias de spa rejuvenecedoras para cuerpo y mente."
+description: "Cejas suaves y naturales usando una máquina de tatuaje precisa. Cada trazo imita el vello real, artístico y detallado para un acabado impecable."
+full-description: "La técnica de hairs strokes crea cejas suaves y naturales usando una máquina de tatuaje precisa. Cada trazo imita el vello real, artístico y detallado para un acabado impecable. Con el cuidado adecuado, los resultados pueden durar hasta cinco años, apto para la mayoría de tipos de piel y edades, realzando la belleza con un toque natural."
 image: "/images/service06.avif"
 ---
-Relájate y renueva tu energía con nuestras terapias de spa.
+La técnica de hairs strokes crea cejas suaves y naturales usando una máquina de tatuaje precisa. Cada trazo imita el vello real, artístico y detallado para un acabado impecable. Con el cuidado adecuado, los resultados pueden durar hasta cinco años, apto para la mayoría de tipos de piel y edades, realzando la belleza con un toque natural.
