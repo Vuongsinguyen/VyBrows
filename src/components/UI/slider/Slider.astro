@@ -58,8 +58,8 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
           />
           {slide.primaryButton && (
             <div class="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none">
-              <div class="flex flex-row items-center mt-[200px] md:mt-[240px]">
-                <!-- Gradient border wrapper -->
+              <div class="flex flex-row items-center gap-4 mt-[200px] md:mt-[240px]">
+                <!-- Book Consultation Button -->
                 <span
                   class="pointer-events-auto rounded-[10px] p-[1px]"
                   style="background: linear-gradient(90deg, #e7d48e, #fff4b0, #e7d48e);"
@@ -75,11 +75,38 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
                     >
                       {
                         ({
-                          en: "BOOK A FREE CONSULTATION",
-                          vi: "ĐẶT LỊCH TƯ VẤN MIỄN PHÍ",
-                          ja: "無料カウンセリング予約",
-                          ko: "무료 상담 예약",
-                          es: "RESERVA UNA CONSULTA GRATUITA"
+                          en: "BOOK A CONSULTATION",
+                          vi: "ĐẶT LỊCH TƯ VẤN",
+                          ja: "カウンセリング予約",
+                          ko: "상담 예약",
+                          es: "RESERVA UNA CONSULTA"
+                        })[(Astro.url.pathname.split('/')[1] || 'en')]
+                      }
+                    </a>
+                </span>
+                
+                <!-- Shop Now Button -->
+                <span
+                  class="pointer-events-auto rounded-[10px] p-[1px]"
+                  style="background: linear-gradient(90deg, #e7d48e, #fff4b0, #e7d48e);"
+                >
+                  <a
+                      href="https://shop.vybrows-academy.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center justify-center px-5 py-4 min-w-[150px] rounded-[8px] text-sm font-semibold uppercase tracking-wide font-lora
+                        shadow-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40
+                        hover:bg-[#002319]"
+                      style="background:#003324; color: var(--color-black2white); font-family:'Lora', serif;"
+                      aria-label="SHOP NOW"
+                    >
+                      {
+                        ({
+                          en: "SHOP NOW",
+                          vi: "MUA NGAY",
+                          ja: "今すぐ購入",
+                          ko: "지금 구매",
+                          es: "COMPRAR AHORA"
                         })[(Astro.url.pathname.split('/')[1] || 'en')]
                       }
                     </a>
