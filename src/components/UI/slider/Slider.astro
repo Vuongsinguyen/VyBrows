@@ -180,6 +180,7 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
     function nextSlide() { showSlide((currentSlide + 1) % slides.length); }
     function prevSlide() { showSlide((currentSlide - 1 + slides.length) % slides.length); }
     function startAutoSlide() {
+      if (autoSlideIntervalId) clearInterval(autoSlideIntervalId);
       autoSlideIntervalId = setInterval(nextSlide, autoSlideInterval);
     }
     function stopAutoSlide() { clearInterval(autoSlideIntervalId); autoSlideIntervalId = null; }
