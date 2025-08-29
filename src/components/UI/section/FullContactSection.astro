@@ -305,9 +305,9 @@
       try{
         const res=await fetch('/.netlify/functions/sendMail',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
         const result=await res.json().catch(()=>({}));
-        if(res.ok && result.success){ setStatus('✅ Gửi thành công!', 'success'); form.reset(); }
-        else { setStatus('❌ Gửi thất bại: '+(result.error||'Captcha failed'), 'error'); }
-      } catch { setStatus('❌ Lỗi mạng (không gửi được)', 'error'); }
+        if(res.ok && result.success){ setStatus('✅ Sent successfully! We will contact you soon!', 'success'); form.reset(); }
+        else { setStatus('❌ Failed to send: '+(result.error||'Captcha failed'), 'error'); }
+      } catch { setStatus('❌ Network error (failed to send)', 'error'); }
       finally {
         try { window.turnstile?.reset(); } catch {}
         captchaReady = false;
