@@ -70,15 +70,15 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
                         shadow-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40
                         hover:bg-[#002319]"
                       style="background:#003324; color: var(--color-black2white); font-family:'Lora', serif;"
-                      aria-label="BOOK CONSULTATION"
+                      aria-label="BOOKING"
                     >
                       {
                         ({
-                          en: "BOOK CONSULTATION",
-                          vi: "ĐẶT LỊCH TƯ VẤN",
-                          ja: "カウンセリング予約",
-                          ko: "상담 예약",
-                          es: "RESERVA UNA CONSULTA"
+                          en: "BOOKING",
+                          vi: "ĐẶT LỊCH",
+                          ja: "予約",
+                          ko: "예약",
+                          es: "RESERVA"
                         })[(Astro.url.pathname.split('/')[1] || 'en')]
                       }
                     </a>
