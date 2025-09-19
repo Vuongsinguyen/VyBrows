@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"> <head><title>Booking Step by Step | VyBrows Academy</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>.booking-step-section[data-astro-cid-txyndda4]{position:relative;overflow:hidden}.step[data-astro-cid-txyndda4]{position:absolute;left:0;top:0;width:100%;min-height:480px;background:#fff;z-index:1;opacity:0;pointer-events:none;transition:opacity .35s,transform .35s;transform:translate(40px)}.step[data-astro-cid-txyndda4].active{opacity:1;pointer-events:auto;transform:translate(0);z-index:2}.step[data-astro-cid-txyndda4].exit-left{opacity:0;transform:translate(-40px)}.step[data-astro-cid-txyndda4].exit-right{opacity:0;transform:translate(40px)}.step-indicator[data-astro-cid-txyndda4]{font-weight:600;color:#e7d48e;padding:4px 12px;border-radius:8px;background:#003324}.step-indicator[data-astro-cid-txyndda4].active{background:#e7d48e;color:#003324}.field-input[data-astro-cid-txyndda4]{width:100%;padding:.55rem 1rem;border:1px solid #c4d5cf;border-radius:.65rem;background:#eef3f1;color:#003324;font-size:16px;line-height:1.4;margin-bottom:8px}
+</style></head> <body style="background:#f5f9f7;"> <section id="booking-step-section" class="booking-step-section max-w-2xl mx-auto py-16 px-4 bg-white rounded-2xl shadow-lg" data-astro-cid-txyndda4> <h2 class="text-3xl font-bold mb-8 text-center text-[#003324] font-lora" data-astro-cid-txyndda4>Booking Services Step by Step</h2> <div id="booking-steps" class="w-full relative" style="min-height:480px;" data-astro-cid-txyndda4> <!-- Stepper UI --> <div class="flex justify-between mb-8" data-astro-cid-txyndda4> <div class="step-indicator step-1" data-astro-cid-txyndda4>1. Select Service</div> <div class="step-indicator step-2" data-astro-cid-txyndda4>2. Date & Time</div> <div class="step-indicator step-3" data-astro-cid-txyndda4>3. Personal Info</div> <div class="step-indicator step-4" data-astro-cid-txyndda4>4. Confirm</div> </div> <!-- Step 1: Select Service --> <div class="step step-1" data-astro-cid-txyndda4> <label class="block mb-2 font-semibold" data-astro-cid-txyndda4>Category</label> <select class="field-input mb-4" id="category" data-astro-cid-txyndda4> <option value="" data-astro-cid-txyndda4>Select Category</option> <option value="pmu" data-astro-cid-txyndda4>PMU</option> <option value="skincare" data-astro-cid-txyndda4>Skincare</option> <option value="detox" data-astro-cid-txyndda4>Detox & Herbal Hair Wash</option> </select> <label class="block mb-2 font-semibold" data-astro-cid-txyndda4>Service</label> <select class="field-input mb-4" id="service" data-astro-cid-txyndda4> <option value="" data-astro-cid-txyndda4>Select Service</option> <option value="pmu1" data-astro-cid-txyndda4>Shading Ombré ($100) - 60min</option> <option value="pmu2" data-astro-cid-txyndda4>Micro Blading ($120) - 75min</option> <option value="skin1" data-astro-cid-txyndda4>Acne Treatment ($80) - 50min</option> <option value="detox1" data-astro-cid-txyndda4>Herbal Hair Wash ($60) - 40min</option> </select> <button class="next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold mt-4" data-astro-cid-txyndda4>Next</button> </div> <!-- Step 2: Select Date Time --> <div class="step step-2" data-astro-cid-txyndda4> <label class="block mb-2 font-semibold" data-astro-cid-txyndda4>Select Date</label> <input type="text" class="field-input mb-4" id="date" placeholder="Pick a date" data-astro-cid-txyndda4> <label class="block mb-2 font-semibold" data-astro-cid-txyndda4>Select Time</label> <input type="time" class="field-input mb-4" id="time" data-astro-cid-txyndda4> <button class="prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold mr-2" data-astro-cid-txyndda4>Back</button> <button class="next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold" data-astro-cid-txyndda4>Next</button> </div> <!-- Step 3: Personal Info --> <div class="step step-3" data-astro-cid-txyndda4> <label class="block mb-2 font-semibold" data-astro-cid-txyndda4>Full Name</label> <input type="text" class="field-input mb-4" id="name" placeholder="Your Name" data-astro-cid-txyndda4> <label class="block mb-2 font-semibold" data-astro-cid-txyndda4>Phone</label> <input type="text" class="field-input mb-4" id="phone" placeholder="Phone Number" data-astro-cid-txyndda4> <label class="block mb-2 font-semibold" data-astro-cid-txyndda4>Email</label> <input type="email" class="field-input mb-4" id="email" placeholder="Email" data-astro-cid-txyndda4> <button class="prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold mr-2" data-astro-cid-txyndda4>Back</button> <button class="next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold" data-astro-cid-txyndda4>Next</button> </div> <!-- Step 4: Confirm --> <div class="step step-4" data-astro-cid-txyndda4> <h3 class="text-xl font-bold mb-4" data-astro-cid-txyndda4>Confirm Booking</h3> <div class="mb-4" id="confirm-info" data-astro-cid-txyndda4> <!-- Thông tin booking sẽ được render ở đây --> </div> <button class="prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold mr-2" data-astro-cid-txyndda4>Back</button> <button class="submit-btn px-6 py-2 bg-[#e7d48e] text-[#003324] rounded-lg font-bold" data-astro-cid-txyndda4>Confirm & Book</button> </div> <div id="booking-status" class="mt-6 text-center font-semibold" data-astro-cid-txyndda4></div> </div> </section>  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> <script type="module" src="/_astro/BookingStepSection.astro_astro_type_script_index_0_lang.8pXyr8PO.js"></script> <script>
+(function(){
+  let currentStep = 1;
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const indicators = Array.from(document.querySelectorAll('.step-indicator'));
+  function showStep(n, direction) {
+    steps.forEach((s,i)=>{
+      s.classList.remove('active','exit-left','exit-right');
+      if(i===n-1) {
+        s.classList.add('active');
+      } else if(i< n-1 && direction==='next') {
+        s.classList.add('exit-left');
+      } else if(i> n-1 && direction==='back') {
+        s.classList.add('exit-right');
+      }
+    });
+    indicators.forEach((ind,i)=>ind.classList.toggle('active',i===n-1));
+    currentStep = n;
+  }
+  document.addEventListener('DOMContentLoaded',()=>{
+    showStep(1);
+    document.querySelectorAll('.next-btn').forEach(btn=>btn.addEventListener('click',()=>{
+      if(currentStep<4) showStep(currentStep+1,'next');
+    }));
+    document.querySelectorAll('.prev-btn').forEach(btn=>btn.addEventListener('click',()=>{
+      if(currentStep>1) showStep(currentStep-1,'back');
+    }));
+    // Khởi tạo flatpickr cho trường date
+    if(window.flatpickr){
+      flatpickr('#date', {
+        minDate: 'today',
+        dateFormat: 'Y-m-d',
+        disableMobile: true
+      });
+    }
+  });
+})();
+</script> </body></html>
