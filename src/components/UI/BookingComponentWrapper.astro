@@ -1,0 +1,21 @@
+---
+// BookingComponentWrapper.astro - Astro wrapper for React booking system
+import BookingComponent from './BookingComponent';
+---
+
+<div id="react-booking-container" class="w-full max-w-4xl mx-auto">
+  <BookingComponent client:load />
+</div>
+
+<style>
+  /* Ensure proper z-index for modals */
+  #react-booking-container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Global styles for React modals */
+  :global(.modal-backdrop) {
+    z-index: 9999;
+  }
+</style>

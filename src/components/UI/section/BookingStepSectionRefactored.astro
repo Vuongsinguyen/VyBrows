@@ -1,0 +1,206 @@
+---
+// BookingStepSection.astro - Refactored with better architecture
+import styles from './BookingStepSection.module.css';
+
+// Steps configuration
+const STEPS = [
+  { id: 1, title: 'Select Service', key: 'service' },
+  { id: 2, title: 'Date & Time', key: 'datetime' },
+  { id: 3, title: 'Personal Info', key: 'info' },
+  { id: 4, title: 'Confirm', key: 'confirm' }
+];
+
+// Service categories configuration  
+const SERVICE_CATEGORIES = {
+  pmu: { title: 'PMU', active: true },
+  skincare: { title: 'Skincare', active: false },
+  detox: { title: 'Detox & Herbal Hair Wash', active: false }
+};
+---
+
+<section id="booking-step-section" class="booking-step-section max-w-2xl mx-auto py-16 px-4 bg-white rounded-2xl shadow-lg">
+  <h2 class="text-3xl font-bold mb-8 text-center text-[#003324] font-lora">
+    Booking Services Step by Step
+  </h2>
+  
+  <div id="booking-steps" class={`${styles.bookingSteps} w-full relative overflow-hidden`} style="min-height: 600px;">
+    
+    <!-- Dynamic Step Indicators -->
+    <div class="flex justify-between mb-8 relative z-20 px-4">
+      {STEPS.map((step, index) => (
+        <div class={`${styles.stepIndicator} step-indicator ${index === 0 ? 'active' : ''} step-${step.id}`}>
+          {step.id}. {step.title}
+          <div class={styles.stepProgress}></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Steps Container -->
+    <div class={styles.stepsContainer} id="steps-container">
+      
+      <!-- Step 1: Select Service -->
+      <div class={`${styles.step} step step-1`}>
+        <h3 class="text-xl font-bold mb-4 text-center text-[#003324]">Select Your Service</h3>
+        
+        <h4 class="text-lg font-semibold mb-3 text-[#003324]">Category</h4>
+        <div class="category-tabs flex gap-4 mb-6">
+          {Object.entries(SERVICE_CATEGORIES).map(([key, category]) => (
+            <button 
+              class={`${styles.tabBtn} ${category.active ? 'active' : ''} px-4 py-2 rounded-lg font-bold`}
+              data-tab={key}
+            >
+              {category.title}
+            </button>
+          ))}
+        </div>
+        
+        <h4 class="text-lg font-semibold mb-3 text-[#003324]">Services</h4>
+        <div class="services-groups">
+          <!-- Services will be dynamically rendered by JS -->
+        </div>
+        
+        <button class={`${styles.nextBtn} next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold mt-4`}>
+          Next
+        </button>
+        
+        <!-- Service Options Modal -->
+        <div id="service-modal" class={`${styles.serviceModal} fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50`} style="display:none;">
+          <div class="bg-white rounded-xl p-6 min-w-[320px]">
+            <h4 class="text-lg font-semibold mb-3 text-[#003324]">Service Options</h4>
+            <div class="font-bold mb-2" id="modal-service-name"></div>
+            <form id="modal-options-form">
+              <!-- Radio options will be dynamically rendered -->
+            </form>
+            <div class="flex gap-2 mt-4">
+              <button type="button" class="close-modal px-4 py-2 bg-gray-200 rounded">Đóng</button>
+              <button type="button" class="select-option px-4 py-2 bg-[#003324] text-white rounded">Chọn</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Date & Time -->
+      <div class={`${styles.step} step step-2`}>
+        <h3 class="text-xl font-bold mb-4 text-center text-[#003324]">Select Date & Time</h3>
+        
+        <label class="block mb-2 font-semibold">Select Date</label>
+        <input 
+          type="date" 
+          class={`${styles.fieldInput} field-input mb-4 w-full px-3 py-2 rounded-lg`}
+          id="date" 
+          required
+        />
+        
+        <label class="block mb-2 font-semibold">Select Time</label>
+        <input 
+          type="time" 
+          class={`${styles.fieldInput} field-input mb-4 w-full px-3 py-2 rounded-lg`}
+          id="time" 
+          required
+        />
+        
+        <div class="flex gap-2 mt-6">
+          <button class={`${styles.prevBtn} prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold`}>
+            Back
+          </button>
+          <button class={`${styles.nextBtn} next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold`}>
+            Next
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Personal Info -->
+      <div class={`${styles.step} step step-3`}>
+        <h3 class="text-xl font-bold mb-4 text-center text-[#003324]">Personal Information</h3>
+        
+        <label class="block mb-2 font-semibold">Full Name</label>
+        <input 
+          type="text" 
+          class={`${styles.fieldInput} field-input mb-4 w-full px-3 py-2 rounded-lg`}
+          id="name" 
+          placeholder="Your Name" 
+          required
+          minlength="2"
+        />
+        
+        <label class="block mb-2 font-semibold">Phone</label>
+        <input 
+          type="tel" 
+          class={`${styles.fieldInput} field-input mb-4 w-full px-3 py-2 rounded-lg`}
+          id="phone" 
+          placeholder="Phone Number" 
+          required
+          pattern="[0-9+\-\s()]+"
+        />
+        
+        <label class="block mb-2 font-semibold">Email</label>
+        <input 
+          type="email" 
+          class={`${styles.fieldInput} field-input mb-4 w-full px-3 py-2 rounded-lg`}
+          id="email" 
+          placeholder="Email" 
+          required
+        />
+        
+        <div class="flex gap-2 mt-6">
+          <button class={`${styles.prevBtn} prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold`}>
+            Back
+          </button>
+          <button class={`${styles.nextBtn} next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold`}>
+            Next
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4: Confirm -->
+      <div class={`${styles.step} step step-4`}>
+        <h3 class="text-xl font-bold mb-4 text-center text-[#003324]">Confirm Booking</h3>
+        
+        <div class="mb-6" id="confirm-info">
+          <!-- Booking summary will be dynamically rendered -->
+        </div>
+        
+        <div class="flex gap-2">
+          <button class={`${styles.prevBtn} prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold`}>
+            Back
+          </button>
+          <button class={`${styles.submitBtn} submit-btn px-6 py-2 bg-[#e7d48e] text-[#003324] rounded-lg font-bold`}>
+            Confirm & Book
+          </button>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Status Messages -->
+    <div id="booking-status" class="mt-6 text-center font-semibold"></div>
+  </div>
+</section>
+
+<!-- Import and initialize the booking system -->
+<script is:inline src="/src/components/UI/section/BookingStepSectionFixed.js"></script>
+
+<style>
+  /* Additional scoped styles that can't be in CSS modules */
+  .booking-step-section {
+    --primary-color: #003324;
+    --secondary-color: #e7d48e;
+    --gray-light: #f3f4f6;
+    --gray-medium: #6b7280;
+  }
+  
+  /* Form validation styles */
+  .field-input:invalid {
+    border-color: #ef4444;
+  }
+  
+  .field-input:valid {
+    border-color: #10b981;
+  }
+  
+  /* Loading state */
+  .submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+</style>

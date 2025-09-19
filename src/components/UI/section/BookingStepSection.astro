@@ -1,672 +1,599 @@
 ---
-// BookingStepSection.astro - Multi-step booking UI
+// BookingStepSection.astro - Modern booking component with accessibility and validation
+import styles from './BookingStepSection.module.css';
+
+// Configuration for steps and services
+const STEPS = [
+  { id: 1, title: 'Select Service', description: 'Choose your desired service and options' },
+  { id: 2, title: 'Date & Time', description: 'Pick your preferred appointment time' },
+  { id: 3, title: 'Personal Info', description: 'Provide your contact information' },
+  { id: 4, title: 'Confirm', description: 'Review and confirm your booking' }
+];
+
+const SERVICE_CATEGORIES = [
+  { 
+    key: 'pmu', 
+    title: 'PMU', 
+    description: 'Permanent makeup services',
+    groups: [
+      {
+        title: 'Brows',
+        services: [
+          { name: 'Shading Ombré', price: '$100', options: ['Classic', 'Ombre'] },
+          { name: 'Micro Blading', price: '$120', options: ['Micro', 'Nano'] },
+          { name: 'Combo Brows', price: '$150', options: ['Natural', 'Bold'] }
+        ]
+      },
+      {
+        title: 'Lips',
+        services: [
+          { name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] }
+        ]
+      }
+    ]
+  },
+  { 
+    key: 'skincare', 
+    title: 'Skincare',
+    description: 'Professional facial treatments',
+    groups: [
+      {
+        title: 'Facial Treatments',
+        services: [
+          { name: 'Acne Treatment', price: '$80', options: ['Basic', 'Advanced'] },
+          { name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] },
+          { name: 'Chemical Peel', price: '$100', options: ['Light', 'Medium'] }
+        ]
+      }
+    ]
+  },
+  { 
+    key: 'detox', 
+    title: 'Detox & Herbal Hair Wash',
+    description: 'Natural hair and scalp treatments',
+    groups: [
+      {
+        title: 'Hair Treatments',
+        services: [
+          { name: 'Herbal Hair Wash', price: '$60', options: ['Herbal', 'Premium'] },
+          { name: 'Scalp Detox', price: '$80', options: ['Deep Clean', 'Scalp Massage'] }
+        ]
+      }
+    ]
+  }
+];
 ---
----
-// BookingStepSection.astro - Multi-step booking UI
----
 
-<section id="booking-step-section" class="booking-step-section max-w-2xl mx-auto py-16 px-4 bg-white rounded-2xl shadow-lg">
-  <style>
-    /* Horizontal Step Layout */
-    #booking-steps {
-      display: flex;
-      flex-direction: column;
-      min-height: 600px;
-      overflow: visible; /* Ensure content is not clipped */
-      position: relative;
-    }
+<section 
+  id="booking-step-section" 
+  class="booking-step-section max-w-2xl mx-auto py-16 px-4 bg-white rounded-2xl shadow-lg"
+  aria-label="Service booking form"
+>
+  <h2 class="text-3xl font-bold mb-8 text-center text-[#003324] font-lora">
+    Booking Services Step by Step
+  </h2>
+  
+  <div 
+    id="booking-steps" 
+    class={`${styles.bookingSteps} w-full relative overflow-hidden`} 
+    style="min-height: 600px;"
+    role="application"
+    aria-label="Multi-step booking form"
+  >
+    
+    <!-- Step Progress Indicators -->
+    <nav 
+      class="flex justify-between mb-8 relative z-20 px-4" 
+      aria-label="Booking progress"
+      role="progressbar"
+      aria-valuemin="1"
+      aria-valuemax="4"
+      aria-valuenow="1"
+      aria-valuetext="Step 1 of 4: Select Service"
+    >
+      {STEPS.map((step, index) => (
+        <div 
+          class={`${styles.stepIndicator} step-indicator ${index === 0 ? 'active' : ''}`}
+          aria-current={index === 0 ? 'step' : undefined}
+          aria-label={`Step ${step.id}: ${step.title}`}
+          title={step.description}
+        >
+          <span class="sr-only">Step {step.id} of {STEPS.length}: </span>
+          {step.id}. {step.title}
+          <div class={styles.stepProgress} aria-hidden="true"></div>
+        </div>
+      ))}
+    </nav>
 
-    .steps-container {
-      display: flex;
-      width: 400%; /* 4 steps x 100% each */
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: visible; /* Ensure content is not clipped */
-    }
-
-    .step {
-      flex: 1;
-      padding: 20px;
-      background: white;
-      border-radius: 0 0 16px 16px;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      min-height: 500px;
-      width: 25%; /* Each step takes 25% of container */
-      position: relative;
-      z-index: 1;
-    }
-
-    .step-transitioning .steps-container {
-      transition: transform 0.3s ease;
-    }
-
-    /* Step Indicator Styles - Horizontal Progress */
-    .step-indicator {
-      flex: 1;
-      text-align: center;
-      padding: 8px 12px;
-      border-radius: 20px;
-      background-color: #f3f4f6;
-      color: #6b7280;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-      margin: 0 4px;
-    }
-
-    .step-indicator.active {
-      background-color: #003324;
-      color: white;
-      transform: scale(1.05);
-    }
-
-    .step-indicator.completed {
-      background-color: #10b981;
-      color: white;
-    }
-
-    /* Progress bar for horizontal layout */
-    .step-progress {
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #003324, #e7d48e);
-      border-radius: 2px;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s ease;
-    }
-
-    .step-indicator.active .step-progress {
-      transform: scaleX(1);
-    }
-
-    /* Button hover effects */
-    .next-btn, .prev-btn, .submit-btn {
-      transition: all 0.3s ease;
-    }
-
-    .next-btn:hover, .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 51, 36, 0.3);
-    }
-
-    .prev-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Service button animations */
-    .service-btn {
-      transition: all 0.3s ease;
-    }
-
-    .service-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(231, 212, 142, 0.4);
-    }
-
-    /* Tab button animations */
-    .tab-btn {
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      background-color: #f3f4f6;
-      color: #6b7280;
-    }
-
-    .tab-btn.active {
-      background-color: #003324;
-      color: white;
-      border-color: #003324;
-    }
-
-    .tab-btn:hover:not(.active) {
-      background-color: #e7d48e;
-      border-color: #003324;
-      color: #003324;
-    }
-
-    /* Modal animations */
-    #service-modal {
-      animation: modalFadeIn 0.3s ease-out;
-    }
-
-    @keyframes modalFadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    /* Form input animations */
-    .field-input {
-      transition: all 0.3s ease;
-      border: 2px solid #e5e7eb;
-    }
-
-    .field-input:focus {
-      border-color: #003324;
-      box-shadow: 0 0 0 3px rgba(0, 51, 36, 0.1);
-      transform: translateY(-1px);
-    }
-  </style>
-  <h2 class="text-3xl font-bold mb-8 text-center text-[#003324] font-lora">Booking Services Step by Step</h2>
-  <div id="booking-steps" class="w-full relative overflow-hidden" style="min-height: 600px;">
-    <!-- Stepper UI -->
-    <div class="flex justify-between mb-8 relative z-20 px-4">
-      <div class="step-indicator step-1 active">
-        1. Select Service
-        <div class="step-progress"></div>
-      </div>
-      <div class="step-indicator step-2">
-        2. Date & Time
-        <div class="step-progress"></div>
-      </div>
-      <div class="step-indicator step-3">
-        3. Personal Info
-        <div class="step-progress"></div>
-      </div>
-      <div class="step-indicator step-4">
-        4. Confirm
-        <div class="step-progress"></div>
-      </div>
-    </div>
-
-    <!-- Steps Container with Horizontal Sliding -->
-    <div class="steps-container" id="steps-container">
-      <!-- Step 1: Select Service -->
-      <div class="step step-1">
-      <div class="category-tabs flex gap-4 mb-4">
-        <button class="tab-btn active px-4 py-2 rounded-lg font-bold" data-tab="pmu">PMU</button>
-        <button class="tab-btn px-4 py-2 rounded-lg font-bold" data-tab="skincare">Skincare</button>
-        <button class="tab-btn px-4 py-2 rounded-lg font-bold" data-tab="detox">Detox & Herbal Hair Wash</button>
-      </div>
-      <div class="services-groups">
-        <!-- PMU Group -->
-        <div class="service-group" data-group="pmu">
-          <div class="font-semibold mb-2">Brows</div>
-          <div class="service-list flex gap-2 flex-wrap">
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="pmu1" data-options='["Classic","Ombre"]'>Shading Ombré ($100)</button>
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="pmu2" data-options='["Micro","Nano"]'>Micro Blading ($120)</button>
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="pmu3" data-options='["Natural","Bold"]'>Combo Brows ($150)</button>
+    <!-- Steps Container -->
+    <div 
+      class={`${styles.stepsContainer} transitioning`} 
+      id="steps-container"
+      style={`--total-steps: ${STEPS.length};`}
+    >
+      
+      <!-- Step 1: Service Selection -->
+      <div 
+        class={`${styles.step} step step-1`}
+        role="tabpanel"
+        aria-labelledby="step-1-title"
+        tabindex="0"
+      >
+        <h3 id="step-1-title" class="text-xl font-bold mb-4 text-center text-[#003324]">
+          Select Your Service
+        </h3>
+        
+        <!-- Category Selection -->
+        <fieldset class="mb-6">
+          <legend class="text-lg font-semibold mb-3 text-[#003324]">
+            Service Category
+          </legend>
+          
+          <div 
+            class="category-tabs flex gap-4 mb-6" 
+            role="tablist" 
+            aria-label="Service categories"
+          >
+            {SERVICE_CATEGORIES.map((category, index) => (
+              <button 
+                class={`${styles.tabBtn} tab-btn ${index === 0 ? 'active' : ''} px-4 py-2 rounded-lg font-bold`}
+                role="tab"
+                aria-selected={index === 0}
+                aria-controls={`services-${category.key}`}
+                data-tab={category.key}
+                type="button"
+                title={category.description}
+              >
+                {category.title}
+              </button>
+            ))}
           </div>
-          <div class="font-semibold mb-2 mt-4">Lips</div>
-          <div class="service-list flex gap-2 flex-wrap">
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="pmu4" data-options='["Soft","Bold"]'>Lip Blush ($90)</button>
+        </fieldset>
+        
+        <!-- Services Groups -->
+        <fieldset>
+          <legend class="text-lg font-semibold mb-3 text-[#003324]">
+            Available Services
+          </legend>
+          
+          <div class="services-groups" aria-live="polite">
+            {SERVICE_CATEGORIES.map((category) => (
+              <div 
+                class={`${styles.serviceGroup} service-group ${category.key !== 'pmu' ? 'hidden' : ''}`}
+                data-group={category.key}
+                id={`services-${category.key}`}
+                role="tabpanel"
+                aria-labelledby={`tab-${category.key}`}
+              >
+                {category.groups.map((group) => (
+                  <div class="mb-6">
+                    <h4 class="font-semibold mb-3 text-[#003324]">{group.title}</h4>
+                    <div class="service-list grid gap-2 md:grid-cols-2">
+                      {group.services.map((service) => (
+                        <button 
+                          class={`${styles.serviceBtn} service-btn px-3 py-2 rounded text-left hover:shadow-md transition-all`}
+                          data-service={service.name}
+                          data-price={service.price}
+                          data-options={JSON.stringify(service.options)}
+                          type="button"
+                          aria-describedby={`service-desc-${service.name.replace(/\s+/g, '-').toLowerCase()}`}
+                        >
+                          <div class="font-medium">{service.name}</div>
+                          <div class="text-sm opacity-75">{service.price}</div>
+                          <div 
+                            id={`service-desc-${service.name.replace(/\s+/g, '-').toLowerCase()}`}
+                            class="sr-only"
+                          >
+                            {service.name} service, price {service.price}, options: {service.options.join(', ')}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
+        </fieldset>
+        
+        <button 
+          class={`${styles.nextBtn} next-btn px-6 py-2 rounded-lg font-bold mt-6`}
+          type="button"
+          aria-describedby="step-1-help"
+        >
+          Next: Select Date & Time
+        </button>
+        <div id="step-1-help" class="sr-only">
+          Proceed to step 2 to select your preferred date and time
         </div>
-        <!-- Skincare Group -->
-        <div class="service-group" data-group="skincare" style="display:none;">
-          <div class="font-semibold mb-2">Facial Treatments</div>
-          <div class="service-list flex gap-2 flex-wrap">
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="skin1" data-options='["Basic","Acne"]'>Acne Treatment ($80)</button>
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="skin2" data-options='["Hydrating","Brightening"]'>Hydra Facial ($120)</button>
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="skin3" data-options='["Chemical","Natural"]'>Chemical Peel ($100)</button>
-          </div>
-        </div>
-        <!-- Detox Group -->
-        <div class="service-group" data-group="detox" style="display:none;">
-          <div class="font-semibold mb-2">Hair Treatments</div>
-          <div class="service-list flex gap-2 flex-wrap">
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="detox1" data-options='["Herbal","Premium"]'>Herbal Hair Wash ($60)</button>
-            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="detox2" data-options='["Deep Clean","Scalp Massage"]'>Scalp Detox ($80)</button>
-          </div>
-        </div>
-      </div>
-      <button class="next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold mt-4">Next</button>
-      <!-- Modal chọn option -->
-      <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50" style="display:none;">
-        <div class="bg-white rounded-xl p-6 min-w-[320px]">
-          <div class="font-bold mb-2" id="modal-service-name"></div>
-          <form id="modal-options-form">
-            <!-- radio options sẽ render ở đây -->
-          </form>
-          <div class="flex gap-2 mt-4">
-            <button type="button" class="close-modal px-4 py-2 bg-gray-200 rounded">Đóng</button>
-            <button type="button" class="select-option px-4 py-2 bg-[#003324] text-white rounded">Chọn</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Step 2: Select Date Time -->
-    <div class="step step-2">
-      <label class="block mb-2 font-semibold">Select Date</label>
-      <input type="text" class="field-input mb-4" id="date" placeholder="Pick a date" />
-      <label class="block mb-2 font-semibold">Select Time</label>
-      <input type="time" class="field-input mb-4" id="time" />
-      <button class="prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold mr-2">Back</button>
-      <button class="next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold">Next</button>
-    </div>
-    <!-- Step 3: Personal Info -->
-    <div class="step step-3">
-      <label class="block mb-2 font-semibold">Full Name</label>
-      <input type="text" class="field-input mb-4" id="name" placeholder="Your Name" />
-      <label class="block mb-2 font-semibold">Phone</label>
-      <input type="text" class="field-input mb-4" id="phone" placeholder="Phone Number" />
-      <label class="block mb-2 font-semibold">Email</label>
-      <input type="email" class="field-input mb-4" id="email" placeholder="Email" />
-      <button class="prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold mr-2">Back</button>
-      <button class="next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold">Next</button>
-    </div>
-    <!-- Step 4: Confirm -->
-    <div class="step step-4">
-      <h3 class="text-xl font-bold mb-4">Confirm Booking</h3>
-      <div class="mb-4" id="confirm-info">
-        <!-- Thông tin booking sẽ được render ở đây -->
-      </div>
-      <button class="prev-btn px-4 py-2 bg-gray-200 text-[#003324] rounded-lg font-bold mr-2">Back</button>
-      <button class="submit-btn px-6 py-2 bg-[#e7d48e] text-[#003324] rounded-lg font-bold">Confirm & Book</button>
-      </div>
-    </div>
-    <div id="booking-status" class="mt-6 text-center font-semibold"></div>
-  </div>
-<script>
-// Global variables for booking system
-let currentStep = 1;
-let selectedCategory = '';
-let selectedService = '';
-let selectedOption = '';
-
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('DOM Content Loaded - Booking System Initializing');
-
-  function showStep(n, direction = 'next') {
-    const container = document.getElementById('steps-container');
-    const indicators = document.querySelectorAll('.step-indicator');
-
-    // Add transition state
-    if (container) {
-      container.parentElement?.classList.add('step-transitioning');
-    }
-
-    // Update step indicators
-    indicators.forEach((indicator, index) => {
-      const stepNumber = index + 1;
-      indicator.classList.remove('active', 'completed');
-
-      if (stepNumber < n) {
-        indicator.classList.add('completed');
-      } else if (stepNumber === n) {
-        indicator.classList.add('active');
-      }
-    });
-
-    // Slide to the correct step (0%, -25%, -50%, -75%)
-    const translateX = -(n - 1) * 25;
-    if (container) {
-      container.style.transform = `translateX(${translateX}%)`;
-    }
-
-    currentStep = n;
-
-    // Remove transition state after animation completes
-    setTimeout(() => {
-      if (container) {
-        container.parentElement?.classList.remove('step-transitioning');
-      }
-    }, 500);
-  }
-
-  function validateStep(step) {
-    console.log('Validating step:', step);
-
-    if (step === 1) {
-      console.log('Step 1 validation - Category:', selectedCategory, 'Service:', selectedService, 'Option:', selectedOption);
-      if (!selectedCategory || !selectedService || !selectedOption) {
-        alert('Vui lòng chọn đầy đủ dịch vụ và option!');
-        return false;
-      }
-    }
-    if (step === 2) {
-      const dateEl = document.getElementById('date');
-      const timeEl = document.getElementById('time');
-      const date = dateEl ? dateEl.value.trim() : '';
-      const time = timeEl ? timeEl.value.trim() : '';
-      console.log('Step 2 validation - Date:', date, 'Time:', time);
-      if (!date || !time) {
-        alert('Vui lòng chọn ngày và giờ!');
-        return false;
-      }
-    }
-    if (step === 3) {
-      const nameEl = document.getElementById('name');
-      const phoneEl = document.getElementById('phone');
-      const emailEl = document.getElementById('email');
-      const name = nameEl ? nameEl.value.trim() : '';
-      const phone = phoneEl ? phoneEl.value.trim() : '';
-      const email = emailEl ? emailEl.value.trim() : '';
-      console.log('Step 3 validation - Name:', name, 'Phone:', phone, 'Email:', email);
-      if (!name || !phone || !email) {
-        alert('Vui lòng nhập đầy đủ thông tin cá nhân!');
-        return false;
-      }
-    }
-    console.log('Step', step, 'validation passed');
-    return true;
-  }
-
-  function updateConfirmInfo() {
-    console.log('Updating confirm info with data:', {
-      selectedCategory,
-      selectedService,
-      selectedOption,
-      date: document.getElementById('date')?.value,
-      time: document.getElementById('time')?.value,
-      name: document.getElementById('name')?.value,
-      phone: document.getElementById('phone')?.value,
-      email: document.getElementById('email')?.value
-    });
-
-    const confirmInfo = document.getElementById('confirm-info');
-    if (confirmInfo) {
-      confirmInfo.innerHTML = `
-        <div class="bg-gray-50 p-4 rounded-lg">
-          <h4 class="font-bold mb-2">Booking Summary:</h4>
-          <p><strong>Service:</strong> ${selectedCategory} - ${selectedService} (${selectedOption})</p>
-          <p><strong>Date:</strong> ${document.getElementById('date')?.value || 'Not selected'}</p>
-          <p><strong>Time:</strong> ${document.getElementById('time')?.value || 'Not selected'}</p>
-          <p><strong>Name:</strong> ${document.getElementById('name')?.value || 'Not provided'}</p>
-          <p><strong>Phone:</strong> ${document.getElementById('phone')?.value || 'Not provided'}</p>
-          <p><strong>Email:</strong> ${document.getElementById('email')?.value || 'Not provided'}</p>
-        </div>
-      `;
-    }
-  }
-  console.log('DOM Content Loaded - Booking System Initializing');
-
-  const steps = Array.from(document.querySelectorAll('.step'));
-  const indicators = Array.from(document.querySelectorAll('.step-indicator'));
-
-  console.log('Steps found:', steps.length);
-  console.log('Indicators found:', indicators.length);
-
-  // Tabs logic
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const serviceGroups = document.querySelectorAll('.service-group');
-
-  console.log('Found tab buttons:', tabBtns.length);
-  console.log('Found service groups:', serviceGroups.length);
-
-  tabBtns.forEach((btn, index) => {
-    console.log('Tab button', index, ':', btn.dataset.tab);
-    btn.addEventListener('click', () => {
-      console.log('Tab clicked:', btn.dataset.tab);
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedCategory = btn.dataset.tab;
-      console.log('Selected category:', selectedCategory);
-      serviceGroups.forEach(g => {
-        const shouldShow = g.dataset.group === selectedCategory;
-        g.style.display = shouldShow ? 'block' : 'none';
-        console.log('Service group', g.dataset.group, 'display:', shouldShow ? 'block' : 'none');
-      });
-    });
-  });
-
-  // Initialize first tab
-  if (tabBtns.length > 0) {
-    const firstTab = tabBtns[0];
-    firstTab.classList.add('active');
-    selectedCategory = firstTab.dataset.tab;
-    serviceGroups.forEach(g => {
-      g.style.display = g.dataset.group === selectedCategory ? 'block' : 'none';
-    });
-  }
-
-  // Service modal logic
-  const serviceButtons = document.querySelectorAll('.service-btn');
-  console.log('Found service buttons:', serviceButtons.length);
-
-  serviceButtons.forEach((btn, index) => {
-    console.log('Service button', index, ':', btn.dataset.service, btn.textContent);
-    btn.addEventListener('click', () => {
-      console.log('Service button clicked:', btn.dataset.service);
-      selectedService = btn.dataset.service;
-      const options = (() => {
-        try { return JSON.parse(btn.dataset.options || '[]'); } catch (e) { return []; }
-      })();
-      console.log('Service options:', options);
-      const modalNameEl = document.getElementById('modal-service-name');
-      const form = document.getElementById('modal-options-form');
-      if (modalNameEl) modalNameEl.textContent = btn.textContent;
-      if (form) form.innerHTML = options.map(opt => `<label class='block mb-2'><input type='radio' name='service-option' value='${opt}'> ${opt}</label>`).join('');
-      const modal = document.getElementById('service-modal');
-      if (modal) modal.style.display = 'flex';
-    });
-  });
-
-  const closeModalBtn = document.querySelector('.close-modal');
-  if (closeModalBtn) closeModalBtn.addEventListener('click', () => {
-    const modal = document.getElementById('service-modal');
-    if (modal) modal.style.display = 'none';
-  });
-
-  const selectOptionBtn = document.querySelector('.select-option');
-  if (selectOptionBtn) selectOptionBtn.addEventListener('click', () => {
-    const checked = document.querySelector('input[name="service-option"]:checked');
-    if (checked) {
-      selectedOption = checked.value;
-      const modal = document.getElementById('service-modal');
-      if (modal) modal.style.display = 'none';
-    } else {
-      alert('Vui lòng chọn option!');
-    }
-  });
-
-  function validateStep(step) {
-    console.log('Validating step:', step);
-
-    if (step === 1) {
-      console.log('Step 1 validation - Category:', selectedCategory, 'Service:', selectedService, 'Option:', selectedOption);
-      if (!selectedCategory || !selectedService || !selectedOption) {
-        alert('Vui lòng chọn đầy đủ dịch vụ và option!');
-        return false;
-      }
-    }
-    if (step === 2) {
-      const dateEl = document.getElementById('date');
-      const timeEl = document.getElementById('time');
-      const date = dateEl ? dateEl.value.trim() : '';
-      const time = timeEl ? timeEl.value.trim() : '';
-      console.log('Step 2 validation - Date:', date, 'Time:', time);
-      if (!date || !time) {
-        alert('Vui lòng chọn ngày và giờ!');
-        return false;
-      }
-    }
-    if (step === 3) {
-      const nameEl = document.getElementById('name');
-      const phoneEl = document.getElementById('phone');
-      const emailEl = document.getElementById('email');
-      const name = nameEl ? nameEl.value.trim() : '';
-      const phone = phoneEl ? phoneEl.value.trim() : '';
-      const email = emailEl ? emailEl.value.trim() : '';
-      console.log('Step 3 validation - Name:', name, 'Phone:', phone, 'Email:', email);
-      if (!name || !phone || !email) {
-        alert('Vui lòng nhập đầy đủ thông tin cá nhân!');
-        return false;
-      }
-    }
-    console.log('Step', step, 'validation passed');
-    return true;
-  }
-
-  function updateConfirmInfo() {
-    console.log('Updating confirm info with data:', {
-      selectedCategory,
-      selectedService,
-      selectedOption,
-      date: document.getElementById('date')?.value,
-      time: document.getElementById('time')?.value,
-      name: document.getElementById('name')?.value,
-      phone: document.getElementById('phone')?.value,
-      email: document.getElementById('email')?.value
-    });
-
-    const confirmInfo = document.getElementById('confirm-info');
-    if (confirmInfo) {
-      confirmInfo.innerHTML = `
-        <div class="bg-gray-50 p-4 rounded-lg">
-          <h4 class="font-bold mb-2">Booking Summary:</h4>
-          <p><strong>Service:</strong> ${selectedCategory} - ${selectedService} (${selectedOption})</p>
-          <p><strong>Date:</strong> ${document.getElementById('date')?.value || 'Not selected'}</p>
-          <p><strong>Time:</strong> ${document.getElementById('time')?.value || 'Not selected'}</p>
-          <p><strong>Name:</strong> ${document.getElementById('name')?.value || 'Not provided'}</p>
-          <p><strong>Phone:</strong> ${document.getElementById('phone')?.value || 'Not provided'}</p>
-          <p><strong>Email:</strong> ${document.getElementById('email')?.value || 'Not provided'}</p>
-        </div>
-      `;
-    }
-  }
-      phone: document.getElementById('phone')?.value,
-      email: document.getElementById('email')?.value
-    });
-
-    const confirmInfo = document.getElementById('confirm-info');
-    if (confirmInfo) {
-      confirmInfo.innerHTML = `
-        <div class="bg-gray-50 p-4 rounded-lg">
-          <h4 class="font-bold mb-2">Booking Summary:</h4>
-          <p><strong>Service:</strong> ${selectedCategory} - ${selectedService} (${selectedOption})</p>
-          <p><strong>Date:</strong> ${document.getElementById('date')?.value || 'Not selected'}</p>
-          <p><strong>Time:</strong> ${document.getElementById('time')?.value || 'Not selected'}</p>
-          <p><strong>Name:</strong> ${document.getElementById('name')?.value || 'Not provided'}</p>
-          <p><strong>Phone:</strong> ${document.getElementById('phone')?.value || 'Not provided'}</p>
-          <p><strong>Email:</strong> ${document.getElementById('email')?.value || 'Not provided'}</p>
-        </div>
-      `;
-    }
-  }
-
-  // Step navigation
-  showStep(1); // Initialize first step
-
-  document.querySelectorAll('.next-btn').forEach(btn => btn.addEventListener('click', () => {
-    console.log('Next button clicked, current step:', currentStep);
-
-    if (currentStep < 4) {
-      if (validateStep(currentStep)) {
-        console.log('Moving to step:', currentStep + 1);
-        showStep(currentStep + 1, 'next');
-
-        // Update confirm info when reaching step 4
-        if (currentStep + 1 === 4) {
-          console.log('Updating confirm info...');
-          updateConfirmInfo();
-        }
-      } else {
-        console.log('Validation failed for step:', currentStep);
-      }
-    }
-  }));
-
-  document.querySelectorAll('.prev-btn').forEach(btn => btn.addEventListener('click', () => {
-    if (currentStep > 1) showStep(currentStep - 1, 'back');
-  }));
-
-  // Submit booking
-  const submitBtn = document.querySelector('.submit-btn');
-  console.log('Submit button found:', submitBtn);
-
-  if (submitBtn) {
-    submitBtn.addEventListener('click', async () => {
-      console.log('Submit button clicked!');
-      console.log('Current step:', currentStep);
-      console.log('Selected data:', { selectedCategory, selectedService, selectedOption });
-
-      if (!validateStep(3)) {
-        console.log('Validation failed for step 3');
-        return;
-      }
-
-      console.log('Validation passed, proceeding with submission...');
-
-    // Thu thập dữ liệu booking
-    const bookingData = {
-      category: selectedCategory,
-      service: selectedService,
-      option: selectedOption,
-      date: document.getElementById('date')?.value || '',
-      time: document.getElementById('time')?.value || '',
-      name: document.getElementById('name')?.value || '',
-      phone: document.getElementById('phone')?.value || '',
-      email: document.getElementById('email')?.value || '',
-      notes: 'Submitted via website booking system'
-    };
-
-    // Disable button và show loading
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
-
-    try {
-      console.log('Making API request to submitBooking...');
-      console.log('Booking data:', bookingData);
-
-      const response = await fetch('/.netlify/functions/submitBooking', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(bookingData)
-      });
-
-      console.log('API response status:', response.status);
-      const result = await response.json();
-      console.log('API response data:', result);
-
-      if (result.success) {
-        // Show success message
-        const statusEl = document.getElementById('booking-status');
-        if (statusEl) {
-          statusEl.innerHTML = `
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-              <strong>Success!</strong> Your booking has been submitted successfully.
-              ${result.sheetUpdated ? 'Data saved to our records.' : ''}
-              We'll contact you within 24 hours to confirm.
+        
+        <!-- Service Options Modal -->
+        <div 
+          id="service-modal" 
+          class={`${styles.serviceModal} fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50`} 
+          style="display:none;"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          aria-describedby="modal-description"
+        >
+          <div class="bg-white rounded-xl p-6 min-w-[320px] max-w-md mx-4">
+            <h4 id="modal-title" class="text-lg font-semibold mb-3 text-[#003324]">
+              Service Options
+            </h4>
+            <div id="modal-description" class="font-bold mb-4" id="modal-service-name"></div>
+            
+            <form id="modal-options-form" role="radiogroup" aria-labelledby="modal-title">
+              <!-- Radio options will be dynamically rendered -->
+            </form>
+            
+            <div class="flex gap-2 mt-4">
+              <button 
+                type="button" 
+                class="close-modal px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
+                aria-label="Close options dialog"
+              >
+                Cancel
+              </button>
+              <button 
+                type="button" 
+                class="select-option px-4 py-2 bg-[#003324] text-white rounded hover:bg-[#004a36] transition-colors"
+                aria-label="Confirm selected option"
+              >
+                Select Option
+              </button>
             </div>
-          `;
-        }
-
-        // Reset form và quay về step 1
-        setTimeout(() => {
-          selectedCategory = '';
-          selectedService = '';
-          selectedOption = '';
-          showStep(1);
-          if (statusEl) statusEl.innerHTML = '';
-        }, 3000);
-
-      } else {
-        throw new Error(result.error || 'Submission failed');
-      }
-
-    } catch (error) {
-      console.error('Submit error:', error);
-      const statusEl = document.getElementById('booking-status');
-      if (statusEl) {
-        statusEl.innerHTML = `
-          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-            <strong>Error!</strong> Failed to submit booking. Please try again or contact us directly.
           </div>
-        `;
-      }
-    } finally {
-      // Re-enable button
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Confirm & Book';
-    }
-  });
+        </div>
+      </div>
+      <!-- Step 2: Date & Time Selection -->
+      <div 
+        class={`${styles.step} step step-2`}
+        role="tabpanel"
+        aria-labelledby="step-2-title"
+        tabindex="-1"
+      >
+        <h3 id="step-2-title" class="text-xl font-bold mb-4 text-center text-[#003324]">
+          Select Date & Time
+        </h3>
+        
+        <form novalidate>
+          <div class="mb-4">
+            <label for="date" class="block mb-2 font-semibold text-[#003324]">
+              Select Date *
+            </label>
+            <input 
+              type="date" 
+              class={`${styles.fieldInput} field-input w-full px-3 py-2 rounded-lg`}
+              id="date" 
+              name="date"
+              required
+              aria-describedby="date-help date-error"
+              min={new Date().toISOString().split('T')[0]}
+            />
+            <div id="date-help" class="text-sm text-gray-600 mt-1">
+              Please select a future date for your appointment
+            </div>
+            <div id="date-error" class="error-message text-red-500 text-sm mt-1" style="display: none;" aria-live="polite"></div>
+          </div>
+          
+          <div class="mb-6">
+            <label for="time" class="block mb-2 font-semibold text-[#003324]">
+              Select Time *
+            </label>
+            <input 
+              type="time" 
+              class={`${styles.fieldInput} field-input w-full px-3 py-2 rounded-lg`}
+              id="time" 
+              name="time"
+              required
+              aria-describedby="time-help time-error"
+              min="09:00"
+              max="18:00"
+              step="1800"
+            />
+            <div id="time-help" class="text-sm text-gray-600 mt-1">
+              Business hours: 9:00 AM - 6:00 PM
+            </div>
+            <div id="time-error" class="error-message text-red-500 text-sm mt-1" style="display: none;" aria-live="polite"></div>
+          </div>
+        </form>
+        
+        <div class="flex gap-2 mt-6">
+          <button 
+            class={`${styles.prevBtn} prev-btn px-4 py-2 rounded-lg font-bold`}
+            type="button"
+            aria-label="Go back to service selection"
+          >
+            Back
+          </button>
+          <button 
+            class={`${styles.nextBtn} next-btn px-6 py-2 rounded-lg font-bold`}
+            type="button"
+            aria-describedby="step-2-help"
+          >
+            Next: Personal Info
+          </button>
+        </div>
+        <div id="step-2-help" class="sr-only">
+          Proceed to step 3 to enter your personal information
+        </div>
+      </div>
 
-});
+      <!-- Step 3: Personal Information -->
+      <div 
+        class={`${styles.step} step step-3`}
+        role="tabpanel"
+        aria-labelledby="step-3-title"
+        tabindex="-1"
+      >
+        <h3 id="step-3-title" class="text-xl font-bold mb-4 text-center text-[#003324]">
+          Personal Information
+        </h3>
+        
+        <form novalidate>
+          <div class="mb-4">
+            <label for="name" class="block mb-2 font-semibold text-[#003324]">
+              Full Name *
+            </label>
+            <input 
+              type="text" 
+              class={`${styles.fieldInput} field-input w-full px-3 py-2 rounded-lg`}
+              id="name" 
+              name="name"
+              placeholder="Enter your full name" 
+              required
+              minlength="2"
+              maxlength="50"
+              pattern="[A-Za-z\s]+"
+              aria-describedby="name-help name-error"
+              autocomplete="name"
+            />
+            <div id="name-help" class="text-sm text-gray-600 mt-1">
+              Please enter your full name (letters only, 2-50 characters)
+            </div>
+            <div id="name-error" class="error-message text-red-500 text-sm mt-1" style="display: none;" aria-live="polite"></div>
+          </div>
+          
+          <div class="mb-4">
+            <label for="phone" class="block mb-2 font-semibold text-[#003324]">
+              Phone Number *
+            </label>
+            <input 
+              type="tel" 
+              class={`${styles.fieldInput} field-input w-full px-3 py-2 rounded-lg`}
+              id="phone" 
+              name="phone"
+              placeholder="Enter your phone number" 
+              required
+              pattern="[0-9+\-\s()]+"
+              minlength="10"
+              maxlength="15"
+              aria-describedby="phone-help phone-error"
+              autocomplete="tel"
+            />
+            <div id="phone-help" class="text-sm text-gray-600 mt-1">
+              Please enter a valid phone number (10-15 digits)
+            </div>
+            <div id="phone-error" class="error-message text-red-500 text-sm mt-1" style="display: none;" aria-live="polite"></div>
+          </div>
+          
+          <div class="mb-6">
+            <label for="email" class="block mb-2 font-semibold text-[#003324]">
+              Email Address *
+            </label>
+            <input 
+              type="email" 
+              class={`${styles.fieldInput} field-input w-full px-3 py-2 rounded-lg`}
+              id="email" 
+              name="email"
+              placeholder="Enter your email address" 
+              required
+              aria-describedby="email-help email-error"
+              autocomplete="email"
+            />
+            <div id="email-help" class="text-sm text-gray-600 mt-1">
+              We'll use this to send you booking confirmation and updates
+            </div>
+            <div id="email-error" class="error-message text-red-500 text-sm mt-1" style="display: none;" aria-live="polite"></div>
+          </div>
+        </form>
+        
+        <div class="flex gap-2 mt-6">
+          <button 
+            class={`${styles.prevBtn} prev-btn px-4 py-2 rounded-lg font-bold`}
+            type="button"
+            aria-label="Go back to date and time selection"
+          >
+            Back
+          </button>
+          <button 
+            class={`${styles.nextBtn} next-btn px-6 py-2 rounded-lg font-bold`}
+            type="button"
+            aria-describedby="step-3-help"
+          >
+            Next: Review Booking
+          </button>
+        </div>
+        <div id="step-3-help" class="sr-only">
+          Proceed to step 4 to review and confirm your booking
+        </div>
+      </div>
+
+      <!-- Step 4: Confirmation -->
+      <div 
+        class={`${styles.step} step step-4`}
+        role="tabpanel"
+        aria-labelledby="step-4-title"
+        tabindex="-1"
+      >
+        <h3 id="step-4-title" class="text-xl font-bold mb-4 text-center text-[#003324]">
+          Confirm Your Booking
+        </h3>
+        
+        <div 
+          class="mb-6" 
+          id="confirm-info"
+          aria-live="polite"
+          aria-label="Booking summary"
+        >
+          <!-- Booking summary will be dynamically rendered -->
+        </div>
+        
+        <div class="flex gap-2 mt-6">
+          <button 
+            class={`${styles.prevBtn} prev-btn px-4 py-2 rounded-lg font-bold`}
+            type="button"
+            aria-label="Go back to edit personal information"
+          >
+            Back
+          </button>
+          <button 
+            class={`${styles.submitBtn} submit-btn px-6 py-2 rounded-lg font-bold`}
+            type="button"
+            aria-describedby="submit-help"
+          >
+            Confirm & Book
+          </button>
+        </div>
+        <div id="submit-help" class="text-sm text-gray-600 mt-2">
+          By confirming, you agree to our terms of service. We'll contact you within 24 hours to confirm your appointment.
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Status Messages -->
+    <div 
+      id="booking-status" 
+      class="mt-6 text-center font-semibold"
+      aria-live="assertive"
+      aria-atomic="true"
+      role="status"
+    ></div>
+  </div>
+</section>
+
+<!-- Screen Reader Instructions -->
+<div class="sr-only" id="screen-reader-instructions">
+  <h2>Booking Form Instructions</h2>
+  <p>This is a 4-step booking form. Use Tab to navigate between elements and Enter or Space to activate buttons. Form validation will provide feedback as you complete each field.</p>
+</div>
+
+<!-- Import the modern JavaScript module -->
+<script is:inline src="/src/components/UI/section/BookingStepSectionModern.js"></script>
+<style>
+  /* Additional scoped styles for accessibility and validation */
+  .booking-step-section {
+    --primary-color: #003324;
+    --secondary-color: #e7d48e;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --gray-light: #f3f4f6;
+    --gray-medium: #6b7280;
+  }
+  
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* Focus management */
+  .step:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .step-indicator {
+      border: 2px solid currentColor;
+    }
+    
+    .tab-btn, .service-btn, .field-input {
+      border: 2px solid currentColor;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .steps-container,
+    .step-indicator,
+    .tab-btn,
+    .service-btn,
+    .next-btn,
+    .prev-btn,
+    .submit-btn,
+    .field-input {
+      transition: none;
+    }
+    
+    .service-modal {
+      animation: none;
+    }
+  }
+  
+  /* Form validation styles */
+  .field-input:invalid:not(:focus) {
+    border-color: var(--error-color);
+  }
+  
+  .field-input:valid:not(:focus) {
+    border-color: var(--success-color);
+  }
+  
+  .field-input:required::after {
+    content: " *";
+    color: var(--error-color);
+  }
+  
+  /* Loading state */
+  .submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .submit-btn[aria-busy="true"]::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Mobile accessibility improvements */
+  @media (max-width: 768px) {
+    .step-indicator {
+      font-size: 0.875rem;
+      padding: 6px 8px;
+    }
+    
+    .tab-btn {
+      font-size: 0.875rem;
+      padding: 8px 12px;
+    }
+    
+    .field-input {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+  }
+</style>
 </script>

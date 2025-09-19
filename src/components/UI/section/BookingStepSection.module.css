@@ -1,0 +1,190 @@
+/* BookingStepSection Module CSS */
+
+/* Horizontal Step Layout */
+.bookingSteps {
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  overflow: visible;
+  position: relative;
+}
+
+.stepsContainer {
+  display: flex;
+  width: 400%; /* 4 steps x 100% each */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: visible;
+}
+
+.step {
+  flex: 1;
+  padding: 20px;
+  background: white;
+  border-radius: 0 0 16px 16px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 500px;
+  width: 25%;
+  position: relative;
+  z-index: 1;
+}
+
+.stepTransitioning .stepsContainer {
+  transition: transform 0.3s ease;
+}
+
+/* Step Indicator Styles */
+.stepIndicator {
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 0 4px;
+}
+
+.stepIndicator.active {
+  background-color: #003324;
+  color: white;
+  transform: scale(1.05);
+}
+
+.stepIndicator.completed {
+  background-color: #10b981;
+  color: white;
+}
+
+.stepProgress {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #003324, #e7d48e);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.stepIndicator.active .stepProgress {
+  transform: scaleX(1);
+}
+
+/* Button Styles */
+.nextBtn, .prevBtn, .submitBtn {
+  transition: all 0.3s ease;
+}
+
+.nextBtn:hover, .submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 51, 36, 0.3);
+}
+
+.prevBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Button */
+.serviceBtn {
+  transition: all 0.3s ease;
+}
+
+.serviceBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 212, 142, 0.4);
+}
+
+/* Tab Button */
+.tabBtn {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer !important;
+  user-select: none;
+  pointer-events: auto !important;
+  z-index: 10;
+  position: relative;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.tabBtn:focus {
+  outline: 2px solid #003324;
+  outline-offset: 2px;
+}
+
+.tabBtn.active {
+  background-color: #003324;
+  color: white;
+  border-color: #003324;
+}
+
+.tabBtn:hover:not(.active) {
+  background-color: #e7d48e;
+  border-color: #003324;
+  color: #003324;
+  cursor: pointer !important;
+}
+
+/* Modal */
+.serviceModal {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.serviceGroup {
+  width: 100%;
+  min-height: 200px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+
+.serviceGroup.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.serviceGroup.visible {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Form Input */
+.fieldInput {
+  transition: all 0.3s ease;
+  border: 2px solid #e5e7eb;
+}
+
+.fieldInput:focus {
+  border-color: #003324;
+  box-shadow: 0 0 0 3px rgba(0, 51, 36, 0.1);
+  transform: translateY(-1px);
+}

@@ -11,7 +11,7 @@
       "astro/client"
     ],
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
+    "jsxImportSource": "react",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
