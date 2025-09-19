@@ -1,6 +1,10 @@
 ---
 // BookingStepSection.astro - Multi-step booking UI
 ---
+---
+// BookingStepSection.astro - Multi-step booking UI
+---
+
 <section id="booking-step-section" class="booking-step-section max-w-2xl mx-auto py-16 px-4 bg-white rounded-2xl shadow-lg">
   <style>
     /* Horizontal Step Layout */
@@ -8,12 +12,16 @@
       display: flex;
       flex-direction: column;
       min-height: 600px;
+      overflow: visible; /* Ensure content is not clipped */
+      position: relative;
     }
 
     .steps-container {
       display: flex;
       width: 400%; /* 4 steps x 100% each */
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: visible; /* Ensure content is not clipped */
     }
 
     .step {
@@ -29,6 +37,8 @@
       justify-content: flex-start;
       min-height: 500px;
       width: 25%; /* Each step takes 25% of container */
+      position: relative;
+      z-index: 1;
     }
 
     .step-transitioning .steps-container {
@@ -261,15 +271,15 @@
     </div>
     <div id="booking-status" class="mt-6 text-center font-semibold"></div>
   </div>
-<script is:inline>
-// @ts-nocheck
+<script>
+// Global variables for booking system
+let currentStep = 1;
+let selectedCategory = '';
+let selectedService = '';
+let selectedOption = '';
+
 document.addEventListener('DOMContentLoaded', function () {
-  let currentStep = 1;
-  const steps = Array.from(document.querySelectorAll('.step'));
-  const indicators = Array.from(document.querySelectorAll('.step-indicator'));
-  let selectedCategory = '';
-  let selectedService = '';
-  let selectedOption = '';
+  console.log('DOM Content Loaded - Booking System Initializing');
 
   function showStep(n, direction = 'next') {
     const container = document.getElementById('steps-container');
@@ -308,16 +318,98 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 500);
   }
 
+  function validateStep(step) {
+    console.log('Validating step:', step);
+
+    if (step === 1) {
+      console.log('Step 1 validation - Category:', selectedCategory, 'Service:', selectedService, 'Option:', selectedOption);
+      if (!selectedCategory || !selectedService || !selectedOption) {
+        alert('Vui lòng chọn đầy đủ dịch vụ và option!');
+        return false;
+      }
+    }
+    if (step === 2) {
+      const dateEl = document.getElementById('date');
+      const timeEl = document.getElementById('time');
+      const date = dateEl ? dateEl.value.trim() : '';
+      const time = timeEl ? timeEl.value.trim() : '';
+      console.log('Step 2 validation - Date:', date, 'Time:', time);
+      if (!date || !time) {
+        alert('Vui lòng chọn ngày và giờ!');
+        return false;
+      }
+    }
+    if (step === 3) {
+      const nameEl = document.getElementById('name');
+      const phoneEl = document.getElementById('phone');
+      const emailEl = document.getElementById('email');
+      const name = nameEl ? nameEl.value.trim() : '';
+      const phone = phoneEl ? phoneEl.value.trim() : '';
+      const email = emailEl ? emailEl.value.trim() : '';
+      console.log('Step 3 validation - Name:', name, 'Phone:', phone, 'Email:', email);
+      if (!name || !phone || !email) {
+        alert('Vui lòng nhập đầy đủ thông tin cá nhân!');
+        return false;
+      }
+    }
+    console.log('Step', step, 'validation passed');
+    return true;
+  }
+
+  function updateConfirmInfo() {
+    console.log('Updating confirm info with data:', {
+      selectedCategory,
+      selectedService,
+      selectedOption,
+      date: document.getElementById('date')?.value,
+      time: document.getElementById('time')?.value,
+      name: document.getElementById('name')?.value,
+      phone: document.getElementById('phone')?.value,
+      email: document.getElementById('email')?.value
+    });
+
+    const confirmInfo = document.getElementById('confirm-info');
+    if (confirmInfo) {
+      confirmInfo.innerHTML = `
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-bold mb-2">Booking Summary:</h4>
+          <p><strong>Service:</strong> ${selectedCategory} - ${selectedService} (${selectedOption})</p>
+          <p><strong>Date:</strong> ${document.getElementById('date')?.value || 'Not selected'}</p>
+          <p><strong>Time:</strong> ${document.getElementById('time')?.value || 'Not selected'}</p>
+          <p><strong>Name:</strong> ${document.getElementById('name')?.value || 'Not provided'}</p>
+          <p><strong>Phone:</strong> ${document.getElementById('phone')?.value || 'Not provided'}</p>
+          <p><strong>Email:</strong> ${document.getElementById('email')?.value || 'Not provided'}</p>
+        </div>
+      `;
+    }
+  }
+  console.log('DOM Content Loaded - Booking System Initializing');
+
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const indicators = Array.from(document.querySelectorAll('.step-indicator'));
+
+  console.log('Steps found:', steps.length);
+  console.log('Indicators found:', indicators.length);
+
   // Tabs logic
   const tabBtns = document.querySelectorAll('.tab-btn');
   const serviceGroups = document.querySelectorAll('.service-group');
-  tabBtns.forEach(btn => {
+
+  console.log('Found tab buttons:', tabBtns.length);
+  console.log('Found service groups:', serviceGroups.length);
+
+  tabBtns.forEach((btn, index) => {
+    console.log('Tab button', index, ':', btn.dataset.tab);
     btn.addEventListener('click', () => {
+      console.log('Tab clicked:', btn.dataset.tab);
       tabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       selectedCategory = btn.dataset.tab;
+      console.log('Selected category:', selectedCategory);
       serviceGroups.forEach(g => {
-        g.style.display = g.dataset.group === selectedCategory ? 'block' : 'none';
+        const shouldShow = g.dataset.group === selectedCategory;
+        g.style.display = shouldShow ? 'block' : 'none';
+        console.log('Service group', g.dataset.group, 'display:', shouldShow ? 'block' : 'none');
       });
     });
   });
@@ -334,12 +426,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Service modal logic
   const serviceButtons = document.querySelectorAll('.service-btn');
-  serviceButtons.forEach(btn => {
+  console.log('Found service buttons:', serviceButtons.length);
+
+  serviceButtons.forEach((btn, index) => {
+    console.log('Service button', index, ':', btn.dataset.service, btn.textContent);
     btn.addEventListener('click', () => {
+      console.log('Service button clicked:', btn.dataset.service);
       selectedService = btn.dataset.service;
       const options = (() => {
         try { return JSON.parse(btn.dataset.options || '[]'); } catch (e) { return []; }
       })();
+      console.log('Service options:', options);
       const modalNameEl = document.getElementById('modal-service-name');
       const form = document.getElementById('modal-options-form');
       if (modalNameEl) modalNameEl.textContent = btn.textContent;
@@ -368,7 +465,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function validateStep(step) {
+    console.log('Validating step:', step);
+
     if (step === 1) {
+      console.log('Step 1 validation - Category:', selectedCategory, 'Service:', selectedService, 'Option:', selectedOption);
       if (!selectedCategory || !selectedService || !selectedOption) {
         alert('Vui lòng chọn đầy đủ dịch vụ và option!');
         return false;
@@ -379,6 +479,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const timeEl = document.getElementById('time');
       const date = dateEl ? dateEl.value.trim() : '';
       const time = timeEl ? timeEl.value.trim() : '';
+      console.log('Step 2 validation - Date:', date, 'Time:', time);
       if (!date || !time) {
         alert('Vui lòng chọn ngày và giờ!');
         return false;
@@ -391,21 +492,81 @@ document.addEventListener('DOMContentLoaded', function () {
       const name = nameEl ? nameEl.value.trim() : '';
       const phone = phoneEl ? phoneEl.value.trim() : '';
       const email = emailEl ? emailEl.value.trim() : '';
+      console.log('Step 3 validation - Name:', name, 'Phone:', phone, 'Email:', email);
       if (!name || !phone || !email) {
         alert('Vui lòng nhập đầy đủ thông tin cá nhân!');
         return false;
       }
     }
+    console.log('Step', step, 'validation passed');
     return true;
+  }
+
+  function updateConfirmInfo() {
+    console.log('Updating confirm info with data:', {
+      selectedCategory,
+      selectedService,
+      selectedOption,
+      date: document.getElementById('date')?.value,
+      time: document.getElementById('time')?.value,
+      name: document.getElementById('name')?.value,
+      phone: document.getElementById('phone')?.value,
+      email: document.getElementById('email')?.value
+    });
+
+    const confirmInfo = document.getElementById('confirm-info');
+    if (confirmInfo) {
+      confirmInfo.innerHTML = `
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-bold mb-2">Booking Summary:</h4>
+          <p><strong>Service:</strong> ${selectedCategory} - ${selectedService} (${selectedOption})</p>
+          <p><strong>Date:</strong> ${document.getElementById('date')?.value || 'Not selected'}</p>
+          <p><strong>Time:</strong> ${document.getElementById('time')?.value || 'Not selected'}</p>
+          <p><strong>Name:</strong> ${document.getElementById('name')?.value || 'Not provided'}</p>
+          <p><strong>Phone:</strong> ${document.getElementById('phone')?.value || 'Not provided'}</p>
+          <p><strong>Email:</strong> ${document.getElementById('email')?.value || 'Not provided'}</p>
+        </div>
+      `;
+    }
+  }
+      phone: document.getElementById('phone')?.value,
+      email: document.getElementById('email')?.value
+    });
+
+    const confirmInfo = document.getElementById('confirm-info');
+    if (confirmInfo) {
+      confirmInfo.innerHTML = `
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h4 class="font-bold mb-2">Booking Summary:</h4>
+          <p><strong>Service:</strong> ${selectedCategory} - ${selectedService} (${selectedOption})</p>
+          <p><strong>Date:</strong> ${document.getElementById('date')?.value || 'Not selected'}</p>
+          <p><strong>Time:</strong> ${document.getElementById('time')?.value || 'Not selected'}</p>
+          <p><strong>Name:</strong> ${document.getElementById('name')?.value || 'Not provided'}</p>
+          <p><strong>Phone:</strong> ${document.getElementById('phone')?.value || 'Not provided'}</p>
+          <p><strong>Email:</strong> ${document.getElementById('email')?.value || 'Not provided'}</p>
+        </div>
+      `;
+    }
   }
 
   // Step navigation
   showStep(1); // Initialize first step
 
   document.querySelectorAll('.next-btn').forEach(btn => btn.addEventListener('click', () => {
+    console.log('Next button clicked, current step:', currentStep);
+
     if (currentStep < 4) {
       if (validateStep(currentStep)) {
+        console.log('Moving to step:', currentStep + 1);
         showStep(currentStep + 1, 'next');
+
+        // Update confirm info when reaching step 4
+        if (currentStep + 1 === 4) {
+          console.log('Updating confirm info...');
+          updateConfirmInfo();
+        }
+      } else {
+        console.log('Validation failed for step:', currentStep);
       }
     }
   }));
@@ -416,8 +577,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Submit booking
   const submitBtn = document.querySelector('.submit-btn');
-  if (submitBtn) submitBtn.addEventListener('click', async () => {
-    if (!validateStep(3)) return;
+  console.log('Submit button found:', submitBtn);
+
+  if (submitBtn) {
+    submitBtn.addEventListener('click', async () => {
+      console.log('Submit button clicked!');
+      console.log('Current step:', currentStep);
+      console.log('Selected data:', { selectedCategory, selectedService, selectedOption });
+
+      if (!validateStep(3)) {
+        console.log('Validation failed for step 3');
+        return;
+      }
+
+      console.log('Validation passed, proceeding with submission...');
 
     // Thu thập dữ liệu booking
     const bookingData = {
@@ -437,6 +610,9 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.textContent = 'Submitting...';
 
     try {
+      console.log('Making API request to submitBooking...');
+      console.log('Booking data:', bookingData);
+
       const response = await fetch('/.netlify/functions/submitBooking', {
         method: 'POST',
         headers: {
@@ -445,7 +621,9 @@ document.addEventListener('DOMContentLoaded', function () {
         body: JSON.stringify(bookingData)
       });
 
+      console.log('API response status:', response.status);
       const result = await response.json();
+      console.log('API response data:', result);
 
       if (result.success) {
         // Show success message
@@ -489,3 +667,6 @@ document.addEventListener('DOMContentLoaded', function () {
       submitBtn.textContent = 'Confirm & Book';
     }
   });
+
+});
+</script>
