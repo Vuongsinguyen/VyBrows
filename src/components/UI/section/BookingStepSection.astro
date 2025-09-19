@@ -1,35 +1,247 @@
 ---
 // BookingStepSection.astro - Multi-step booking UI
-import { useState } from 'react';
 ---
 <section id="booking-step-section" class="booking-step-section max-w-2xl mx-auto py-16 px-4 bg-white rounded-2xl shadow-lg">
+  <style>
+    /* Enhanced Step Positioning */
+    .step {
+      position: absolute;
+      top: 60px; /* Account for stepper height */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 20px;
+      background: white;
+      border-radius: 0 0 16px 16px;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: calc(100% - 60px);
+    }
+
+    .step.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+      visibility: visible;
+      z-index: 10;
+    }
+
+    .step.exit-left {
+      opacity: 0;
+      transform: translateX(-120%);
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    .step.exit-right {
+      opacity: 0;
+      transform: translateX(120%);
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    /* Loading animation for step transitions */
+    .step-transitioning {
+      pointer-events: none;
+    }
+
+    .step-transitioning .next-btn,
+    .step-transitioning .prev-btn {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Progress bar animation */
+    .step-indicator::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #003324, #e7d48e);
+      border-radius: 2px;
+      transition: all 0.5s ease;
+      transform: translateX(-50%);
+    }
+
+    .step-indicator.active::after {
+      width: 100%;
+    }
+
+    /* Step Indicator Styles */
+    .step-indicator {
+      flex: 1;
+      text-align: center;
+      padding: 8px 12px;
+      border-radius: 20px;
+      background-color: #f3f4f6;
+      color: #6b7280;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .step-indicator.active {
+      background-color: #003324;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .step-indicator::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      right: -20px;
+      height: 2px;
+      background-color: #e5e7eb;
+      z-index: -1;
+    }
+
+    .step-indicator.active::before {
+      background-color: #003324;
+    }
+
+    .step-indicator:first-child::before {
+      left: 50%;
+    }
+
+    .step-indicator:last-child::before {
+      right: 50%;
+    }
+
+    /* Button hover effects */
+    .next-btn, .prev-btn, .submit-btn {
+      transition: all 0.3s ease;
+    }
+
+    .next-btn:hover, .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 51, 36, 0.3);
+    }
+
+    .prev-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Service button animations */
+    .service-btn {
+      transition: all 0.3s ease;
+    }
+
+    .service-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(231, 212, 142, 0.4);
+    }
+
+    /* Tab button animations */
+    .tab-btn {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .tab-btn.active {
+      background-color: #003324;
+      color: white;
+      border-color: #003324;
+    }
+
+    .tab-btn:hover:not(.active) {
+      background-color: #f3f4f6;
+      border-color: #003324;
+      color: #003324;
+    }
+
+    /* Modal animations */
+    #service-modal {
+      animation: modalFadeIn 0.3s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Form input animations */
+    .field-input {
+      transition: all 0.3s ease;
+      border: 2px solid #e5e7eb;
+    }
+
+    .field-input:focus {
+      border-color: #003324;
+      box-shadow: 0 0 0 3px rgba(0, 51, 36, 0.1);
+      transform: translateY(-1px);
+    }
+  </style>
   <h2 class="text-3xl font-bold mb-8 text-center text-[#003324] font-lora">Booking Services Step by Step</h2>
-  <div id="booking-steps" class="w-full relative" style="min-height:480px;">
+  <div id="booking-steps" class="w-full relative overflow-hidden" style="min-height: 500px; position: relative;">
     <!-- Stepper UI -->
-    <div class="flex justify-between mb-8">
-      <div class="step-indicator step-1">1. Select Service</div>
+    <div class="flex justify-between mb-8 relative z-20">
+      <div class="step-indicator step-1 active">1. Select Service</div>
       <div class="step-indicator step-2">2. Date & Time</div>
       <div class="step-indicator step-3">3. Personal Info</div>
       <div class="step-indicator step-4">4. Confirm</div>
     </div>
     <!-- Step 1: Select Service -->
     <div class="step step-1">
-      <label class="block mb-2 font-semibold">Category</label>
-      <select class="field-input mb-4" id="category">
-        <option value="">Select Category</option>
-        <option value="pmu">PMU</option>
-        <option value="skincare">Skincare</option>
-        <option value="detox">Detox & Herbal Hair Wash</option>
-      </select>
-      <label class="block mb-2 font-semibold">Service</label>
-      <select class="field-input mb-4" id="service">
-        <option value="">Select Service</option>
-        <option value="pmu1">Shading Ombré ($100) - 60min</option>
-        <option value="pmu2">Micro Blading ($120) - 75min</option>
-        <option value="skin1">Acne Treatment ($80) - 50min</option>
-        <option value="detox1">Herbal Hair Wash ($60) - 40min</option>
-      </select>
+      <div class="category-tabs flex gap-4 mb-4">
+        <button class="tab-btn px-4 py-2 rounded-lg font-bold" data-tab="pmu">PMU</button>
+        <button class="tab-btn px-4 py-2 rounded-lg font-bold" data-tab="skincare">Skincare</button>
+        <button class="tab-btn px-4 py-2 rounded-lg font-bold" data-tab="detox">Detox & Herbal Hair Wash</button>
+      </div>
+      <div class="services-groups">
+        <!-- PMU Group -->
+        <div class="service-group" data-group="pmu">
+          <div class="font-semibold mb-2">Brows</div>
+          <div class="service-list flex gap-2 flex-wrap">
+            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="pmu1" data-options='["Classic","Ombre"]'>Shading Ombré ($100)</button>
+            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="pmu2" data-options='["Micro","Nano"]'>Micro Blading ($120)</button>
+          </div>
+        </div>
+        <!-- Skincare Group -->
+        <div class="service-group" data-group="skincare" style="display:none;">
+          <div class="font-semibold mb-2">Facial</div>
+          <div class="service-list flex gap-2 flex-wrap">
+            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="skin1" data-options='["Basic","Acne"]'>Acne Treatment ($80)</button>
+          </div>
+        </div>
+        <!-- Detox Group -->
+        <div class="service-group" data-group="detox" style="display:none;">
+          <div class="font-semibold mb-2">Hair</div>
+          <div class="service-list flex gap-2 flex-wrap">
+            <button class="service-btn px-3 py-2 bg-[#e7d48e] rounded" data-service="detox1" data-options='["Herbal","Premium"]'>Herbal Hair Wash ($60)</button>
+          </div>
+        </div>
+      </div>
       <button class="next-btn px-6 py-2 bg-[#003324] text-white rounded-lg font-bold mt-4">Next</button>
+      <!-- Modal chọn option -->
+      <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50" style="display:none;">
+        <div class="bg-white rounded-xl p-6 min-w-[320px]">
+          <div class="font-bold mb-2" id="modal-service-name"></div>
+          <form id="modal-options-form">
+            <!-- radio options sẽ render ở đây -->
+          </form>
+          <div class="flex gap-2 mt-4">
+            <button type="button" class="close-modal px-4 py-2 bg-gray-200 rounded">Đóng</button>
+            <button type="button" class="select-option px-4 py-2 bg-[#003324] text-white rounded">Chọn</button>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Step 2: Select Date Time -->
     <div class="step step-2">
@@ -62,55 +274,204 @@ import { useState } from 'react';
     </div>
     <div id="booking-status" class="mt-6 text-center font-semibold"></div>
   </div>
-</section>
-
-<style>
-  .booking-step-section { position: relative; overflow: hidden; }
-  .step { position: absolute; left: 0; top: 0; width: 100%; min-height: 480px; background: #fff; z-index: 1; opacity: 0; pointer-events: none; transition: opacity .35s, transform .35s; transform: translateX(40px); }
-  .step.active { opacity: 1; pointer-events: auto; transform: translateX(0); z-index: 2; }
-  .step.exit-left { opacity: 0; transform: translateX(-40px); }
-  .step.exit-right { opacity: 0; transform: translateX(40px); }
-  .step-indicator { font-weight:600; color:#e7d48e; padding:4px 12px; border-radius:8px; background:#003324; }
-  .step-indicator.active { background:#e7d48e; color:#003324; }
-  .field-input { width:100%; padding:.55rem 1rem; border:1px solid #c4d5cf; border-radius:.65rem; background:#eef3f1; color:#003324; font-size:16px; line-height:1.4; margin-bottom:8px; }
-</style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script is:inline>
-(function(){
+// @ts-nocheck
+document.addEventListener('DOMContentLoaded', function () {
   let currentStep = 1;
   const steps = Array.from(document.querySelectorAll('.step'));
   const indicators = Array.from(document.querySelectorAll('.step-indicator'));
+  let selectedCategory = '';
+  let selectedService = '';
+  let selectedOption = '';
+
   function showStep(n, direction) {
-    steps.forEach((s,i)=>{
-      s.classList.remove('active','exit-left','exit-right');
-      if(i===n-1) {
-        s.classList.add('active');
-      } else if(i< n-1 && direction==='next') {
-        s.classList.add('exit-left');
-      } else if(i> n-1 && direction==='back') {
-        s.classList.add('exit-right');
+    const container = document.getElementById('booking-steps');
+
+    // Add transition state
+    if (container) {
+      container.classList.add('step-transitioning');
+    }
+
+    // Add transition delay for smoother animation
+    const currentActiveStep = document.querySelector('.step.active');
+    if (currentActiveStep) {
+      currentActiveStep.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+
+    // Update step classes with enhanced animation
+    steps.forEach((s, i) => {
+      if (i === n - 1) {
+        // New active step - prepare for entrance
+        s.style.transform = direction === 'next' ? 'translateX(120%)' : 'translateX(-120%)';
+        s.classList.remove('exit-left', 'exit-right');
+
+        // Trigger entrance animation after a brief delay
+        setTimeout(() => {
+          s.classList.add('active');
+          s.style.transform = 'translateX(0)';
+        }, 50);
+      } else if (i < n - 1) {
+        // Previous steps
+        if (direction === 'next') {
+          s.classList.remove('active', 'exit-right');
+          s.classList.add('exit-left');
+          s.style.transform = 'translateX(-120%)';
+        } else {
+          s.classList.remove('active', 'exit-left', 'exit-right');
+          s.style.transform = 'translateX(0)';
+        }
+      } else if (i > n - 1) {
+        // Next steps
+        if (direction === 'back') {
+          s.classList.remove('active', 'exit-left');
+          s.classList.add('exit-right');
+          s.style.transform = 'translateX(120%)';
+        } else {
+          s.classList.remove('active', 'exit-left', 'exit-right');
+          s.style.transform = 'translateX(0)';
+        }
       }
     });
-    indicators.forEach((ind,i)=>ind.classList.toggle('active',i===n-1));
+
+    // Update indicators with staggered animation
+    indicators.forEach((ind, i) => {
+      setTimeout(() => {
+        if (i === n - 1) {
+          ind.classList.add('active');
+        } else {
+          ind.classList.remove('active');
+        }
+      }, i * 100); // Stagger indicator updates
+    });
+
     currentStep = n;
+
+    // Remove transition state after animation completes
+    setTimeout(() => {
+      if (container) {
+        container.classList.remove('step-transitioning');
+      }
+    }, 500);
+
+    // Add subtle container shake effect
+    if (container) {
+      setTimeout(() => {
+        container.style.transform = 'translateX(1px)';
+        setTimeout(() => {
+          container.style.transform = 'translateX(-1px)';
+          setTimeout(() => {
+            container.style.transform = 'translateX(0)';
+          }, 30);
+        }, 30);
+      }, 200);
+    }
   }
-  document.addEventListener('DOMContentLoaded',()=>{
-    showStep(1);
-    document.querySelectorAll('.next-btn').forEach(btn=>btn.addEventListener('click',()=>{
-      if(currentStep<4) showStep(currentStep+1,'next');
-    }));
-    document.querySelectorAll('.prev-btn').forEach(btn=>btn.addEventListener('click',()=>{
-      if(currentStep>1) showStep(currentStep-1,'back');
-    }));
-    // Khởi tạo flatpickr cho trường date
-    if(window.flatpickr){
-      flatpickr('#date', {
-        minDate: 'today',
-        dateFormat: 'Y-m-d',
-        disableMobile: true
+
+  // Tabs logic
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const serviceGroups = document.querySelectorAll('.service-group');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedCategory = btn.dataset.tab;
+      serviceGroups.forEach(g => {
+        g.style.display = g.dataset.group === selectedCategory ? '' : 'none';
       });
+    });
+  });
+
+  // Default: select first tab if exists
+  if (tabBtns.length) tabBtns[0].click();
+
+  // Service modal logic
+  const serviceButtons = document.querySelectorAll('.service-btn');
+  serviceButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedService = btn.dataset.service;
+      const options = (() => {
+        try { return JSON.parse(btn.dataset.options || '[]'); } catch (e) { return []; }
+      })();
+      const modalNameEl = document.getElementById('modal-service-name');
+      const form = document.getElementById('modal-options-form');
+      if (modalNameEl) modalNameEl.textContent = btn.textContent;
+      if (form) form.innerHTML = options.map(opt => `<label class='block mb-2'><input type='radio' name='service-option' value='${opt}'> ${opt}</label>`).join('');
+      const modal = document.getElementById('service-modal');
+      if (modal) modal.style.display = 'flex';
+    });
+  });
+
+  const closeModalBtn = document.querySelector('.close-modal');
+  if (closeModalBtn) closeModalBtn.addEventListener('click', () => {
+    const modal = document.getElementById('service-modal');
+    if (modal) modal.style.display = 'none';
+  });
+
+  const selectOptionBtn = document.querySelector('.select-option');
+  if (selectOptionBtn) selectOptionBtn.addEventListener('click', () => {
+    const checked = document.querySelector('input[name="service-option"]:checked');
+    if (checked) {
+      selectedOption = checked.value;
+      const modal = document.getElementById('service-modal');
+      if (modal) modal.style.display = 'none';
+    } else {
+      alert('Vui lòng chọn option!');
     }
   });
-})();
+
+  function validateStep(step) {
+    if (step === 1) {
+      if (!selectedCategory || !selectedService || !selectedOption) {
+        alert('Vui lòng chọn đầy đủ dịch vụ và option!');
+        return false;
+      }
+    }
+    if (step === 2) {
+      const dateEl = document.getElementById('date');
+      const timeEl = document.getElementById('time');
+      const date = dateEl ? dateEl.value.trim() : '';
+      const time = timeEl ? timeEl.value.trim() : '';
+      if (!date || !time) {
+        alert('Vui lòng chọn ngày và giờ!');
+        return false;
+      }
+    }
+    if (step === 3) {
+      const nameEl = document.getElementById('name');
+      const phoneEl = document.getElementById('phone');
+      const emailEl = document.getElementById('email');
+      const name = nameEl ? nameEl.value.trim() : '';
+      const phone = phoneEl ? phoneEl.value.trim() : '';
+      const email = emailEl ? emailEl.value.trim() : '';
+      if (!name || !phone || !email) {
+        alert('Vui lòng nhập đầy đủ thông tin cá nhân!');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // Step navigation
+  showStep(1);
+  document.querySelectorAll('.next-btn').forEach(btn => btn.addEventListener('click', () => {
+    if (currentStep < 4) {
+      if (validateStep(currentStep)) {
+        showStep(currentStep + 1, 'next');
+      }
+    }
+  }));
+
+  document.querySelectorAll('.prev-btn').forEach(btn => btn.addEventListener('click', () => {
+    if (currentStep > 1) showStep(currentStep - 1, 'back');
+  }));
+
+  // Initialize flatpickr
+  if (window.flatpickr) {
+    flatpickr('#date', {
+      minDate: 'today',
+      dateFormat: 'Y-m-d',
+      disableMobile: true
+    });
+  }
+});
 </script>
