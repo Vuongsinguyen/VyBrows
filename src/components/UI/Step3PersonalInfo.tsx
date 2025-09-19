@@ -1,6 +1,6 @@
 // Step3PersonalInfo.tsx - Personal information form
 import React, { useState } from 'react';
-import type { BookingState } from './BookingComponent';
+import type { BookingState } from '../../types/booking';
 
 interface Step3Props {
   booking: BookingState;

@@ -13,7 +13,7 @@ const {
 } = process.env;
 
 function createTransport(port465 = true) {
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     host: ZOHO_SMTP_HOST,
     port: port465 ? 465 : 587,
     secure: port465,

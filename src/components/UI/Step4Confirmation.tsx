@@ -1,6 +1,6 @@
-// Step4Confirmation.tsx - Review and confirm booking
+// Step4Confirmation.tsx - Booking confirmation step
 import React, { useState } from 'react';
-import type { BookingState } from './BookingComponent';
+import type { BookingState } from '../../types/booking';
 
 interface Step4Props {
   booking: BookingState;

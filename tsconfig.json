@@ -8,7 +8,9 @@
       "ESNext"
     ],
     "types": [
-      "astro/client"
+      "astro/client",
+      "@types/react",
+      "@types/react-dom"
     ],
     "jsx": "react-jsx",
     "jsxImportSource": "react",

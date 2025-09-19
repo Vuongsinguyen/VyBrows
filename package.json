@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/netlify": "^6.5.10",
     "@astrojs/react": "^4.3.1",
     "@emailjs/browser": "^4.4.1",
     "@netlify/functions": "^4.2.5",

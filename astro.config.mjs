@@ -1,11 +1,13 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import netlify from '@astrojs/netlify';
 
-import preact from '@astrojs/preact';
 import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
+  adapter: netlify(),
   vite: {
     plugins: [tailwindcss()],
     server: {
@@ -15,12 +17,5 @@ export default defineConfig({
     }
   },
 
-  integrations: [
-    preact({
-      exclude: ['**/BookingComponent*.tsx', '**/Step*.tsx', '**/ServiceModal.tsx']
-    }),
-    react({
-      include: ['**/BookingComponent*.tsx', '**/Step*.tsx', '**/ServiceModal.tsx']
-    })
-  ]
+  integrations: [react()]
 });

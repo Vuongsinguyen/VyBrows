@@ -1,6 +1,6 @@
 // ServiceModal.tsx - Modal for detailed service information and option selection
 import React, { useEffect, useRef } from 'react';
-import type { Service } from './BookingComponent';
+import type { Service } from '../../types/booking';
 
 interface ServiceModalProps {
   service: Service | null;
