@@ -20,7 +20,7 @@ Trong Netlify Dashboard, thêm các biến môi trường:
 ZOHO_USER=your-email@vybrows-academy.com
 ZOHO_PASS=your-app-password
 ZOHO_SMTP_HOST=smtppro.zoho.com
-ADMIN_EMAIL=contact@vybrows-academy.com
+ADMIN_EMAIL=vybrowsk@gmail.com
 
 # Google Sheets (tùy chọn - xem GOOGLE_SHEETS_SETUP.md)
 GOOGLE_SERVICE_ACCOUNT_EMAIL=your-service-account@project.iam.gserviceaccount.com

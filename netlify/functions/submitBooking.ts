@@ -9,7 +9,7 @@ const {
   GOOGLE_SERVICE_ACCOUNT_EMAIL,
   GOOGLE_PRIVATE_KEY,
   GOOGLE_SHEET_ID,
-  ADMIN_EMAIL = 'contact@vybrows-academy.com'
+  ADMIN_EMAIL = 'vybrowsk@gmail.com'
 } = process.env;
 
 function createTransport(port465 = true) {

@@ -64,7 +64,7 @@ export const handler: Handler = async (event) => {
   try {
     const info = await transporter.sendMail({
       from: `"VyBrows Contact" <${ZOHO_USER}>`,
-      to: 'contact@vybrows-academy.com',
+      to: 'vybrowsk@gmail.com',
       replyTo: email || ZOHO_USER,
       subject,
       text,
