@@ -1,0 +1,173 @@
+import type { Handler } from '@netlify/functions';
+import nodemailer from 'nodemailer';
+import { google } from 'googleapis';
+
+const {
+  ZOHO_USER,
+  ZOHO_PASS,
+  ZOHO_SMTP_HOST = 'smtppro.zoho.com',
+  GOOGLE_SERVICE_ACCOUNT_EMAIL,
+  GOOGLE_PRIVATE_KEY,
+  GOOGLE_SHEET_ID,
+  ADMIN_EMAIL = 'contact@vybrows-academy.com'
+} = process.env;
+
+function createTransport(port465 = true) {
+  return nodemailer.createTransporter({
+    host: ZOHO_SMTP_HOST,
+    port: port465 ? 465 : 587,
+    secure: port465,
+    auth: { user: ZOHO_USER, pass: ZOHO_PASS }
+  });
+}
+
+async function appendToGoogleSheet(data: any) {
+  if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
+    console.warn('Google Sheets credentials not configured');
+    return false;
+  }
+
+  try {
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      },
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+
+    const sheets = google.sheets({ version: 'v4', auth });
+
+    const values = [[
+      new Date().toISOString(),
+      data.category || '',
+      data.service || '',
+      data.option || '',
+      data.date || '',
+      data.time || '',
+      data.name || '',
+      data.phone || '',
+      data.email || '',
+      data.notes || '',
+      'Pending'
+    ]];
+
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: GOOGLE_SHEET_ID,
+      range: 'Bookings!A:K',
+      valueInputOption: 'RAW',
+      requestBody: { values },
+    });
+
+    return true;
+  } catch (error) {
+    console.error('Google Sheets error:', error);
+    return false;
+  }
+}
+
+async function sendEmails(data: any) {
+  if (!ZOHO_USER || !ZOHO_PASS) {
+    throw new Error('Email credentials not configured');
+  }
+
+  const transporter = createTransport(true);
+
+  const bookingDetails = `
+    <h3>Booking Details:</h3>
+    <ul>
+      <li><strong>Category:</strong> ${data.category || 'N/A'}</li>
+      <li><strong>Service:</strong> ${data.service || 'N/A'}</li>
+      <li><strong>Option:</strong> ${data.option || 'N/A'}</li>
+      <li><strong>Date:</strong> ${data.date || 'N/A'}</li>
+      <li><strong>Time:</strong> ${data.time || 'N/A'}</li>
+      <li><strong>Name:</strong> ${data.name || 'N/A'}</li>
+      <li><strong>Phone:</strong> ${data.phone || 'N/A'}</li>
+      <li><strong>Email:</strong> ${data.email || 'N/A'}</li>
+      <li><strong>Notes:</strong> ${data.notes || 'N/A'}</li>
+    </ul>
+  `;
+
+  // Email cho Admin
+  const adminSubject = `New Booking: ${data.service || 'Service'} - ${data.name || 'Customer'}`;
+  const adminHtml = `
+    <h2>New Booking Received</h2>
+    ${bookingDetails}
+    <p>Please contact the customer to confirm the booking.</p>
+    <p style="margin-top:18px;font-size:12px;color:#666">Sent from VyBrows booking system.</p>
+  `;
+
+  // Email cho Customer
+  const customerSubject = `Booking Confirmation - VyBrows Academy`;
+  const customerHtml = `
+    <h2>Thank you for your booking!</h2>
+    <p>Dear ${data.name},</p>
+    <p>We have received your booking request. Here are the details:</p>
+    ${bookingDetails}
+    <p>Our team will contact you within 24 hours to confirm your booking.</p>
+    <p>If you have any questions, please contact us at ${ADMIN_EMAIL}</p>
+    <p>Best regards,<br>VyBrows Academy Team</p>
+    <p style="margin-top:18px;font-size:12px;color:#666">Sent from VyBrows booking system.</p>
+  `;
+
+  // Gửi email cho Admin
+  await transporter.sendMail({
+    from: `"VyBrows Booking" <${ZOHO_USER}>`,
+    to: ADMIN_EMAIL,
+    replyTo: data.email || ZOHO_USER,
+    subject: adminSubject,
+    html: adminHtml
+  });
+
+  // Gửi email cho Customer
+  await transporter.sendMail({
+    from: `"VyBrows Academy" <${ZOHO_USER}>`,
+    to: data.email,
+    replyTo: ADMIN_EMAIL,
+    subject: customerSubject,
+    html: customerHtml
+  });
+
+  return true;
+}
+
+export const handler: Handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
+  }
+
+  let data: any = {};
+  try {
+    data = JSON.parse(event.body || '{}');
+  } catch {
+    return { statusCode: 400, body: JSON.stringify({ success: false, error: 'Invalid JSON' }) };
+  }
+
+  console.log('Booking submission:', data);
+
+  try {
+    // Gửi emails
+    await sendEmails(data);
+
+    // Ghi lên Google Sheets (tạm thời log)
+    const sheetSuccess = await appendToGoogleSheet(data);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        success: true,
+        message: 'Booking submitted successfully',
+        sheetUpdated: sheetSuccess
+      })
+    };
+  } catch (error: any) {
+    console.error('Booking submission error:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        success: false,
+        error: error.message || 'Internal server error'
+      })
+    };
+  }
+};
