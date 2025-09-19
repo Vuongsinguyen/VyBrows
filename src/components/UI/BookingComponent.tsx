@@ -10,30 +10,113 @@ import type { BookingState, Service, ServiceGroup, ServiceCategory, BookingCompo
 // Sample service data
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
-    key: 'pmu',
-    title: 'PMU',
-    description: 'Permanent makeup services',
+    key: 'featured',
+    title: 'Featured',
+    description: 'Popular services',
+    groups: [
+      {
+        title: 'Popular Services',
+        services: [
+          { name: 'Shading Ombré', price: '$100', options: ['Classic', 'Ombre'] },
+          { name: 'Micro Blading', price: '$120', options: ['Micro', 'Nano'] },
+          { name: 'Combo Brows', price: '$150', options: ['Natural', 'Bold'] },
+          { name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] },
+          { name: 'Classic Eyeliner', price: '$80', options: ['Thin', 'Thick'] },
+          { name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] }
+        ]
+      }
+    ]
+  },
+  {
+    key: 'brows-lashes',
+    title: 'Brows & Lashes',
+    description: 'Eyebrow and eyelash services',
     groups: [
       {
         title: 'Brows',
         services: [
           { name: 'Shading Ombré', price: '$100', options: ['Classic', 'Ombre'] },
           { name: 'Micro Blading', price: '$120', options: ['Micro', 'Nano'] },
-          { name: 'Combo Brows', price: '$150', options: ['Natural', 'Bold'] }
+          { name: 'Combo Brows', price: '$150', options: ['Natural', 'Bold'] },
+          { name: 'Eyebrow Wax', price: '$15', options: ['Basic', 'Premium'] },
+          { name: 'Eyebrow Tint', price: '$20', options: ['Light', 'Dark'] },
+          { name: 'Eyebrow Threading', price: '$18', options: ['Standard'] }
         ]
       },
       {
-        title: 'Lips',
+        title: 'Lashes',
         services: [
-          { name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] }
+          { name: 'Lash Lift', price: '$60', options: ['Basic', 'Premium'] },
+          { name: 'Lash Tint', price: '$25', options: ['Black', 'Brown'] },
+          { name: 'Lash Extension', price: '$80', options: ['Natural', 'Dramatic'] }
         ]
       }
     ]
   },
   {
-    key: 'skincare',
-    title: 'Skincare',
-    description: 'Professional facial treatments',
+    key: 'lip-tattooing',
+    title: 'Lip Tattooing',
+    description: 'Lip enhancement services',
+    groups: [
+      {
+        title: 'Lips',
+        services: [
+          { name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] },
+          { name: 'Lip Liner', price: '$75', options: ['Natural', 'Defined'] },
+          { name: 'Full Lip Color', price: '$120', options: ['Nude', 'Red', 'Pink'] },
+          { name: 'Lip Neutralization', price: '$60', options: ['Light', 'Medium'] },
+          { name: 'Russian Lips', price: '$150', options: ['Subtle', 'Dramatic'] }
+        ]
+      }
+    ]
+  },
+  {
+    key: 'eyeliner',
+    title: 'Eyeliner',
+    description: 'Eyeliner tattooing services',
+    groups: [
+      {
+        title: 'Eyeliner',
+        services: [
+          { name: 'Classic Eyeliner', price: '$80', options: ['Thin', 'Thick'] },
+          { name: 'Designer Eyeliner', price: '$100', options: ['Simple', 'Complex'] },
+          { name: 'Colored Eyeliner', price: '$110', options: ['Blue', 'Green', 'Purple'] }
+        ]
+      }
+    ]
+  },
+  {
+    key: 'waxing',
+    title: 'Waxing',
+    description: 'Hair removal services',
+    groups: [
+      {
+        title: 'Body Waxing',
+        services: [
+          { name: 'Eyebrow Wax', price: '$15', options: ['Basic', 'Premium'] },
+          { name: 'Upper Lip Wax', price: '$12', options: ['Standard'] }
+        ]
+      }
+    ]
+  },
+  {
+    key: 'head-spa',
+    title: 'Head Spa',
+    description: 'Scalp and hair treatments',
+    groups: [
+      {
+        title: 'Scalp Treatments',
+        services: [
+          { name: 'Scalp Massage', price: '$30', options: ['30 min', '60 min'] },
+          { name: 'Herbal Hair Wash', price: '$25', options: ['Basic', 'Premium'] }
+        ]
+      }
+    ]
+  },
+  {
+    key: 'facial-treatment',
+    title: 'Facial and Treatment',
+    description: 'Facial treatments and skincare',
     groups: [
       {
         title: 'Facial Treatments',
@@ -41,20 +124,6 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           { name: 'Acne Treatment', price: '$80', options: ['Basic', 'Advanced'] },
           { name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] },
           { name: 'Chemical Peel', price: '$100', options: ['Light', 'Medium'] }
-        ]
-      }
-    ]
-  },
-  {
-    key: 'detox',
-    title: 'Detox & Herbal Hair Wash',
-    description: 'Natural hair and scalp treatments',
-    groups: [
-      {
-        title: 'Hair Treatments',
-        services: [
-          { name: 'Herbal Hair Wash', price: '$60', options: ['Herbal', 'Premium'] },
-          { name: 'Scalp Detox', price: '$80', options: ['Deep Clean', 'Scalp Massage'] }
         ]
       }
     ]
@@ -67,7 +136,7 @@ const StepIndicator: React.FC<{
   totalSteps: number;
   stepTitles: string[];
 }> = ({ currentStep, totalSteps, stepTitles }) => (
-  <div className="flex justify-between mb-8 relative z-20 px-4">
+  <div className="flex flex-row justify-between mb-8 relative z-20 px-4 flex-nowrap">
     {stepTitles.map((title, index) => {
       const stepNumber = index + 1;
       const isActive = stepNumber === currentStep;
@@ -305,18 +374,35 @@ const BookingComponent: React.FC = () => {
 
   return (
     <section 
-      className="booking-step-section w-full min-h-screen flex flex-col justify-center items-center bg-white px-4 py-16"
+      className="booking-step-section w-full min-h-screen flex flex-col justify-center items-center px-4 py-16"
       aria-label="Service booking form"
     >
-      <h2 className="text-3xl font-bold mb-8 text-center text-green-800">
-        Booking Services Step by Step
+      <h2 className="text-5xl font-bold mb-8 text-center text-green-800" style={{ fontFamily: 'Tartuffo, serif' }}>
+        Book VyBrows Beauty Services
       </h2>
-      {/* Progress Indicator */}
-      <StepIndicator 
+      {/* Status and Address - Temporarily hidden */}
+      {/* <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+        <p className="text-lg text-green-700 font-medium">
+          Open until 18:00
+        </p>
+        <p className="text-lg text-green-700 font-medium">
+          13192 Bellaire Boulevard, #B, Alief, Houston, Texas 
+          <a 
+            href="https://maps.app.goo.gl/XMfN1TfkSsw3Bvju5" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 cursor-pointer underline"
+          >
+            Get directions
+          </a>
+        </p>
+      </div> */}
+      {/* Progress Indicator - Temporarily hidden */}
+      {/* <StepIndicator 
         currentStep={booking.step}
         totalSteps={4}
         stepTitles={stepTitles}
-      />
+      /> */}
 
       {/* Step Screens */}
       <div className="w-full max-w-2xl mx-auto flex flex-col justify-center items-center min-h-[500px]">

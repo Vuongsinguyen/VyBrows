@@ -1,5 +1,6 @@
 ---
 import BookingComponentWrapper from '../components/UI/BookingComponentWrapper.astro';
+import '../styles/global.css';
 ---
 <html lang="en">
   <head>
@@ -8,8 +9,9 @@ import BookingComponentWrapper from '../components/UI/BookingComponentWrapper.as
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tartuffo:wght@400;700&display=swap">
   </head>
-  <body style="background:#f5f9f7;">
+  <body style="background: linear-gradient(135deg, #f0f9f6 0%, #c8e6c9 50%, #81c784 100%); min-height: 100vh;">
     <BookingComponentWrapper />
   </body>
 </html>

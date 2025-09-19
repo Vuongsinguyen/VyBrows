@@ -36,14 +36,14 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
       tabIndex={0}
       className="p-6"
     >
-      <h3 id="step-1-title" className="text-xl font-bold mb-6 text-center text-green-800">
+      {/* <h3 id="step-1-title" className="text-xl font-bold mb-6 text-center text-green-800">
         Select Your Service
-      </h3>
+      </h3> */}
 
       {/* Category Tabs */}
       <fieldset className="mb-8">
         <legend className="text-lg font-semibold mb-4 text-green-800">
-          Service Category
+          Select Beauty Category
         </legend>
         
         <div 
@@ -52,8 +52,9 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
           aria-label="Service categories"
         >
           {SERVICE_CATEGORIES.map((category) => (
-            <button
+            <a
               key={category.key}
+              href={`#category-${category.key}`}
               className={`px-4 py-2 rounded-lg font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
                 booking.category === category.key
                   ? 'bg-green-800 text-white transform scale-105'
@@ -61,58 +62,71 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
               }`}
               role="tab"
               aria-selected={booking.category === category.key}
-              aria-controls={`services-${category.key}`}
-              onClick={() => handleCategoryChange(category.key)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById(`category-${category.key}`)?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start' 
+                });
+                handleCategoryChange(category.key);
+              }}
               type="button"
               title={category.description}
             >
               {category.title}
-            </button>
+            </a>
           ))}
         </div>
       </fieldset>
 
       {/* Services */}
       <fieldset>
-        <legend className="text-lg font-semibold mb-4 text-green-800">
+        {/* <legend className="text-lg font-semibold mb-4 text-green-800">
           Available Services
-        </legend>
-        
-        <div 
-          className="space-y-6"
-          id={`services-${booking.category}`}
-          role="tabpanel"
-          aria-labelledby={`tab-${booking.category}`}
-          aria-live="polite"
-        >
-          {currentCategory?.groups.map((group, groupIndex) => (
-            <div key={groupIndex} className="mb-6">
-              <h4 className="font-semibold mb-3 text-green-700">{group.title}</h4>
-              <div className="grid gap-3 md:grid-cols-2">
-                {group.services.map((service, serviceIndex) => (
-                  <button
-                    key={serviceIndex}
-                    className={`p-4 text-left rounded-lg border-2 transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
-                      booking.service === service.name
-                        ? 'border-green-600 bg-green-50 text-green-800'
-                        : 'border-gray-200 bg-yellow-100 hover:border-green-400 hover:bg-yellow-200'
-                    }`}
-                    onClick={() => handleServiceClick(service)}
-                    type="button"
-                    aria-describedby={`service-desc-${service.name.replace(/\s+/g, '-').toLowerCase()}`}
-                  >
-                    <div className="font-medium text-lg">{service.name}</div>
-                    <div className="text-sm opacity-75 font-semibold">{service.price}</div>
-                    <div className="text-xs text-gray-600 mt-1">
-                      Options: {service.options.join(', ')}
+        </legend> */}
+        {/* Services - Show all categories */}
+        <div className="space-y-8">
+          {SERVICE_CATEGORIES.map((category) => (
+            <div 
+              key={category.key} 
+              id={`category-${category.key}`}
+              className="scroll-mt-20"
+            >
+              <h3 className="text-xl font-bold mb-4 text-green-800 border-b-2 border-green-200 pb-2">
+                {category.title}
+              </h3>
+              <div className="space-y-6">
+                {category.groups.map((group, groupIndex) => (
+                  <div key={groupIndex} className="mb-6">
+                    <h4 className="font-semibold mb-3 text-green-700">{group.title}</h4>
+                    <div className="grid gap-3 md:grid-cols-2">
+                      {group.services.map((service, serviceIndex) => (
+                        <button
+                          key={serviceIndex}
+                          className={`p-4 text-left rounded-lg border-2 transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
+                            booking.service === service.name
+                              ? 'border-green-600 bg-green-50 text-green-800'
+                              : 'border-gray-200 bg-yellow-100 hover:border-green-400 hover:bg-yellow-200'
+                          }`}
+                          onClick={() => handleServiceClick(service)}
+                          type="button"
+                          aria-describedby={`service-desc-${service.name.replace(/\s+/g, '-').toLowerCase()}`}
+                        >
+                          <div className="font-medium text-lg">{service.name}</div>
+                          <div className="text-sm opacity-75 font-semibold">{service.price}</div>
+                          <div className="text-xs text-gray-600 mt-1">
+                            Options: {service.options.join(', ')}
+                          </div>
+                          <div 
+                            id={`service-desc-${service.name.replace(/\s+/g, '-').toLowerCase()}`}
+                            className="sr-only"
+                          >
+                            {service.name} service, price {service.price}, options: {service.options.join(', ')}
+                          </div>
+                        </button>
+                      ))}
                     </div>
-                    <div 
-                      id={`service-desc-${service.name.replace(/\s+/g, '-').toLowerCase()}`}
-                      className="sr-only"
-                    >
-                      {service.name} service, price {service.price}, options: {service.options.join(', ')}
-                    </div>
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -120,8 +134,8 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
         </div>
       </fieldset>
 
-      {/* Next Button */}
-      <div className="mt-8 flex justify-end">
+      {/* Next Button - Fixed at bottom */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex justify-center shadow-lg z-50">
         <button
           className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
             booking.service && booking.option
@@ -133,7 +147,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
           disabled={!booking.service || !booking.option}
           aria-describedby="step-1-help"
         >
-          Next: Select Date & Time
+          Continue
         </button>
       </div>
       
