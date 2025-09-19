@@ -305,13 +305,12 @@ const BookingComponent: React.FC = () => {
 
   return (
     <section 
-      className="booking-step-section max-w-4xl mx-auto py-16 px-4 bg-white rounded-2xl shadow-lg"
+      className="booking-step-section w-full min-h-screen flex flex-col justify-center items-center bg-white px-4 py-16"
       aria-label="Service booking form"
     >
       <h2 className="text-3xl font-bold mb-8 text-center text-green-800">
         Booking Services Step by Step
       </h2>
-      
       {/* Progress Indicator */}
       <StepIndicator 
         currentStep={booking.step}
@@ -319,55 +318,40 @@ const BookingComponent: React.FC = () => {
         stepTitles={stepTitles}
       />
 
-      {/* Steps Container */}
-      <div className="w-full relative min-h-[600px]">
-        <div 
-          className="flex transition-transform duration-300 ease-in-out"
-          style={{ 
-            transform: `translateX(-${(booking.step - 1) * 100}%)`,
-            width: `${4 * 100}%`
-          }}
-        >
-          {/* Step 1: Service Selection */}
-          <div className="w-full flex-shrink-0">
-            <Step1ServiceSelection
-              booking={booking}
-              updateBooking={updateBooking}
-              onServiceSelect={selectService}
-              onNext={nextStep}
-            />
-          </div>
-
-          {/* Step 2: Date & Time */}
-          <div className="w-full flex-shrink-0">
-            <Step2DateTime
-              booking={booking}
-              updateBooking={updateBooking}
-              onNext={nextStep}
-              onPrevious={prevStep}
-            />
-          </div>
-
-          {/* Step 3: Personal Info */}
-          <div className="w-full flex-shrink-0">
-            <Step3PersonalInfo
-              booking={booking}
-              updateBooking={updateBooking}
-              onNext={nextStep}
-              onPrevious={prevStep}
-            />
-          </div>
-
-          {/* Step 4: Confirmation */}
-          <div className="w-full flex-shrink-0">
-            <Step4Confirmation
-              booking={booking}
-              onSubmit={submitBooking}
-              onPrevious={prevStep}
-              isSubmitting={isSubmitting}
-            />
-          </div>
-        </div>
+      {/* Step Screens */}
+      <div className="w-full max-w-2xl mx-auto flex flex-col justify-center items-center min-h-[500px]">
+        {booking.step === 1 && (
+          <Step1ServiceSelection
+            booking={booking}
+            updateBooking={updateBooking}
+            onServiceSelect={selectService}
+            onNext={nextStep}
+          />
+        )}
+        {booking.step === 2 && (
+          <Step2DateTime
+            booking={booking}
+            updateBooking={updateBooking}
+            onNext={nextStep}
+            onPrevious={prevStep}
+          />
+        )}
+        {booking.step === 3 && (
+          <Step3PersonalInfo
+            booking={booking}
+            updateBooking={updateBooking}
+            onNext={nextStep}
+            onPrevious={prevStep}
+          />
+        )}
+        {booking.step === 4 && (
+          <Step4Confirmation
+            booking={booking}
+            onSubmit={submitBooking}
+            onPrevious={prevStep}
+            isSubmitting={isSubmitting}
+          />
+        )}
       </div>
 
       {/* Status Messages */}
