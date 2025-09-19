@@ -26,15 +26,18 @@ function createTransport(port465 = true) {
 }
 
 async function appendToGoogleSheet(data: any) {
+  console.log('appendToGoogleSheet started with data:', JSON.stringify(data, null, 2));
+
   if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
     console.warn('Google Sheets credentials not configured');
     console.log('GOOGLE_SERVICE_ACCOUNT_EMAIL:', GOOGLE_SERVICE_ACCOUNT_EMAIL);
-    console.log('GOOGLE_PRIVATE_KEY:', GOOGLE_PRIVATE_KEY ? 'Loaded' : 'Missing');
+    console.log('GOOGLE_PRIVATE_KEY:', GOOGLE_PRIVATE_KEY ? 'Loaded (length: ' + GOOGLE_PRIVATE_KEY.length + ')' : 'Missing');
     console.log('GOOGLE_SHEET_ID:', GOOGLE_SHEET_ID);
     return false;
   }
 
   try {
+    console.log('Creating Google Auth...');
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: GOOGLE_SERVICE_ACCOUNT_EMAIL,
@@ -42,6 +45,7 @@ async function appendToGoogleSheet(data: any) {
       },
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
+    console.log('Google Auth created successfully');
 
     const sheets = google.sheets({ version: 'v4', auth });
 
@@ -49,17 +53,22 @@ async function appendToGoogleSheet(data: any) {
     const now = new Date();
     const monthName = `${now.getFullYear()}_${String(now.getMonth() + 1).padStart(2, '0')}`;
     const sheetName = `Bookings_${monthName}`;
+    console.log('Target sheet name:', sheetName);
 
     // Kiểm tra xem sheet có tồn tại không
+    console.log('Checking if sheet exists...');
     const spreadsheet = await sheets.spreadsheets.get({
       spreadsheetId: GOOGLE_SHEET_ID,
     });
 
     const existingSheets = spreadsheet.data.sheets?.map(s => s.properties?.title) || [];
     const sheetExists = existingSheets.includes(sheetName);
+    console.log('Existing sheets:', existingSheets);
+    console.log('Sheet exists:', sheetExists);
 
     // Nếu sheet chưa tồn tại, tạo mới với headers
     if (!sheetExists) {
+      console.log('Creating new sheet:', sheetName);
       await sheets.spreadsheets.batchUpdate({
         spreadsheetId: GOOGLE_SHEET_ID,
         requestBody: {
@@ -76,8 +85,10 @@ async function appendToGoogleSheet(data: any) {
           }]
         }
       });
+      console.log('New sheet created successfully');
 
       // Thêm headers
+      console.log('Adding headers to new sheet');
       const headers = [[
         'Timestamp', 'Category', 'Service', 'Option', 'Date', 'Time',
         'Name', 'Phone', 'Email', 'Notes', 'Status'
@@ -89,6 +100,9 @@ async function appendToGoogleSheet(data: any) {
         valueInputOption: 'RAW',
         requestBody: { values: headers },
       });
+      console.log('Headers added successfully');
+    } else {
+      console.log('Sheet already exists, skipping creation');
     }
 
     const values = [[
@@ -105,6 +119,8 @@ async function appendToGoogleSheet(data: any) {
       'Pending'
     ]];
 
+    console.log('Appending data to sheet:', sheetName, 'Values:', JSON.stringify(values, null, 2));
+
     await sheets.spreadsheets.values.append({
       spreadsheetId: GOOGLE_SHEET_ID,
       range: `${sheetName}!A:K`,
@@ -112,9 +128,15 @@ async function appendToGoogleSheet(data: any) {
       requestBody: { values },
     });
 
+    console.log('Data appended successfully to Google Sheets');
     return true;
   } catch (error) {
-    console.error('Google Sheets error:', error);
+    console.error('Google Sheets error details:', {
+      message: (error as Error).message,
+      stack: (error as Error).stack,
+      code: (error as any).code,
+      status: (error as any).status
+    });
     return false;
   }
 }
@@ -185,14 +207,19 @@ async function sendEmails(data: any) {
 }
 
 export const handler: Handler = async (event) => {
+  console.log('Handler started. Method:', event.httpMethod);
+
   if (event.httpMethod !== 'POST') {
+    console.log('Method not allowed:', event.httpMethod);
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
   let data: any = {};
   try {
     data = JSON.parse(event.body || '{}');
-  } catch {
+    console.log('Parsed booking data:', JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.log('JSON parse error:', error);
     return { statusCode: 400, body: JSON.stringify({ success: false, error: 'Invalid JSON' }) };
   }
 
@@ -200,7 +227,9 @@ export const handler: Handler = async (event) => {
 
   try {
     // Chỉ ghi lên Google Sheets, không gửi email
+    console.log('Calling appendToGoogleSheet...');
     const sheetSuccess = await appendToGoogleSheet(data);
+    console.log('appendToGoogleSheet result:', sheetSuccess);
 
     return {
       statusCode: 200,
@@ -211,7 +240,12 @@ export const handler: Handler = async (event) => {
       })
     };
   } catch (error: any) {
-    console.error('Booking submission error:', error);
+    console.error('Booking submission error:', {
+      message: error.message,
+      stack: error.stack,
+      code: error.code,
+      status: error.status
+    });
     return {
       statusCode: 500,
       body: JSON.stringify({
