@@ -38,6 +38,52 @@ async function appendToGoogleSheet(data: any) {
 
     const sheets = google.sheets({ version: 'v4', auth });
 
+    // Tạo sheet name theo tháng (VD: Bookings_2025_09)
+    const now = new Date();
+    const monthName = `${now.getFullYear()}_${String(now.getMonth() + 1).padStart(2, '0')}`;
+    const sheetName = `Bookings_${monthName}`;
+
+    // Kiểm tra xem sheet có tồn tại không
+    const spreadsheet = await sheets.spreadsheets.get({
+      spreadsheetId: GOOGLE_SHEET_ID,
+    });
+
+    const existingSheets = spreadsheet.data.sheets?.map(s => s.properties?.title) || [];
+    const sheetExists = existingSheets.includes(sheetName);
+
+    // Nếu sheet chưa tồn tại, tạo mới với headers
+    if (!sheetExists) {
+      await sheets.spreadsheets.batchUpdate({
+        spreadsheetId: GOOGLE_SHEET_ID,
+        requestBody: {
+          requests: [{
+            addSheet: {
+              properties: {
+                title: sheetName,
+                gridProperties: {
+                  rowCount: 1000,
+                  columnCount: 11
+                }
+              }
+            }
+          }]
+        }
+      });
+
+      // Thêm headers
+      const headers = [[
+        'Timestamp', 'Category', 'Service', 'Option', 'Date', 'Time',
+        'Name', 'Phone', 'Email', 'Notes', 'Status'
+      ]];
+
+      await sheets.spreadsheets.values.update({
+        spreadsheetId: GOOGLE_SHEET_ID,
+        range: `${sheetName}!A1:K1`,
+        valueInputOption: 'RAW',
+        requestBody: { values: headers },
+      });
+    }
+
     const values = [[
       new Date().toISOString(),
       data.category || '',
@@ -54,7 +100,7 @@ async function appendToGoogleSheet(data: any) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: GOOGLE_SHEET_ID,
-      range: 'Bookings!A:K',
+      range: `${sheetName}!A:K`,
       valueInputOption: 'RAW',
       requestBody: { values },
     });
