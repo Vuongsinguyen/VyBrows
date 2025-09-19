@@ -1,6 +1,10 @@
 import type { Handler } from '@netlify/functions';
 import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
 
 const {
   ZOHO_USER,
@@ -24,6 +28,9 @@ function createTransport(port465 = true) {
 async function appendToGoogleSheet(data: any) {
   if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
     console.warn('Google Sheets credentials not configured');
+    console.log('GOOGLE_SERVICE_ACCOUNT_EMAIL:', GOOGLE_SERVICE_ACCOUNT_EMAIL);
+    console.log('GOOGLE_PRIVATE_KEY:', GOOGLE_PRIVATE_KEY ? 'Loaded' : 'Missing');
+    console.log('GOOGLE_SHEET_ID:', GOOGLE_SHEET_ID);
     return false;
   }
 
@@ -192,10 +199,7 @@ export const handler: Handler = async (event) => {
   console.log('Booking submission:', data);
 
   try {
-    // Gửi emails
-    await sendEmails(data);
-
-    // Ghi lên Google Sheets (tạm thời log)
+    // Chỉ ghi lên Google Sheets, không gửi email
     const sheetSuccess = await appendToGoogleSheet(data);
 
     return {
