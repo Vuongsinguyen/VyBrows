@@ -28,9 +28,9 @@ async function getBookingsForDate(targetDate: string) {
 
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // Lấy dữ liệu từ sheet hiện tại (theo tháng)
-    const now = new Date();
-    const monthName = `${now.getFullYear()}_${String(now.getMonth() + 1).padStart(2, '0')}`;
+    // Tính sheet name dựa trên targetDate thay vì current date
+    const targetDateObj = new Date(targetDate);
+    const monthName = `${targetDateObj.getFullYear()}_${String(targetDateObj.getMonth() + 1).padStart(2, '0')}`;
     const sheetName = `Bookings_${monthName}`;
 
     const response = await sheets.spreadsheets.values.get({

@@ -31,21 +31,34 @@ async function getBookingsFromSheet() {
 
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // Lấy dữ liệu từ sheet hiện tại (theo tháng)
+    // Get bookings from current month and next month
     const now = new Date();
-    const monthName = `${now.getFullYear()}_${String(now.getMonth() + 1).padStart(2, '0')}`;
-    const sheetName = `Bookings_${monthName}`;
+    const allBookings = [];
+    
+    // Check current month and next month
+    for (let i = 0; i < 2; i++) {
+      const targetDate = new Date(now.getFullYear(), now.getMonth() + i, 1);
+      const monthName = `${targetDate.getFullYear()}_${String(targetDate.getMonth() + 1).padStart(2, '0')}`;
+      const sheetName = `Bookings_${monthName}`;
 
-    const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: GOOGLE_SHEET_ID,
-      range: `${sheetName}!A:K`, // Lấy tất cả dữ liệu
-    });
+      try {
+        const response = await sheets.spreadsheets.values.get({
+          spreadsheetId: GOOGLE_SHEET_ID,
+          range: `${sheetName}!A:K`, // Lấy tất cả dữ liệu
+        });
 
-    const rows = response.data.values || [];
-    if (rows.length <= 1) return []; // Chỉ có header hoặc không có dữ liệu
+        const rows = response.data.values || [];
+        if (rows.length > 1) {
+          // Bỏ qua header (dòng đầu tiên) và thêm vào allBookings
+          allBookings.push(...rows.slice(1));
+        }
+      } catch (error) {
+        // Sheet might not exist for future months, that's okay
+        console.log(`Sheet ${sheetName} not found or error:`, error instanceof Error ? error.message : 'Unknown error');
+      }
+    }
 
-    // Bỏ qua header (dòng đầu tiên)
-    return rows.slice(1);
+    return allBookings;
   } catch (error) {
     console.error('Error reading from Google Sheets:', error);
     return [];

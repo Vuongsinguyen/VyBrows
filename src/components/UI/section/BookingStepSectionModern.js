@@ -5,7 +5,7 @@ let booking = {
   step: 1,
   category: 'pmu',
   service: '',
-  option: '',
+  options: [], // Changed to array to support multiple options
   date: '',
   time: '',
   name: '',
@@ -69,7 +69,7 @@ const BookingState = {
       step: 1,
       category: 'pmu',
       service: '',
-      option: '',
+      options: [], // Changed to array to support multiple options
       date: '',
       time: '',
       name: '',
@@ -109,7 +109,7 @@ const Validation = {
   validateStep(stepNumber) {
     switch(stepNumber) {
       case 1:
-        return booking.category && booking.service && booking.option;
+        return booking.category && booking.service && booking.options && booking.options.length > 0;
       case 2:
         return booking.date && booking.time && this.isValidDate(booking.date);
       case 3:
@@ -127,7 +127,7 @@ const Validation = {
   getValidationMessage(stepNumber) {
     switch(stepNumber) {
       case 1:
-        return 'Please select a service and option';
+        return 'Please select a service and at least one option';
       case 2:
         return 'Please select a valid date and time';
       case 3:
@@ -191,24 +191,35 @@ const DOM = {
     }
   },
 
-  // Update confirmation view
-  updateConfirmationView() {
+  // Update confirmation step
+  updateConfirmInfo() {
     const confirmInfo = document.getElementById('confirm-info');
-    if (!confirmInfo) return;
+    if (!confirmInfo || !booking.service) return;
 
     const categoryData = CONFIG.categories[booking.category];
     const serviceData = categoryData?.services[booking.service];
 
+    // Display multiple options if any are selected
+    const optionsDisplay = booking.options && booking.options.length > 0 
+      ? booking.options.join(', ') 
+      : 'No options selected';
+
     confirmInfo.innerHTML = `
       <div class="bg-gray-50 p-4 rounded-lg">
         <h4 class="font-bold mb-2">Booking Summary:</h4>
-        <p><strong>Service:</strong> ${booking.service} (${booking.option})</p>
+        <p><strong>Service:</strong> ${booking.service}</p>
+        <p><strong>Options:</strong> ${optionsDisplay}</p>
         <p><strong>Price:</strong> ${serviceData?.price || 'N/A'}</p>
         <p><strong>Date:</strong> ${booking.date}</p>
         <p><strong>Time:</strong> ${booking.time}</p>
         <p><strong>Name:</strong> ${booking.name}</p>
         <p><strong>Phone:</strong> ${booking.phone}</p>
         <p><strong>Email:</strong> ${booking.email}</p>
+        ${booking.options && booking.options.length > 1 ? 
+          `<div class="mt-2 p-2 bg-blue-50 border border-blue-200 rounded">
+            <p class="text-sm text-blue-700"><strong>Note:</strong> Each selected option will create a separate booking entry.</p>
+          </div>` : ''
+        }
       </div>
     `;
   },
@@ -260,9 +271,12 @@ const DOM = {
     if (!modal || !modalName || !modalForm) return;
 
     modalName.textContent = serviceName;
+    
+    // Use checkboxes to allow multiple option selection
     modalForm.innerHTML = options.map((option, index) => `
       <label class="block mb-2 p-2 border rounded hover:bg-gray-50 cursor-pointer">
-        <input type="radio" name="service-option" value="${option}" class="mr-2" ${index === 0 ? 'checked' : ''}>
+        <input type="checkbox" name="service-option" value="${option}" class="mr-2" 
+               ${booking.options.includes(option) ? 'checked' : ''}>
         ${option}
       </label>
     `).join('');
@@ -303,17 +317,18 @@ const EventHandlers = {
     DOM.showServiceModal(serviceName, options);
   },
 
-  // Option selection
+  // Option selection - now handles multiple options
   selectOption() {
-    const selectedRadio = document.querySelector('input[name="service-option"]:checked');
-    if (!selectedRadio) {
-      alert('Please select an option');
+    const selectedCheckboxes = document.querySelectorAll('input[name="service-option"]:checked');
+    if (selectedCheckboxes.length === 0) {
+      alert('Please select at least one option');
       return;
     }
 
-    BookingState.update('option', selectedRadio.value);
+    const selectedOptions = Array.from(selectedCheckboxes).map(checkbox => checkbox.value);
+    BookingState.update('options', selectedOptions);
     DOM.hideServiceModal();
-    console.log('Option selected:', selectedRadio.value);
+    console.log('Options selected:', selectedOptions);
   },
 
   // Step navigation
@@ -383,11 +398,10 @@ const EventHandlers = {
     DOM.showStatus('Submitting your booking...');
 
     try {
-      // Prepare submission data
-      const submissionData = {
+      // Prepare submission data - create separate booking for each option
+      const baseData = {
         category: booking.category,
         service: booking.service,
-        option: booking.option,
         date: booking.date,
         time: booking.time,
         name: booking.name,
@@ -396,26 +410,56 @@ const EventHandlers = {
         notes: 'Submitted via website booking system'
       };
 
-      // Submit to API
-      const response = await fetch('/.netlify/functions/submitBooking', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submissionData)
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        DOM.showStatus('Booking submitted successfully! We will contact you within 24 hours.');
+      // If no options selected, submit with empty option
+      if (!booking.options || booking.options.length === 0) {
+        const submissionData = { ...baseData, option: '' };
         
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          BookingState.reset();
-        }, 3000);
+        const response = await fetch('/.netlify/functions/submitBooking', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(submissionData)
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          DOM.showStatus('Booking submitted successfully! We will contact you within 24 hours.');
+          setTimeout(() => {
+            BookingState.reset();
+          }, 3000);
+        } else {
+          throw new Error(result.error || 'Submission failed');
+        }
       } else {
-        throw new Error(result.error || 'Submission failed');
+        // Submit multiple bookings - one for each selected option
+        const submissionPromises = booking.options.map(option => {
+          const submissionData = { ...baseData, option };
+          
+          return fetch('/.netlify/functions/submitBooking', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(submissionData)
+          });
+        });
+
+        const responses = await Promise.all(submissionPromises);
+        const results = await Promise.all(responses.map(r => r.json()));
+
+        // Check if all submissions were successful
+        const failedSubmissions = results.filter(result => !result.success);
+        
+        if (failedSubmissions.length === 0) {
+          DOM.showStatus(`All ${booking.options.length} booking options submitted successfully! We will contact you within 24 hours.`);
+          setTimeout(() => {
+            BookingState.reset();
+          }, 3000);
+        } else {
+          const successCount = results.length - failedSubmissions.length;
+          throw new Error(`${successCount} out of ${results.length} bookings submitted successfully. Some options failed to submit.`);
+        }
       }
 
     } catch (error) {

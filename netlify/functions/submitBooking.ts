@@ -105,47 +105,149 @@ async function appendToGoogleSheet(data: any) {
       console.log('Sheet already exists, skipping creation');
     }
 
-    // Đọc toàn bộ dữ liệu sheet tháng hiện tại để kiểm tra trùng ngày giờ
-    console.log('Checking for duplicate date & time...');
-    const sheetDataResp = await sheets.spreadsheets.values.get({
-      spreadsheetId: GOOGLE_SHEET_ID,
-      range: `${sheetName}!A2:K1000`, // Bỏ header
-    });
-    const rows = sheetDataResp.data.values || [];
-    const isDuplicate = rows.some(row => {
-      // row[4] = Date, row[5] = Time
-      return row[4] === data.date && row[5] === data.time;
-    });
-    if (isDuplicate) {
-      console.log('Duplicate booking found for date:', data.date, 'time:', data.time);
-      return 'DUPLICATE';
+    // Process multiple services if they exist
+    const results = [];
+    
+    // Check if data has new format (services array) or old format (single service)
+    if (data.services && Array.isArray(data.services)) {
+      console.log('Processing multiple services format');
+      
+      for (const serviceId of data.services) {
+        console.log(`serviceId: ${serviceId}`);
+        console.log(`data.serviceNames:`, data.serviceNames);
+        console.log(`data.options:`, data.options);
+        
+        const serviceName = data.serviceNames?.[serviceId] || serviceId;
+        const optionName = data.options?.[serviceId] || '';
+        
+        console.log(`Processing service: ${serviceName}, option: ${optionName}`);
+        
+        // Check for duplicate
+        const sheetDataResp = await sheets.spreadsheets.values.get({
+          spreadsheetId: GOOGLE_SHEET_ID,
+          range: `${sheetName}!A2:K1000`,
+        });
+        const rows = sheetDataResp.data.values || [];
+        
+        const isDuplicate = rows.some(row => {
+          return row[3] === optionName && 
+                 row[4] === data.date && 
+                 row[5] === data.time && 
+                 row[6] === data.name && 
+                 row[2] === serviceName;
+        });
+        
+        if (isDuplicate) {
+          console.log('Duplicate booking found for:', {
+            date: data.date, 
+            time: data.time, 
+            name: data.name, 
+            service: serviceName, 
+            option: optionName
+          });
+          results.push('DUPLICATE');
+          continue;
+        }
+
+        // Add row for this service/option
+        const values = [[
+          new Date().toISOString(),
+          data.category || '',
+          serviceName,
+          optionName,
+          data.date || '',
+          data.time || '',
+          data.name || '',
+          data.phone || '',
+          data.email || '',
+          data.notes || '',
+          'Pending'
+        ]];
+
+        console.log('Appending data to sheet:', sheetName, 'Values:', JSON.stringify(values, null, 2));
+
+        await sheets.spreadsheets.values.append({
+          spreadsheetId: GOOGLE_SHEET_ID,
+          range: `${sheetName}!A:K`,
+          valueInputOption: 'RAW',
+          requestBody: { values },
+        });
+        
+        results.push(true);
+      }
+    } else {
+      // Handle old format (single service/option)
+      console.log('Processing single service format');
+      
+      // Đọc toàn bộ dữ liệu sheet tháng hiện tại để kiểm tra trùng booking
+      console.log('Checking for duplicate booking...');
+      const sheetDataResp = await sheets.spreadsheets.values.get({
+        spreadsheetId: GOOGLE_SHEET_ID,
+        range: `${sheetName}!A2:K1000`, // Bỏ header
+      });
+      const rows = sheetDataResp.data.values || [];
+      
+      // Check for exact duplicate: same date, time, name, service, and option
+      const isDuplicate = rows.some(row => {
+        // row[3] = Option, row[4] = Date, row[5] = Time, row[6] = Name, row[2] = Service
+        return row[3] === data.option && 
+               row[4] === data.date && 
+               row[5] === data.time && 
+               row[6] === data.name && 
+               row[2] === data.service;
+      });
+      
+      if (isDuplicate) {
+        console.log('Duplicate booking found for:', {
+          date: data.date, 
+          time: data.time, 
+          name: data.name, 
+          service: data.service, 
+          option: data.option
+        });
+        return 'DUPLICATE';
+      }
+
+      const values = [[
+        new Date().toISOString(),
+        data.category || '',
+        data.service || '',
+        data.option || '',
+        data.date || '',
+        data.time || '',
+        data.name || '',
+        data.phone || '',
+        data.email || '',
+        data.notes || '',
+        'Pending'
+      ]];
+
+      console.log('Appending data to sheet:', sheetName, 'Values:', JSON.stringify(values, null, 2));
+
+      await sheets.spreadsheets.values.append({
+        spreadsheetId: GOOGLE_SHEET_ID,
+        range: `${sheetName}!A:K`,
+        valueInputOption: 'RAW',
+        requestBody: { values },
+      });
+      
+      results.push(true);
     }
 
-    const values = [[
-      new Date().toISOString(),
-      data.category || '',
-      data.service || '',
-      data.option || '',
-      data.date || '',
-      data.time || '',
-      data.name || '',
-      data.phone || '',
-      data.email || '',
-      data.notes || '',
-      'Pending'
-    ]];
-
-    console.log('Appending data to sheet:', sheetName, 'Values:', JSON.stringify(values, null, 2));
-
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: GOOGLE_SHEET_ID,
-      range: `${sheetName}!A:K`,
-      valueInputOption: 'RAW',
-      requestBody: { values },
-    });
-
     console.log('Data appended successfully to Google Sheets');
-    return true;
+    
+    // Return results
+    const hasErrors = results.includes('DUPLICATE') || results.includes(false);
+    const hasSuccess = results.includes(true);
+    
+    if (hasErrors && !hasSuccess) {
+      return 'DUPLICATE';
+    } else if (hasErrors && hasSuccess) {
+      return 'PARTIAL';
+    } else {
+      return true;
+    }
+    
   } catch (error) {
     console.error('Google Sheets error details:', {
       message: (error as Error).message,
@@ -252,7 +354,18 @@ export const handler: Handler = async (event) => {
         statusCode: 409,
         body: JSON.stringify({
           success: false,
-          error: 'Duplicate booking: This date and time is already booked.'
+          error: 'Duplicate booking: This exact booking (same service, option, date, time, and customer) already exists.'
+        })
+      };
+    }
+
+    if (sheetResult === 'PARTIAL') {
+      return {
+        statusCode: 207,
+        body: JSON.stringify({
+          success: true,
+          message: 'Some bookings submitted successfully, others were duplicates.',
+          sheetUpdated: sheetResult
         })
       };
     }
