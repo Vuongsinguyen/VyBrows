@@ -24,6 +24,35 @@ const Step2DateTime: React.FC<Step2Props> = ({
 }) => {
   const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([]);
   const [selectedDate, setSelectedDate] = useState<string>(booking.date || '');
+  const [availableDates, setAvailableDates] = useState<string[]>([]);
+
+  // Fetch available dates from API on mount
+  useEffect(() => {
+    fetch('/.netlify/functions/getAvailableDates')
+      .then(res => res.json())
+      .then(data => {
+        setAvailableDates(data.availableDates || []);
+      });
+  }, []);
+
+  // Generate time slots for a given date
+  const generateTimeSlots = (date: string): TimeSlot[] => {
+    const slots: TimeSlot[] = [];
+    
+    // Generate time slots from 9:00 AM to 6:00 PM, skipping 12:00 PM
+    for (let hour = 9; hour <= 18; hour++) {
+      if (hour !== 12) {
+        const timeString = `${hour.toString().padStart(2, '0')}:00`;
+        slots.push({
+          time: timeString,
+          available: true,
+          disabled: false
+        });
+      }
+    }
+
+    return slots;
+  };
 
   // Generate time slots based on selected date
   useEffect(() => {
@@ -31,52 +60,39 @@ const Step2DateTime: React.FC<Step2Props> = ({
       const slots = generateTimeSlots(selectedDate);
       setTimeSlots(slots);
     }
-  }, [selectedDate]);
-
-  // Generate available time slots for a given date
-  const generateTimeSlots = (date: string): TimeSlot[] => {
-    const slots: TimeSlot[] = [];
-    const today = new Date();
-    const selectedDateObj = new Date(date);
-    const isToday = selectedDateObj.toDateString() === today.toDateString();
-    const currentHour = today.getHours();
-
-    // Business hours: 9 AM to 5 PM (last slot is 17:00)
-    for (let hour = 9; hour <= 17; hour++) {
-      // Skip past hours if it's today
-      if (isToday && hour <= currentHour) {
-        continue;
-      }
-
-      // Skip lunch hour (12-13)
-      if (hour === 12) {
-        continue;
-      }
-
-      const timeString = `${hour.toString().padStart(2, '0')}:00`;
-      
-      slots.push({
-        time: timeString,
-        available: true,
-        disabled: false
-      });
+    if (selectedDate) {
+      fetch(`/.netlify/functions/getAvailableTimes?date=${selectedDate}`)
+        .then(res => res.json())
+        .then(data => {
+          const bookedTimes: string[] = data.bookedTimes || [];
+          // Nếu không có giờ nào bị đặt thì hiển thị tất cả khung giờ
+          if (bookedTimes.length === 0) {
+            setTimeSlots(generateTimeSlots(selectedDate));
+          } else {
+            const slots = generateTimeSlots(selectedDate).map(slot => ({
+              ...slot,
+              available: !bookedTimes.includes(slot.time),
+              disabled: bookedTimes.includes(slot.time)
+            }));
+            setTimeSlots(slots);
+          }
+        })
+        .catch(() => {
+          setTimeSlots(generateTimeSlots(selectedDate));
+        });
     }
-
-    return slots;
-  };
-
-
-  // Generate a list of dates for the next 14 days
+  }, [selectedDate]);
   const getDateList = (): { iso: string; day: string; date: number; month: string }[] => {
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const list = [];
     const today = new Date();
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < 60; i++) {
       const d = new Date(today);
       d.setDate(today.getDate() + i);
+      const iso = d.toISOString().split('T')[0];
       list.push({
-        iso: d.toISOString().split('T')[0],
+        iso,
         day: days[d.getDay()],
         date: d.getDate(),
         month: months[d.getMonth()]
@@ -87,8 +103,9 @@ const Step2DateTime: React.FC<Step2Props> = ({
 
   // Handle date selection
   const handleDateSelect = (iso: string) => {
-    setSelectedDate(iso);
-    updateBooking({ date: iso, time: '' });
+  if (!availableDates.includes(iso)) return;
+  setSelectedDate(iso);
+  updateBooking({ date: iso, time: '' });
   };
 
   // Handle time selection
@@ -130,75 +147,155 @@ const Step2DateTime: React.FC<Step2Props> = ({
       role="tabpanel"
       aria-labelledby="step-2-title"
       tabIndex={0}
-      className="p-0 md:p-6"
+      className="w-full max-w-[1330px] mx-auto"
     >
       <h3 id="step-2-title" className="text-xl font-bold mb-6 text-center text-green-800">
         Select Date & Time
       </h3>
-      <div className="flex flex-col md:flex-row gap-8">
+  <div className="flex flex-col md:flex-row gap-8 w-full">
         {/* Left: Date/Time Picker */}
         <div className="flex-1 md:pr-4">
-          {/* Date Picker UI */}
-          <div className="mb-8">
-            <div className="flex overflow-x-auto gap-4 pb-2">
-              {getDateList().map(date => (
-                <button
-                  key={date.iso}
-                  className={`flex flex-col items-center px-4 py-2 rounded-full border transition-all duration-200 min-w-[56px] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
-                    selectedDate === date.iso ? 'bg-green-800 text-white border-green-800' : 'bg-white text-gray-800 border-gray-300 hover:bg-green-50'
-                  }`}
-                  onClick={() => handleDateSelect(date.iso)}
-                  aria-selected={selectedDate === date.iso}
-                  aria-label={`Select ${date.day}, ${date.date} ${date.month}`}
-                >
-                  <span className="text-lg font-bold">{date.date}</span>
-                  <span className="text-xs">{date.day}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Time Slots UI */}
-          {selectedDate && (
+          <div className="w-full max-w-[1330px] mx-auto">
+            {/* Date Picker UI */}
             <div className="mb-8">
-              <div className="flex flex-col gap-3">
-                {timeSlots.map((slot) => (
-                  <button
-                    key={slot.time}
-                    className={`w-full text-left py-4 px-6 rounded-lg border transition-all duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
-                      booking.time === slot.time
-                        ? 'bg-green-800 text-white border-green-800'
-                        : slot.available && !slot.disabled
-                        ? 'bg-white text-gray-800 border-gray-300 hover:bg-green-50'
-                        : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
-                    }`}
-                    onClick={() => slot.available && !slot.disabled && handleTimeSelect(slot.time)}
-                    disabled={!slot.available || slot.disabled}
-                    type="button"
-                    aria-selected={booking.time === slot.time}
-                    aria-label={`Select ${slot.time}`}
-                  >
-                    {slot.time}
-                  </button>
-                ))}
+              {/* Month title above date picker */}
+              <div className="w-full flex gap-4 items-center mb-2 pl-2">
+                {(() => {
+                  // Show 60 days in the future
+                  const monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                  const today = new Date();
+                  let lastMonth = '';
+                  let lastYear = '';
+                  const list = [];
+                  for (let i = 0; i < 60; i++) {
+                    const d = new Date(today);
+                    d.setDate(today.getDate() + i);
+                    const month = monthsFull[d.getMonth()];
+                    const year = d.getFullYear().toString();
+                    if (month !== lastMonth || year !== lastYear) {
+                      list.push({ type: 'month', month, year, key: `${month}-${year}-${i}` });
+                      lastMonth = month;
+                      lastYear = year;
+                    }
+                    list.push({
+                      type: 'date',
+                      iso: d.toISOString().split('T')[0],
+                      day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][d.getDay()],
+                      date: d.getDate(),
+                      month,
+                      year
+                    });
+                  }
+                    const currentMonth = monthsFull[new Date(selectedDate || today).getMonth()];
+                    const currentYear = (selectedDate ? new Date(selectedDate).getFullYear() : today.getFullYear()).toString();
+                    return list.filter(item => item.type === 'month' && item.month === currentMonth && item.year === currentYear).map(item => (
+                      <span key={item.key} className="text-lg font-bold text-green-800">{item.month} {item.year}</span>
+                    ));
+                })()}
+              </div>
+              <div className="w-full max-w-full overflow-x-auto scrollbar-thin scrollbar-thumb-green-200 scrollbar-track-green-50" style={{ WebkitOverflowScrolling: 'touch' }}>
+                <div className="flex gap-4 pb-2 min-w-max" style={{height: '160px'}}>
+                  {(() => {
+                    // Show 60 days in the future
+                    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    const monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    const today = new Date();
+                    let lastMonth = '';
+                    let lastYear = '';
+                    const list = [];
+                    for (let i = 0; i < 60; i++) {
+                      const d = new Date(today);
+                      d.setDate(today.getDate() + i);
+                      const month = monthsFull[d.getMonth()];
+                      const year = d.getFullYear().toString();
+                      if (month !== lastMonth || year !== lastYear) {
+                        // Month marker for scroll logic (not rendered here)
+                        lastMonth = month;
+                        lastYear = year;
+                      }
+                      list.push({
+                        iso: d.toISOString().split('T')[0],
+                        day: days[d.getDay()],
+                        date: d.getDate(),
+                        month: months[d.getMonth()],
+                        monthFull: month,
+                        year
+                      });
+                    }
+                    return list.map(date => (
+                      <div
+                        key={date.iso}
+                        data-item="true"
+                        data-iso-date={date.iso}
+                        data-selected={selectedDate === date.iso}
+                        className={`Time_tileWrapper___wF4w transition-opacity duration-300 flex flex-col items-center ${selectedDate === date.iso ? 'opacity-100' : 'opacity-80'}`}
+                      >
+                        <button
+                          className={`bXw7YC _XdG-5 util-focusRing-overrides _0HRZT5 eUzQQC OGOjGC flex flex-col items-center justify-center w-16 h-16 rounded-full border font-bold text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
+                            selectedDate === date.iso
+                              ? 'bg-green-800 text-white border-green-800 shadow-lg scale-105'
+                              : 'bg-white text-gray-800 border-gray-300 hover:bg-green-50'
+                          }`}
+                          type="button"
+                          aria-pressed={selectedDate === date.iso}
+                          aria-label={`Select ${date.day}, ${date.date} ${date.month}`}
+                          onClick={() => handleDateSelect(date.iso)}
+                        >
+                          <div className={`h_sbuC OGOjGC xa-FjC ${selectedDate === date.iso ? 'njpOjC' : ''}`}> 
+                            <p aria-hidden="true" className="_-wKJIN font-default-header-m-semibold BVXG1C xa-FjC text-lg">{date.date}</p>
+                          </div>
+                        </button>
+                        <p aria-hidden="true" className="_-wKJIN font-default-body-s-medium _0wX0lC xa-FjC text-xs mt-1">{date.day}</p>
+                      </div>
+                    ));
+                  })()}
+                </div>
               </div>
             </div>
-          )}
 
-          {/* Selected DateTime Display */}
-          {selectedDate && booking.time && (
-            <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-              <h4 className="font-semibold text-green-800">Selected Date & Time:</h4>
-              <p className="text-green-700">
-                {new Date(selectedDate).toLocaleDateString('en-US', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })} at {booking.time}
-              </p>
-            </div>
-          )}
+            {/* Time Slots UI */}
+            {selectedDate && (
+              <div className="mb-8">
+                <div className="flex flex-col gap-3">
+                  {timeSlots.map((slot) => (
+                    <button
+                      key={slot.time}
+                      className={`w-full text-left py-4 px-6 rounded-lg border transition-all duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
+                        booking.time === slot.time
+                          ? 'bg-green-800 text-white border-green-800'
+                          : slot.available && !slot.disabled
+                          ? 'bg-white text-gray-800 border-gray-300 hover:bg-green-50'
+                          : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                      }`}
+                      onClick={() => slot.available && !slot.disabled && handleTimeSelect(slot.time)}
+                      disabled={!slot.available || slot.disabled}
+                      type="button"
+                      aria-selected={booking.time === slot.time}
+                      aria-label={`Select ${slot.time}`}
+                    >
+                      {slot.time}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Selected DateTime Display */}
+            {selectedDate && booking.time && (
+              <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <h4 className="font-semibold text-green-800">Selected Date & Time:</h4>
+                <p className="text-green-700">
+                  {new Date(selectedDate).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })} at {booking.time}
+                </p>
+              </div>
+            )}
+          </div> {/* <-- Proper closing for left column content */}
         </div>
         {/* Right: Summary/Total Info + Continue Button */}
         <div className="md:w-[340px] md:min-w-[300px] md:max-w-[400px] w-full mb-8 md:mb-0">

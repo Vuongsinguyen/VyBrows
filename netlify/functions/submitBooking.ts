@@ -105,6 +105,22 @@ async function appendToGoogleSheet(data: any) {
       console.log('Sheet already exists, skipping creation');
     }
 
+    // Đọc toàn bộ dữ liệu sheet tháng hiện tại để kiểm tra trùng ngày giờ
+    console.log('Checking for duplicate date & time...');
+    const sheetDataResp = await sheets.spreadsheets.values.get({
+      spreadsheetId: GOOGLE_SHEET_ID,
+      range: `${sheetName}!A2:K1000`, // Bỏ header
+    });
+    const rows = sheetDataResp.data.values || [];
+    const isDuplicate = rows.some(row => {
+      // row[4] = Date, row[5] = Time
+      return row[4] === data.date && row[5] === data.time;
+    });
+    if (isDuplicate) {
+      console.log('Duplicate booking found for date:', data.date, 'time:', data.time);
+      return 'DUPLICATE';
+    }
+
     const values = [[
       new Date().toISOString(),
       data.category || '',
@@ -228,15 +244,25 @@ export const handler: Handler = async (event) => {
   try {
     // Chỉ ghi lên Google Sheets, không gửi email
     console.log('Calling appendToGoogleSheet...');
-    const sheetSuccess = await appendToGoogleSheet(data);
-    console.log('appendToGoogleSheet result:', sheetSuccess);
+    const sheetResult = await appendToGoogleSheet(data);
+    console.log('appendToGoogleSheet result:', sheetResult);
+
+    if (sheetResult === 'DUPLICATE') {
+      return {
+        statusCode: 409,
+        body: JSON.stringify({
+          success: false,
+          error: 'Duplicate booking: This date and time is already booked.'
+        })
+      };
+    }
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
         message: 'Booking submitted successfully',
-        sheetUpdated: sheetSuccess
+        sheetUpdated: sheetResult
       })
     };
   } catch (error: any) {

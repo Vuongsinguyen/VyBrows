@@ -512,13 +512,17 @@ const BookingComponent: React.FC = () => {
     >
       <div className="sticky top-0 z-50 w-full h-[100px] bg-white flex items-center justify-start px-4 border-b border-black/5">
         <button
-          onClick={() => window.location.href = '/'}
-          className="buttonBack mr-4 p-2 rounded-[5px] bg-white border border-green-800 text-green-800 hover:bg-green-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+          onClick={() => setBooking(prev => ({ ...prev, step: 1 }))}
+          className={
+            booking.step === 1
+              ? "buttonBack mr-4 p-2 rounded-full bg-green-800 text-white border border-green-800 hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+              : "buttonBack mr-4 p-2 rounded-[5px] bg-white border border-green-800 text-green-800 hover:bg-green-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+          }
           aria-label="Back to homepage"
           type="button"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg width="24" height="24" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+            <path d="M13.5048 27.3334V19.3334H18.8381V27.3334H25.5048V16.6667H29.5048L16.1715 4.66675L2.83812 16.6667H6.83812V27.3334H13.5048Z" fill="currentColor"/>
           </svg>
         </button>
         <h2 className="text-3xl font-bold text-center text-green-800 whitespace-nowrap" style={{ fontFamily: 'Tartuffo, serif' }}>
@@ -550,7 +554,7 @@ const BookingComponent: React.FC = () => {
       /> */}
 
       {/* Step Screens */}
-      <div className="w-full max-w-[1330px] flex flex-col justify-start items-center min-h-[500px]">
+  <div className="w-full max-w-[1330px] mx-auto flex flex-col justify-start items-center min-h-[500px]">
         {booking.step === 1 && (
           <Step1ServiceSelection
             booking={booking}
