@@ -159,14 +159,14 @@
     <!-- 2 columns: Map & Form -->
     <div class="flex flex-col md:flex-row gap-[34px]">
       <!-- Map column -->
-      <div class="w-full md:w-1/2 flex flex-col rounded-2xl shadow-lg bg-[var(--color-card-bg)] overflow-hidden">
+      <div class="w-full md:w-1/2 flex flex-col rounded-2xl shadow-lg bg-surface overflow-hidden">
         <iframe
           class="w-full flex-1"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.546055721214!2d-95.61564448830596!3d29.703937974993018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640ddecac735047%3A0xa513ff1ff0b5ffe8!2sVyBrows%20Academy!5e0!3m2!1sen!2s!4v1755529433006!5m2!1sen!2s"
         ></iframe>
       </div>
       <!-- Form column -->
-      <div class="w-full md:w-1/2 flex flex-col rounded-2xl shadow-lg bg-[var(--color-card-bg)]">
+      <div class="w-full md:w-1/2 flex flex-col rounded-2xl shadow-lg bg-surface">
   <form id="contactForm" class="px-8 py-8 flex flex-col gap-0 flex-1">
           {(() => {
             const lang = Astro.url.pathname.split('/')[1] || 'en';
@@ -226,7 +226,7 @@
               </div>
               {/* Submit */}
               <div id="formStatusWrapper">
-                <button type="submit" class="mt-2 px-6 rounded-lg bg-primary hover:bg-primary-hover text-white font-bold text-lg shadow transition self-center submit-btn" style="min-width:120px; padding-top:14px; padding-bottom:14px;">{labels[lang].submit}</button>
+                <button type="submit" class="mt-2 px-6 rounded-lg !bg-primary hover:!bg-primary-hover text-white font-bold text-lg shadow transition self-center submit-btn" style="min-width:120px; padding-top:14px; padding-bottom:14px; background-color: var(--color-primary) !important;">{labels[lang].submit}</button>
                 <div id="formStatus" aria-live="polite"></div>
               </div>
             </>;

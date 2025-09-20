@@ -4,7 +4,7 @@
   --color-linearGay-bg: linear-gradient(90deg, #FFFDF7 0%, #BEA776 25%, #FFF9E9 50%, #BEA776 75%, #FFFDF7 100%);
   --color-navbar: #18382b;
   --color-lineblack2white: rgb(69, 74, 67); /* Black 5% for light mode */
-  --color-white2white: #213e3c;
+  --color-white2white: #01513A;
   --color-blue-bg: #e0edff;
   --color-surface-1: #e0edff; /* xanh dương nhạt */
   --color-black2white: #FFD895;
@@ -31,11 +31,12 @@
   --team-avatar-shadow: 0 4px 24px 0 rgba(96, 165, 250, 0.15);
   --color-black-50: rgba(0,0,0,0.5);
   /* === Brand Colors === */
-  --color-blueWhite: #FFD895; /* blue for light mode */
+  --color-blueWhite: #01513A; /* blue for light mode */
   --color-blue2white: #2563eb; /* blue for light mode, white for dark mode */
   --color-primary: #01513A;        /* Main brand color */
   --color-primary-hover: #003324;  /* Darker shade for hover */
   --color-primary-ring: #01513A33; /* Primary with 20% opacity */
+  --color-primary2cream: #01513A;  /* Primary for light mode, cream for dark mode */
   /* --color-primary-light removed, use --color-white instead */
   --color-primary-dark: #01513A;   /* Same as primary for now */
   --color-green-800: #166534;     /* green-800 */
@@ -45,11 +46,11 @@
   --color-button-secondary-text: #2563eb;
   /* === Base Colors === */
   --color-white: #ffffff; /* White for light mode */
-  --color-black: #213e3c; /* Black for light mode */
+  --color-black: #01513A; /* Black for light mode */
   --color-bg: var(--color-white);
   /* --color-surface removed, use --color-white instead */
   --color-elevated: var(--color-white);       /* cards, dropdowns */
-  --color-text: #213e3c;
+  --color-text: #01513A;
   --color-text-secondary: #002319; /* secondary text */
   --text-heading: var(--color-white);
   --text-body: var(--color-muted);
@@ -114,9 +115,10 @@
   --color-stroke: #FFD895;
   --color-black2white: #FFD895;
   --color-blue2white: #fff; /* white for dark mode */
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
+  --color-primary: #01513A;
+  --color-primary-hover: #01513A;
   --color-primary-ring: #3b82f633;
+  --color-primary2cream: #e2dac1;  /* Cream color for dark mode */
   --color-primary-dark: #172554;
   --color-on-primary: var(--color-white);
   --color-on-primary-hover: var(--color-white);
@@ -139,7 +141,7 @@
   --nav-text-hover: var(--color-primary);
   --nav-border: rgba(100, 116, 139, 0.3);
   --color-white: #ffffff;
-  --color-black: #FFD895;
+  --color-black: #01513A;
   --header-bg: var(--color-white);
   --slider-bg: #1e293b;
   --slider-dot: #475569;

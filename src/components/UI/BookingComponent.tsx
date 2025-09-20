@@ -503,7 +503,7 @@ const BookingComponent: React.FC = () => {
             if (booking.step === 1) {
               window.location.href = '/';
             } else {
-              setBooking(prev => ({ ...prev, step: 1 }));
+              prevStep(); // Go back to previous step
             }
           }}
           className={
@@ -511,12 +511,20 @@ const BookingComponent: React.FC = () => {
               ? "buttonBack mr-4 p-2 rounded-full bg-green-800 text-white border border-green-800 hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
               : "buttonBack mr-4 p-2 rounded-[5px] bg-white border border-green-800 text-green-800 hover:bg-green-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
           }
-          aria-label="Back to homepage"
+          aria-label={booking.step === 1 ? "Back to homepage" : "Back to previous step"}
           type="button"
         >
-          <svg width="24" height="24" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-            <path d="M13.5048 27.3334V19.3334H18.8381V27.3334H25.5048V16.6667H29.5048L16.1715 4.66675L2.83812 16.6667H6.83812V27.3334H13.5048Z" fill="currentColor"/>
-          </svg>
+          {booking.step === 1 ? (
+            // Home icon for Step 1
+            <svg width="24" height="24" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+              <path d="M13.5048 27.3334V19.3334H18.8381V27.3334H25.5048V16.6667H29.5048L16.1715 4.66675L2.83812 16.6667H6.83812V27.3334H13.5048Z" fill="currentColor"/>
+            </svg>
+          ) : (
+            // Back arrow icon for Step 2, 3, 4
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          )}
         </button>
         <h2 className="text-3xl font-bold text-center text-green-800 whitespace-nowrap" style={{ fontFamily: 'Tartuffo, serif' }}>
           Book VyBrows Beauty Services
