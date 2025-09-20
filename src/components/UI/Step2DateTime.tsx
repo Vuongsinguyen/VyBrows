@@ -32,6 +32,10 @@ const Step2DateTime: React.FC<Step2Props> = ({
       .then(res => res.json())
       .then(data => {
         setAvailableDates(data.availableDates || []);
+      })
+      .catch(() => {
+        // If API fails, allow all dates to be selectable
+        setAvailableDates([]);
       });
   }, []);
 
@@ -39,8 +43,8 @@ const Step2DateTime: React.FC<Step2Props> = ({
   const generateTimeSlots = (date: string): TimeSlot[] => {
     const slots: TimeSlot[] = [];
     
-    // Generate time slots from 9:00 AM to 6:00 PM, skipping 12:00 PM
-    for (let hour = 9; hour <= 18; hour++) {
+    // Generate time slots from 10:00 AM to 5:00 PM, skipping 12:00 PM
+    for (let hour = 10; hour <= 17; hour++) {
       if (hour !== 12) {
         const timeString = `${hour.toString().padStart(2, '0')}:00`;
         slots.push({
@@ -78,6 +82,7 @@ const Step2DateTime: React.FC<Step2Props> = ({
           }
         })
         .catch(() => {
+          // If API fails, show all time slots as available
           setTimeSlots(generateTimeSlots(selectedDate));
         });
     }
@@ -103,9 +108,10 @@ const Step2DateTime: React.FC<Step2Props> = ({
 
   // Handle date selection
   const handleDateSelect = (iso: string) => {
-  if (!availableDates.includes(iso)) return;
-  setSelectedDate(iso);
-  updateBooking({ date: iso, time: '' });
+    // Allow selection if availableDates is empty (no restrictions) or if date is in availableDates
+    if (availableDates.length > 0 && !availableDates.includes(iso)) return;
+    setSelectedDate(iso);
+    updateBooking({ date: iso, time: '' });
   };
 
   // Handle time selection
@@ -232,9 +238,9 @@ const Step2DateTime: React.FC<Step2Props> = ({
                         className={`Time_tileWrapper___wF4w transition-opacity duration-300 flex flex-col items-center ${selectedDate === date.iso ? 'opacity-100' : 'opacity-80'}`}
                       >
                         <button
-                          className={`bXw7YC _XdG-5 util-focusRing-overrides _0HRZT5 eUzQQC OGOjGC flex flex-col items-center justify-center w-16 h-16 rounded-full border font-bold text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
+                          className={`bXw7YC _XdG-5 util-focusRing-overrides _0HRZT5 eUzQQC OGOjGC flex flex-col items-center justify-center w-16 h-16 rounded-full border font-bold text-base transition-all duration-200 ${
                             selectedDate === date.iso
-                              ? 'bg-green-800 text-white border-green-800 shadow-lg scale-105'
+                              ? 'bg-green-800 text-white border-green-800 shadow-lg'
                               : 'bg-white text-gray-800 border-gray-300 hover:bg-green-50'
                           }`}
                           type="button"

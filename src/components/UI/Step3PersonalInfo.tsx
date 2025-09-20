@@ -259,41 +259,6 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
           </div>
         </div>
 
-        {/* Age */}
-        <div>
-          <label 
-            htmlFor="age" 
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Age *
-          </label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            value={booking.age || ''}
-            onChange={(e) => handleInputChange('age', parseInt(e.target.value) || '')}
-            min="16"
-            max="100"
-            className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${
-              showValidation && errors.age 
-                ? 'border-red-500 focus:border-red-500' 
-                : 'border-gray-300 focus:border-green-500'
-            }`}
-            placeholder="Enter your age"
-            aria-describedby={errors.age ? 'age-error' : 'age-help'}
-            aria-invalid={showValidation && !!errors.age}
-            required
-          />
-          {showValidation && errors.age && (
-            <div id="age-error" className="text-red-600 text-sm mt-1" role="alert">
-              {errors.age}
-            </div>
-          )}
-          <div id="age-help" className="text-sm text-gray-600 mt-1">
-            Minimum age requirement: 16 years old
-          </div>
-        </div>
 
         {/* Special Requests */}
         <div>
@@ -320,6 +285,18 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
         </div>
       </form>
 
+      {/* Back Button Step 3 */}
+      <button
+        className="buttonBackStep3 mr-4 p-2 rounded-full bg-green-800 text-white border border-green-800 hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+        onClick={() => window.location.href = '/'}
+        aria-label="Back to homepage"
+        type="button"
+        style={{ margin: '16px 0 0 16px' }}
+      >
+        <svg width="24" height="24" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+          <path d="M13.5048 27.3334V19.3334H18.8381V27.3334H25.5048V16.6667H29.5048L16.1715 4.66675L2.83812 16.6667H6.83812V27.3334H13.5048Z" fill="currentColor"/>
+        </svg>
+      </button>
       {/* Navigation Buttons */}
       <div className="flex justify-between items-center mt-8">
         <button

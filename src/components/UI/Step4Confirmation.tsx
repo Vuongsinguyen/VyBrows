@@ -150,6 +150,18 @@ const Step4Confirmation: React.FC<Step4Props> = ({
       {/* Terms and Conditions */}
       <div className="mb-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
         <h4 className="text-lg font-bold text-yellow-800 mb-4">Terms & Conditions</h4>
+                {/* Back Button Step 4 */}
+                <button
+                  className="buttonBackStep4 mr-4 p-2 rounded-full bg-green-800 text-white border border-green-800 hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  onClick={() => window.location.href = '/'}
+                  aria-label="Back to homepage"
+                  type="button"
+                  style={{ margin: '16px 0 0 16px' }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+                    <path d="M13.5048 27.3334V19.3334H18.8381V27.3334H25.5048V16.6667H29.5048L16.1715 4.66675L2.83812 16.6667H6.83812V27.3334H13.5048Z" fill="currentColor"/>
+                  </svg>
+                </button>
         
         <div className="space-y-4">
           {/* Terms Agreement */}

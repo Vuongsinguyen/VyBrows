@@ -512,7 +512,13 @@ const BookingComponent: React.FC = () => {
     >
       <div className="sticky top-0 z-50 w-full h-[100px] bg-white flex items-center justify-start px-4 border-b border-black/5">
         <button
-          onClick={() => setBooking(prev => ({ ...prev, step: 1 }))}
+          onClick={() => {
+            if (booking.step === 1) {
+              window.location.href = '/';
+            } else {
+              setBooking(prev => ({ ...prev, step: 1 }));
+            }
+          }}
           className={
             booking.step === 1
               ? "buttonBack mr-4 p-2 rounded-full bg-green-800 text-white border border-green-800 hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
