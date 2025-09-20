@@ -97,10 +97,10 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
         <div className="p-6">
           {/* Service Details */}
           <div id="modal-description" className="mb-6">
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+            <div className="bg-white rounded-lg mb-4">
               <h3 className="font-semibold text-green-800 mb-2">Service Information</h3>
-              <div className="text-green-700 space-y-1">
-                <p><strong>Price:</strong> {service.price}</p>
+              <div className="text-black space-y-1">
+                <p><strong>Price:</strong> from {service.price}</p>
                 <p><strong>Duration:</strong> {service.duration || '60-90 minutes'}</p>
                 <p><strong>Description:</strong> {service.description || 'Professional beauty service tailored to your needs.'}</p>
               </div>

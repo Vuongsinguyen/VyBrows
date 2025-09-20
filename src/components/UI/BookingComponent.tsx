@@ -24,9 +24,16 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             { name: 'Chin', time: '5 mins', price: '$8' }
           ], duration: ' 5mins - 30 mins', description: 'Our facial waxing service includes eyebrow shaping, upper lip, chin, and cheek waxing for smooth, flawless skin. Enjoy precision and comfort with long-lasting results.' },
           { id: 'full-body-waxing', name: 'Full Body Waxing', price: '$20', options: [
-            { name: 'Micro', time: '30 mins', price: '$120' },
-            { name: 'Nano', time: '40 mins', price: '$130' }
-          ], duration: '30-40 mins', description: 'Semi-permanent eyebrow enhancement.' },
+            { name: 'Full Body Waxing', time: '1 hr', price: '$150' },
+            { name: 'UnderArms (Ampit)', time: '20 mins', price: '$20' },
+            { name: 'UnderArms (Ampit)', time: '20 mins', price: '$20' },
+            { name: 'Arms (Full)', time: '25 mins', price: '$30' },
+            { name: 'Legs (Full)', time: '40 mins', price: '$50' },
+            { name: 'Bikini Line', time: '25 mins', price: '$25' },
+            { name: 'Brazillian Bikini', time: '20 mins', price: '$45' },
+            { name: 'Back', time: '25 mins', price: '$65' },
+            { name: 'Chest', time: '20 mins', price: '$50' },
+          ], duration: '20 mins - 1 hr', description: 'Semi-permanent eyebrow enhancement.' },
           { id: 'house-special-facial', name: 'House Special Facial', price: '$30', options: [
             { name: 'Natural', time: '35 mins', price: '$150' },
             { name: 'Bold', time: '45 mins', price: '$160' }
