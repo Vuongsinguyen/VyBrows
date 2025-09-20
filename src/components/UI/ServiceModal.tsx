@@ -76,13 +76,13 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex justify-between items-center p-6 border-b border-gray-200">
+        <div className="flex justify-between items-center px-6 py-2 border-b border-gray-200">
           <h2 id="modal-title" className="text-xl font-bold text-green-800">
             {service.name}
           </h2>
           <button
             ref={closeButtonRef}
-            className="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-full p-2"
+            className="text-gray-400 hover:text-gray-600 rounded-full p-2"
             onClick={onClose}
             aria-label="Close modal"
             type="button"
@@ -95,16 +95,9 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
 
         {/* Modal Body */}
         <div className="p-6">
-          {/* Service Details */}
-          <div id="modal-description" className="mb-6">
-            <div className="bg-white rounded-lg mb-4">
-              <h3 className="font-semibold text-green-800 mb-2">Service Information</h3>
-              <div className="text-black space-y-1">
-                <p><strong>Price:</strong> from {service.price}</p>
-                <p><strong>Duration:</strong> {service.duration || '60-90 minutes'}</p>
-                <p><strong>Description:</strong> {service.description || 'Professional beauty service tailored to your needs.'}</p>
-              </div>
-            </div>
+          {/* Service Description */}
+          <div className="mb-6">
+            <p className="text-gray-700">{service.description || 'Professional beauty service tailored to your needs.'}</p>
           </div>
 
           {/* Option Selection */}
@@ -118,12 +111,22 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                   service.options.map((opt, idx) => (
                     <label
                       key={idx}
-                      className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-md ${
+                      className={`flex items-center justify-between p-4 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-md ${
                         selectedOption === opt.name
-                          ? 'border-green-600 bg-green-50 text-green-800'
-                          : 'border-gray-200 bg-white hover:border-green-300 hover:bg-green-25'
+                          ? 'border border-green-600 bg-green-50 text-green-800'
+                          : 'border-1 border-gray-200 bg-white hover:border-green-300 hover:bg-green-25'
                       }`}
                     >
+                      <div className="flex flex-col">
+                        <span className="font-medium">
+                          {opt.name} {opt.time ? `- ${opt.time}` : ''}
+                        </span>
+                        {opt.price && (
+                          <span className="text-sm text-gray-600 mt-1">
+                            {opt.price}
+                          </span>
+                        )}
+                      </div>
                       <input
                         type="radio"
                         name="serviceOption"
@@ -133,9 +136,6 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                         className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300"
                         aria-describedby={`option-desc-${idx}`}
                       />
-                      <span className="ml-3 font-medium">
-                        {opt.name} {opt.time ? `- ${opt.time}` : ''}{opt.price ? ` - ${opt.price}` : ''}
-                      </span>
                       <div id={`option-desc-${idx}`} className="sr-only">
                         Service option: {opt.name}
                       </div>
