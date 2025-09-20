@@ -3,6 +3,8 @@ import '/src/styles/color.css';
 import '/src/styles/global.css';
 import PageLayout from '../../../layouts/PageLayout.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const modules = import.meta.glob('/src/content/projects/*/*.md');
   const entries = await Promise.all(

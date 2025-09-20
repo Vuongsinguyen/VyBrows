@@ -100,7 +100,7 @@ section .text-4xl.font-bold {
       ja: "何千人ものお客様が私たちのサービスを信頼し、体験されています！",
       ko: "수천 명의 고객이 저희 서비스를 신뢰하고 경험했습니다!",
       es: "¡Miles de clientes han confiado y experimentado nuestros servicios!"
-    })[(Astro.props?.lang || Astro.url.pathname.split('/')[1] || 'en')]}
+    })[(Astro.props?.lang || Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es']}
   </h2>
   <p class="text-base text-center mb-8 max-w-2xl mx-auto font-lora" style="color: var(--color-bg); font-family: 'Lora', serif;">
     Honest reviews from those who have experienced our premium services.

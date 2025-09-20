@@ -5,7 +5,7 @@
   <div class="max-w-7xl mx-auto">
     {/** Detect current language from URL **/}
     {(() => {
-      const lang = Astro.url.pathname.split('/')[1] || 'en';
+      const lang = (Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
       const labels = {
         en: {
           contact: "Contact Us",
@@ -169,7 +169,7 @@
       <div class="w-full md:w-1/2 flex flex-col rounded-2xl shadow-lg bg-surface">
   <form id="contactForm" class="px-8 py-8 flex flex-col gap-0 flex-1">
           {(() => {
-            const lang = Astro.url.pathname.split('/')[1] || 'en';
+            const lang = (Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
             const labels = {
               en: { name: "Name", email: "Email", phone: "Phone", service: "Service", selectService: "Select Service", message: "Message", submit: "Submit" },
               vi: { name: "Họ tên", email: "Email", phone: "Số điện thoại", service: "Dịch vụ", selectService: "Chọn dịch vụ", message: "Nội dung", submit: "Gửi" },
@@ -264,7 +264,7 @@
 <script>
 (function() {
   const statusEl = () => document.getElementById('formStatus');
-  function setStatus(msg, type) {
+  function setStatus(msg: string, type?: string) {
     const el = statusEl(); if(!el) return;
     el.className = ''; el.id='formStatus'; if(type) el.classList.add(type);
     el.innerHTML = `<span class="close-btn" aria-label="Close" title="Close">×</span>${msg}`;
@@ -275,31 +275,31 @@
 
   // Turnstile callbacks (global)
   let captchaReady = false;
-  window.onTurnstileSuccess = function () { captchaReady = true; };
-  window.onTurnstileExpired = function () {
+  (window as any).onTurnstileSuccess = function () { captchaReady = true; };
+  (window as any).onTurnstileExpired = function () {
     captchaReady = false;
     setStatus('Captcha expired. Please verify again.', 'error');
   };
-  window.onTurnstileError = function () {
+  (window as any).onTurnstileError = function () {
     captchaReady = false;
     setStatus('Captcha error. Please retry.', 'error');
   };
 
   document.addEventListener('DOMContentLoaded', ()=>{
-    const form = document.getElementById('contactForm'); if(!form) return;
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const form = document.getElementById('contactForm') as HTMLFormElement; if(!form) return;
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
 
     form.addEventListener('submit', async (e)=>{
-      e.preventDefault(); if(form.dataset.sending==='1') return;
+      e.preventDefault(); if((form as any).dataset.sending==='1') return;
 
-      const token = form.querySelector('input[name="cf-turnstile-response"]')?.value || '';
+      const token = (form.querySelector('input[name="cf-turnstile-response"]') as HTMLInputElement)?.value || '';
       if (!token || !captchaReady) { setStatus('❌ Vui lòng xác minh bảo mật.', 'error'); return; }
 
-      form.dataset.sending='1';
-      if(submitBtn){ submitBtn.disabled=true; submitBtn.dataset.originalText=submitBtn.textContent; submitBtn.textContent='Sending...'; }
+      (form as any).dataset.sending='1';
+      if(submitBtn){ submitBtn.disabled=true; (submitBtn as any).dataset.originalText=submitBtn.textContent; submitBtn.textContent='Sending...'; }
       setStatus('Đang gửi...', 'info');
 
-      const fd=new FormData(form); const payload={}; fd.forEach((v,k)=>payload[k]=String(v));
+      const fd=new FormData(form); const payload: any={}; fd.forEach((v,k)=>payload[k]=String(v));
       payload.turnstileToken = token;
 
       try{
@@ -309,10 +309,10 @@
         else { setStatus('❌ Failed to send: '+(result.error||'Captcha failed'), 'error'); }
       } catch { setStatus('❌ Network error (failed to send)', 'error'); }
       finally {
-        try { window.turnstile?.reset(); } catch {}
+        try { (window as any).turnstile?.reset(); } catch {}
         captchaReady = false;
-        if(submitBtn){ submitBtn.disabled=false; submitBtn.textContent=submitBtn.dataset.originalText||'Submit'; }
-        delete form.dataset.sending;
+        if(submitBtn){ submitBtn.disabled=false; submitBtn.textContent=(submitBtn as any).dataset.originalText||'Submit'; }
+        delete (form as any).dataset.sending;
       }
     });
   });
