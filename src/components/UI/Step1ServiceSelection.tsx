@@ -100,6 +100,49 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
     };
   }, []); // Remove dependencies to prevent re-running
 
+  // Auto-select Featured tab when scrolling to top
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY <= 10 && booking.category !== 'featured') {
+        updateBookingRef.current({ category: 'featured' });
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [booking.category]);
+
+  // Auto-scroll to show active tab
+  useEffect(() => {
+    const scrollToActiveTab = () => {
+      const tablist = document.getElementById('categoryTablist');
+      if (tablist) {
+        // Find the active tab
+        const activeTab = tablist.querySelector(`[data-category="${booking.category}"]`) as HTMLElement;
+        if (activeTab) {
+          // Calculate the scroll position to center the active tab
+          const tabRect = activeTab.getBoundingClientRect();
+          const containerRect = tablist.getBoundingClientRect();
+          const scrollLeft = tablist.scrollLeft;
+          
+          // Calculate how much to scroll to center the tab
+          const tabCenter = tabRect.left + tabRect.width / 2;
+          const containerCenter = containerRect.left + containerRect.width / 2;
+          const scrollAmount = scrollLeft + (tabCenter - containerCenter);
+          
+          tablist.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    // Small delay to ensure DOM is updated
+    const timeoutId = setTimeout(scrollToActiveTab, 50);
+    return () => clearTimeout(timeoutId);
+  }, [booking.category]);
+
   // Get current category data
   const currentCategory = SERVICE_CATEGORIES.find(cat => cat.key === booking.category);
 
@@ -133,6 +176,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                   <a
                     key={category.key}
                     href={`#category-${category.key}`}
+                    data-category={category.key}
                     className={`px-4 py-2 rounded-[200px] font-bold whitespace-nowrap transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
                       booking.category === category.key
                         ? 'bg-green-800 text-white'
