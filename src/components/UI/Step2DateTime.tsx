@@ -142,9 +142,6 @@ const Step2DateTime: React.FC<Step2Props> = ({
         </legend>
         
         <div className="mb-4">
-          <label htmlFor="booking-date" className="block text-sm font-medium text-gray-700 mb-2">
-            Choose your preferred date:
-          </label>
           <input
             type="date"
             id="booking-date"
@@ -155,16 +152,7 @@ const Step2DateTime: React.FC<Step2Props> = ({
             max={getMaxDate()}
             required
             className="w-full md:w-auto px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
-            aria-describedby="date-help"
           />
-          <div id="date-help" className="text-sm text-gray-600 mt-2">
-            Available dates: Today to {new Date(getMaxDate()).toLocaleDateString()}
-            {selectedDate && isWeekend(selectedDate) && (
-              <span className="block text-orange-600 font-medium mt-1">
-                ⚠️ Weekend appointments may have limited availability
-              </span>
-            )}
-          </div>
         </div>
       </fieldset>
 
@@ -230,7 +218,7 @@ const Step2DateTime: React.FC<Step2Props> = ({
           onClick={onPrevious}
           type="button"
         >
-          Previous: Select Service
+          Back
         </button>
         
         <button
@@ -244,7 +232,7 @@ const Step2DateTime: React.FC<Step2Props> = ({
           disabled={!isFormValid}
           aria-describedby="step-2-help"
         >
-          Next: Personal Information
+          Continue
         </button>
       </div>
       

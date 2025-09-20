@@ -507,7 +507,7 @@ const BookingComponent: React.FC = () => {
 
   return (
     <section 
-      className="booking-step-section w-full min-h-screen flex flex-col justify-center items-center"
+      className="booking-step-section w-full min-h-screen flex flex-col justify-start items-center"
       aria-label="Service booking form"
     >
       <div className="sticky top-0 z-50 w-full h-[100px] bg-white flex items-center justify-start px-4 border-b border-black/5">
