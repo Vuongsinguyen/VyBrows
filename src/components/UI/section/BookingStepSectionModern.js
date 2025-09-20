@@ -56,7 +56,6 @@ const BookingState = {
   update(key, value) {
     booking[key] = value;
     console.log('State updated:', key, '=', value);
-    this.reactToStateChange(key, value);
   },
 
   // Get current state
@@ -78,24 +77,6 @@ const BookingState = {
       email: ''
     };
     console.log('State reset');
-    this.reactToStateChange('reset');
-  },
-
-  // React to state changes
-  reactToStateChange(key, value) {
-    switch(key) {
-      case 'step':
-        DOM.updateStepView(value);
-        DOM.updateStepIndicators(value);
-        if (value === 4) DOM.updateConfirmationView();
-        break;
-      case 'category':
-        DOM.updateServicesView(value);
-        break;
-      case 'reset':
-        DOM.resetForm();
-        break;
-    }
   }
 };
 
