@@ -17,12 +17,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Popular Services',
         services: [
-          { name: 'Shading Ombré', price: '$100', options: ['Classic', 'Ombre'] },
-          { name: 'Micro Blading', price: '$120', options: ['Micro', 'Nano'] },
-          { name: 'Combo Brows', price: '$150', options: ['Natural', 'Bold'] },
-          { name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] },
-          { name: 'Classic Eyeliner', price: '$80', options: ['Thin', 'Thick'] },
-          { name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] }
+          { id: 'shading-ombre', name: 'Shading Ombré', price: '$100', options: ['Classic', 'Ombre'] },
+          { id: 'micro-blading', name: 'Micro Blading', price: '$120', options: ['Micro', 'Nano'] },
+          { id: 'combo-brows', name: 'Combo Brows', price: '$150', options: ['Natural', 'Bold'] },
+          { id: 'lip-blush-featured', name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] },
+          { id: 'classic-eyeliner', name: 'Classic Eyeliner', price: '$80', options: ['Thin', 'Thick'] },
+          { id: 'hydra-facial', name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] }
         ]
       }
     ]
@@ -35,20 +35,23 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Brows',
         services: [
-          { name: 'Shading Ombré', price: '$100', options: ['Classic', 'Ombre'] },
-          { name: 'Micro Blading', price: '$120', options: ['Micro', 'Nano'] },
-          { name: 'Combo Brows', price: '$150', options: ['Natural', 'Bold'] },
-          { name: 'Eyebrow Wax', price: '$15', options: ['Basic', 'Premium'] },
-          { name: 'Eyebrow Tint', price: '$20', options: ['Light', 'Dark'] },
-          { name: 'Eyebrow Threading', price: '$18', options: ['Standard'] }
+          { id: 'eyebrow-wax-brows', name: 'Eyebrow Wax', price: '$15', options: ['Basic', 'Premium'] },
+          { id: 'eyebrow-tint', name: 'Eyebrow Tint', price: '$20', options: ['Light', 'Dark'] },
+          { id: 'eyebrow-threading', name: 'Eyebrow Threading', price: '$18', options: ['Standard'] },
+          { id: 'brow-lamination', name: 'Brow Lamination', price: '$45', options: ['Natural', 'Bold'] },
+          { id: 'brow-henna', name: 'Brow Henna', price: '$35', options: ['Brown', 'Black'] },
+          { id: 'brow-shaping', name: 'Brow Shaping', price: '$25', options: ['Natural', 'Arched'] }
         ]
       },
       {
         title: 'Lashes',
         services: [
-          { name: 'Lash Lift', price: '$60', options: ['Basic', 'Premium'] },
-          { name: 'Lash Tint', price: '$25', options: ['Black', 'Brown'] },
-          { name: 'Lash Extension', price: '$80', options: ['Natural', 'Dramatic'] }
+          { id: 'lash-lift', name: 'Lash Lift', price: '$60', options: ['Basic', 'Premium'] },
+          { id: 'lash-tint', name: 'Lash Tint', price: '$25', options: ['Black', 'Brown'] },
+          { id: 'lash-extension', name: 'Lash Extension', price: '$80', options: ['Natural', 'Dramatic'] },
+          { id: 'lash-perm', name: 'Lash Perm', price: '$70', options: ['Curl', 'Volume'] },
+          { id: 'lash-removal', name: 'Lash Removal', price: '$30', options: ['Safe Removal'] },
+          { id: 'lash-botox', name: 'Lash Botox', price: '$50', options: ['Treatment'] }
         ]
       }
     ]
@@ -61,11 +64,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Lips',
         services: [
-          { name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] },
-          { name: 'Lip Liner', price: '$75', options: ['Natural', 'Defined'] },
-          { name: 'Full Lip Color', price: '$120', options: ['Nude', 'Red', 'Pink'] },
-          { name: 'Lip Neutralization', price: '$60', options: ['Light', 'Medium'] },
-          { name: 'Russian Lips', price: '$150', options: ['Subtle', 'Dramatic'] }
+          { id: 'lip-blush-lips', name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] },
+          { id: 'lip-liner', name: 'Lip Liner', price: '$75', options: ['Natural', 'Defined'] },
+          { id: 'full-lip-color', name: 'Full Lip Color', price: '$120', options: ['Nude', 'Red', 'Pink'] },
+          { id: 'lip-neutralization', name: 'Lip Neutralization', price: '$60', options: ['Light', 'Medium'] },
+          { id: 'russian-lips', name: 'Russian Lips', price: '$150', options: ['Subtle', 'Dramatic'] }
         ]
       }
     ]
@@ -78,9 +81,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Eyeliner',
         services: [
-          { name: 'Classic Eyeliner', price: '$80', options: ['Thin', 'Thick'] },
-          { name: 'Designer Eyeliner', price: '$100', options: ['Simple', 'Complex'] },
-          { name: 'Colored Eyeliner', price: '$110', options: ['Blue', 'Green', 'Purple'] }
+          { id: 'classic-eyeliner-tattoo', name: 'Classic Eyeliner', price: '$80', options: ['Thin', 'Thick'] },
+          { id: 'designer-eyeliner', name: 'Designer Eyeliner', price: '$100', options: ['Simple', 'Complex'] },
+          { id: 'colored-eyeliner', name: 'Colored Eyeliner', price: '$110', options: ['Blue', 'Green', 'Purple'] }
         ]
       }
     ]
@@ -93,8 +96,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Body Waxing',
         services: [
-          { name: 'Eyebrow Wax', price: '$15', options: ['Basic', 'Premium'] },
-          { name: 'Upper Lip Wax', price: '$12', options: ['Standard'] }
+          { id: 'eyebrow-wax-waxing', name: 'Eyebrow Wax', price: '$15', options: ['Basic', 'Premium'] },
+          { id: 'upper-lip-wax', name: 'Upper Lip Wax', price: '$12', options: ['Standard'] }
         ]
       }
     ]
@@ -107,8 +110,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Scalp Treatments',
         services: [
-          { name: 'Scalp Massage', price: '$30', options: ['30 min', '60 min'] },
-          { name: 'Herbal Hair Wash', price: '$25', options: ['Basic', 'Premium'] }
+          { id: 'scalp-massage', name: 'Scalp Massage', price: '$30', options: ['30 min', '60 min'] },
+          { id: 'herbal-hair-wash', name: 'Herbal Hair Wash', price: '$25', options: ['Basic', 'Premium'] }
         ]
       }
     ]
@@ -121,9 +124,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Facial Treatments',
         services: [
-          { name: 'Acne Treatment', price: '$80', options: ['Basic', 'Advanced'] },
-          { name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] },
-          { name: 'Chemical Peel', price: '$100', options: ['Light', 'Medium'] }
+          { id: 'acne-treatment', name: 'Acne Treatment', price: '$80', options: ['Basic', 'Advanced'] },
+          { id: 'hydra-facial-facial', name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] },
+          { id: 'chemical-peel', name: 'Chemical Peel', price: '$100', options: ['Light', 'Medium'] }
         ]
       }
     ]
@@ -165,9 +168,9 @@ const BookingComponent: React.FC = () => {
   // Initial state
   const [booking, setBooking] = useState<BookingState>({
     step: 1,
-    category: 'pmu',
-    service: '',
-    option: '',
+    category: 'featured',
+    services: [], // Changed from service: '' to services: []
+    options: {}, // Changed from option: '' to options: {}
     date: '',
     time: '',
     fullName: '',
@@ -201,8 +204,14 @@ const BookingComponent: React.FC = () => {
   const validateStep = useCallback((step: number): { isValid: boolean; message: string } => {
     switch (step) {
       case 1:
-        if (!booking.category || !booking.service || !booking.option) {
-          return { isValid: false, message: 'Please select a service and option' };
+        if (!booking.services.length) {
+          return { isValid: false, message: 'Please select at least one service' };
+        }
+        // Check if all selected services have options
+        for (const serviceId of booking.services) {
+          if (!booking.options[serviceId]) {
+            return { isValid: false, message: `Please select an option for service` };
+          }
         }
         break;
       case 2:
@@ -253,21 +262,26 @@ const BookingComponent: React.FC = () => {
 
   // Service selection
   const selectService = useCallback((service: Service) => {
-    updateBooking({
-      service: service.name,
-      option: '' // Reset option when service changes
-    });
-    
+    // Open modal for option selection (allow for both selected and unselected services)
     setModalData({
       isOpen: true,
       service: service
     });
-  }, [updateBooking]);
+  }, []);
 
   const selectServiceOption = useCallback((option: string) => {
-    updateBooking({ option });
+    // Add service to services array (if not already present) and set/replace option
+    if (modalData.service) {
+      setBooking(prev => ({
+        ...prev,
+        services: prev.services.includes(modalData.service!.id)
+          ? prev.services // Keep existing services array if service already selected
+          : [...prev.services, modalData.service!.id], // Add service if not already selected
+        options: { ...prev.options, [modalData.service!.id]: option } // Always update/replace option
+      }));
+    }
     closeModal();
-  }, [updateBooking]);
+  }, [modalData.service]);
 
   const closeModal = useCallback(() => {
     setModalData({ isOpen: false, service: null });
@@ -296,8 +310,8 @@ const BookingComponent: React.FC = () => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              service: booking.service,
-              option: booking.option,
+              services: booking.services,
+              options: booking.options,
               date: booking.date,
               time: booking.time,
               name: booking.fullName, // Backend expects 'name' field
@@ -333,9 +347,9 @@ const BookingComponent: React.FC = () => {
         setTimeout(() => {
           setBooking({
             step: 1,
-            category: 'pmu',
-            service: '',
-            option: '',
+            category: 'featured',
+            services: [],
+            options: {},
             date: '',
             time: '',
             fullName: '',
@@ -374,12 +388,24 @@ const BookingComponent: React.FC = () => {
 
   return (
     <section 
-      className="booking-step-section w-full min-h-screen flex flex-col justify-center items-center px-4 py-16"
+      className="booking-step-section w-full min-h-screen flex flex-col justify-center items-center"
       aria-label="Service booking form"
     >
-      <h2 className="text-5xl font-bold mb-8 text-center text-green-800" style={{ fontFamily: 'Tartuffo, serif' }}>
-        Book VyBrows Beauty Services
-      </h2>
+      <div className="sticky top-0 z-50 w-full h-[100px] bg-white flex items-center justify-start px-4 border-b border-black/5">
+        <button
+          onClick={() => window.location.href = '/'}
+          className="buttonBack mr-4 p-2 rounded-[5px] bg-white border border-green-800 text-green-800 hover:bg-green-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+          aria-label="Back to homepage"
+          type="button"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <h2 className="text-5xl font-bold text-center text-green-800" style={{ fontFamily: 'Tartuffo, serif' }}>
+          Book VyBrows Beauty Services
+        </h2>
+      </div>
       {/* Status and Address - Temporarily hidden */}
       {/* <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
         <p className="text-lg text-green-700 font-medium">
@@ -405,7 +431,7 @@ const BookingComponent: React.FC = () => {
       /> */}
 
       {/* Step Screens */}
-      <div className="w-full max-w-2xl mx-auto flex flex-col justify-center items-center min-h-[500px]">
+      <div className="w-full max-w-[1330px] flex flex-col justify-start items-center min-h-[500px]">
         {booking.step === 1 && (
           <Step1ServiceSelection
             booking={booking}
@@ -463,7 +489,7 @@ const BookingComponent: React.FC = () => {
         service={modalData.service}
         onClose={closeModal}
         onSelectOption={selectServiceOption}
-        selectedOption={booking.option}
+        selectedOption={modalData.service ? booking.options[modalData.service.id] || '' : ''}
       />
 
       {/* Screen Reader Instructions */}

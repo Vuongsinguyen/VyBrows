@@ -1,6 +1,7 @@
 // Step4Confirmation.tsx - Booking confirmation step
 import React, { useState } from 'react';
 import type { BookingState } from '../../types/booking';
+import { SERVICE_CATEGORIES } from '../UI/BookingComponent';
 
 interface Step4Props {
   booking: BookingState;
@@ -55,16 +56,34 @@ const Step4Confirmation: React.FC<Step4Props> = ({
           {/* Service Details */}
           <div>
             <h5 className="font-semibold text-green-700 mb-3">Service Details</h5>
-            <div className="space-y-2 text-green-900">
-              <div className="flex justify-between">
-                <span className="font-medium">Service:</span>
-                <span>{booking.service}</span>
+            <div className="space-y-3 text-green-900">
+              <div>
+                <span className="font-medium">Services:</span>
+                <div className="mt-1 space-y-1">
+                  {booking.services.map((serviceId, index) => {
+                    // Find the service name by ID
+                    let serviceName = serviceId;
+                    for (const category of SERVICE_CATEGORIES) {
+                      for (const group of category.groups) {
+                        const service = group.services.find(s => s.id === serviceId);
+                        if (service) {
+                          serviceName = service.name;
+                          break;
+                        }
+                      }
+                    }
+                    return (
+                      <div key={index} className="flex justify-between text-sm">
+                        <span>• {serviceName}</span>
+                        <span className="text-green-600">
+                          {booking.options[serviceId] && `(${booking.options[serviceId]})`}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span className="font-medium">Option:</span>
-                <span>{booking.option}</span>
-              </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between pt-2 border-t border-green-200">
                 <span className="font-medium">Category:</span>
                 <span className="capitalize">{booking.category}</span>
               </div>

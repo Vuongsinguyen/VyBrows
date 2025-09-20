@@ -1,6 +1,7 @@
 // Step3PersonalInfo.tsx - Personal information form
 import React, { useState } from 'react';
 import type { BookingState } from '../../types/booking';
+import { SERVICE_CATEGORIES } from '../UI/BookingComponent';
 
 interface Step3Props {
   booking: BookingState;
@@ -118,7 +119,29 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
       <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
         <h4 className="font-semibold text-green-800 mb-2">Booking Summary:</h4>
         <div className="text-green-700 space-y-1">
-          <p><strong>Service:</strong> {booking.service} ({booking.option})</p>
+          <div>
+            <strong>Services:</strong>
+            <ul className="mt-1 ml-4 space-y-1">
+              {booking.services.map((serviceId, index) => {
+                // Find the service name by ID
+                let serviceName = serviceId;
+                for (const category of SERVICE_CATEGORIES) {
+                  for (const group of category.groups) {
+                    const service = group.services.find(s => s.id === serviceId);
+                    if (service) {
+                      serviceName = service.name;
+                      break;
+                    }
+                  }
+                }
+                return (
+                  <li key={index} className="text-sm">
+                    • {serviceName} {booking.options[serviceId] && `(${booking.options[serviceId]})`}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
           <p><strong>Date:</strong> {booking.date && new Date(booking.date).toLocaleDateString('en-US', { 
             weekday: 'long', 
             year: 'numeric', 

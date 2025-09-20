@@ -63,7 +63,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+      className="fixed inset-0 bg-[rgba(0,0,0,0.3)] flex items-center justify-center p-4 z-50"
       onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
@@ -140,28 +140,6 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
               ))}
             </div>
           </fieldset>
-
-          {/* Additional Information */}
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-            <h4 className="font-semibold text-yellow-800 mb-2">What to Expect</h4>
-            <ul className="text-yellow-700 text-sm space-y-1">
-              <li>• Professional consultation before service begins</li>
-              <li>• High-quality products and sterilized equipment</li>
-              <li>• Aftercare instructions provided</li>
-              <li>• Touch-up services available if needed</li>
-            </ul>
-          </div>
-
-          {/* Preparation Guidelines */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h4 className="font-semibold text-blue-800 mb-2">Preparation Guidelines</h4>
-            <ul className="text-blue-700 text-sm space-y-1">
-              <li>• Arrive with clean, makeup-free skin</li>
-              <li>• Avoid caffeine 2 hours before appointment</li>
-              <li>• Inform us of any allergies or sensitivities</li>
-              <li>• Bring a valid ID for age verification</li>
-            </ul>
-          </div>
         </div>
 
         {/* Modal Footer */}

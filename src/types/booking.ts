@@ -2,8 +2,8 @@
 export interface BookingState {
   step: number;
   category: string;
-  service: string;
-  option: string;
+  services: string[]; // Array of service IDs
+  options: { [serviceId: string]: string }; // Options keyed by service ID
   date: string;
   time: string;
   fullName: string;
@@ -14,6 +14,7 @@ export interface BookingState {
 }
 
 export interface Service {
+  id: string;
   name: string;
   price: string;
   options: string[];

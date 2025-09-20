@@ -1,6 +1,7 @@
 // Step2DateTime.tsx - Date and time slot selection
 import React, { useState, useEffect } from 'react';
-import type { BookingState } from './BookingComponent';
+import type { BookingState } from '../../types/booking';
+import { SERVICE_CATEGORIES } from '../UI/BookingComponent';
 
 interface Step2Props {
   booking: BookingState;
@@ -109,12 +110,29 @@ const Step2DateTime: React.FC<Step2Props> = ({
         Select Date & Time
       </h3>
 
-      {/* Selected Service Display */}
+      {/* Selected Services Display */}
       <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-        <h4 className="font-semibold text-green-800">Selected Service:</h4>
-        <p className="text-green-700">
-          {booking.service} ({booking.option})
-        </p>
+        <h4 className="font-semibold text-green-800">Selected Services:</h4>
+        <div className="text-green-700 mt-2 space-y-1">
+          {booking.services.map((serviceId: string, index: number) => {
+            // Find the service name by ID
+            let serviceName = serviceId;
+            for (const category of SERVICE_CATEGORIES) {
+              for (const group of category.groups) {
+                const service = group.services.find((s: any) => s.id === serviceId);
+                if (service) {
+                  serviceName = service.name;
+                  break;
+                }
+              }
+            }
+            return (
+              <p key={index} className="text-sm">
+                • {serviceName} {booking.options[serviceId] && `(${booking.options[serviceId]})`}
+              </p>
+            );
+          })}
+        </div>
       </div>
 
       {/* Date Selection */}
