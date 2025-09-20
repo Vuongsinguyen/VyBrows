@@ -268,9 +268,9 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                   tabIndex={0}
                                   aria-describedby={`service-desc-${service.id}`}
                                 >
-                                  <div className="flex items-center gap-1 h-[200px]">
-                                    {/* Service Image */}
-                                    <div className="flex-shrink-0">
+                                  <div className="flex items-center gap-1 h-[160px]">
+                                    {/* Service Image - Hidden */}
+                                    <div className="flex-shrink-0 hidden">
                                       <div className="w-[200px] h-[200px] overflow-hidden">
                                         <img
                                           src={`/images/${serviceImage}`}
@@ -299,14 +299,14 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                             'No options'
                                           )}
                                         </div>
-                                        <div className="text-[14px] text-black mb-1">{service.description || 'No description available.'}</div>
+                                        <div className="text-[14px] text-black mb-1 line-clamp-1">{service.description || 'No description available.'}</div>
                                         <div className="text-[16px] text-black font-normal mt-auto">from {service.price}</div>
                                       </div>
                                       <button
                                         className={`p-1 rounded-[5px] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-green-800)] flex-shrink-0 ${
                                           isSelected
                                             ? 'bg-[var(--color-primary-dark)] text-white hover:bg-[#002a1f]'
-                                            : 'text-gray-400 hover:bg-gray-100'
+                                            : 'bg-black/5 text-gray-400 hover:bg-gray-100'
                                         }`}
                                         onClick={(e) => {
                                           e.stopPropagation();
@@ -353,7 +353,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
 
           {/* Right Column - Summary */}
           <div className="lg:col-span-1">
-            <div className="lg:sticky lg:top-30 fixed bottom-0 left-0 right-0 mx-2.5 bg-white/5 backdrop-blur rounded-lg p-6 border border-gray-200 shadow-lg lg:relative lg:mb-0 mb-4">
+            <div className="lg:sticky lg:top-30 fixed bottom-0 left-0 right-0 bg-white p-6 shadow-lg lg:relative border-t border-black/10">
               {/* Business Info */}
               <div className="mb-6 hidden lg:block">
                 <h3 className="text-lg font-bold text-green-800 mb-2">Vy Brows Academy</h3>
