@@ -353,9 +353,9 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
 
           {/* Right Column - Summary */}
           <div className="lg:col-span-1">
-            <div className="sticky top-30 bg-white/5 backdrop-blur rounded-lg p-6 border border-gray-200 shadow-lg">
+            <div className="lg:sticky lg:top-30 fixed bottom-0 left-0 right-0 mx-2.5 bg-white/5 backdrop-blur rounded-lg p-6 border border-gray-200 shadow-lg lg:relative lg:mb-0 mb-4">
               {/* Business Info */}
-              <div className="mb-6">
+              <div className="mb-6 hidden lg:block">
                 <h3 className="text-lg font-bold text-green-800 mb-2">Vy Brows Academy</h3>
                 <p className="text-sm text-gray-600 mb-1">13192 Bellaire Boulevard, B</p>
                 <p className="text-sm text-gray-600">Alief, Houston, Texas</p>

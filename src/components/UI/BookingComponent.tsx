@@ -418,6 +418,19 @@ const BookingComponent: React.FC = () => {
             body: JSON.stringify({
               services: booking.services,
               options: booking.options,
+              serviceNames: booking.services.reduce((names: { [key: string]: string }, serviceId) => {
+                // Find service name from SERVICE_CATEGORIES
+                for (const category of SERVICE_CATEGORIES) {
+                  for (const group of category.groups) {
+                    const service = group.services.find(s => s.id === serviceId);
+                    if (service) {
+                      names[serviceId] = service.name;
+                      break;
+                    }
+                  }
+                }
+                return names;
+              }, {}),
               date: booking.date,
               time: booking.time,
               name: booking.fullName, // Backend expects 'name' field
@@ -508,7 +521,7 @@ const BookingComponent: React.FC = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        <h2 className="text-3xl font-bold text-center text-green-800" style={{ fontFamily: 'Tartuffo, serif' }}>
+        <h2 className="text-3xl font-bold text-center text-green-800 whitespace-nowrap" style={{ fontFamily: 'Tartuffo, serif' }}>
           Book VyBrows Beauty Services
         </h2>
       </div>
