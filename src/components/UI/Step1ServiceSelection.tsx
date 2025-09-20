@@ -286,12 +286,15 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                         <div className="font-medium text-lg">{service.name}</div>
                                         <div className="text-xs text-gray-500 mb-1">
                                           {service.options && service.options.length > 0 ? (
-                                            service.options.map((opt, idx) => (
-                                              <span key={idx} className="block">
-                                                {opt.name}: {opt.time}
-                                                {opt.price ? ` - ${opt.price}` : ''}
-                                              </span>
-                                            ))
+                                            (() => {
+                                              const times = service.options.map(opt => opt.time).filter(time => time);
+                                              if (times.length === 1) {
+                                                return times[0];
+                                              } else if (times.length > 1) {
+                                                return `${Math.min(...times.map(t => parseInt(t.replace(/\D/g, ''))))} mins - ${Math.max(...times.map(t => parseInt(t.replace(/\D/g, ''))))} mins`;
+                                              }
+                                              return 'Time varies';
+                                            })()
                                           ) : (
                                             'No options'
                                           )}
