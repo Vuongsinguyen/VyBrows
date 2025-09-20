@@ -462,23 +462,10 @@ const BookingComponent: React.FC = () => {
           message: `Booking submitted successfully! ${result.sheetUpdated ? 'Data saved to Google Sheets.' : 'Request processed.'} We will contact you soon to confirm your appointment.`
         });
         
-        // Reset form after successful submission
+        // Redirect to home page after successful submission
         setTimeout(() => {
-          setBooking({
-            step: 1,
-            category: 'featured',
-            services: [],
-            options: {},
-            date: '',
-            time: '',
-            fullName: '',
-            phone: '',
-            email: '',
-            age: '',
-            specialRequests: ''
-          });
-          setStatusMessage({ type: '', message: '' });
-        }, 5000);
+          window.location.href = '/';
+        }, 2000);
       } else {
         throw new Error(result.error || `Server error: ${response.status}`);
       }

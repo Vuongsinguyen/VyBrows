@@ -14,7 +14,6 @@ interface ValidationErrors {
   fullName?: string;
   email?: string;
   phone?: string;
-  age?: string;
 }
 
 const Step3PersonalInfo: React.FC<Step3Props> = ({
@@ -37,11 +36,6 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
     return phoneRegex.test(phone.replace(/\s/g, ''));
   };
 
-  const validateAge = (age: string): boolean => {
-    const ageNum = parseInt(age);
-    return !isNaN(ageNum) && ageNum >= 16 && ageNum <= 100;
-  };
-
   // Validate all fields
   const validateForm = (): ValidationErrors => {
     const newErrors: ValidationErrors = {};
@@ -62,12 +56,6 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
       newErrors.phone = 'Phone number is required';
     } else if (!validatePhone(booking.phone)) {
       newErrors.phone = 'Please enter a valid phone number';
-    }
-
-    if (!booking.age?.toString().trim()) {
-      newErrors.age = 'Age is required';
-    } else if (!validateAge(booking.age.toString())) {
-      newErrors.age = 'Age must be between 16 and 100';
     }
 
     return newErrors;
@@ -105,7 +93,7 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
   };
 
   return (
-    <div 
+    <div
       role="tabpanel"
       aria-labelledby="step-3-title"
       tabIndex={0}
@@ -114,230 +102,194 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
       <h3 id="step-3-title" className="text-xl font-bold mb-6 text-center text-green-800">
         Personal Information
       </h3>
-
-      {/* Booking Summary */}
-      <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-        <h4 className="font-semibold text-green-800 mb-2">Booking Summary:</h4>
-        <div className="text-green-700 space-y-1">
-          <div>
-            <strong>Services:</strong>
-            <ul className="mt-1 ml-4 space-y-1">
-              {booking.services.map((serviceId, index) => {
-                // Find the service name by ID
-                let serviceName = serviceId;
-                for (const category of SERVICE_CATEGORIES) {
-                  for (const group of category.groups) {
-                    const service = group.services.find(s => s.id === serviceId);
-                    if (service) {
-                      serviceName = service.name;
-                      break;
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-[1330px] mx-auto">
+        {/* Left: Personal Info Form (2 columns) */}
+        <div className="flex-1 min-w-0">
+          <form noValidate className="space-y-6">
+            {/* Full Name */}
+            <div>
+              <label 
+                htmlFor="fullName" 
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Full Name *
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value={booking.fullName || ''}
+                onChange={(e) => handleInputChange('fullName', e.target.value)}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${
+                  showValidation && errors.fullName 
+                    ? 'border-red-500 focus:border-red-500' 
+                    : 'border-gray-300 focus:border-green-500'
+                }`}
+                placeholder="Enter your full name"
+                aria-describedby={errors.fullName ? 'fullName-error' : undefined}
+                aria-invalid={showValidation && !!errors.fullName}
+                autoComplete="name"
+                required
+              />
+              {showValidation && errors.fullName && (
+                <div id="fullName-error" className="text-red-600 text-sm mt-1" role="alert">
+                  {errors.fullName}
+                </div>
+              )}
+            </div>
+            {/* Email */}
+            <div>
+              <label 
+                htmlFor="email" 
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Email Address *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={booking.email || ''}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${
+                  showValidation && errors.email 
+                    ? 'border-red-500 focus:border-red-500' 
+                    : 'border-gray-300 focus:border-green-500'
+                }`}
+                placeholder="Enter your email address"
+                aria-describedby={errors.email ? 'email-error' : undefined}
+                aria-invalid={showValidation && !!errors.email}
+                autoComplete="email"
+                required
+              />
+              {showValidation && errors.email && (
+                <div id="email-error" className="text-red-600 text-sm mt-1" role="alert">
+                  {errors.email}
+                </div>
+              )}
+            </div>
+            {/* Phone */}
+            <div>
+              <label 
+                htmlFor="phone" 
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Phone Number *
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={booking.phone || ''}
+                onChange={(e) => handleInputChange('phone', e.target.value)}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${
+                  showValidation && errors.phone 
+                    ? 'border-red-500 focus:border-red-500' 
+                    : 'border-gray-300 focus:border-green-500'
+                }`}
+                placeholder="Enter your phone number"
+                aria-describedby={errors.phone ? 'phone-error' : undefined}
+                aria-invalid={showValidation && !!errors.phone}
+                autoComplete="tel"
+                required
+              />
+              {showValidation && errors.phone && (
+                <div id="phone-error" className="text-red-600 text-sm mt-1" role="alert">
+                  {errors.phone}
+                </div>
+              )}
+            </div>
+            {/* Special Requests */}
+            <div>
+              <label 
+                htmlFor="specialRequests" 
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Special Requests (Optional)
+              </label>
+              <textarea
+                id="specialRequests"
+                name="specialRequests"
+                value={booking.specialRequests || ''}
+                onChange={(e) => handleInputChange('specialRequests', e.target.value)}
+                rows={3}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 resize-vertical"
+                placeholder="Any special requests or preferences..."
+                maxLength={500}
+              />
+            </div>
+            {/* Navigation Buttons */}
+            <div className="flex justify-between items-center mt-8">
+              <div />
+              <button
+                className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
+                  isFormValid()
+                    ? 'bg-green-800 text-white hover:bg-green-700 hover:transform hover:scale-105'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
+                onClick={handleNext}
+                type="button"
+                aria-describedby="step-3-help"
+              >
+                Continue
+              </button>
+            </div>
+            <div id="step-3-help" className="sr-only">
+              Proceed to step 4 to review and confirm your booking
+            </div>
+            {/* Form Status */}
+            <div className="mt-4 text-center">
+              <div className="text-sm text-gray-600">
+                {showValidation && Object.keys(errors).length > 0 && (
+                  <span className="text-red-600 font-medium">
+                    Please fix the errors above to continue
+                  </span>
+                )}
+                {isFormValid() && (
+                  <span className="text-green-600 font-medium">
+                    ✓ All information looks good!
+                  </span>
+                )}
+              </div>
+            </div>
+          </form>
+        </div>
+        {/* Right: Summary Box (1 column) */}
+        <div className="md:w-[340px] md:min-w-[300px] md:max-w-[400px] w-full mb-8 md:mb-0 min-w-0">
+          <div className="p-4 bg-green-50 border border-green-200 rounded-lg sticky md:top-24 flex flex-col gap-4">
+            <h4 className="font-semibold text-green-800 mb-2">Booking Summary:</h4>
+            <div className="text-green-700 space-y-1 mb-2">
+              <div>
+                <strong>Services:</strong>
+                <ul className="mt-1 ml-4 space-y-1">
+                  {booking.services.map((serviceId, index) => {
+                    let serviceName = serviceId;
+                    for (const category of SERVICE_CATEGORIES) {
+                      for (const group of category.groups) {
+                        const service = group.services.find(s => s.id === serviceId);
+                        if (service) {
+                          serviceName = service.name;
+                          break;
+                        }
+                      }
                     }
-                  }
-                }
-                return (
-                  <li key={index} className="text-sm">
-                    • {serviceName} {booking.options[serviceId] && `(${booking.options[serviceId]})`}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-          <p><strong>Date:</strong> {booking.date && new Date(booking.date).toLocaleDateString('en-US', { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          })}</p>
-          <p><strong>Time:</strong> {booking.time}</p>
-        </div>
-      </div>
-
-      {/* Personal Information Form */}
-      <form noValidate className="space-y-6">
-        {/* Full Name */}
-        <div>
-          <label 
-            htmlFor="fullName" 
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Full Name *
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={booking.fullName || ''}
-            onChange={(e) => handleInputChange('fullName', e.target.value)}
-            className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${
-              showValidation && errors.fullName 
-                ? 'border-red-500 focus:border-red-500' 
-                : 'border-gray-300 focus:border-green-500'
-            }`}
-            placeholder="Enter your full name"
-            aria-describedby={errors.fullName ? 'fullName-error' : 'fullName-help'}
-            aria-invalid={showValidation && !!errors.fullName}
-            autoComplete="name"
-            required
-          />
-          {showValidation && errors.fullName && (
-            <div id="fullName-error" className="text-red-600 text-sm mt-1" role="alert">
-              {errors.fullName}
+                    return (
+                      <li key={index} className="text-sm">
+                        • {serviceName} {booking.options[serviceId] && `(${booking.options[serviceId]})`}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <p><strong>Date:</strong> {booking.date && new Date(booking.date).toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}</p>
+              <p><strong>Time:</strong> {booking.time}</p>
             </div>
-          )}
-          <div id="fullName-help" className="text-sm text-gray-600 mt-1">
-            Your legal name as it appears on your ID
           </div>
-        </div>
-
-        {/* Email */}
-        <div>
-          <label 
-            htmlFor="email" 
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Email Address *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={booking.email || ''}
-            onChange={(e) => handleInputChange('email', e.target.value)}
-            className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${
-              showValidation && errors.email 
-                ? 'border-red-500 focus:border-red-500' 
-                : 'border-gray-300 focus:border-green-500'
-            }`}
-            placeholder="Enter your email address"
-            aria-describedby={errors.email ? 'email-error' : 'email-help'}
-            aria-invalid={showValidation && !!errors.email}
-            autoComplete="email"
-            required
-          />
-          {showValidation && errors.email && (
-            <div id="email-error" className="text-red-600 text-sm mt-1" role="alert">
-              {errors.email}
-            </div>
-          )}
-          <div id="email-help" className="text-sm text-gray-600 mt-1">
-            We'll send your booking confirmation to this email
-          </div>
-        </div>
-
-        {/* Phone */}
-        <div>
-          <label 
-            htmlFor="phone" 
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Phone Number *
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={booking.phone || ''}
-            onChange={(e) => handleInputChange('phone', e.target.value)}
-            className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${
-              showValidation && errors.phone 
-                ? 'border-red-500 focus:border-red-500' 
-                : 'border-gray-300 focus:border-green-500'
-            }`}
-            placeholder="Enter your phone number"
-            aria-describedby={errors.phone ? 'phone-error' : 'phone-help'}
-            aria-invalid={showValidation && !!errors.phone}
-            autoComplete="tel"
-            required
-          />
-          {showValidation && errors.phone && (
-            <div id="phone-error" className="text-red-600 text-sm mt-1" role="alert">
-              {errors.phone}
-            </div>
-          )}
-          <div id="phone-help" className="text-sm text-gray-600 mt-1">
-            Include country code if outside the US (e.g., +1 555-123-4567)
-          </div>
-        </div>
-
-
-        {/* Special Requests */}
-        <div>
-          <label 
-            htmlFor="specialRequests" 
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Special Requests (Optional)
-          </label>
-          <textarea
-            id="specialRequests"
-            name="specialRequests"
-            value={booking.specialRequests || ''}
-            onChange={(e) => handleInputChange('specialRequests', e.target.value)}
-            rows={3}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 resize-vertical"
-            placeholder="Any special requests or preferences..."
-            aria-describedby="specialRequests-help"
-            maxLength={500}
-          />
-          <div id="specialRequests-help" className="text-sm text-gray-600 mt-1">
-            Let us know about any allergies, preferences, or special needs (max 500 characters)
-          </div>
-        </div>
-      </form>
-
-      {/* Back Button Step 3 */}
-      <button
-        className="buttonBackStep3 mr-4 p-2 rounded-full bg-green-800 text-white border border-green-800 hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
-        onClick={() => window.location.href = '/'}
-        aria-label="Back to homepage"
-        type="button"
-        style={{ margin: '16px 0 0 16px' }}
-      >
-        <svg width="24" height="24" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-          <path d="M13.5048 27.3334V19.3334H18.8381V27.3334H25.5048V16.6667H29.5048L16.1715 4.66675L2.83812 16.6667H6.83812V27.3334H13.5048Z" fill="currentColor"/>
-        </svg>
-      </button>
-      {/* Navigation Buttons */}
-      <div className="flex justify-between items-center mt-8">
-        <button
-          className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold hover:bg-gray-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-          onClick={onPrevious}
-          type="button"
-        >
-          Previous: Date & Time
-        </button>
-        
-        <button
-          className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
-            isFormValid()
-              ? 'bg-green-800 text-white hover:bg-green-700 hover:transform hover:scale-105'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-          }`}
-          onClick={handleNext}
-          type="button"
-          aria-describedby="step-3-help"
-        >
-          Next: Review & Confirm
-        </button>
-      </div>
-      
-      <div id="step-3-help" className="sr-only">
-        Proceed to step 4 to review and confirm your booking
-      </div>
-
-      {/* Form Status */}
-      <div className="mt-4 text-center">
-        <div className="text-sm text-gray-600">
-          {showValidation && Object.keys(errors).length > 0 && (
-            <span className="text-red-600 font-medium">
-              Please fix the errors above to continue
-            </span>
-          )}
-          {isFormValid() && (
-            <span className="text-green-600 font-medium">
-              ✓ All information looks good!
-            </span>
-          )}
         </div>
       </div>
     </div>

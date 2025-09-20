@@ -1,5 +1,5 @@
 // Step2DateTime.tsx - Date and time slot selection
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import type { BookingState } from '../../types/booking';
 import { SERVICE_CATEGORIES } from '../UI/BookingComponent';
 
@@ -25,6 +25,12 @@ const Step2DateTime: React.FC<Step2Props> = ({
   const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([]);
   const [selectedDate, setSelectedDate] = useState<string>(booking.date || '');
   const [availableDates, setAvailableDates] = useState<string[]>([]);
+  const [numDays, setNumDays] = useState(60); // Số ngày hiển thị ban đầu
+  const [isLoading, setIsLoading] = useState(false);
+  const [visibleMonth, setVisibleMonth] = useState(''); // Track visible month
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const lastDateRef = useRef<HTMLDivElement | null>(null);
+  const monthObserverRef = useRef<IntersectionObserver | null>(null);
 
   // Fetch available dates from API on mount
   useEffect(() => {
@@ -92,7 +98,7 @@ const Step2DateTime: React.FC<Step2Props> = ({
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const list = [];
     const today = new Date();
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < numDays; i++) {
       const d = new Date(today);
       d.setDate(today.getDate() + i);
       const iso = d.toISOString().split('T')[0];
@@ -120,6 +126,94 @@ const Step2DateTime: React.FC<Step2Props> = ({
   };
 
 
+
+  // Handle scroll to load more dates
+  const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
+    if (isLoading) return;
+    
+    const target = e.currentTarget;
+    const scrollLeft = target.scrollLeft;
+    const scrollWidth = target.scrollWidth;
+    const clientWidth = target.clientWidth;
+    
+    // Check if scrolled to within 50px of the end
+    if (scrollLeft + clientWidth >= scrollWidth - 50) {
+      console.log('Loading more days...', { scrollLeft, scrollWidth, clientWidth });
+      setIsLoading(true);
+      setTimeout(() => {
+        setNumDays(prev => {
+          console.log('Adding 10 more days, current:', prev);
+          return prev + 10;
+        });
+        setIsLoading(false);
+      }, 100);
+    }
+  }, [isLoading]);
+
+  // Setup Intersection Observer for infinite scroll
+  useEffect(() => {
+    const loadMoreDays = () => {
+      if (!isLoading) {
+        console.log('Intersection Observer: Loading more days...');
+        setIsLoading(true);
+        setTimeout(() => {
+          setNumDays(prev => {
+            console.log('Adding 10 more days via observer, current:', prev);
+            return prev + 10;
+          });
+          setIsLoading(false);
+        }, 100);
+      }
+    };
+
+    if (lastDateRef.current) {
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            loadMoreDays();
+          }
+        },
+        { threshold: 0.1, rootMargin: '20px' }
+      );
+
+      observerRef.current.observe(lastDateRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [numDays, isLoading]);
+
+  // Setup month visibility observer
+  useEffect(() => {
+    const today = new Date();
+    const currentMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][today.getMonth()];
+    const currentYear = today.getFullYear().toString();
+    setVisibleMonth(`${currentMonth} ${currentYear}`);
+
+    // Observer for tracking visible month
+    monthObserverRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const monthYear = entry.target.getAttribute('data-month-year');
+            if (monthYear) {
+              setVisibleMonth(monthYear);
+            }
+          }
+        });
+      },
+      { threshold: 0.5, root: null }
+    );
+
+    return () => {
+      if (monthObserverRef.current) {
+        monthObserverRef.current.disconnect();
+      }
+    };
+  }, []);
 
   const isFormValid = selectedDate && booking.time;
 
@@ -153,56 +247,26 @@ const Step2DateTime: React.FC<Step2Props> = ({
       role="tabpanel"
       aria-labelledby="step-2-title"
       tabIndex={0}
-      className="w-full max-w-[1330px] mx-auto"
+      className="w-full flex justify-center"
+      style={{ paddingLeft: 20, paddingRight: 20 }}
     >
-      <h3 id="step-2-title" className="text-xl font-bold mb-6 text-center text-green-800">
-        Select Date & Time
-      </h3>
-  <div className="flex flex-col md:flex-row gap-8 w-full">
+  <div className="flex flex-col md:flex-row gap-8 w-full max-w-[1330px]">
         {/* Left: Date/Time Picker */}
-        <div className="flex-1 md:pr-4">
-          <div className="w-full max-w-[1330px] mx-auto">
+  <div className="flex-1 md:pr-4 min-w-0">
+          <div className="w-full mx-auto">
             {/* Date Picker UI */}
             <div className="mb-8">
               {/* Month title above date picker */}
               <div className="w-full flex gap-4 items-center mb-2 pl-2">
-                {(() => {
-                  // Show 60 days in the future
-                  const monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                  const today = new Date();
-                  let lastMonth = '';
-                  let lastYear = '';
-                  const list = [];
-                  for (let i = 0; i < 60; i++) {
-                    const d = new Date(today);
-                    d.setDate(today.getDate() + i);
-                    const month = monthsFull[d.getMonth()];
-                    const year = d.getFullYear().toString();
-                    if (month !== lastMonth || year !== lastYear) {
-                      list.push({ type: 'month', month, year, key: `${month}-${year}-${i}` });
-                      lastMonth = month;
-                      lastYear = year;
-                    }
-                    list.push({
-                      type: 'date',
-                      iso: d.toISOString().split('T')[0],
-                      day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][d.getDay()],
-                      date: d.getDate(),
-                      month,
-                      year
-                    });
-                  }
-                    const currentMonth = monthsFull[new Date(selectedDate || today).getMonth()];
-                    const currentYear = (selectedDate ? new Date(selectedDate).getFullYear() : today.getFullYear()).toString();
-                    return list.filter(item => item.type === 'month' && item.month === currentMonth && item.year === currentYear).map(item => (
-                      <span key={item.key} className="text-lg font-bold text-green-800">{item.month} {item.year}</span>
-                    ));
-                })()}
+                <span className="text-lg font-bold text-green-800">{visibleMonth}</span>
               </div>
-              <div className="w-full max-w-full overflow-x-auto scrollbar-thin scrollbar-thumb-green-200 scrollbar-track-green-50" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <div
+                className="w-full max-w-full overflow-x-auto scrollbar-thin scrollbar-thumb-green-200 scrollbar-track-green-50"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+              >
                 <div className="flex gap-4 pb-2 min-w-max" style={{height: '160px'}}>
                   {(() => {
-                    // Show 60 days in the future
+                    // Show numDays days in the future
                     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                     const monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -210,7 +274,7 @@ const Step2DateTime: React.FC<Step2Props> = ({
                     let lastMonth = '';
                     let lastYear = '';
                     const list = [];
-                    for (let i = 0; i < 60; i++) {
+                    for (let i = 0; i < numDays; i++) {
                       const d = new Date(today);
                       d.setDate(today.getDate() + i);
                       const month = monthsFull[d.getMonth()];
@@ -229,14 +293,26 @@ const Step2DateTime: React.FC<Step2Props> = ({
                         year
                       });
                     }
-                    return list.map(date => (
-                      <div
-                        key={date.iso}
-                        data-item="true"
-                        data-iso-date={date.iso}
-                        data-selected={selectedDate === date.iso}
-                        className={`Time_tileWrapper___wF4w transition-opacity duration-300 flex flex-col items-center ${selectedDate === date.iso ? 'opacity-100' : 'opacity-80'}`}
-                      >
+                    return list.map((date, index) => {
+                      const monthYear = `${date.monthFull} ${date.year}`;
+                      return (
+                        <div
+                          key={date.iso}
+                          ref={(el) => {
+                            if (index === list.length - 1) {
+                              lastDateRef.current = el;
+                            }
+                            if (el && monthObserverRef.current) {
+                              el.setAttribute('data-month-year', monthYear);
+                              monthObserverRef.current.observe(el);
+                            }
+                          }}
+                          data-item="true"
+                          data-iso-date={date.iso}
+                          data-selected={selectedDate === date.iso}
+                          data-month-year={monthYear}
+                          className={`Time_tileWrapper___wF4w transition-opacity duration-300 flex flex-col items-center ${selectedDate === date.iso ? 'opacity-100' : 'opacity-80'}`}
+                        >
                         <button
                           className={`bXw7YC _XdG-5 util-focusRing-overrides _0HRZT5 eUzQQC OGOjGC flex flex-col items-center justify-center w-16 h-16 rounded-full border font-bold text-base transition-all duration-200 ${
                             selectedDate === date.iso
@@ -254,7 +330,8 @@ const Step2DateTime: React.FC<Step2Props> = ({
                         </button>
                         <p aria-hidden="true" className="_-wKJIN font-default-body-s-medium _0wX0lC xa-FjC text-xs mt-1">{date.day}</p>
                       </div>
-                    ));
+                      );
+                    });
                   })()}
                 </div>
               </div>
@@ -287,27 +364,26 @@ const Step2DateTime: React.FC<Step2Props> = ({
               </div>
             )}
 
-            {/* Selected DateTime Display */}
-            {selectedDate && booking.time && (
-              <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <h4 className="font-semibold text-green-800">Selected Date & Time:</h4>
-                <p className="text-green-700">
-                  {new Date(selectedDate).toLocaleDateString('en-US', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })} at {booking.time}
-                </p>
-              </div>
-            )}
           </div> {/* <-- Proper closing for left column content */}
         </div>
         {/* Right: Summary/Total Info + Continue Button */}
-        <div className="md:w-[340px] md:min-w-[300px] md:max-w-[400px] w-full mb-8 md:mb-0">
+  <div className="md:w-[340px] md:min-w-[300px] md:max-w-[400px] w-full mb-8 md:mb-0 min-w-0">
           <div className="p-4 bg-green-50 border border-green-200 rounded-lg sticky md:top-24 flex flex-col gap-4">
             <h4 className="font-semibold text-green-800 mb-2">Summary</h4>
             <div className="text-green-700 space-y-1 mb-2">
+              {selectedDate && booking.time && (
+                <div className="mb-2">
+                  <span className="font-semibold">Date & Time:</span>
+                  <span className="ml-2">
+                    {new Date(selectedDate).toLocaleDateString('en-US', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })} at {booking.time}
+                  </span>
+                </div>
+              )}
               {selectedServices.length === 0 ? (
                 <p className="text-sm">No services selected.</p>
               ) : (
