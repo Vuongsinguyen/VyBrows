@@ -159,7 +159,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
           role="tabpanel"
           aria-labelledby="step-1-title"
           tabIndex={0}
-          className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8"
+          className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-[20px]"
         >
           {/* Left Column - Categories & Services */}
           <div className="lg:col-span-2">
@@ -244,7 +244,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                       {category.groups.map((group, groupIndex) => (
                         <div key={groupIndex} className="mb-6">
                           <h4 className="font-semibold mb-3 text-green-700">{group.title}</h4>
-                          <div className="grid gap-3 md:grid-cols-2">
+                          <div className="flex flex-col gap-3">
                             {group.services.map((service, serviceIndex) => {
                               const isSelected = selectedServices.some(s => s.id === service.id);
                               // Map services to images (using service01.avif to service09.avif)
