@@ -17,25 +17,30 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
   onNext
 }) => {
   // Get selected services from booking state
-  const getSelectedServices = () => {
-    const services = [];
+  const getSelectedServices = (): Service[] => {
+    const services: Service[] = [];
     for (const serviceId of booking.services) {
-      // Find the service in SERVICE_CATEGORIES
       for (const category of SERVICE_CATEGORIES) {
         for (const group of category.groups) {
-          const service = group.services.find(s => s.id === serviceId);
+          const service = group.services.find((s: Service) => s.id === serviceId);
           if (service) {
             services.push(service);
             break;
           }
         }
-        if (services.length > 0) break;
       }
     }
     return services;
   };
 
   const selectedServices = getSelectedServices();
+  // Calculate total using selected option price if available
+  const total = selectedServices.reduce((sum: number, service: Service) => {
+    const selectedOptionName = booking.options[service.id];
+    const selectedOption = service.options.find((opt: any) => opt.name === selectedOptionName);
+    const priceStr = selectedOption?.price || service.price;
+    return sum + parseFloat((priceStr || '0').replace(/[^\d.]/g, ''));
+  }, 0);
 
   // Handle category tab switching
   const handleCategoryChange = (category: string) => {
@@ -146,11 +151,6 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
   // Get current category data
   const currentCategory = SERVICE_CATEGORIES.find(cat => cat.key === booking.category);
 
-  // Calculate total
-  const total = selectedServices.reduce((sum, service) => {
-    return sum + parseFloat((service.price || '0').replace(/[^\d.]/g, ''));
-  }, 0);
-
   return (
     <div className="min-h-screen">
       {/* Body */}
@@ -166,7 +166,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
             {/* Category Tabs */}
             <div className="relative w-full flex items-center sticky top-25 z-40 h-[90px] overflow-hidden bg-white">
               <div
-                className="w-full max-w-full flex gap-4 overflow-x-auto scrollbar scrollbar-thumb-gray-400 scrollbar-track-gray-100 justify-start pt-[48px] pb-[30px]"
+                className="w-full max-w-full flex gap-1 overflow-x-auto scrollbar scrollbar-thumb-gray-400 scrollbar-track-gray-100 justify-start pt-[48px] pb-[30px]"
                 style={{ WebkitOverflowScrolling: 'touch', overflowX: 'scroll' }}
                 role="tablist"
                 aria-label="Service categories"
@@ -177,10 +177,10 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                     key={category.key}
                     href={`#category-${category.key}`}
                     data-category={category.key}
-                    className={`px-4 py-2 rounded-[200px] font-bold whitespace-nowrap transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
+                    className={`px-4 py-2 rounded-[200px] font-bold whitespace-nowrap transition-all duration-300 ${
                       booking.category === category.key
                         ? 'bg-green-800 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-yellow-400 hover:text-green-800'
+                        : 'bg-white text-gray-700 hover:bg-black/5 hover:text-green-800'
                     }`}
                     role="tab"
                     aria-selected={booking.category === category.key}
@@ -258,68 +258,75 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                               return (
                                 <div
                                   key={serviceIndex}
-                                  className={`p-4 rounded-lg border transition-all duration-300 hover:bg-black/5 cursor-pointer ${
+                                  className={`rounded-lg border transition-all duration-300 hover:bg-black/5 cursor-pointer group ${
                                     isSelected
-                                      ? 'border-[var(--color-green-800)] bg-white text-black'
-                                      : 'border-black/30 bg-white text-black'
+                                      ? 'border-[var(--color-green-800)] bg-white text-black overflow-hidden'
+                                      : 'border-black/30 bg-white text-black overflow-hidden hover:bg-white hover:border-[var(--color-green-800)]'
                                   }`}
                                   onClick={() => handleServiceClick(service)}
                                   role="button"
                                   tabIndex={0}
                                   aria-describedby={`service-desc-${service.id}`}
                                 >
-                                  <div className="flex items-start gap-4">
+                                  <div className="flex items-start gap-1">
                                     {/* Service Image */}
                                     <div className="flex-shrink-0">
-                                      <img
-                                        src={`/images/${serviceImage}`}
-                                        alt={`${service.name} service`}
-                                        className="w-16 h-16 rounded-lg object-cover border border-gray-200"
-                                        loading="lazy"
-                                      />
+                                      <div className="w-[200px] h-[200px] overflow-hidden">
+                                        <img
+                                          src={`/images/${serviceImage}`}
+                                          alt={`${service.name} service`}
+                                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                          loading="lazy"
+                                        />
+                                      </div>
                                     </div>
-                                    
-                                    {/* Service Info */}
-                                    <div className="flex-1 min-w-0">
-                                      <div className="font-medium text-lg">{service.name}</div>
-                                      <div className="text-sm opacity-75 font-semibold">{service.price}</div>
+                                    {/* Service Info + Action Button */}
+                                      <div className="servicect p-4 flex-1 min-w-0 flex items-center gap-2">
+                                      <div className="servicect flex-1 min-w-0 flex flex-col gap-2 items-start">
+                                        <div className="font-medium text-lg">{service.name}</div>
+                                        <div className="text-xs text-gray-500 mb-1">
+                                          {service.options && service.options.length > 0 ? (
+                                            service.options.map((opt, idx) => (
+                                              <span key={idx} className="block">
+                                                {opt.name}: {opt.time}
+                                                {opt.price ? ` - ${opt.price}` : ''}
+                                              </span>
+                                            ))
+                                          ) : (
+                                            'No options'
+                                          )}
+                                        </div>
+                                        <div className="text-xs text-gray-400 mb-1">Short description of the service.</div>
+                                        <div className="text-sm opacity-75 font-semibold">from {service.price}</div>
+                                      </div>
                                       <button
-                                        className="text-xs text-gray-600 mt-1 focus:outline-none focus:ring-1 focus:ring-green-500"
+                                        className={`p-1 rounded-[5px] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-green-800)] flex-shrink-0 ${
+                                          isSelected
+                                            ? 'bg-[var(--color-primary-dark)] text-white hover:bg-[#002a1f]'
+                                            : 'text-gray-400 hover:bg-gray-100'
+                                        }`}
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          if (isSelected) {
+                                            removeService(service.id);
+                                          } else {
+                                            handleServiceClick(service);
+                                          }
+                                        }}
                                         type="button"
-                                        disabled
+                                        aria-label={isSelected ? `Remove ${service.name}` : `Select ${service.name}`}
                                       >
-                                        Options: {service.options.join(', ')}
+                                        {isSelected ? (
+                                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                          </svg>
+                                        ) : (
+                                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                                          </svg>
+                                        )}
                                       </button>
                                     </div>
-                                    
-                                    {/* Action Button */}
-                                    <button
-                                      className={`p-1 rounded-[5px] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-dark)] flex-shrink-0 ${
-                                        isSelected
-                                          ? 'bg-[var(--color-primary-dark)] text-white hover:bg-[#002a1f]'
-                                          : 'text-gray-400 hover:bg-gray-100'
-                                      }`}
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        if (isSelected) {
-                                          removeService(service.id);
-                                        } else {
-                                          handleServiceClick(service);
-                                        }
-                                      }}
-                                      type="button"
-                                      aria-label={isSelected ? `Remove ${service.name}` : `Select ${service.name}`}
-                                    >
-                                      {isSelected ? (
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                        </svg>
-                                      ) : (
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                                        </svg>
-                                      )}
-                                    </button>
                                   </div>
                                   <div
                                     id={`service-desc-${service.id}`}
@@ -363,7 +370,13 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                           <p className="text-xs text-gray-600">{booking.options[service.id] || 'No option selected'}</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <p className="font-semibold text-green-800">{service.price}</p>
+                          <p className="font-semibold text-green-800">
+                            {(() => {
+                              const selectedOptionName = booking.options[service.id];
+                              const selectedOption = service.options.find((opt: any) => opt.name === selectedOptionName);
+                              return selectedOption?.price || service.price;
+                            })()}
+                          </p>
                           <button
                             onClick={() => removeService(service.id)}
                             className="text-red-500 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 rounded"

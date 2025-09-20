@@ -114,30 +114,36 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
             </legend>
             
             <div className="space-y-3">
-              {service.options.map((option, index) => (
-                <label
-                  key={index}
-                  className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-md ${
-                    selectedOption === option
-                      ? 'border-green-600 bg-green-50 text-green-800'
-                      : 'border-gray-200 bg-white hover:border-green-300 hover:bg-green-25'
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="serviceOption"
-                    value={option}
-                    checked={selectedOption === option}
-                    onChange={() => onSelectOption(option)}
-                    className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300"
-                    aria-describedby={`option-desc-${index}`}
-                  />
-                  <span className="ml-3 font-medium">{option}</span>
-                  <div id={`option-desc-${index}`} className="sr-only">
-                    Service option: {option}
-                  </div>
-                </label>
-              ))}
+                {service.options && service.options.length > 0 ? (
+                  service.options.map((opt, idx) => (
+                    <label
+                      key={idx}
+                      className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-md ${
+                        selectedOption === opt.name
+                          ? 'border-green-600 bg-green-50 text-green-800'
+                          : 'border-gray-200 bg-white hover:border-green-300 hover:bg-green-25'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="serviceOption"
+                        value={opt.name}
+                        checked={selectedOption === opt.name}
+                        onChange={() => onSelectOption(opt.name)}
+                        className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300"
+                        aria-describedby={`option-desc-${idx}`}
+                      />
+                      <span className="ml-3 font-medium">
+                        {opt.name} {opt.time ? `- ${opt.time}` : ''}{opt.price ? ` - ${opt.price}` : ''}
+                      </span>
+                      <div id={`option-desc-${idx}`} className="sr-only">
+                        Service option: {opt.name}
+                      </div>
+                    </label>
+                  ))
+                ) : (
+                  <span>No options</span>
+                )}
             </div>
           </fieldset>
         </div>

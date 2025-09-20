@@ -17,12 +17,30 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Popular Services',
         services: [
-          { id: 'shading-ombre', name: 'Shading Ombré', price: '$100', options: ['Classic', 'Ombre'] },
-          { id: 'micro-blading', name: 'Micro Blading', price: '$120', options: ['Micro', 'Nano'] },
-          { id: 'combo-brows', name: 'Combo Brows', price: '$150', options: ['Natural', 'Bold'] },
-          { id: 'lip-blush-featured', name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] },
-          { id: 'classic-eyeliner', name: 'Classic Eyeliner', price: '$80', options: ['Thin', 'Thick'] },
-          { id: 'hydra-facial', name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] }
+          { id: 'full-face-waxing', name: 'Full Face Waxing', price: '$7', options: [
+            { name: 'Classic', time: '5 mins', price: '$7' },
+            { name: 'Ombre', time: '10 mins', price: '$10' }
+          ], duration: '5-10 mins', description: 'Removes facial hair for a smooth look.' },
+          { id: 'micro-blading', name: 'Micro Blading', price: '$120', options: [
+            { name: 'Micro', time: '30 mins', price: '$120' },
+            { name: 'Nano', time: '40 mins', price: '$130' }
+          ], duration: '30-40 mins', description: 'Semi-permanent eyebrow enhancement.' },
+          { id: 'combo-brows', name: 'Combo Brows', price: '$150', options: [
+            { name: 'Natural', time: '35 mins', price: '$150' },
+            { name: 'Bold', time: '45 mins', price: '$160' }
+          ], duration: '35-45 mins', description: 'Combination of microblading and shading.' },
+          { id: 'lip-blush-featured', name: 'Lip Blush', price: '$90', options: [
+            { name: 'Soft', time: '25 mins', price: '$90' },
+            { name: 'Bold', time: '30 mins', price: '$95' }
+          ], duration: '25-30 mins', description: 'Adds color and definition to lips.' },
+          { id: 'classic-eyeliner', name: 'Classic Eyeliner', price: '$80', options: [
+            { name: 'Thin', time: '20 mins', price: '$80' },
+            { name: 'Thick', time: '25 mins', price: '$85' }
+          ], duration: '20-25 mins', description: 'Defines eyes with classic liner.' },
+          { id: 'hydra-facial', name: 'Hydra Facial', price: '$120', options: [
+            { name: 'Hydrating', time: '30 mins', price: '$120' },
+            { name: 'Brightening', time: '35 mins', price: '$125' }
+          ], duration: '30-35 mins', description: 'Deep cleansing and hydration.' }
         ]
       }
     ]
@@ -35,23 +53,56 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Brows',
         services: [
-          { id: 'eyebrow-wax-brows', name: 'Eyebrow Wax', price: '$15', options: ['Basic', 'Premium'] },
-          { id: 'eyebrow-tint', name: 'Eyebrow Tint', price: '$20', options: ['Light', 'Dark'] },
-          { id: 'eyebrow-threading', name: 'Eyebrow Threading', price: '$18', options: ['Standard'] },
-          { id: 'brow-lamination', name: 'Brow Lamination', price: '$45', options: ['Natural', 'Bold'] },
-          { id: 'brow-henna', name: 'Brow Henna', price: '$35', options: ['Brown', 'Black'] },
-          { id: 'brow-shaping', name: 'Brow Shaping', price: '$25', options: ['Natural', 'Arched'] }
+          { id: 'eyebrow-wax-brows', name: 'Eyebrow Wax', price: '$15', options: [
+            { name: 'Basic', time: '10 mins' },
+            { name: 'Premium', time: '15 mins' }
+          ] },
+          { id: 'eyebrow-tint', name: 'Eyebrow Tint', price: '$20', options: [
+            { name: 'Light', time: '10 mins' },
+            { name: 'Dark', time: '12 mins' }
+          ] },
+          { id: 'eyebrow-threading', name: 'Eyebrow Threading', price: '$18', options: [
+            { name: 'Standard', time: '10 mins' }
+          ] },
+          { id: 'brow-lamination', name: 'Brow Lamination', price: '$45', options: [
+            { name: 'Natural', time: '20 mins' },
+            { name: 'Bold', time: '25 mins' }
+          ] },
+          { id: 'brow-henna', name: 'Brow Henna', price: '$35', options: [
+            { name: 'Brown', time: '15 mins' },
+            { name: 'Black', time: '15 mins' }
+          ] },
+          { id: 'brow-shaping', name: 'Brow Shaping', price: '$25', options: [
+            { name: 'Natural', time: '10 mins' },
+            { name: 'Arched', time: '12 mins' }
+          ] }
         ]
       },
       {
         title: 'Lashes',
         services: [
-          { id: 'lash-lift', name: 'Lash Lift', price: '$60', options: ['Basic', 'Premium'] },
-          { id: 'lash-tint', name: 'Lash Tint', price: '$25', options: ['Black', 'Brown'] },
-          { id: 'lash-extension', name: 'Lash Extension', price: '$80', options: ['Natural', 'Dramatic'] },
-          { id: 'lash-perm', name: 'Lash Perm', price: '$70', options: ['Curl', 'Volume'] },
-          { id: 'lash-removal', name: 'Lash Removal', price: '$30', options: ['Safe Removal'] },
-          { id: 'lash-botox', name: 'Lash Botox', price: '$50', options: ['Treatment'] }
+          { id: 'lash-lift', name: 'Lash Lift', price: '$60', options: [
+            { name: 'Basic', time: '30 mins' },
+            { name: 'Premium', time: '40 mins' }
+          ] },
+          { id: 'lash-tint', name: 'Lash Tint', price: '$25', options: [
+            { name: 'Black', time: '15 mins' },
+            { name: 'Brown', time: '15 mins' }
+          ] },
+          { id: 'lash-extension', name: 'Lash Extension', price: '$80', options: [
+            { name: 'Natural', time: '60 mins' },
+            { name: 'Dramatic', time: '75 mins' }
+          ] },
+          { id: 'lash-perm', name: 'Lash Perm', price: '$70', options: [
+            { name: 'Curl', time: '35 mins' },
+            { name: 'Volume', time: '40 mins' }
+          ] },
+          { id: 'lash-removal', name: 'Lash Removal', price: '$30', options: [
+            { name: 'Safe Removal', time: '20 mins' }
+          ] },
+          { id: 'lash-botox', name: 'Lash Botox', price: '$50', options: [
+            { name: 'Treatment', time: '25 mins' }
+          ] }
         ]
       }
     ]
@@ -64,11 +115,27 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Lips',
         services: [
-          { id: 'lip-blush-lips', name: 'Lip Blush', price: '$90', options: ['Soft', 'Bold'] },
-          { id: 'lip-liner', name: 'Lip Liner', price: '$75', options: ['Natural', 'Defined'] },
-          { id: 'full-lip-color', name: 'Full Lip Color', price: '$120', options: ['Nude', 'Red', 'Pink'] },
-          { id: 'lip-neutralization', name: 'Lip Neutralization', price: '$60', options: ['Light', 'Medium'] },
-          { id: 'russian-lips', name: 'Russian Lips', price: '$150', options: ['Subtle', 'Dramatic'] }
+          { id: 'lip-blush-lips', name: 'Lip Blush', price: '$90', options: [
+            { name: 'Soft', time: '25 mins', price: '$90' },
+            { name: 'Bold', time: '30 mins', price: '$95' }
+          ] },
+          { id: 'lip-liner', name: 'Lip Liner', price: '$75', options: [
+            { name: 'Natural', time: '20 mins', price: '$75' },
+            { name: 'Defined', time: '25 mins', price: '$80' }
+          ] },
+          { id: 'full-lip-color', name: 'Full Lip Color', price: '$120', options: [
+            { name: 'Nude', time: '30 mins', price: '$120' },
+            { name: 'Red', time: '35 mins', price: '$125' },
+            { name: 'Pink', time: '35 mins', price: '$125' }
+          ] },
+          { id: 'lip-neutralization', name: 'Lip Neutralization', price: '$60', options: [
+            { name: 'Light', time: '20 mins', price: '$60' },
+            { name: 'Medium', time: '25 mins', price: '$65' }
+          ] },
+          { id: 'russian-lips', name: 'Russian Lips', price: '$150', options: [
+            { name: 'Subtle', time: '40 mins', price: '$150' },
+            { name: 'Dramatic', time: '45 mins', price: '$160' }
+          ] }
         ]
       }
     ]
@@ -81,9 +148,19 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Eyeliner',
         services: [
-          { id: 'classic-eyeliner-tattoo', name: 'Classic Eyeliner', price: '$80', options: ['Thin', 'Thick'] },
-          { id: 'designer-eyeliner', name: 'Designer Eyeliner', price: '$100', options: ['Simple', 'Complex'] },
-          { id: 'colored-eyeliner', name: 'Colored Eyeliner', price: '$110', options: ['Blue', 'Green', 'Purple'] }
+          { id: 'classic-eyeliner-tattoo', name: 'Classic Eyeliner', price: '$80', options: [
+            { name: 'Thin', time: '20 mins', price: '$80' },
+            { name: 'Thick', time: '25 mins', price: '$85' }
+          ] },
+          { id: 'designer-eyeliner', name: 'Designer Eyeliner', price: '$100', options: [
+            { name: 'Simple', time: '30 mins', price: '$100' },
+            { name: 'Complex', time: '40 mins', price: '$110' }
+          ] },
+          { id: 'colored-eyeliner', name: 'Colored Eyeliner', price: '$110', options: [
+            { name: 'Blue', time: '30 mins', price: '$110' },
+            { name: 'Green', time: '30 mins', price: '$110' },
+            { name: 'Purple', time: '30 mins', price: '$110' }
+          ] }
         ]
       }
     ]
@@ -96,8 +173,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Body Waxing',
         services: [
-          { id: 'eyebrow-wax-waxing', name: 'Eyebrow Wax', price: '$15', options: ['Basic', 'Premium'] },
-          { id: 'upper-lip-wax', name: 'Upper Lip Wax', price: '$12', options: ['Standard'] }
+          { id: 'eyebrow-wax-waxing', name: 'Eyebrow Wax', price: '$15', options: [
+            { name: 'Basic', time: '10 mins', price: '$15' },
+            { name: 'Premium', time: '15 mins', price: '$18' }
+          ] },
+          { id: 'upper-lip-wax', name: 'Upper Lip Wax', price: '$12', options: [
+            { name: 'Standard', time: '8 mins', price: '$12' }
+          ] }
         ]
       }
     ]
@@ -110,8 +192,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Scalp Treatments',
         services: [
-          { id: 'scalp-massage', name: 'Scalp Massage', price: '$30', options: ['30 min', '60 min'] },
-          { id: 'herbal-hair-wash', name: 'Herbal Hair Wash', price: '$25', options: ['Basic', 'Premium'] }
+          { id: 'scalp-massage', name: 'Scalp Massage', price: '$30', options: [
+            { name: '30 min', time: '30 mins', price: '$30' },
+            { name: '60 min', time: '60 mins', price: '$50' }
+          ] },
+          { id: 'herbal-hair-wash', name: 'Herbal Hair Wash', price: '$25', options: [
+            { name: 'Basic', time: '15 mins', price: '$25' },
+            { name: 'Premium', time: '20 mins', price: '$30' }
+          ] }
         ]
       }
     ]
@@ -124,9 +212,18 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: 'Facial Treatments',
         services: [
-          { id: 'acne-treatment', name: 'Acne Treatment', price: '$80', options: ['Basic', 'Advanced'] },
-          { id: 'hydra-facial-facial', name: 'Hydra Facial', price: '$120', options: ['Hydrating', 'Brightening'] },
-          { id: 'chemical-peel', name: 'Chemical Peel', price: '$100', options: ['Light', 'Medium'] }
+          { id: 'acne-treatment', name: 'Acne Treatment', price: '$80', options: [
+            { name: 'Basic', time: '30 mins', price: '$80' },
+            { name: 'Advanced', time: '45 mins', price: '$100' }
+          ] },
+          { id: 'hydra-facial-facial', name: 'Hydra Facial', price: '$120', options: [
+            { name: 'Hydrating', time: '30 mins', price: '$120' },
+            { name: 'Brightening', time: '35 mins', price: '$125' }
+          ] },
+          { id: 'chemical-peel', name: 'Chemical Peel', price: '$100', options: [
+            { name: 'Light', time: '20 mins', price: '$100' },
+            { name: 'Medium', time: '30 mins', price: '$120' }
+          ] }
         ]
       }
     ]
