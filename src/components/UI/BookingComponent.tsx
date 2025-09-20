@@ -18,14 +18,16 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         title: 'Popular Services',
         services: [
           { id: 'full-face-waxing', name: 'Full Face Waxing', price: '$7', options: [
-            { name: 'Classic', time: '5 mins', price: '$7' },
-            { name: 'Ombre', time: '10 mins', price: '$10' }
-          ], duration: '5-10 mins', description: 'Removes facial hair for a smooth look.' },
-          { id: 'micro-blading', name: 'Micro Blading', price: '$120', options: [
+            { name: 'Full Face Waxing', time: '30 mins', price: '$25' },
+            { name: 'Eyebrows', time: '15 mins', price: '$13' },
+            { name: 'Upper Lip', time: '5 mins', price: '$7' },
+            { name: 'Chin', time: '5 mins', price: '$8' }
+          ], duration: ' 5mins - 30 mins', description: 'Our facial waxing service includes eyebrow shaping, upper lip, chin, and cheek waxing for smooth, flawless skin. Enjoy precision and comfort with long-lasting results.' },
+          { id: 'full-body-waxing', name: 'Full Body Waxing', price: '$20', options: [
             { name: 'Micro', time: '30 mins', price: '$120' },
             { name: 'Nano', time: '40 mins', price: '$130' }
           ], duration: '30-40 mins', description: 'Semi-permanent eyebrow enhancement.' },
-          { id: 'combo-brows', name: 'Combo Brows', price: '$150', options: [
+          { id: 'house-special-facial', name: 'House Special Facial', price: '$30', options: [
             { name: 'Natural', time: '35 mins', price: '$150' },
             { name: 'Bold', time: '45 mins', price: '$160' }
           ], duration: '35-45 mins', description: 'Combination of microblading and shading.' },
@@ -499,7 +501,7 @@ const BookingComponent: React.FC = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        <h2 className="text-5xl font-bold text-center text-green-800" style={{ fontFamily: 'Tartuffo, serif' }}>
+        <h2 className="text-3xl font-bold text-center text-green-800" style={{ fontFamily: 'Tartuffo, serif' }}>
           Book VyBrows Beauty Services
         </h2>
       </div>

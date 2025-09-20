@@ -268,7 +268,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                   tabIndex={0}
                                   aria-describedby={`service-desc-${service.id}`}
                                 >
-                                  <div className="flex items-start gap-1">
+                                  <div className="flex items-center gap-1 h-[200px]">
                                     {/* Service Image */}
                                     <div className="flex-shrink-0">
                                       <div className="w-[200px] h-[200px] overflow-hidden">
@@ -281,10 +281,10 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                       </div>
                                     </div>
                                     {/* Service Info + Action Button */}
-                                      <div className="servicect p-4 flex-1 min-w-0 flex items-center gap-2">
-                                      <div className="servicect flex-1 min-w-0 flex flex-col gap-2 items-start">
+                                      <div className="servicect p-4 flex-1 min-w-0 flex items-center gap-2 h-full">
+                                      <div className="servicect flex-1 min-w-0 flex flex-col gap-2 items-start h-full">
                                         <div className="font-medium text-lg">{service.name}</div>
-                                        <div className="text-xs text-gray-500 mb-1">
+                                        <div className="text-[14px] text-gray-500 mb-1">
                                           {service.options && service.options.length > 0 ? (
                                             (() => {
                                               const times = service.options.map(opt => opt.time).filter(time => time);
@@ -299,8 +299,8 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                             'No options'
                                           )}
                                         </div>
-                                        <div className="text-xs text-gray-400 mb-1">Short description of the service.</div>
-                                        <div className="text-sm opacity-75 font-semibold">from {service.price}</div>
+                                        <div className="text-[14px] text-black mb-1">{service.description || 'No description available.'}</div>
+                                        <div className="text-[16px] text-black font-normal mt-auto">from {service.price}</div>
                                       </div>
                                       <button
                                         className={`p-1 rounded-[5px] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-green-800)] flex-shrink-0 ${
