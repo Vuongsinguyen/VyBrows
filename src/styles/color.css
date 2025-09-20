@@ -33,11 +33,11 @@
   /* === Brand Colors === */
   --color-blueWhite: #FFD895; /* blue for light mode */
   --color-blue2white: #2563eb; /* blue for light mode, white for dark mode */
-  --color-primary: #ebd425;        /* blue-600 */
-  --color-primary-hover: #1d4ed8;  /* blue-700 */
-  --color-primary-ring: #2563eb33; /* blue-600, 20% opacity */
+  --color-primary: #01513A;        /* Main brand color */
+  --color-primary-hover: #003324;  /* Darker shade for hover */
+  --color-primary-ring: #01513A33; /* Primary with 20% opacity */
   /* --color-primary-light removed, use --color-white instead */
-  --color-primary-dark: #003324;   /* blue-800 */
+  --color-primary-dark: #01513A;   /* Same as primary for now */
   --color-green-800: #166534;     /* green-800 */
   /* === Button Colors === */
   --color-on-primary: var(--color-white);
@@ -123,7 +123,7 @@
   --color-button-secondary-text: #3b82f6;
   --color-bg: #002319;
   --color-elevated: #1e293b;
-  --color-text: #003324;
+  --color-text: #01513A;
   --color-text-secondary: #FFD895; /* secondary text */
   --color-muted: #94a3b8;
   --color-border: #334155;
@@ -154,7 +154,7 @@
 :root:not([data-theme="dark"]) {
   --color-linearGay-border: 1px solid #F8E8C6;
   --color-linearGay-bg: linear-gradient(90deg, #FFFDF7 0%, #BEA776 25%, #FFF9E9 50%, #BEA776 75%, #FFFDF7 100%);
-  --color-navbar: linear-gradient(90deg, #003324 100%, #003324 100%);
+  --color-navbar: linear-gradient(90deg, #01513A 100%, #01513A 100%);
   --color-navbar-bg: rgba(255, 255, 255, 0.8);
   --color-navbar-border: rgba(229,231,235,0.3);
   /* --color-surface-1 removed, use --color-white instead */

@@ -53,7 +53,7 @@ const stats = [
 ];
 ---
 
-<section id="why-choose-us" class="px-6 py-8" style="background: #003324;">
+<section id="why-choose-us" class="px-6 py-8" style="background: #01513A;">
   <div class="max-w-6xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-16">
@@ -207,7 +207,7 @@ const stats = [
       <div class="grid grid-cols-2 gap-6">
         {stats.map((stat, idx) => (
           <div class="stat-card-border-gradient h-full" style="border-radius: 40px; padding: 1px;">
-            <div class="p-4 md:p-6 text-center stat-card-gradient h-full" style="font-family: 'Lora', serif; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 38px; background: #003324;">
+            <div class="p-4 md:p-6 text-center stat-card-gradient h-full bg-primary" style="font-family: 'Lora', serif; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 38px;">
                <div class="card-shine" id={`card-shine-${idx}`}></div>
                <div>
                  <div
@@ -260,20 +260,20 @@ const stats = [
   }
   .stat-card-gradient {
   border-radius: 36px;
-  background: #003324;
+  background: var(--color-primary);
   overflow: hidden;
   box-shadow: 8px 16px 32px 0 rgba(0,0,0,0.10), 4px 8px 16px 0 rgba(255, 215, 0, 0.10);
   position: relative;
   transition: background 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.8s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.8s cubic-bezier(0.33, 1, 0.68, 1);
   }
   .stat-card-gradient:hover {
-  background: #014A2D;
+  background: var(--color-primary-hover);
   transform: translateY(-12px);
   box-shadow: 0 24px 48px 0 rgba(0,0,0,0.18), 0 8px 32px 0 rgba(255, 215, 0, 0.18);
   transition: background 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .stat-card-gradient {
-    background: #003324;
+    background: var(--color-primary);
     transition: background 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.8s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.8s cubic-bezier(0.33, 1, 0.68, 1);
   }
   .stat-card-gradient:hover .card-shine {

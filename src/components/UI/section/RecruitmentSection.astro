@@ -51,7 +51,7 @@ import Button from '../shared/Button.astro';
   {jobs.map(job => (
         <div
           class="rounded-2xl p-6 shadow-lg flex flex-col hover:shadow-2xl hover:-translate-y-1 transition duration-200"
-          style="background: #003324;"
+          style="background: var(--color-primary);"
         >
           <div class="text-xl font-semibold mb-2 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">{job.title}</div>
           <div class="text-xs mb-4" style="color: var(--color-bg);">

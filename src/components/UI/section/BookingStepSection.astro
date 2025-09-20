@@ -69,7 +69,7 @@ const SERVICE_CATEGORIES = [
   class="booking-step-section max-w-2xl mx-auto py-16 px-4 bg-white rounded-2xl shadow-lg"
   aria-label="Service booking form"
 >
-  <h2 class="text-3xl font-bold mb-8 text-center text-[#003324] font-lora">
+  <h2 class="text-3xl font-bold mb-8 text-center text-primary font-lora">
     Book VyBrows Beauty Services
   </h2>
   
@@ -119,13 +119,13 @@ const SERVICE_CATEGORIES = [
         aria-labelledby="step-1-title"
         tabindex="0"
       >
-        <h3 id="step-1-title" class="text-xl font-bold mb-4 text-center text-[#003324]">
+        <h3 id="step-1-title" class="text-xl font-bold mb-4 text-center text-primary">
           Select Your Service
         </h3>
         
         <!-- Category Selection -->
         <fieldset class="mb-6">
-          <legend class="text-lg font-semibold mb-3 text-[#003324]">
+          <legend class="text-lg font-semibold mb-3 text-primary">
             Service Category
           </legend>
           
@@ -152,7 +152,7 @@ const SERVICE_CATEGORIES = [
         
         <!-- Services Groups -->
         <fieldset>
-          <legend class="text-lg font-semibold mb-3 text-[#003324]">
+          <legend class="text-lg font-semibold mb-3 text-primary">
             Available Services
           </legend>
           
@@ -167,7 +167,7 @@ const SERVICE_CATEGORIES = [
               >
                 {category.groups.map((group) => (
                   <div class="mb-6">
-                    <h4 class="font-semibold mb-3 text-[#003324]">{group.title}</h4>
+                    <h4 class="font-semibold mb-3 text-primary">{group.title}</h4>
                     <div class="service-list grid gap-2 md:grid-cols-2">
                       {group.services.map((service) => (
                         <button 
@@ -218,7 +218,7 @@ const SERVICE_CATEGORIES = [
           aria-describedby="modal-description"
         >
           <div class="bg-white rounded-xl p-6 min-w-[320px] max-w-md mx-4">
-            <h4 id="modal-title" class="text-lg font-semibold mb-3 text-[#003324]">
+            <h4 id="modal-title" class="text-lg font-semibold mb-3 text-primary">
               Service Options
             </h4>
             <div id="modal-description" class="font-bold mb-4" id="modal-service-name"></div>
@@ -237,7 +237,7 @@ const SERVICE_CATEGORIES = [
               </button>
               <button 
                 type="button" 
-                class="select-option px-4 py-2 bg-[#003324] text-white rounded hover:bg-[#004a36] transition-colors"
+                class="select-option px-4 py-2 bg-primary text-white rounded hover:bg-primary-hover transition-colors"
                 aria-label="Confirm selected option"
               >
                 Select Option
@@ -253,13 +253,13 @@ const SERVICE_CATEGORIES = [
         aria-labelledby="step-2-title"
         tabindex="-1"
       >
-        <h3 id="step-2-title" class="text-xl font-bold mb-4 text-center text-[#003324]">
+        <h3 id="step-2-title" class="text-xl font-bold mb-4 text-center text-primary">
           Select Date & Time
         </h3>
         
         <form novalidate>
           <div class="mb-4">
-            <label for="date" class="block mb-2 font-semibold text-[#003324]">
+            <label for="date" class="block mb-2 font-semibold text-primary">
               Select Date *
             </label>
             <input 
@@ -278,7 +278,7 @@ const SERVICE_CATEGORIES = [
           </div>
           
           <div class="mb-6">
-            <label for="time" class="block mb-2 font-semibold text-[#003324]">
+            <label for="time" class="block mb-2 font-semibold text-primary">
               Select Time *
             </label>
             <input 
@@ -327,13 +327,13 @@ const SERVICE_CATEGORIES = [
         aria-labelledby="step-3-title"
         tabindex="-1"
       >
-        <h3 id="step-3-title" class="text-xl font-bold mb-4 text-center text-[#003324]">
+        <h3 id="step-3-title" class="text-xl font-bold mb-4 text-center text-primary">
           Personal Information
         </h3>
         
         <form novalidate>
           <div class="mb-4">
-            <label for="name" class="block mb-2 font-semibold text-[#003324]">
+            <label for="name" class="block mb-2 font-semibold text-primary">
               Full Name *
             </label>
             <input 
@@ -356,7 +356,7 @@ const SERVICE_CATEGORIES = [
           </div>
           
           <div class="mb-4">
-            <label for="phone" class="block mb-2 font-semibold text-[#003324]">
+            <label for="phone" class="block mb-2 font-semibold text-primary">
               Phone Number *
             </label>
             <input 
@@ -379,7 +379,7 @@ const SERVICE_CATEGORIES = [
           </div>
           
           <div class="mb-6">
-            <label for="email" class="block mb-2 font-semibold text-[#003324]">
+            <label for="email" class="block mb-2 font-semibold text-primary">
               Email Address *
             </label>
             <input 
@@ -427,7 +427,7 @@ const SERVICE_CATEGORIES = [
         aria-labelledby="step-4-title"
         tabindex="-1"
       >
-        <h3 id="step-4-title" class="text-xl font-bold mb-4 text-center text-[#003324]">
+        <h3 id="step-4-title" class="text-xl font-bold mb-4 text-center text-primary">
           Confirm Your Booking
         </h3>
         
@@ -485,7 +485,7 @@ const SERVICE_CATEGORIES = [
 <style>
   /* Additional scoped styles for accessibility and validation */
   .booking-step-section {
-    --primary-color: #003324;
+    --primary-color: #01513A;
     --secondary-color: #e7d48e;
     --success-color: #10b981;
     --error-color: #ef4444;

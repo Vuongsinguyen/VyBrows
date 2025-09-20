@@ -53,7 +53,7 @@
 }
 
 .stepIndicator.active {
-  background-color: #003324;
+  background-color: var(--color-primary);
   color: white;
   transform: scale(1.05);
 }
@@ -69,7 +69,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #003324, #e7d48e);
+  background: linear-gradient(90deg, var(--color-primary), #e7d48e);
   border-radius: 2px;
   transform: scaleX(0);
   transform-origin: left;
@@ -123,20 +123,20 @@
 }
 
 .tabBtn:focus {
-  outline: 2px solid #003324;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .tabBtn.active {
-  background-color: #003324;
+  background-color: var(--color-primary);
   color: white;
-  border-color: #003324;
+  border-color: var(--color-primary);
 }
 
 .tabBtn:hover:not(.active) {
   background-color: #e7d48e;
-  border-color: #003324;
-  color: #003324;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   cursor: pointer !important;
 }
 
@@ -184,7 +184,7 @@
 }
 
 .fieldInput:focus {
-  border-color: #003324;
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(0, 51, 36, 0.1);
   transform: translateY(-1px);
 }

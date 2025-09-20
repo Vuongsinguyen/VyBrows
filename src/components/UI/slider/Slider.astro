@@ -60,56 +60,44 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
             <div class="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none">
               <div class="flex flex-row items-center gap-4 mt-[200px] md:mt-[240px]">
                 <!-- Book Consultation Button -->
-                <span
-                  class="pointer-events-auto rounded-[10px] p-[1px]"
-                  style="background: linear-gradient(90deg, #e7d48e, #fff4b0, #e7d48e);"
-                >
-                  <a
-                      href="/BookStepAction"
-                      class="inline-flex items-center justify-center px-5 py-4 min-w-[160px] rounded-[8px] text-sm font-semibold uppercase tracking-wide font-lora
-                        shadow-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40
-                        hover:bg-[#002319]"
-                      style="background:#003324; color: var(--color-black2white); font-family:'Lora', serif;"
-                      aria-label="BOOKING"
-                    >
-                      {
-                        ({
-                          en: "BOOKING",
-                          vi: "ĐẶT LỊCH",
-                          ja: "予約",
-                          ko: "예약",
-                          es: "RESERVA"
-                        })[(Astro.url.pathname.split('/')[1] || 'en')]
-                      }
-                    </a>
-                </span>
+                <div class="pointer-events-auto rounded-xl p-[1px] bg-gradient-to-r from-[#e7d48e] via-[#fff4b0] to-[#e7d48e]">
+                  <a href="/BookStepAction"
+                     class="inline-flex items-center justify-center px-6 py-4 min-w-40 text-base font-semibold uppercase tracking-wide font-lora rounded-xl shadow-lg
+                            bg-[#01513A] hover:bg-[#002319] transition-all duration-300"
+                     style="color: var(--color-black2white); font-family:'Lora', serif;"
+                     aria-label="BOOKING">
+                    {
+                      ({
+                        en: "BOOKING",
+                        vi: "ĐẶT LỊCH",
+                        ja: "予약",
+                        ko: "예약",
+                        es: "RESERVA"
+                      })[(Astro.url.pathname.split('/')[1] || 'en')]
+                    }
+                  </a>
+                </div>
                 
                 <!-- Shop Now Button -->
-                <span
-                  class="pointer-events-auto rounded-[10px] p-[1px]"
-                  style="background: linear-gradient(90deg, #e7d48e, #fff4b0, #e7d48e);"
-                >
-                  <a
-                      href="https://www.vytalityhealthbeauty.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center justify-center px-5 py-4 min-w-[150px] rounded-[8px] text-sm font-semibold uppercase tracking-wide font-lora
-                        shadow-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40
-                        hover:bg-[#002319]"
-                      style="background:#003324; color: var(--color-black2white); font-family:'Lora', serif;"
-                      aria-label="SHOP NOW"
-                    >
-                      {
-                        ({
-                          en: "SHOP NOW",
-                          vi: "MUA NGAY",
-                          ja: "今すぐ購入",
-                          ko: "지금 구매",
-                          es: "COMPRAR AHORA"
-                        })[(Astro.url.pathname.split('/')[1] || 'en')]
-                      }
-                    </a>
-                </span>
+                <div class="pointer-events-auto rounded-xl p-[1px] bg-gradient-to-r from-[#e7d48e] via-[#fff4b0] to-[#e7d48e]">
+                  <a href="https://www.vytalityhealthbeauty.com/"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     class="inline-flex items-center justify-center px-6 py-4 min-w-40 text-base font-semibold uppercase tracking-wide font-lora rounded-xl shadow-lg
+                            bg-[#01513A] hover:bg-[#002319] transition-all duration-300"
+                     style="color: var(--color-black2white); font-family:'Lora', serif;"
+                     aria-label="SHOP NOW">
+                    {
+                      ({
+                        en: "SHOP NOW",
+                        vi: "MUA NGAY",
+                        ja: "今すぐ購入",
+                        ko: "지금 구매",
+                        es: "COMPRAR AHORA"
+                      })[(Astro.url.pathname.split('/')[1] || 'en')]
+                    }
+                  </a>
+                </div>
               </div>
             </div>
           )}
@@ -146,7 +134,7 @@ const { slides, autoSlideInterval = 12000, class: customClass = '' } = Astro.pro
     position: relative;
     overflow: hidden;
     z-index: 1;
-    background: #003324 !important;
+    background: #01513A !important;
   }
   .slide {
     position: absolute; top: 0; left: 0;

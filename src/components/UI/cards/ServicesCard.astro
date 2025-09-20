@@ -9,7 +9,7 @@ export interface Props {
 const { title, description, image, link, class: customClass = "" } = Astro.props;
 ---
 <!-- Wrap root in a marker class -->
-<div class={`services-card relative ${customClass}`} style="height: 250px; margin-bottom: 10px; background: #003324; border: 2px solid #E1C18D; border-radius: 1rem;">
+<div class={`services-card relative ${customClass}`} style="height: 250px; margin-bottom: 10px; background: #01513A; border: 2px solid #E1C18D; border-radius: 1rem;">
   <div class="block w-full h-full group relative overflow-hidden" style="height: 100%; border-radius: calc(1rem - 2px);">
     <!-- Hiệu ứng stroke vàng chạy xung quanh khi hover -->
     <div class="absolute inset-0 rounded-2xl pointer-events-none z-20 transition-all duration-300 group-hover:animate-gold-stroke"></div>
@@ -33,7 +33,7 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
       <div class="mt-4 flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <!-- Details button không còn href -->
         <span
-          class="px-4 py-2 rounded-full bg-yellow-200 text-[#003324] font-semibold cursor-pointer"
+          class="px-4 py-2 rounded-full bg-yellow-200 text-[#01513A] font-semibold cursor-pointer"
         >
           Details
         </span>
@@ -41,7 +41,7 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
           href="https://www.fresha.com/vi/a/vy-brows-academy-houston-13192-bellaire-boulevard-ksjqvy55"
           target="_blank"
           rel="noopener noreferrer"
-          class="px-4 py-2 rounded-full bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 text-[#003324] font-semibold inline-flex items-center"
+          class="px-4 py-2 rounded-full bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 text-[#01513A] font-semibold inline-flex items-center"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="relative top-[3px] h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
             <path d="M3.62 7.79C5.06 10.62 7.38 12.93 10.21 14.38L12.41 12.18C12.68 11.91 13.08 11.82 13.43 11.94C14.55 12.31 15.76 12.51 17 12.51C17.55 12.51 18 12.96 18 13.51V17C18 17.55 17.55 18 17 18C7.61 18 0 10.39 0 1C0 0.45 0.45 0 1 0H4.5C5.05 0 5.5 0.45 5.5 1C5.5 2.25 5.7 3.45 6.07 4.57C6.18 4.92 6.1 5.31 5.82 5.59L3.62 7.79Z" />
@@ -52,7 +52,7 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
     </div>
   </div>
   <div class="gold-title-border px-3 py-1" style="position: absolute; left: 50%; bottom: 0; transform: translateX(-50%) translateY(50%); z-index: 20;">
-    <h3 class="font-bold text-xl rounded-md px-4 py-1 whitespace-nowrap text-center" style="color: #003324; background: transparent; min-width: 200px; width: fit-content; max-width: 100vw; display: block; margin: 0 auto; font-family: 'Lora', serif;">{title}</h3>
+    <h3 class="font-bold text-xl rounded-md px-4 py-1 whitespace-nowrap text-center" style="color: #01513A; background: transparent; min-width: 200px; width: fit-content; max-width: 100vw; display: block; margin: 0 auto; font-family: 'Lora', serif;">{title}</h3>
   </div>
 </div>
 
