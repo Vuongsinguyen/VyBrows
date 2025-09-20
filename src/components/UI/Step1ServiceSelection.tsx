@@ -268,7 +268,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                   tabIndex={0}
                                   aria-describedby={`service-desc-${service.id}`}
                                 >
-                                  <div className="flex items-center gap-1 h-[160px]">
+                                  <div className="flex items-center gap-1 h-[120px]">
                                     {/* Service Image - Hidden */}
                                     <div className="flex-shrink-0 hidden">
                                       <div className="w-[200px] h-[200px] overflow-hidden">
@@ -281,8 +281,8 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                       </div>
                                     </div>
                                     {/* Service Info + Action Button */}
-                                      <div className="servicect p-4 flex-1 min-w-0 flex items-center gap-2 h-full">
-                                      <div className="servicect flex-1 min-w-0 flex flex-col gap-2 items-start h-full">
+                                      <div className="servicect px-4 py-2 flex-1 min-w-0 flex items-center gap-20 h-full">
+                                      <div className="servicect flex-1 min-w-0 flex flex-col gap-0 items-start h-full">
                                         <div className="font-medium text-lg">{service.name}</div>
                                         <div className="text-[14px] text-gray-500 mb-1">
                                           {service.options && service.options.length > 0 ? (
@@ -353,7 +353,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
 
           {/* Right Column - Summary */}
           <div className="lg:col-span-1">
-            <div className="lg:sticky lg:top-30 fixed bottom-0 left-0 right-0 bg-white p-6 shadow-lg lg:relative border-t border-black/10">
+            <div className="lg:sticky lg:top-30 fixed bottom-0 left-0 right-0 bg-white p-6 lg:relative lg:border lg:border-black/30">
               {/* Business Info */}
               <div className="mb-6 hidden lg:block">
                 <h3 className="text-lg font-bold text-green-800 mb-2">Vy Brows Academy</h3>
