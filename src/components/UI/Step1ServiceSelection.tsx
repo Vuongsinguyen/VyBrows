@@ -173,7 +173,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
           role="tabpanel"
           aria-labelledby="step-1-title"
           tabIndex={0}
-          className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-[20px]"
+          className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-[20px] pb-[50px]"
         >
           {/* Left Column - Categories & Services */}
           <div className="lg:col-span-2">
