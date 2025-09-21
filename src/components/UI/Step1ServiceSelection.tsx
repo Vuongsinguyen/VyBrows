@@ -52,6 +52,20 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
     onServiceSelect(service); // This opens the modal
   };
 
+  // Add service directly (for services without options or when clicking + button)
+  const addServiceDirectly = (service: Service) => {
+    // For services without options, add directly
+    if (!service.options || service.options.length === 0) {
+      updateBooking({
+        services: [...booking.services, service.id],
+        options: { ...booking.options, [service.id]: service.name }
+      });
+    } else {
+      // For services with options, open modal
+      onServiceSelect(service);
+    }
+  };
+
   // Remove service from selection
   const removeService = (serviceId: string) => {
     // Remove service from services array and clear its option
@@ -164,9 +178,9 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
           {/* Left Column - Categories & Services */}
           <div className="lg:col-span-2">
             {/* Category Tabs */}
-            <div className="relative w-full flex items-center sticky top-25 z-40 h-[90px] overflow-hidden bg-white">
+            <div className="relative w-full flex items-center sticky top-25 z-40 h-[60px] md:h-[90px] overflow-hidden bg-white">
               <div
-                className="w-full max-w-full flex gap-1 overflow-x-auto scrollbar scrollbar-thumb-gray-400 scrollbar-track-gray-100 justify-start pt-[48px] pb-[30px]"
+                className="w-full max-w-full flex gap-1 overflow-x-auto scrollbar scrollbar-thumb-gray-400 scrollbar-track-gray-100 justify-start pt-[24px] pb-[24px] md:pt-[48px] md:pb-[30px]"
                 style={{ WebkitOverflowScrolling: 'touch', overflowX: 'scroll' }}
                 role="tablist"
                 aria-label="Service categories"
@@ -199,7 +213,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                   </a>
                 ))}
               </div>
-              <div className="flex gap-2 ml-2">
+              <div className="hidden md:flex gap-2 ml-2">
                 <button
                   className="p-2 rounded-full bg-gray-200 hover:bg-yellow-400 text-gray-700 hover:text-green-800 shadow"
                   type="button"
@@ -240,6 +254,11 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                     <h3 className="text-xl font-bold mb-4 text-green-800 pb-2">
                       {category.title}
                     </h3>
+                    {category.description && (
+                      <p className="text-[14px] text-[#000000] mb-4 -mt-2">
+                        {category.description}
+                      </p>
+                    )}
                     <div className="space-y-6">
                       {category.groups.map((group, groupIndex) => (
                         <div key={groupIndex} className="mb-6">
@@ -284,7 +303,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                       <div className="servicect px-4 py-2 flex-1 min-w-0 flex items-center gap-20 h-full">
                                       <div className="servicect flex-1 min-w-0 flex flex-col gap-0 items-start h-full">
                                         <div className="font-medium text-lg">{service.name}</div>
-                                        <div className="text-[14px] text-gray-500 mb-1">
+                                        <div className="text-[14px] text-[#000000] mb-1">
                                           {service.options && service.options.length > 0 ? (
                                             (() => {
                                               const times = service.options.map(opt => opt.time).filter(time => time);
@@ -296,11 +315,15 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                               return 'Time varies';
                                             })()
                                           ) : (
-                                            'No options'
+                                            service.duration ? service.duration : null
                                           )}
                                         </div>
-                                        <div className="text-[14px] text-black mb-1 line-clamp-1">{service.description || 'No description available.'}</div>
-                                        <div className="text-[16px] text-black font-normal mt-auto">from {service.price}</div>
+                                        {service.description && service.description.trim() && (
+                                          <div className="text-[14px] text-[#000000] mb-1 line-clamp-1">{service.description}</div>
+                                        )}
+                                        <div className="text-[16px] text-[#000000] font-normal mt-auto">
+                                          {(!service.options || service.options.length === 0) ? `total from ${service.price}` : `from ${service.price}`}
+                                        </div>
                                       </div>
                                       <button
                                         className={`p-1 rounded-[5px] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-green-800)] flex-shrink-0 ${
@@ -313,7 +336,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                                           if (isSelected) {
                                             removeService(service.id);
                                           } else {
-                                            handleServiceClick(service);
+                                            addServiceDirectly(service);
                                           }
                                         }}
                                         type="button"
@@ -402,7 +425,7 @@ const Step1ServiceSelection: React.FC<Step1Props> = ({
                 <div className="border-t border-gray-200 pt-4 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-lg text-green-800">Total</span>
-                    <span className="font-bold text-lg text-green-800">${total}</span>
+                    <span className="font-bold text-lg text-green-800">from ${total}</span>
                   </div>
                 </div>
               )}

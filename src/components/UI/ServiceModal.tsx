@@ -1,5 +1,5 @@
 // ServiceModal.tsx - Modal for detailed service information and option selection
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { Service } from '../../types/booking';
 
 interface ServiceModalProps {
@@ -19,10 +19,14 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [tempSelectedOption, setTempSelectedOption] = useState<string>('');
 
   // Handle ESC key and focus management
   useEffect(() => {
     if (isOpen) {
+      // Initialize temp selection with current selected option
+      setTempSelectedOption(selectedOption || '');
+      
       // Focus the close button when modal opens
       closeButtonRef.current?.focus();
       
@@ -42,7 +46,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
         document.body.style.overflow = 'unset';
       };
     }
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, selectedOption]);
 
   // Handle click outside modal
   const handleBackdropClick = (event: React.MouseEvent) => {
@@ -94,35 +98,43 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
         </div>
 
         {/* Modal Body */}
-        <div className="p-6">
+        <div className="p-6 overflow-y-auto max-h-[60vh]">
           {/* Service Description */}
           <div className="mb-6">
             <p className="text-gray-700">{service.description || 'Professional beauty service tailored to your needs.'}</p>
           </div>
 
           {/* Option Selection */}
-          <fieldset className="mb-6">
-            <legend className="text-lg font-semibold mb-4 text-green-800">
-              Select Service Option
-            </legend>
-            
-            <div className="space-y-3">
-                {service.options && service.options.length > 0 ? (
-                  service.options.map((opt, idx) => (
+          {service.options && service.options.length > 0 ? (
+            <fieldset className="mb-6">
+              <legend className="text-lg font-semibold mb-4 text-green-800">
+                Select Service Option
+              </legend>
+              
+              <div className="space-y-3">
+                  {service.options.map((opt, idx) => (
                     <label
                       key={idx}
                       className={`flex items-center justify-between p-4 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-md ${
-                        selectedOption === opt.name
+                        tempSelectedOption === opt.name
                           ? 'border border-green-600 bg-green-50 text-green-800'
                           : 'border-1 border-gray-200 bg-white hover:border-green-300 hover:bg-green-25'
                       }`}
                     >
                       <div className="flex flex-col">
                         <span className="font-medium">
-                          {opt.name} {opt.time ? `- ${opt.time}` : ''}
+                          {opt.name}
                         </span>
+                        <span className="text-sm text-black mt-1">
+                          {opt.time ? `${opt.time}` : ''}
+                        </span>
+                        {opt.description && (
+                          <span className="text-xs text-gray-500 mt-1 italic">
+                            {opt.description}
+                          </span>
+                        )}
                         {opt.price && (
-                          <span className="text-sm text-gray-600 mt-1">
+                          <span className="text-sm text-black mt-1">
                             {opt.price}
                           </span>
                         )}
@@ -131,8 +143,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                         type="radio"
                         name="serviceOption"
                         value={opt.name}
-                        checked={selectedOption === opt.name}
-                        onChange={() => onSelectOption(opt.name)}
+                        checked={tempSelectedOption === opt.name}
+                        onChange={() => setTempSelectedOption(opt.name)}
                         className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300"
                         aria-describedby={`option-desc-${idx}`}
                       />
@@ -140,16 +152,37 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                         Service option: {opt.name}
                       </div>
                     </label>
-                  ))
-                ) : (
-                  <span>No options</span>
-                )}
+                  ))}
+              </div>
+            </fieldset>
+          ) : (
+            <div className="mb-6 p-4 bg-green-50 rounded-lg border border-green-200">
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col">
+                  <span className="font-medium text-green-800">
+                    {service.name}
+                  </span>
+                  {service.duration && (
+                    <span className="text-sm text-black mt-1">
+                      {service.duration}
+                    </span>
+                  )}
+                  <span className="text-sm font-semibold text-green-700 mt-1">
+                    {service.price}
+                  </span>
+                </div>
+                <div className="text-green-600">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
             </div>
-          </fieldset>
+          )}
         </div>
 
         {/* Modal Footer */}
-        <div className="flex justify-between items-center p-6 border-t border-gray-200 bg-gray-50">
+  <div className="flex justify-between items-center py-3 px-6 border-t border-gray-200 bg-gray-50">
           <button
             className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 rounded-lg transition-colors duration-300"
             onClick={onClose}
@@ -160,16 +193,23 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
           
           <button
             className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
-              selectedOption
+              tempSelectedOption || (!service.options || service.options.length === 0)
                 ? 'bg-green-800 text-white hover:bg-green-700 hover:transform hover:scale-105'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
-            onClick={() => selectedOption && handleOptionSelect(selectedOption)}
-            disabled={!selectedOption}
+            onClick={() => {
+              if (!service.options || service.options.length === 0) {
+                // For services without options, use service name as option
+                handleOptionSelect(service.name);
+              } else if (tempSelectedOption) {
+                handleOptionSelect(tempSelectedOption);
+              }
+            }}
+            disabled={!tempSelectedOption && service.options && service.options.length > 0}
             type="button"
             aria-describedby="select-help"
           >
-            Select This Option
+            {(!service.options || service.options.length === 0) ? 'Add to Booking' : 'Select This Option'}
           </button>
         </div>
         

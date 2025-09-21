@@ -17,7 +17,7 @@ export interface Service {
   id: string;
   name: string;
   price: string;
-  options: Array<{ name: string; time: string; price?: string }>; // Option name and time per option
+  options: Array<{ name: string; time: string; price?: string; description?: string }>; // Option name, time, price, and optional description
   duration?: string;
   description?: string;
 }

@@ -12,7 +12,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     key: 'featured',
     title: 'Featured',
-    description: 'Popular services',
+    description: '',
     groups: [
       {
         title: 'Popular Services',
@@ -33,23 +33,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             { name: 'Brazillian Bikini', time: '20 mins', price: '$45' },
             { name: 'Back', time: '25 mins', price: '$65' },
             { name: 'Chest', time: '20 mins', price: '$50' },
-          ], duration: '20 mins - 1 hr', description: 'Semi-permanent eyebrow enhancement.' },
+          ], duration: '20 mins - 1 hr', description: 'Our body waxing service offers smooth, hair-free skin with long-lasting results. Whether you need waxing for your legs, arms, bikini line, back, or chest, our skilled estheticians ensure a comfortable, efficient experience. Using high-quality wax, we gently remove unwanted hair, leaving your skin soft and silky. Ideal for those seeking a flawless, hair-free look, our body waxing is designed to minimize discomfort and provide lasting smoothness. Book your appointment today and enjoy the confidence of smooth, radiant skin!' },
           { id: 'house-special-facial', name: 'House Special Facial', price: '$30', options: [
-            { name: 'Natural', time: '35 mins', price: '$150' },
-            { name: 'Bold', time: '45 mins', price: '$160' }
-          ], duration: '35-45 mins', description: 'Combination of microblading and shading.' },
-          { id: 'lip-blush-featured', name: 'Lip Blush', price: '$90', options: [
-            { name: 'Soft', time: '25 mins', price: '$90' },
-            { name: 'Bold', time: '30 mins', price: '$95' }
-          ], duration: '25-30 mins', description: 'Adds color and definition to lips.' },
-          { id: 'classic-eyeliner', name: 'Classic Eyeliner', price: '$80', options: [
-            { name: 'Thin', time: '20 mins', price: '$80' },
-            { name: 'Thick', time: '25 mins', price: '$85' }
-          ], duration: '20-25 mins', description: 'Defines eyes with classic liner.' },
-          { id: 'hydra-facial', name: 'Hydra Facial', price: '$120', options: [
-            { name: 'Hydrating', time: '30 mins', price: '$120' },
-            { name: 'Brightening', time: '35 mins', price: '$125' }
-          ], duration: '30-35 mins', description: 'Deep cleansing and hydration.' }
+            { name: 'House Special Facial', time: '1 hr', price: '$60' },
+            { name: '(Add on) Acne Extraction', time: '30 mins', price: '$30', description: 'For an added boost, add sanitation acne extractions for just $30—available exclusively with the House Special Facial service. Regular price is $50.' }
+          ], duration: '30 mins - 1 hr', description: 'Indulge in our luxurious House Special Facial, a personalized treatment designed to rejuvenate and refresh your skin. Tailored to your unique needs, this facial includes deep cleansing, exfoliation, a customized mask, and a relaxing massage, leaving your skin glowing and revitalized. Our expert estheticians will target your specific skin concerns, whether it\'s hydration, anti-aging, or acne. Finish with a nourishing serum and SPF protection for a flawless, radiant complexion. Treat yourself to the ultimate skincare experience—your skin deserves it!' },
+          { id: 'basic-head-spa', name: 'Basic Head Spa', price: '$40', options: [], duration: '35 mins', description: 'A basic head spa is a relaxing treatment that focuses on the scalp, hair, and neck. It typically involves gentle massage, cleansing, and conditioning to improve scalp health, relieve tension, and promote relaxation. The treatment helps stimulate blood circulation, reduce stress, and rejuvenate the hair, leaving it feeling refreshed and nourished.' },
+          { id: 'hair-stroke-6-week-retouch', name: 'Hairstroke (6 week retouch)', price: '$50', options: [], duration: '1 hr', description: 'Enhance your natural beauty with our Hairstroke (6 week retouch) service. This semi-permanent makeup technique creates fine, hair-like strokes to fill in and define your eyebrows, giving them a fuller and more polished look. Perfect for those who want to maintain their eyebrow shape and color, this retouch session ensures your brows stay fresh and vibrant. Our skilled technicians use high-quality pigments and precise application methods to achieve a natural appearance that complements your facial features. Book your appointment today and enjoy beautifully defined eyebrows that last!' }, 
+          { id: 'color-boost-retouch', name: 'Color Boost Retouch (within 6 weeks)', price: '$50', options: [], duration: '2 hrs', description: 'Eyeliners, Eyebrow touch-up for VyBrows returning clients. Price ranges from $50-$100 (depending on treatment).' }
         ]
       }
     ]
@@ -57,94 +48,40 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     key: 'brows-lashes',
     title: 'Brows & Lashes',
-    description: 'Eyebrow and eyelash services',
+    description: '',
     groups: [
       {
-        title: 'Brows',
+        title: 'Popular Services',
         services: [
-          { id: 'eyebrow-wax-brows', name: 'Eyebrow Wax', price: '$15', options: [
-            { name: 'Basic', time: '10 mins' },
-            { name: 'Premium', time: '15 mins' }
-          ] },
-          { id: 'eyebrow-tint', name: 'Eyebrow Tint', price: '$20', options: [
-            { name: 'Light', time: '10 mins' },
-            { name: 'Dark', time: '12 mins' }
-          ] },
-          { id: 'eyebrow-threading', name: 'Eyebrow Threading', price: '$18', options: [
-            { name: 'Standard', time: '10 mins' }
-          ] },
-          { id: 'brow-lamination', name: 'Brow Lamination', price: '$45', options: [
-            { name: 'Natural', time: '20 mins' },
-            { name: 'Bold', time: '25 mins' }
-          ] },
-          { id: 'brow-henna', name: 'Brow Henna', price: '$35', options: [
-            { name: 'Brown', time: '15 mins' },
-            { name: 'Black', time: '15 mins' }
-          ] },
-          { id: 'brow-shaping', name: 'Brow Shaping', price: '$25', options: [
-            { name: 'Natural', time: '10 mins' },
-            { name: 'Arched', time: '12 mins' }
-          ] }
+          { id: 'brow-shape-color-direction', name: 'Brow Shape/Color Direction', price: '$550', options: [], duration: '1 hr', description: 'This price only applies to corrections made to brows originally done by a location other than VyBrows' },
+          { id: 'hairstroke-6week-retouch-1', name: 'Hairstroke (6 week retouch)', price: '$50', options: [], duration: '1 hr', description: 'Enhance your natural beauty with our Hairstroke (6 week retouch) service. This semi-permanent makeup technique creates fine, hair-like strokes to fill in and define your eyebrows, giving them a fuller and more polished look. Perfect for those who want to maintain their eyebrow shape and color, this retouch session ensures your brows stay fresh and vibrant. Our skilled technicians use high-quality pigments and precise application methods to achieve a natural appearance that complements your facial features. Book your appointment today and enjoy beautifully defined eyebrows that last!' },
+          { id: 'color-boost-retouch-sub', name: 'Color Boost Retouch (within 18 months)', price: '$200', options: [], duration: '1 hr, 15 mins - Retouch within 18 months', description: 'Eyebrow touch-up for VyBrows returning clients. Price ranges from $200-$250 (depending on treatment).' },
+          { id: 'color-boost-retouch-sub2', name: 'Color Boost Retouch (within 8 months)', price: '$100', options: [], duration: '1 hr, 15 mins', description: 'Eyebrow touch-up for VyBrows returning clients. Price ranges from $100-$150 (depending on treatment),' },
+          { id: 'eyebrow-hair-stroke', name: 'Eyebrow Hair Stroke', price: '$450', options: [], duration: '1 hr, 30 mins', description: 'Our Eyebrow Hair Stroke service creates natural-looking, hair-like strokes for fuller brows.' },
+          { id: 'Microblading', name: 'Microblading', price: '$400', options: [], duration: '1 hr, 30 mins', description: 'Microblading is a semi-permanent makeup technique that creates the illusion of fuller eyebrows. Our skilled technicians use a manual blade to deposit pigment into the skin, resulting in natural-looking hair strokes. This service is perfect for those with sparse or uneven brows who want to enhance their shape and fullness. Book your appointment today and wake up with beautifully defined brows!' },
+          { id: 'ombre-eyebrow-shading', name: 'Ombre Eyebrow Shading', price: '$350', options: [], duration : '1 hr, 30 mins', description: 'Ombre Eyebrow Shading is a semi-permanent makeup technique that creates a soft, gradient effect for fuller, more defined brows. Our skilled technicians use a digital machine to deposit pigment into the skin, resulting in a natural-looking ombre finish. This service is perfect for those who want to enhance their eyebrow shape and color with a subtle, powdery look. Book your appointment today and enjoy beautifully shaded brows that last!' },
+          { id: 'eyebrow-shading', name: 'Eyebrow Shading (9 months or longer)', price: '$300', options: [], duration: '1 hr, 30 mins - New Set', description: '' },
+          { id: 'classic-fill', name: 'Classic Fill', price: '$60', options: [], duration: '1 hr', description: '' }
         ]
       },
-      {
-        title: 'Lashes',
-        services: [
-          { id: 'lash-lift', name: 'Lash Lift', price: '$60', options: [
-            { name: 'Basic', time: '30 mins' },
-            { name: 'Premium', time: '40 mins' }
-          ] },
-          { id: 'lash-tint', name: 'Lash Tint', price: '$25', options: [
-            { name: 'Black', time: '15 mins' },
-            { name: 'Brown', time: '15 mins' }
-          ] },
-          { id: 'lash-extension', name: 'Lash Extension', price: '$80', options: [
-            { name: 'Natural', time: '60 mins' },
-            { name: 'Dramatic', time: '75 mins' }
-          ] },
-          { id: 'lash-perm', name: 'Lash Perm', price: '$70', options: [
-            { name: 'Curl', time: '35 mins' },
-            { name: 'Volume', time: '40 mins' }
-          ] },
-          { id: 'lash-removal', name: 'Lash Removal', price: '$30', options: [
-            { name: 'Safe Removal', time: '20 mins' }
-          ] },
-          { id: 'lash-botox', name: 'Lash Botox', price: '$50', options: [
-            { name: 'Treatment', time: '25 mins' }
-          ] }
-        ]
-      }
     ]
   },
   {
     key: 'lip-tattooing',
     title: 'Lip Tattooing',
-    description: 'Lip enhancement services',
+    description: '',
     groups: [
       {
-        title: 'Lips',
+        title: 'Popular Services',
         services: [
-          { id: 'lip-blush-lips', name: 'Lip Blush', price: '$90', options: [
-            { name: 'Soft', time: '25 mins', price: '$90' },
-            { name: 'Bold', time: '30 mins', price: '$95' }
-          ] },
-          { id: 'lip-liner', name: 'Lip Liner', price: '$75', options: [
-            { name: 'Natural', time: '20 mins', price: '$75' },
-            { name: 'Defined', time: '25 mins', price: '$80' }
-          ] },
-          { id: 'full-lip-color', name: 'Full Lip Color', price: '$120', options: [
-            { name: 'Nude', time: '30 mins', price: '$120' },
-            { name: 'Red', time: '35 mins', price: '$125' },
-            { name: 'Pink', time: '35 mins', price: '$125' }
-          ] },
-          { id: 'lip-neutralization', name: 'Lip Neutralization', price: '$60', options: [
-            { name: 'Light', time: '20 mins', price: '$60' },
-            { name: 'Medium', time: '25 mins', price: '$65' }
-          ] },
-          { id: 'russian-lips', name: 'Russian Lips', price: '$150', options: [
-            { name: 'Subtle', time: '40 mins', price: '$150' },
-            { name: 'Dramatic', time: '45 mins', price: '$160' }
-          ] }
+          { id: 'color-boost-retouch-lip', name: 'Color Boost Retouch (within 3 months)', price: '$100', options: [], duration: '1 hr, 15 mins', description: 'Service estimate applicable to returning VyBrow clients only.' },
+          { id: 'darklip-removal', name: 'Dark Lip Removal', price: '$150', options: [
+            { name: '2nd or 3rd section', time: '1 hr, 30 mins', price: '$150' },
+            { name: 'First section', time: '1 hr, 30 mins', price: '$from 400' },
+          ], duration: '1hr, 30 mins', description: 'Dark lips removed from $400 ' },
+          { id: 'classic-shading', name: 'Classic-Shading', price: '$400', options: [], duration: '2 hrs', description: '' },
+          { id: 'collagen-lips', name: 'Collagen Lips', price: '$500', options: [], duration: '2 hrs', description: '' },
+          { id: 'stemcell-lips', name: 'Stemcell Lips', price: '$600', options: [], duration: '2 hrs', description: '' }
         ]
       }
     ]
@@ -152,24 +89,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     key: 'eyeliner',
     title: 'Eyeliner',
-    description: 'Eyeliner tattooing services',
+    description: '',
     groups: [
       {
-        title: 'Eyeliner',
+        title: 'Popular Services',
         services: [
-          { id: 'classic-eyeliner-tattoo', name: 'Classic Eyeliner', price: '$80', options: [
-            { name: 'Thin', time: '20 mins', price: '$80' },
-            { name: 'Thick', time: '25 mins', price: '$85' }
-          ] },
-          { id: 'designer-eyeliner', name: 'Designer Eyeliner', price: '$100', options: [
-            { name: 'Simple', time: '30 mins', price: '$100' },
-            { name: 'Complex', time: '40 mins', price: '$110' }
-          ] },
-          { id: 'colored-eyeliner', name: 'Colored Eyeliner', price: '$110', options: [
-            { name: 'Blue', time: '30 mins', price: '$110' },
-            { name: 'Green', time: '30 mins', price: '$110' },
-            { name: 'Purple', time: '30 mins', price: '$110' }
-          ] }
+          { id: 'full-set', name: 'Full Set', price: '$400', options: [], duration: '1 hr - pricing starts at $400', description: '' },
+          { id: 'upper-eyeliner', name: 'Upper Eyeliner', price: '$300', options: [], duration: '1 hr', description: '' },
+          { id: 'color-boost-retouch-eyeliner', name: 'Color Boost Retouch (within 6 weeks)', price: '$50', options: [], duration: '2 hrs', description: 'Eyeliners, Eyebrow touch-up for VyBrows returning clients. Price ranges from $50-$100 (depending on treatment).' }
         ]
       }
     ]
@@ -177,38 +104,42 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     key: 'waxing',
     title: 'Waxing',
-    description: 'Hair removal services',
+    description: 'Enjoy smooth, silky skin with our professional waxing services. From brows to legs, our skilled estheticians ensure a comfortable, long-lasting, and hair-free result. Book your session today!',
     groups: [
       {
-        title: 'Body Waxing',
+        title: 'Popular Services',
         services: [
-          { id: 'eyebrow-wax-waxing', name: 'Eyebrow Wax', price: '$15', options: [
-            { name: 'Basic', time: '10 mins', price: '$15' },
-            { name: 'Premium', time: '15 mins', price: '$18' }
-          ] },
-          { id: 'upper-lip-wax', name: 'Upper Lip Wax', price: '$12', options: [
-            { name: 'Standard', time: '8 mins', price: '$12' }
-          ] }
-        ]
+          { id: 'full-body-waxing-sub', name: 'Full Body Waxing', price: '$20', options: [
+            { name: 'Full Body Waxing', time: '1 hr', price: 'from $150' },
+            { name: 'UnderArms (Ampit)', time: '20 mins', price: '$30' },
+            { name: 'Arms (full)', time: '25 mins', price: 'from $30' },
+            { name: 'Legs (full)', time: '25 mins', price: 'from $30' },
+            { name: 'Bikini line', time: '25 mins', price: 'from $35' },
+            { name: 'Brazillian Bikini', time: '20 mins', price: 'from $45' },
+            { name: 'Back', time: '25 mins', price: 'from $65' },
+            { name: 'Chest', time: '20 mins', price: 'from $50' }
+          ], duration: ' 20 mins - 1 hr', description: 'Our body waxing service offers smooth, hair-free skin with long-lasting results. Whether you need waxing for your legs, arms, bikini line, back, or chest, our skilled estheticians ensure a comfortable, efficient experience. Using high-quality wax, we gently remove unwanted hair, leaving your skin soft and silky. Ideal for those seeking a flawless, hair-free look, our body waxing is designed to minimize discomfort and provide lasting smoothness. Book your appointment today and enjoy the confidence of smooth, radiant skin!' },
+          { id: 'full-face-waxing-sub', name: 'Full Face Waxing', price: '$7', options: [
+            { name: 'Full Face Waxing', time: '30 mins', price: '$25' },
+            { name: 'Eyebrows', time: '15 mins', price: '$13' },
+            { name: 'Upper lip', time: '5 mins', price: '$7' },
+            { name: 'Chin', time: '5 mins', price: '$8' }
+          ], duration: '5 mins - 30 mins', description: 'Our facial waxing service includes eyebrow shaping, upper lip, chin, and cheek waxing for smooth, flawless skin. Enjoy precision and comfort with long-lasting results.' },
+        ]  
       }
     ]
   },
   {
     key: 'head-spa',
     title: 'Head Spa',
-    description: 'Scalp and hair treatments',
+    description: 'Relax with our rejuvenating Head Spa, featuring a soothing scalp massage and nourishing hair care. Revitalize your hair, reduce stress, and enjoy soft, shiny results. Book your session today!',
     groups: [
       {
-        title: 'Scalp Treatments',
+        title: 'Popular Services',
         services: [
-          { id: 'scalp-massage', name: 'Scalp Massage', price: '$30', options: [
-            { name: '30 min', time: '30 mins', price: '$30' },
-            { name: '60 min', time: '60 mins', price: '$50' }
-          ] },
-          { id: 'herbal-hair-wash', name: 'Herbal Hair Wash', price: '$25', options: [
-            { name: 'Basic', time: '15 mins', price: '$25' },
-            { name: 'Premium', time: '20 mins', price: '$30' }
-          ] }
+          { id: 'deluxe-head-spa', name: 'Deluxe Head Spa', price: '$120', options: [], duration: '1 hr, 30 mins', description: 'A deluxe head spa offers an enhanced version of the premium experience, designed for ultimate relaxation and rejuvenation. It begins with a soothing scalp massage, followed by a cleansing with herbal shampoo and a nourishing steam treatment with herbal extracts for the hair. A relaxing facial is included, along with a blow-dry to finish. The deluxe experience also adds a hand and foot massage with hot stones to relieve tension, light therapy to promote skin and hair health, and warm Himalayan salt therapy to soothe muscles and enhance relaxation. This comprehensive treatment offers a truly indulgent and revitalizing experience.' },
+          { id: 'basic-head-spa', name: 'Basic Head Spa', price: '$40', options: [], duration: '45 mins', description: 'A basic head spa is a relaxing treatment that focuses on the scalp, hair, and neck. It typically involves gentle massage, cleansing, and conditioning to improve scalp health, relieve tension, and promote relaxation. The treatment helps stimulate blood circulation, reduce stress, and rejuvenate the hair, leaving it feeling refreshed and nourished.' },
+          { id: 'premium-head-spa', name: 'Premium Head Spa', price: '$80', options: [], duration: '1 hr', description: 'A premium head spa is an indulgent, all-inclusive treatment designed to rejuvenate both the scalp and mind. It begins with a soothing scalp massage to improve circulation, followed by a cleansing with herbal shampoo to detoxify and nourish the scalp. The experience includes a relaxing facial to refresh the skin, neck and shoulder massage and a blow-dry to leave your hair smooth and styled. This luxurious treatment promotes relaxation, enhances hair health, and provides a complete pampering experience.' }
         ]
       }
     ]
@@ -216,23 +147,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     key: 'facial-treatment',
     title: 'Facial and Treatment',
-    description: 'Facial treatments and skincare',
+    description: '',
     groups: [
       {
-        title: 'Facial Treatments',
+        title: 'Popular Services',
         services: [
-          { id: 'acne-treatment', name: 'Acne Treatment', price: '$80', options: [
-            { name: 'Basic', time: '30 mins', price: '$80' },
-            { name: 'Advanced', time: '45 mins', price: '$100' }
-          ] },
-          { id: 'hydra-facial-facial', name: 'Hydra Facial', price: '$120', options: [
-            { name: 'Hydrating', time: '30 mins', price: '$120' },
-            { name: 'Brightening', time: '35 mins', price: '$125' }
-          ] },
-          { id: 'chemical-peel', name: 'Chemical Peel', price: '$100', options: [
-            { name: 'Light', time: '20 mins', price: '$100' },
-            { name: 'Medium', time: '30 mins', price: '$120' }
-          ] }
+          { id: 'house-special-facial', name: 'House Special Facial', price: '$30', options: [
+            { name: 'House Special Facial', time: '1 hr', price: '$60' },
+            { name: '(Add on) Acne Extraction', time: '30 mins', price: '$30', description: 'For an added boost, add sanitation acne extractions for just $30—available exclusively with the House Special Facial service. Regular price is $50.' }
+          ], duration: '30 mins - 1 hr', description: 'Indulge in our luxurious House Special Facial, a personalized treatment designed to rejuvenate and refresh your skin. Tailored to your unique needs, this facial includes deep cleansing, exfoliation, a customized mask, and a relaxing massage, leaving your skin glowing and revitalized. Our expert estheticians will target your specific skin concerns, whether it\'s hydration, anti-aging, or acne. Finish with a nourishing serum and SPF protection for a flawless, radiant complexion. Treat yourself to the ultimate skincare experience—your skin deserves it!'},
         ]
       }
     ]
@@ -526,9 +449,18 @@ const BookingComponent: React.FC = () => {
             </svg>
           )}
         </button>
-        <h2 className="text-3xl font-bold text-center text-green-800 whitespace-nowrap" style={{ fontFamily: 'Tartuffo, serif' }}>
-          Book VyBrows Beauty Services
-        </h2>
+          <h2
+            className="text-3xl font-bold text-center text-green-800 whitespace-nowrap block md:hidden"
+            style={{ fontFamily: 'Tartuffo, serif' }}
+          >
+            Services
+          </h2>
+          <h2
+            className="text-3xl font-bold text-center text-green-800 whitespace-nowrap hidden md:block"
+            style={{ fontFamily: 'Tartuffo, serif' }}
+          >
+            Book VyBrows Beauty Services
+          </h2>
       </div>
       {/* Status and Address - Temporarily hidden */}
       {/* <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">

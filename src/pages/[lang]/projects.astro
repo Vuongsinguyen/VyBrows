@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 const lang = Astro.params.lang;
-const allEntries = await Astro.glob('/src/content/projects/*/*.md');
+const allEntries = Object.values(await import.meta.glob('/src/content/projects/*/*.md', { eager: true })) as any[];
 const projectEntries = allEntries.filter(entry => entry.file.endsWith(`.${lang}.md`));
 const PAGE_SIZE = 25;
 const pageParam = Astro.url?.searchParams.get('page');
