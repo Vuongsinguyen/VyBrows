@@ -1,4 +1,5 @@
 ---
+// UseCaseCard.astro - Professional use case card component
 export interface Props {
   uc: {
     name: string;
@@ -11,9 +12,6 @@ export interface Props {
   };
   expanded?: boolean;
   avatarIndex?: number;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  onClick?: () => void;
 }
 
 const {
@@ -27,10 +25,7 @@ const {
     techs: []
   },
   expanded = false,
-  avatarIndex = 0,
-  onMouseEnter,
-  onMouseLeave,
-  onClick
+  avatarIndex = 0
 } = Astro.props;
 ---
 
@@ -44,9 +39,6 @@ const {
          box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18),
                      0 1.5px 6px 0 rgba(255,215,0,0.12);
          height: 210px;"
-  onMouseEnter={onMouseEnter}
-  onMouseLeave={onMouseLeave}
-  onClick={onClick}
 >
   <div class="flex items-center mb-2">
     <div class="flex-shrink-0 mr-4">

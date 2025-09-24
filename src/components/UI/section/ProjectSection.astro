@@ -9,7 +9,7 @@ const categories = [
   { name: "Enterprise", key: "Enterprise" }
 ];
 
-const lang = Astro.props?.lang || Astro.url.pathname.split('/')[1] || 'en';
+const lang = (Astro.props?.lang || Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
 const allProjects = (await getCollection("projects")).filter(p => p.id.endsWith(`.${lang}.md`));
 const projects: Record<string, any[]> = {};
 projects["All"] = allProjects.map(p => {
