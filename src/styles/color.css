@@ -48,6 +48,7 @@
   --color-white: #ffffff; /* White for light mode */
   --color-black: #01513A; /* Black for light mode */
   --color-blacktext: #01513e;
+  --color-blacktext2: #ffd895;
   --color-bg: var(--color-white);
   --color-bgtext: #ffffff;
   /* --color-surface removed, use --color-white instead */
@@ -146,6 +147,7 @@
   --color-white: #ffffff;
   --color-black: #01513A;
   --color-blacktext: #ffd895;
+  --color-blacktext2: #ffd895;
   --header-bg: var(--color-white);
   --slider-bg: #1e293b;
   --slider-dot: #475569;
