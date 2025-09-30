@@ -12,8 +12,8 @@
           name: "Name",
           email: "Email",
           phone: "Phone",
-          service: "Service",
-          selectService: "Select Service",
+          service: "Subject",
+          selectService: "Enter Subject",
           message: "Message",
           submit: "Submit",
           address: "Address:",
@@ -29,8 +29,8 @@
           name: "Họ tên",
           email: "Email",
           phone: "Số điện thoại",
-          service: "Dịch vụ",
-          selectService: "Chọn dịch vụ",
+          service: "Chủ đề",
+          selectService: "Nhập chủ đề",
           message: "Nội dung",
           submit: "Gửi",
           address: "Địa chỉ:",
@@ -46,8 +46,8 @@
           name: "お名前",
           email: "メール",
           phone: "電話番号",
-          service: "サービス",
-          selectService: "サービスを選択",
+          service: "件名",
+          selectService: "件名を入力",
           message: "メッセージ",
           submit: "送信",
           address: "住所:",
@@ -63,8 +63,8 @@
           name: "이름",
           email: "이메일",
           phone: "전화번호",
-          service: "서비스",
-          selectService: "서비스 선택",
+          service: "제목",
+          selectService: "제목 입력",
           message: "메시지",
           submit: "보내기",
           address: "주소:",
@@ -80,8 +80,8 @@
           name: "Nombre",
           email: "Correo electrónico",
           phone: "Teléfono",
-          service: "Servicio",
-          selectService: "Selecciona servicio",
+          service: "Asunto",
+          selectService: "Ingresa asunto",
           message: "Mensaje",
           submit: "Enviar",
           address: "Dirección:",
@@ -171,19 +171,13 @@
           {(() => {
             const lang = (Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
             const labels = {
-              en: { name: "Name", email: "Email", phone: "Phone", service: "Service", selectService: "Select Service", message: "Message", submit: "Submit" },
-              vi: { name: "Họ tên", email: "Email", phone: "Số điện thoại", service: "Dịch vụ", selectService: "Chọn dịch vụ", message: "Nội dung", submit: "Gửi" },
-              ja: { name: "お名前", email: "メール", phone: "電話番号", service: "サービス", selectService: "サービスを選択", message: "メッセージ", submit: "送信" },
-              ko: { name: "이름", email: "이메일", phone: "전화번호", service: "서비스", selectService: "서비스 선택", message: "메시지", submit: "보내기" },
-              es: { name: "Nombre", email: "Correo electrónico", phone: "Teléfono", service: "Servicio", selectService: "Selecciona servicio", message: "Mensaje", submit: "Enviar" },
+              en: { name: "Name", email: "Email", phone: "Phone", service: "Subject", selectService: "Enter Subject", message: "Message", submit: "Submit" },
+              vi: { name: "Họ tên", email: "Email", phone: "Số điện thoại", service: "Chủ đề", selectService: "Nhập chủ đề", message: "Nội dung", submit: "Gửi" },
+              ja: { name: "お名前", email: "メール", phone: "電話番号", service: "件名", selectService: "件名を入力", message: "メッセージ", submit: "送信" },
+              ko: { name: "이름", email: "이메일", phone: "전화번호", service: "제목", selectService: "제목 입력", message: "메시지", submit: "보내기" },
+              es: { name: "Nombre", email: "Correo electrónico", phone: "Teléfono", service: "Asunto", selectService: "Ingresa asunto", message: "Mensaje", submit: "Enviar" },
             };
-            const serviceOptions = {
-              en: ["PMU — Permanent Makeup", "Skincare - Acne Treatment", "Detox & Herbal Hair Wash", "Shading Ombré", "Micro Blading", "Hairs Strokes", "EyeLiners", "Lip Treatments", "Dark Lips Remover", "Beauty Training Course"],
-              vi: ["Phun xăm thẩm mỹ", "Chăm sóc da - Trị mụn", "Gội thảo dược & Detox", "Shading Ombré", "Điêu khắc Micro Blading", "Hairs Strokes", "Kẻ viền mắt", "Chăm sóc môi", "Xóa môi thâm", "Khóa học làm đẹp"],
-              ja: ["PMU — パーマネントメイク", "スキンケア・ニキビ治療", "デトックス＆ハーブヘアウォッシュ", "シェーディングオムブレ", "マイクロブレーディング", "ヘアストローク", "アイライナー", "リップトリートメント", "ダークリップリムーバー", "美容トレーニングコース"],
-              ko: ["PMU — 반영구 화장", "스킨케어 - 여드름 치료", "디톡스 & 허브 헤어워시", "섀딩 옴브레", "마이크로 블레이딩", "헤어 스트로크", "아이라이너", "립 트리트먼트", "다크 립 제거", "뷰티 트레이닝 코스"],
-              es: ["PMU — Maquillaje permanente", "Cuidado de la piel - Tratamiento del acné", "Detox y lavado de cabello herbal", "Shading Ombré", "Micro Blading", "Hairs Strokes", "Delineadores", "Tratamientos de labios", "Removedor de labios oscuros", "Curso de formación de belleza"],
-            };
+
             return <>
               {/* Name */}
               <div class="mb-4">
@@ -200,29 +194,15 @@
                 <label for="phone" class="block text-sm font-medium mb-1 font-lora text-primary">{labels[lang].phone}</label>
                 <input type="text" name="phone" id="phone" required class="field-input" placeholder={labels[lang].phone} />
               </div>
-              {/* Service */}
+              {/* Subject */}
               <div class="mb-4">
-                <label for="service" class="block text-sm font-medium mb-1 font-lora text-primary">{labels[lang].service}</label>
-                <select name="service" id="service" required class="field-input">
-                  <option value="">{labels[lang].selectService}</option>
-                  {serviceOptions[lang].map(opt => <option value={opt}>{opt}</option>)}
-                </select>
+                <label for="subject" class="block text-sm font-medium mb-1 font-lora text-primary">{labels[lang].service}</label>
+                <input type="text" name="subject" id="subject" required class="field-input" placeholder={labels[lang].selectService} />
               </div>
               {/* Message */}
               <div class="mb-4">
                 <label for="message" class="block text-sm font-medium mb-1 font-lora text-primary">{labels[lang].message}</label>
                 <textarea name="message" id="message" rows="4" class="field-input" placeholder={labels[lang].message}></textarea>
-              </div>
-              {/* Turnstile widget */}
-              <div class="my-3">
-                <div
-                  class="cf-turnstile"
-                  data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
-                  data-theme="auto"
-                  data-callback="onTurnstileSuccess"
-                  data-expired-callback="onTurnstileExpired"
-                  data-error-callback="onTurnstileError"
-                ></div>
               </div>
               {/* Submit */}
               <div id="formStatusWrapper">
@@ -273,18 +253,6 @@
   }
   function autoHide(ms=3500){ const el = statusEl(); if(!el) return; setTimeout(()=> el.classList.remove('show'), ms); }
 
-  // Turnstile callbacks (global)
-  let captchaReady = false;
-  (window as any).onTurnstileSuccess = function () { captchaReady = true; };
-  (window as any).onTurnstileExpired = function () {
-    captchaReady = false;
-    setStatus('Captcha expired. Please verify again.', 'error');
-  };
-  (window as any).onTurnstileError = function () {
-    captchaReady = false;
-    setStatus('Captcha error. Please retry.', 'error');
-  };
-
   document.addEventListener('DOMContentLoaded', ()=>{
     const form = document.getElementById('contactForm') as HTMLFormElement; if(!form) return;
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
@@ -292,25 +260,19 @@
     form.addEventListener('submit', async (e)=>{
       e.preventDefault(); if((form as any).dataset.sending==='1') return;
 
-      const token = (form.querySelector('input[name="cf-turnstile-response"]') as HTMLInputElement)?.value || '';
-      if (!token || !captchaReady) { setStatus('❌ Vui lòng xác minh bảo mật.', 'error'); return; }
-
       (form as any).dataset.sending='1';
       if(submitBtn){ submitBtn.disabled=true; (submitBtn as any).dataset.originalText=submitBtn.textContent; submitBtn.textContent='Sending...'; }
       setStatus('Đang gửi...', 'info');
 
       const fd=new FormData(form); const payload: any={}; fd.forEach((v,k)=>payload[k]=String(v));
-      payload.turnstileToken = token;
 
       try{
         const res=await fetch('/.netlify/functions/sendMail',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
         const result=await res.json().catch(()=>({}));
-        if(res.ok && result.success){ setStatus('✅ Sent successfully! We will contact you soon!', 'success'); form.reset(); }
-        else { setStatus('❌ Failed to send: '+(result.error||'Captcha failed'), 'error'); }
+        if(res.ok && result.message === 'Email sent successfully'){ setStatus('✅ Sent successfully! We will contact you soon!', 'success'); form.reset(); }
+        else { setStatus('❌ Failed to send: '+(result.message||'Unknown error'), 'error'); }
       } catch { setStatus('❌ Network error (failed to send)', 'error'); }
       finally {
-        try { (window as any).turnstile?.reset(); } catch {}
-        captchaReady = false;
         if(submitBtn){ submitBtn.disabled=false; submitBtn.textContent=(submitBtn as any).dataset.originalText||'Submit'; }
         delete (form as any).dataset.sending;
       }
@@ -319,5 +281,3 @@
 })();
 </script>
 
-<!-- Turnstile script -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
