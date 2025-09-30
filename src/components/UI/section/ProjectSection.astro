@@ -88,7 +88,7 @@ for (const cat of categories) {
           }
           if (idx === 3) {
             cardProps.name = 'Nguyen Vuong';
-            cardProps.category = 'TECH SUPPORT';
+            cardProps.category = 'GENERAL MANAGER';
           }
           if (idx === 4) {
             cardProps.name = 'Vanessa Nguyen';
@@ -98,8 +98,15 @@ for (const cat of categories) {
           // override images to use mem01…mem05
           const num = String(idx + 1).padStart(2, '0');  
           const cacheBust = '?v=1.1'; // Update version to force cache refresh
-          cardProps.image1 = `/images/mem${num}.avif${cacheBust}`;
-          cardProps.image2 = `/images/mem${num}-2.avif${cacheBust}`;
+          
+          // Special handling for Vanessa Nguyen (idx 4) - use same image for both
+          if (idx === 4) {
+            cardProps.image1 = `/images/mem05.avif${cacheBust}`;
+            cardProps.image2 = `/images/mem05.avif${cacheBust}`;
+          } else {
+            cardProps.image1 = `/images/mem${num}.avif${cacheBust}`;
+            cardProps.image2 = `/images/mem${num}-2.avif${cacheBust}`;
+          }
 
           return (
             <div class={`project-card-link group${isWide ? ' card-wide' : ''} ${isWide ? 'order-1 md:order-none' : ''}`}>
