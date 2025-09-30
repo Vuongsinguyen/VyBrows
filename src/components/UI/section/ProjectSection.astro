@@ -67,7 +67,7 @@ for (const cat of categories) {
                mx-0 md:mx-[30px]"
         style="max-width:1180px; width:100%;"
       >
-        {projects["All"].slice(0, 4).map((proj, idx) => {
+        {projects["All"].slice(0, 5).map((proj, idx) => {
           const isWide = idx === 2; // card thứ 3 là card lớn
           const isColor = idx === 2; // card 3 có màu từ đầu
           // clone props so we can override images
@@ -87,11 +87,15 @@ for (const cat of categories) {
             cardProps.category = 'CEO / FOUNDER / INSTRUCTOR';
           }
           if (idx === 3) {
+            cardProps.name = 'Nguyen Vuong';
+            cardProps.category = 'TECH SUPPORT';
+          }
+          if (idx === 4) {
             cardProps.name = 'Vanessa Nguyen';
             cardProps.category = 'CHIEF ASSISTANT';
           }
 
-          // override images to use mem01…mem04
+          // override images to use mem01…mem05
           const num = String(idx + 1).padStart(2, '0');  
           cardProps.image1 = `/images/mem${num}.avif`;
           cardProps.image2 = `/images/mem${num}-2.avif`;
