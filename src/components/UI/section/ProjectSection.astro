@@ -99,7 +99,6 @@ for (const cat of categories) {
           const num = String(idx + 1).padStart(2, '0');  
           const cacheBust = '?v=1.1'; // Update version to force cache refresh
           
-          // Special handling for Vanessa Nguyen (idx 4) - use same image for both
           cardProps.image1 = `/images/mem${num}.avif${cacheBust}`;
           cardProps.image2 = `/images/mem${num}-2.avif${cacheBust}`;
 
