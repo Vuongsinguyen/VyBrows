@@ -97,8 +97,9 @@ for (const cat of categories) {
 
           // override images to use mem01…mem05
           const num = String(idx + 1).padStart(2, '0');  
-          cardProps.image1 = `/images/mem${num}.avif`;
-          cardProps.image2 = `/images/mem${num}-2.avif`;
+          const cacheBust = '?v=1.1'; // Update version to force cache refresh
+          cardProps.image1 = `/images/mem${num}.avif${cacheBust}`;
+          cardProps.image2 = `/images/mem${num}-2.avif${cacheBust}`;
 
           return (
             <div class={`project-card-link group${isWide ? ' card-wide' : ''} ${isWide ? 'order-1 md:order-none' : ''}`}>
