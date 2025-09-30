@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Booking API</title>
+</head>
+<body>
+    <h1>Test Booking API</h1>
+    <button id="testBtn">Test Multiple Options Booking</button>
+    <pre id="results"></pre>
+
+    <script>
+        document.getElementById('testBtn').addEventListener('click', async () => {
+            const resultsEl = document.getElementById('results');
+            resultsEl.textContent = 'Testing...';
+
+            const testData = {
+                services: ["full-face-waxing", "eyebrow-threading"],
+                options: {
+                    "full-face-waxing": "Full Face Waxing",
+                    "eyebrow-threading": "Eyebrow Threading"
+                },
+                serviceNames: {
+                    "full-face-waxing": "Full Face Waxing",
+                    "eyebrow-threading": "Eyebrow Threading"
+                },
+                date: "2025-09-22",
+                time: "15:00",
+                name: "Test User Multiple",
+                phone: "0938222787",
+                email: "test@test.com",
+                notes: "Testing multiple options",
+                category: "featured"
+            };
+
+            try {
+                console.log('Sending data:', testData);
+                
+                const response = await fetch('/.netlify/functions/submitBooking', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                const result = await response.text();
+                resultsEl.textContent = `Status: ${response.status}\nResponse: ${result}`;
+                console.log('Response:', result);
+
+            } catch (error) {
+                resultsEl.textContent = `Error: ${error.message}`;
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

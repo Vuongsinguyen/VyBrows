@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Time API</title>
+</head>
+<body>
+    <h1>Test Available Times API</h1>
+    <div>
+        <label>Date to check: </label>
+        <input type="date" id="dateInput" value="2025-09-21">
+        <button id="checkBtn">Check Available Times</button>
+    </div>
+    <pre id="results"></pre>
+
+    <script>
+        document.getElementById('checkBtn').addEventListener('click', async () => {
+            const resultsEl = document.getElementById('results');
+            const date = document.getElementById('dateInput').value;
+            resultsEl.textContent = `Checking times for ${date}...`;
+
+            try {
+                const response = await fetch(`/.netlify/functions/getAvailableTimes?date=${date}`);
+                const result = await response.json();
+                
+                resultsEl.textContent = JSON.stringify(result, null, 2);
+                console.log('Available times result:', result);
+
+            } catch (error) {
+                resultsEl.textContent = `Error: ${error.message}`;
+                console.error('Error:', error);
+            }
+        });
+
+        // Auto check for 2025-09-21 on load
+        window.addEventListener('load', () => {
+            document.getElementById('checkBtn').click();
+        });
+    </script>
+</body>
+</html>
