@@ -7,7 +7,7 @@ import servicesData from '../../../content/services.json' assert { type: 'json' 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ['vi', 'ja', 'es'];
+  const langs = ['en', 'vi', 'ja', 'es', 'ko'];
   return langs.flatMap(lang => {
     return servicesData.map(service => ({ 
       params: { 
@@ -17,12 +17,12 @@ export async function getStaticPaths() {
     }));
   });
 }
-const lang = Astro.params.lang as 'vi' | 'ja' | 'es';
+const lang = Astro.params.lang as 'en' | 'vi' | 'ja' | 'es' | 'ko';
 const serviceSlug = Astro.params.service as string;
 
 // Tạo tocLabels động từ JSON
 const tocLabels = servicesData.reduce((acc, service) => {
-  acc[service.slug] = service.title[lang] || service.title.en;
+  acc[service.slug] = (service.title as any)[lang] || service.title.en;
   return acc;
 }, {} as Record<string, string>);
 
@@ -37,46 +37,208 @@ const serviceContent = servicesData.reduce((acc, service) => {
   <div class="w-full bg-surface flex justify-center">
     <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
       <!-- Sidebar Trái -->
-      <aside class="w-64 bg-surface rounded-lg shadow p-4 mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
-        <h2 class="font-bold text-lg mb-2 text-on-surface">{lang === 'vi' ? 'Danh mục dịch vụ' : lang === 'ja' ? 'サービス一覧' : 'Services Menu'}</h2>
+      <aside class="w-64 bg-surface rounded-lg shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20">
         <ul class="border border-border rounded-lg overflow-hidden">
           {servicesData.map((service, index) => (
             <li>
-              <a href={`/${lang}/service/${service.slug}`} class={`block bg-surface rounded-none ${index < servicesData.length - 1 ? 'border-b border-border' : ''} px-3 py-2 text-on-surface font-normal hover:text-primary`}>
-                {service.title[lang] || service.title.en}
+              <a 
+                href={`/${lang}/service/${service.slug}`} 
+                class={`block rounded-none ${index < servicesData.length - 1 ? 'border-b border-border' : ''} px-3 py-2 font-normal transition-colors`}
+                style={service.slug === serviceSlug ? 'background-color: var(--color-primary); color: white;' : 'background-color: white; color: var(--color-primary);'}
+              >
+                {(service.title as any)[lang] || service.title.en}
               </a>
             </li>
           ))}
         </ul>
       </aside>
+
       <!-- Nội dung chính -->
-      <main class="flex-1 space-y-12">
-        <h1 class="text-3xl font-bold mb-4 text-on-surface">{tocLabels[serviceSlug] ?? serviceSlug}</h1>
-        {servicesData.find(s => s.slug === serviceSlug)?.image && (
-          <img 
-            src={servicesData.find(s => s.slug === serviceSlug)?.image} 
-            alt={tocLabels[serviceSlug] ?? serviceSlug}
-            class="w-full max-w-md h-64 object-cover rounded-lg shadow-lg mb-6"
-          />
-        )}
-        <p class="text-base mt-2 max-w-2xl text-on-surface">
-          {serviceContent[serviceSlug]?.[lang] ?? '[Service content not available]'}
-        </p>
-        {servicesData.find(s => s.slug === serviceSlug)?.technologies && (
-          <div class="mt-6">
-            <h3 class="text-lg font-semibold mb-3 text-on-surface">
-              {lang === 'vi' ? 'Công nghệ sử dụng' : lang === 'ja' ? '使用技術' : lang === 'es' ? 'Tecnologías utilizadas' : 'Technologies Used'}
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              {servicesData.find(s => s.slug === serviceSlug)?.technologies.map((tech, index) => (
-                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+      <main class="flex-1 space-y-8">
+        {(() => {
+          const currentService = servicesData.find(s => s.slug === serviceSlug) as any;
+          return (
+            <>
+              {/* Title */}
+              <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels[serviceSlug] ?? serviceSlug}</h1>
+              
+              {/* Subtitle */}
+              {currentService?.subtitle && (
+                <p class="text-xl text-primary font-semibold mb-4">{currentService.subtitle}</p>
+              )}
+
+              {/* Image */}
+              {currentService?.image && (
+                <img
+                  src={currentService.image}
+                  alt={tocLabels[serviceSlug] ?? serviceSlug}
+                  class="w-full rounded-lg shadow-lg mb-6"
+                />
+              )}
+
+              {/* Introduction */}
+              {currentService?.introduction && (
+                <p class="text-lg text-on-surface mb-6 leading-relaxed">{currentService.introduction}</p>
+              )}
+
+              {/* Services List */}
+              {currentService?.services && currentService.services.length > 0 && (
+                <div class="space-y-6">
+                  <h2 class="text-2xl font-bold text-primary mb-4">
+                    {lang === 'vi' ? 'Dịch vụ của chúng tôi' : lang === 'ja' ? '私たちのサービス' : lang === 'es' ? 'Nuestros Servicios' : lang === 'ko' ? '우리의 서비스' : 'Our Services'}
+                  </h2>
+                  {currentService.services.map((service: any) => (
+                    <div class="bg-surface-1 border border-primary/20 rounded-xl p-6">
+                      <h3 class="text-xl font-bold text-primary mb-3">{service.name}</h3>
+                      <p class="text-on-surface mb-4">{service.description}</p>
+                      {service.options && service.options.length > 0 && (
+                        <ul class="space-y-2 mb-4">
+                          {service.options.map((option: string) => (
+                            <li class="flex items-start gap-2">
+                              <span class="text-primary mt-1">•</span>
+                              <span class="text-on-surface">{option}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {service.result && (
+                        <p class="text-primary font-semibold italic">{service.result}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Why Choose Us */}
+              {currentService?.whyChooseUs && currentService.whyChooseUs.length > 0 && (
+                <div class="bg-primary/5 border border-primary rounded-xl p-6">
+                  <h2 class="text-2xl font-bold text-primary mb-4">
+                    {lang === 'vi' ? 'Tại sao chọn chúng tôi?' : lang === 'ja' ? '私たちを選ぶ理由' : lang === 'es' ? '¿Por qué elegirnos?' : lang === 'ko' ? '왜 우리를 선택해야 할까요?' : 'Why Choose Us?'}
+                  </h2>
+                  <ul class="space-y-3">
+                    {currentService.whyChooseUs.map((reason: string) => (
+                      <li class="flex items-start gap-3">
+                        <span class="w-2 h-2 bg-primary rounded-full mt-2"></span>
+                        <span class="text-on-surface">{reason}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Technologies & Equipment (old format fallback) */}
+              {currentService?.technologies && (
+                <div class="bg-surface-1 border border-primary rounded-xl p-6">
+                  <h2 class="text-xl font-bold text-primary mb-4">
+                    {lang === 'vi' ? 'Công nghệ & Thiết bị' : lang === 'ja' ? '技術・設備' : lang === 'es' ? 'Tecnología y Equipos' : lang === 'ko' ? '기술 및 장비' : 'Technologies & Equipment'}
+                  </h2>
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {currentService.technologies.map((tech: string) => (
+                      <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-primary rounded-full"></span>
+                        <span class="text-on-surface">{tech}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Closing */}
+              {currentService?.closing && (
+                <p class="text-lg text-on-surface leading-relaxed italic border-l-4 border-primary pl-4">{currentService.closing}</p>
+              )}
+
+              {/* CTA Section */}
+              <div class="bg-primary/10 border border-primary rounded-xl p-6 text-center">
+                <h3 class="text-xl font-bold text-primary mb-2">
+                  {currentService?.callToAction ? currentService.callToAction.split('📍')[0] : 
+                    (lang === 'vi' ? 'Sẵn sàng trải nghiệm dịch vụ của chúng tôi?' : 
+                     lang === 'ja' ? 'サービスをご体験いただく準備はできましたか？' : 
+                     lang === 'es' ? '¿Listo para experimentar nuestros servicios?' : 
+                     lang === 'ko' ? '저희 서비스를 경험할 준비가 되셨나요?' : 
+                     'Ready to Experience Our Services?')
+                  }
+                </h3>
+                <p class="text-on-surface mb-4">
+                  {currentService?.callToAction ? currentService.callToAction.split('📍')[1] : 
+                    (lang === 'vi' ? 'Đặt lịch tư vấn ngay hôm nay và khám phá sự khác biệt của VyBrows Academy.' : 
+                     lang === 'ja' ? '今すぐコンサルテーションをご予約いただき、VyBrows Academyの違いをご体験ください。' : 
+                     lang === 'es' ? 'Reserve su consulta hoy y descubra la diferencia de VyBrows Academy.' : 
+                     lang === 'ko' ? '오늘 상담을 예약하고 VyBrows Academy의 차이점을 발견해보세요.' : 
+                     'Book your consultation today and discover the VyBrows Academy difference.')
+                  }
+                </p>
+                <a
+                  href="https://www.fresha.com/vi/a/vy-brows-academy-houston-13192-bellaire-boulevard-ksjqvy55"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base shadow transition-colors focus:outline-none focus-visible:ring-2 hover:opacity-90"
+                  style="background-color: var(--color-primary); color: white;"
+                >
+                  {lang === 'vi' ? 'Đặt lịch ngay' : lang === 'ja' ? '今すぐ予約' : lang === 'es' ? 'Reservar ahora' : lang === 'ko' ? '지금 예약' : 'Book Now'}
+                </a>
+              </div>
+            </>
+          );
+        })()}
       </main>
+
+      <!-- Sidebar Phải: Contact Form -->
+      <aside class="hidden lg:block w-[220px] bg-surface-1 rounded-lg p-4 text-on-surface shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
+        <form id="contactForm" class="space-y-4">
+          <h2 class="font-bold text-lg mb-2 text-on-surface">
+            {lang === 'vi' ? 'Liên hệ' : lang === 'ja' ? 'お問い合わせ' : lang === 'es' ? 'Contacto' : lang === 'ko' ? '연락처' : 'Contact Us'}
+          </h2>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="name">
+              {lang === 'vi' ? 'Tên' : lang === 'ja' ? '名前' : lang === 'es' ? 'Nombre' : lang === 'ko' ? '이름' : 'Name'}
+            </label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="text" id="name" name="name" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="email">Email</label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="phone">
+              {lang === 'vi' ? 'Điện thoại' : lang === 'ja' ? '電話' : lang === 'es' ? 'Teléfono' : lang === 'ko' ? '전화' : 'Phone'}
+            </label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="tel" id="phone" name="phone" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="message">
+              {lang === 'vi' ? 'Tin nhắn' : lang === 'ja' ? 'メッセージ' : lang === 'es' ? 'Mensaje' : lang === 'ko' ? '메시지' : 'Message'}
+            </label>
+            <textarea class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <input type="hidden" name="subject" value="Contact Form Submission" />
+          <button type="submit" class="w-full rounded-lg p-3 font-semibold shadow-none hover:opacity-90 transition" style="background-color: var(--color-primary); color: var(--color-on-primary);">
+            {lang === 'vi' ? 'Gửi' : lang === 'ja' ? '送信' : lang === 'es' ? 'Enviar' : lang === 'ko' ? '보내기' : 'Send'}
+          </button>
+        </form>
+        <script>
+          (document.getElementById('contactForm') as HTMLFormElement).addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target as HTMLFormElement;
+            const formData = new FormData(form);
+            const data: Record<string, string> = {};
+            formData.forEach((value, key) => {
+              data[key] = value as string;
+            });
+            try {
+              const response = await fetch('/.netlify/functions/sendMail', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              alert(result.message);
+            } catch (error) {
+              alert('Error sending message');
+            }
+          });
+        </script>
+      </aside>
     </div>
   </div>
 </PageLayout>

@@ -13,8 +13,8 @@ export interface MenuItem {
 // Use services.json for dynamic SERVICES menu
 export async function getServiceMenu(lang: string) {
   const servicesData = await import('./services.json').then(m => m.default);
-  // For English, use /service/ without prefix, for other languages use /{lang}/service/
-  const basePrefix = lang === 'en' ? '' : `/${lang}`;
+  // All languages now use /{lang}/service/ prefix since we removed the standalone /service/ route
+  const basePrefix = `/${lang}`;
   return servicesData.map((service: any) => ({
     href: `${basePrefix}/service/${service.slug}`,
     title: service.title[lang] || service.title.en,

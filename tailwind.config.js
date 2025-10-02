@@ -26,6 +26,7 @@ export default {
       fontFamily: {
         lora: ['Lora', 'serif'],
         tartuffo: ['Tartuffo', 'serif'],
+        playfair: ['Playfair Display', 'serif'],
       },
     }
   },

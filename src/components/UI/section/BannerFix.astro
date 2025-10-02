@@ -35,14 +35,21 @@ for (let i = 0; i < path.length; i++) {
     break;
   }
 }
+
+// Handle service pages - now supporting multi-language routes /{lang}/service/{slug}
+if (path.length > 1 && path[1] === 'service') {
+  heading = 'Our Services';
+}
+// Also handle legacy service pages /service/{slug} (if any still exist)
+if (path.length > 0 && path[0] === 'service') {
+  heading = 'Our Services';
+}
 ---
 
-<section class="relative bg-[var(--color-primary-dark)] pb-28 pt-32">
-  <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-start text-left pt-16">
-    <!-- Dynamic Breadcrumb from menu.ts -->
-    <Breadcrumb />
+<section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
+  <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
     <!-- Dynamic Heading from menu.ts -->
-    <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white">{heading}</h1>
+    <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Playfair Display', serif;">{heading}</h1>
   </div>
   <!-- SVG Wave -->
   <div class="absolute inset-0 w-full h-full pointer-events-none select-none">

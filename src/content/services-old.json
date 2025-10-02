@@ -7,49 +7,6 @@
       "ja": "PMU — パーマネントメイク",
       "es": "PMU — MAQUILLAJE PERMANENTE"
     },
-    "subtitle": "Elevating Beauty, Simplifying Your Routine",
-    "introduction": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
-    "services": [
-      {
-        "name": "Eyebrows",
-        "description": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
-        "options": [
-          "Microblading – for natural, hair-like strokes",
-          "Ombre / Powder Brows – for soft, shaded definition",
-          "Hybrid Brows – blending the best of both worlds"
-        ],
-        "result": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features."
-      },
-      {
-        "name": "Eyeliner",
-        "description": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
-        "options": [
-          "Accentuate the lash line for a youthful, vibrant look",
-          "Save time on daily makeup routines",
-          "Create smudge-proof, long-lasting definition"
-        ],
-        "result": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes."
-      },
-      {
-        "name": "Lips",
-        "description": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
-        "options": [
-          "Lip Blush – for a soft, natural tint",
-          "Full Lip Shading – for richer color and volume effect",
-          "Corrects asymmetry and revitalizes dull lips"
-        ],
-        "result": "Youthful, healthy-looking lips with lasting color and shape."
-      }
-    ],
-    "whyChooseUs": [
-      "Expert Artists trained in advanced international PMU techniques",
-      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
-      "Customized Designs to fit your face shape, skin tone, and personal style",
-      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
-      "Long-Lasting Results that gradually fade naturally without harsh edges"
-    ],
-    "closing": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
-    "callToAction": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
     "description": {
       "en": "Professional permanent makeup services for eyebrows, eyeliner, and lips.",
       "vi": "Dịch vụ trang điểm bền vững chuyên nghiệp cho lông mày, eyeliner và môi.",
@@ -72,65 +29,18 @@
       "ja": "スキンケア — ニキビ治療",
       "es": "CUIDADO DE LA PIEL — TRATAMIENTO DE ACNÉ"
     },
-    "subtitle": "Clear Skin, Clear Confidence",
-    "introduction": "Acne doesn't have to define your skin or your confidence. At Vy Brows Academy & Studio, we offer comprehensive acne treatment solutions designed to target the root causes of breakouts, reduce inflammation, and promote healing. Our advanced skincare protocols combine medical-grade products, proven extraction techniques, and personalized care to help you achieve clear, healthy, radiant skin.",
-    "services": [
-      {
-        "name": "Deep Cleansing & Extraction",
-        "description": "A thorough cleansing process that removes impurities, unclogs pores, and extracts stubborn acne safely and hygienically.",
-        "options": [
-          "Medical-grade cleansing solutions",
-          "Professional acne extraction",
-          "Pore purification treatment",
-          "Prevents scarring and infection"
-        ],
-        "result": "Clean, refreshed skin with reduced blackheads, whiteheads, and active acne."
-      },
-      {
-        "name": "Anti-Inflammatory Therapy",
-        "description": "Targeted treatments to calm redness, reduce swelling, and soothe irritated skin caused by acne breakouts.",
-        "options": [
-          "Soothing serums and masks",
-          "Anti-bacterial treatments",
-          "Reduces redness and inflammation",
-          "Speeds up healing process"
-        ],
-        "result": "Calmer, more balanced skin with reduced irritation and faster recovery."
-      },
-      {
-        "name": "Skin Healing & Regeneration",
-        "description": "Advanced protocols that promote skin repair, minimize scarring, and restore your skin's natural barrier.",
-        "options": [
-          "Skin healing serums",
-          "Scar reduction treatments",
-          "Barrier restoration therapy",
-          "Long-term skin health support"
-        ],
-        "result": "Smoother, healthier skin with improved texture and reduced acne marks."
-      }
-    ],
-    "whyChooseUs": [
-      "Experienced Estheticians trained in advanced acne treatment techniques",
-      "Medical-Grade Products that are safe, effective, and dermatologist-approved",
-      "Customized Treatment Plans tailored to your skin type and acne severity",
-      "Hygienic Practices with sterilized tools and professional-grade equipment",
-      "Proven Results with visible improvements in skin clarity and texture"
-    ],
-    "closing": "Acne treatment is not just about clearing your skin – it's about restoring your confidence and helping you feel comfortable in your own skin again. Let us guide you on your journey to clear, healthy, beautiful skin.",
-    "callToAction": "Book your consultation today at Vy Brows Academy & Studio and take the first step towards clear, confident skin.",
     "description": {
-      "en": "Advanced acne treatment and skincare solutions for clear, healthy skin.",
-      "vi": "Giải pháp điều trị mụn và chăm sóc da tiên tiến cho làn da khỏe mạnh, sạch mụn.",
-      "ja": "クリアで健康な肌のための高度なニキビ治療とスキンケアソリューション。",
-      "es": "Tratamiento avanzado del acné y soluciones de cuidado de la piel para una piel clara y saludable."
+      "en": "Advanced skincare treatments for acne and skin rejuvenation.",
+      "vi": "Điều trị da tiên tiến cho mụn và tái tạo da.",
+      "ja": "ニキビと肌の若返りのための高度なスキンケア治療。",
+      "es": "Tratamientos avanzados de cuidado de la piel para acné y rejuvenecimiento."
     },
     "image": "/images/service02.avif",
     "technologies": [
-      "Medical-grade skincare products",
-      "Deep cleansing treatments",
-      "Acne extraction techniques",
-      "Anti-inflammatory therapies",
-      "Skin healing protocols"
+      "Chemical Peels",
+      "LED Therapy",
+      "Microdermabrasion",
+      "Herbal Extracts"
     ]
   },
   {

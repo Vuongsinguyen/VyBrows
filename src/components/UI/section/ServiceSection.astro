@@ -37,8 +37,8 @@ const sectionDescription = sectionDescriptions[currentLang as keyof typeof secti
 // Determine if we're on a prefixed language page
 const isPrefixedLang = Astro.url.pathname.startsWith('/vi/') || Astro.url.pathname.startsWith('/ja/') || Astro.url.pathname.startsWith('/es/') || Astro.url.pathname.startsWith('/ko/');
 
-// Base prefix by lang for links
-const basePrefix = isPrefixedLang ? `/${currentLang}` : '';
+// Base prefix by lang for links - always use language prefix for services
+const basePrefix = `/${currentLang}`;
 ---
 
 <section id="signature-services" 
