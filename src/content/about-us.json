@@ -1,0 +1,69 @@
+{
+  "sections": [
+    {
+      "id": "why-choose-us",
+      "title": {
+        "en": "WHY CHOOSE US",
+        "vi": "VÌ SAO CHỌN CHÚNG TÔI",
+        "ja": "なぜ私たちを選ぶのか"
+      },
+      "content": {
+        "en": "At VyBrows Academy, we stand out for our commitment to excellence, safety, and client satisfaction. Our certified professionals use only the highest quality pigments and equipment, ensuring natural, long-lasting results. We prioritize hygiene and sterilization protocols that exceed industry standards, giving you peace of mind throughout your treatment.",
+        "vi": "Tại VyBrows Academy, chúng tôi nổi bật với cam kết về sự xuất sắc, an toàn và sự hài lòng của khách hàng. Các chuyên gia được chứng nhận của chúng tôi chỉ sử dụng chất màu và thiết bị chất lượng cao nhất, đảm bảo kết quả tự nhiên và lâu dài. Chúng tôi ưu tiên các quy trình vệ sinh và khử trùng vượt tiêu chuẩn ngành, mang lại sự yên tâm cho bạn trong suốt quá trình điều trị.",
+        "ja": "VyBrows Academyでは、卓越性、安全性、お客様満足への取り組みで際立っています。当社の認定専門家は最高品質の顔料と機器のみを使用し、自然で長持ちする結果を保証します。業界標準を超える衛生管理と滅菌プロトコルを優先し、治療全体を通じて安心をお届けします。"
+      }
+    },
+    {
+      "id": "expertise-experience",
+      "title": {
+        "en": "EXPERTISE & EXPERIENCE",
+        "vi": "CHUYÊN MÔN & KINH NGHIỆM",
+        "ja": "専門性と経験"
+      },
+      "content": {
+        "en": "With over 13 years of experience in permanent makeup artistry, our team has perfected techniques that deliver flawless results. We continuously update our skills with the latest industry advancements and maintain active memberships in professional organizations. Our expertise covers all aspects of permanent makeup, from consultation to aftercare.",
+        "vi": "Với hơn 13 năm kinh nghiệm trong nghệ thuật trang điểm bền vững, đội ngũ của chúng tôi đã hoàn thiện các kỹ thuật mang lại kết quả hoàn hảo. Chúng tôi liên tục cập nhật kỹ năng với những tiến bộ mới nhất của ngành và duy trì tư cách thành viên tích cực trong các tổ chức chuyên nghiệp. Chuyên môn của chúng tôi bao gồm tất cả các khía cạnh của trang điểm bền vững, từ tư vấn đến chăm sóc sau.",
+        "ja": "13年以上のパーマネントメイクアート経験を持つ私たちのチームは、完璧な結果をもたらす技術を磨き上げました。業界の最新進歩でスキルを継続的に更新し、専門組織の積極的な会員資格を維持しています。当社の専門性は、コンサルテーションからアフターケアまで、パーマネントメイクのあらゆる側面をカバーします。"
+      }
+    },
+    {
+      "id": "safe-painless",
+      "title": {
+        "en": "SAFE & PAINLESS TECHNIQUES",
+        "vi": "KỸ THUẬT AN TOÀN & KHÔNG ĐAU",
+        "ja": "安全で痛みのない技術"
+      },
+      "content": {
+        "en": "Your comfort and safety are our top priorities. We use advanced numbing techniques and gentle application methods to minimize discomfort. All procedures are performed in a sterile environment with disposable equipment. Our pain management protocols ensure a comfortable experience while achieving beautiful results.",
+        "vi": "Sự thoải mái và an toàn của bạn là ưu tiên hàng đầu của chúng tôi. Chúng tôi sử dụng kỹ thuật gây tê tiên tiến và phương pháp áp dụng nhẹ nhàng để giảm thiểu sự khó chịu. Tất cả các thủ thuật được thực hiện trong môi trường vô trùng với thiết bị dùng một lần. Các quy trình quản lý đau của chúng tôi đảm bảo trải nghiệm thoải mái trong khi đạt được kết quả đẹp.",
+        "ja": "お客様の快適さと安全が私たちの最優先事項です。先進的な麻酔技術と優しい適用方法を使用して、不快感を最小限に抑えます。すべての手順は使い捨て機器を使用した無菌環境で行われます。当社の疼痛管理プロトコルは、美しい結果を達成しながら快適な体験を保証します。"
+      }
+    },
+    {
+      "id": "world-class-training",
+      "title": {
+        "en": "WORLD-CLASS TRAINING",
+        "vi": "ĐÀO TẠO ĐẲNG CẤP QUỐC TẾ",
+        "ja": "世界クラスのトレーニング"
+      },
+      "content": {
+        "en": "Our training programs are designed by industry leaders and follow international standards. We offer comprehensive courses covering theory, practical application, and business management. Graduates receive internationally recognized certifications and ongoing support to build successful careers in permanent makeup artistry.",
+        "vi": "Các chương trình đào tạo của chúng tôi được thiết kế bởi các nhà lãnh đạo ngành và tuân theo tiêu chuẩn quốc tế. Chúng tôi cung cấp các khóa học toàn diện bao gồm lý thuyết, ứng dụng thực tế và quản lý kinh doanh. Các học viên nhận được chứng chỉ được công nhận quốc tế và hỗ trợ liên tục để xây dựng sự nghiệp thành công trong nghệ thuật trang điểm bền vững.",
+        "ja": "当社のトレーニングプログラムは業界リーダーによって設計され、国際基準に従います。理論、実践応用、ビジネス管理をカバーする包括的なコースを提供します。卒業生は国際的に認められた認定資格を受け、パーマネントメイクアートの分野で成功したキャリアを築くための継続的なサポートを受けます。"
+      }
+    },
+    {
+      "id": "natural-stunning",
+      "title": {
+        "en": "NATURAL & STUNNING RESULTS",
+        "vi": "KẾT QUẢ TỰ NHIÊN & RẠNG RỠ",
+        "ja": "自然で素晴らしい結果"
+      },
+      "content": {
+        "en": "We specialize in creating natural-looking enhancements that complement your unique features. Our artists work with you to understand your vision and deliver results that enhance your natural beauty. Every treatment is customized to your skin type, face shape, and personal style preferences.",
+        "vi": "Chúng tôi chuyên tạo ra những cải thiện trông tự nhiên, bổ sung cho các đặc điểm độc đáo của bạn. Các nghệ sĩ của chúng tôi làm việc với bạn để hiểu tầm nhìn của bạn và mang lại kết quả nâng cao vẻ đẹp tự nhiên của bạn. Mọi phương pháp điều trị đều được tùy chỉnh theo loại da, hình dạng khuôn mặt và sở thích phong cách cá nhân của bạn.",
+        "ja": "お客様のユニークな特徴を補完する自然な見た目の向上を専門としています。当社のアーティストはお客様のビジョンを理解し、自然な美しさを高める結果を提供するために一緒に取り組みます。すべての治療は、お客様の肌タイプ、顔の形、個人のスタイルの好みに合わせてカスタマイズされます。"
+      }
+    }
+  ]
+}

@@ -10,20 +10,15 @@ export interface MenuItem {
   children?: MenuItem[];
 }
 
-// Use Astro's getCollection for dynamic SERVICES menu
+// Use services.json for dynamic SERVICES menu
 export async function getServiceMenu(lang: string) {
-  const { getCollection } = await import('astro:content');
-  const allServices = await getCollection('services');
-  return allServices
-    .filter(s => s.data.lang === lang)
-    .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
-    .map(s => ({
-      href: `/${lang}/service/${s.data.slug}`,
-      title: s.data.title,
-      description: s.data.description || '',
-      label: s.data.title,
-      order: s.data.order
-    }));
+  const servicesData = await import('./services.json').then(m => m.default);
+  return servicesData.map((service: any) => ({
+    href: `/${lang}/service/${service.slug}`,
+    title: service.title[lang] || service.title.en,
+    description: service.description[lang] || service.description.en,
+    label: service.title[lang] || service.title.en,
+  }));
 }
 
 // Menu cấu hình cho từng ngôn ngữ
@@ -34,11 +29,11 @@ export const menus: Record<string, MenuItem[]> = {
     {
       label: 'ABOUT US', href: '/about-us', title: 'About Us',
       children: [
-  { href: '/#why-choose-us', label: 'WHY CHOOSE US', title: 'WHY CHOOSE US', description: 'Why Choose Us section' },
-  { href: '/#expertise-experience', label: 'EXPERTISE & EXPERIENCE', title: 'EXPERTISE & EXPERIENCE', description: 'Expertise & Experience section' },
-  { href: '/#safe-painless', label: 'SAFE & PAINLESS TECHNIQUES', title: 'SAFE & PAINLESS TECHNIQUES', description: 'Safe & Painless Techniques section' },
-  { href: '/#world-class-training', label: 'WORLD-CLASS TRAINING', title: 'WORLD-CLASS TRAINING', description: 'World-Class Training section' },
-  { href: '/#natural-stunning', label: 'NATURAL & STUNNING RESULTS', title: 'NATURAL & STUNNING RESULTS', description: 'Natural & Stunning Results section' }
+  { href: '/en/about-us/why-choose-us', label: 'WHY CHOOSE US', title: 'WHY CHOOSE US', description: 'Why Choose Us section' },
+  { href: '/en/about-us/expertise-experience', label: 'EXPERTISE & EXPERIENCE', title: 'EXPERTISE & EXPERIENCE', description: 'Expertise & Experience section' },
+  { href: '/en/about-us/safe-painless', label: 'SAFE & PAINLESS TECHNIQUES', title: 'SAFE & PAINLESS TECHNIQUES', description: 'Safe & Painless Techniques section' },
+  { href: '/en/about-us/world-class-training', label: 'WORLD-CLASS TRAINING', title: 'WORLD-CLASS TRAINING', description: 'World-Class Training section' },
+  { href: '/en/about-us/natural-stunning', label: 'NATURAL & STUNNING RESULTS', title: 'NATURAL & STUNNING RESULTS', description: 'Natural & Stunning Results section' }
       ]
     },
     { label: 'TRAINING', href: '/training', title: 'Training' },
@@ -52,11 +47,11 @@ export const menus: Record<string, MenuItem[]> = {
     {
       label: 'GIỚI THIỆU', href: '/vi/about-us', title: 'Giới thiệu',
       children: [
-  { href: '/vi/#why-choose-us', label: 'VÌ SAO CHỌN CHÚNG TÔI', title: 'VÌ SAO CHỌN CHÚNG TÔI', description: 'Why Choose Us section' },
-  { href: '/vi/#expertise-experience', label: 'CHUYÊN MÔN & KINH NGHIỆM', title: 'CHUYÊN MÔN & KINH NGHIỆM', description: 'Expertise & Experience section' },
-  { href: '/vi/#safe-painless', label: 'KỸ THUẬT AN TOÀN & KHÔNG ĐAU', title: 'KỸ THUẬT AN TOÀN & KHÔNG ĐAU', description: 'Safe & Painless Techniques section' },
-  { href: '/vi/#world-class-training', label: 'ĐÀO TẠO ĐẲNG CẤP QUỐC TẾ', title: 'ĐÀO TẠO ĐẲNG CẤP QUỐC TẾ', description: 'World-Class Training section' },
-  { href: '/vi/#natural-stunning', label: 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ', title: 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ', description: 'Natural & Stunning Results section' }
+  { href: '/vi/about-us/why-choose-us', label: 'VÌ SAO CHỌN CHÚNG TÔI', title: 'VÌ SAO CHỌN CHÚNG TÔI', description: 'Why Choose Us section' },
+  { href: '/vi/about-us/expertise-experience', label: 'CHUYÊN MÔN & KINH NGHIỆM', title: 'CHUYÊN MÔN & KINH NGHIỆM', description: 'Expertise & Experience section' },
+  { href: '/vi/about-us/safe-painless', label: 'KỸ THUẬT AN TOÀN & KHÔNG ĐAU', title: 'KỸ THUẬT AN TOÀN & KHÔNG ĐAU', description: 'Safe & Painless Techniques section' },
+  { href: '/vi/about-us/world-class-training', label: 'ĐÀO TẠO ĐẲNG CẤP QUỐC TẾ', title: 'ĐÀO TẠO ĐẲNG CẤP QUỐC TẾ', description: 'World-Class Training section' },
+  { href: '/vi/about-us/natural-stunning', label: 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ', title: 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ', description: 'Natural & Stunning Results section' }
       ]
     },
     { label: 'ĐÀO TẠO', href: '/vi/training', title: 'Đào tạo' },
@@ -68,16 +63,13 @@ export const menus: Record<string, MenuItem[]> = {
     { label: 'ホーム', href: '/ja/', title: 'ホーム' },
     { label: 'サービス', href: '/ja/#services', title: 'サービス' },
     {
-      label: '会社情報', href: '/ja/about-us', title: '会社情報', description: 'ARIS Vietnam について',
+      label: '会社情報', href: '/ja/about-us', title: '会社情報', description: 'VyBrows Academy について',
       children: [
-        { href: '/ja/about-us#overview', label: '概要', title: '概要', description: '概要' },
-        { href: '/ja/about-us#ceo-message', label: 'CEOメッセージ', title: 'CEOメッセージ', description: 'CEOメッセージ' },
-        { href: '/ja/about-us#vision-mission', label: 'ビジョンとミッション', title: 'ビジョンとミッション', description: 'ビジョンとミッション' },
-        { href: '/ja/about-us#profile', label: '会社概要', title: '会社概要', description: '会社概要' },
-        { href: '/ja/about-us#timeline', label: '沿革', title: '沿革', description: '沿革' },
-        { href: '/ja/about-us#why-choose-us', label: '選ばれる理由', title: '選ばれる理由', description: '選ばれる理由' },
-        { href: '/ja/about-us#our-customer', label: 'お客様', title: 'お客様', description: 'お客様' },
-        { href: '/ja/about-us#skills', label: 'スキルとケイパビリティ', title: 'スキルとケイパビリティ', description: 'スキルとケイパビリティ' },
+        { href: '/ja/about-us/why-choose-us', label: 'なぜ私たちを選ぶのか', title: 'なぜ私たちを選ぶのか', description: 'Why Choose Us section' },
+        { href: '/ja/about-us/expertise-experience', label: '専門性と経験', title: '専門性と経験', description: 'Expertise & Experience section' },
+        { href: '/ja/about-us/safe-painless', label: '安全で痛みのない技術', title: '安全で痛みのない技術', description: 'Safe & Painless Techniques section' },
+        { href: '/ja/about-us/world-class-training', label: '世界クラスのトレーニング', title: '世界クラスのトレーニング', description: 'World-Class Training section' },
+        { href: '/ja/about-us/natural-stunning', label: '自然で美しい結果', title: '自然で美しい結果', description: 'Natural & Stunning Results section' }
       ]
     },
     { label: 'プロジェクト', href: '/ja/projects', title: 'プロジェクト', description: 'プロジェクト一覧' },

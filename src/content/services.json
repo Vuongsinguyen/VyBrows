@@ -1,0 +1,200 @@
+[
+  {
+    "slug": "pmu-permanent-makeup",
+    "title": {
+      "en": "PMU — PERMANENT MAKEUP",
+      "vi": "PMU — TRANG ĐIỂM BỀN VỮNG",
+      "ja": "PMU — パーマネントメイク",
+      "es": "PMU — MAQUILLAJE PERMANENTE"
+    },
+    "description": {
+      "en": "Professional permanent makeup services for eyebrows, eyeliner, and lips.",
+      "vi": "Dịch vụ trang điểm bền vững chuyên nghiệp cho lông mày, eyeliner và môi.",
+      "ja": "眉毛、アイライナー、リップのパーマネントメイクサービス。",
+      "es": "Servicios profesionales de maquillaje permanente para cejas, delineador y labios."
+    },
+    "image": "/images/service01.avif",
+    "technologies": [
+      "Digital Pigments",
+      "Nano Needles",
+      "Color Theory",
+      "Sterilization Equipment"
+    ]
+  },
+  {
+    "slug": "skincare-acne-treatment",
+    "title": {
+      "en": "SKINCARE — ACNE TREATMENT",
+      "vi": "CHĂM SÓC DA — ĐIỀU TRỊ MỤN",
+      "ja": "スキンケア — ニキビ治療",
+      "es": "CUIDADO DE LA PIEL — TRATAMIENTO DE ACNÉ"
+    },
+    "description": {
+      "en": "Advanced skincare treatments for acne and skin rejuvenation.",
+      "vi": "Điều trị da tiên tiến cho mụn và tái tạo da.",
+      "ja": "ニキビと肌の若返りのための高度なスキンケア治療。",
+      "es": "Tratamientos avanzados de cuidado de la piel para acné y rejuvenecimiento."
+    },
+    "image": "/images/service02.avif",
+    "technologies": [
+      "Chemical Peels",
+      "LED Therapy",
+      "Microdermabrasion",
+      "Herbal Extracts"
+    ]
+  },
+  {
+    "slug": "detox-herbal-hair-wash",
+    "title": {
+      "en": "DETOX & HERBAL HAIR WASH",
+      "vi": "GIẢI ĐỘC & GỘI ĐẦU BẰNG THẢO MỘC",
+      "ja": "デトックス＆ハーブヘッドスパ",
+      "es": "DESINTOXICACIÓN Y LAVADO DE CABELLO HERBAL"
+    },
+    "description": {
+      "en": "Natural detox and herbal hair treatments for healthy, shiny hair.",
+      "vi": "Giải độc tự nhiên và điều trị tóc bằng thảo mộc cho mái tóc khỏe mạnh, bóng mượt.",
+      "ja": "健康で輝く髪のための天然デトックスとハーブヘアトリートメント。",
+      "es": "Desintoxicación natural y tratamientos capilares herbales para cabello saludable y brillante."
+    },
+    "image": "/images/service03.avif",
+    "technologies": [
+      "Organic Herbs",
+      "Essential Oils",
+      "Scalp Massage Tools",
+      "pH Balancing"
+    ]
+  },
+  {
+    "slug": "shading-ombre",
+    "title": {
+      "en": "SHADING OMBRÉ",
+      "vi": "SHADING OMBRÉ",
+      "ja": "シェーディングオンブレ",
+      "es": "SOMBREADO OMBRE"
+    },
+    "description": {
+      "en": "Beautiful ombre shading technique for natural-looking eyebrows.",
+      "vi": "Kỹ thuật shading ombre đẹp mắt cho lông mày tự nhiên.",
+      "ja": "自然な眉毛のための美しいオンブレシェーディングテクニック。",
+      "es": "Hermosa técnica de sombreado ombre para cejas de aspecto natural."
+    },
+    "image": "/images/service04.avif",
+    "technologies": [
+      "Powder Brows",
+      "Color Blending",
+      "3D Effect",
+      "Natural Pigments"
+    ]
+  },
+  {
+    "slug": "micro-blading",
+    "title": {
+      "en": "MICRO BLADING",
+      "vi": "MICRO BLADING",
+      "ja": "マイクロブレーディング",
+      "es": "MICROBLADING"
+    },
+    "description": {
+      "en": "Precision micro blading for perfectly shaped eyebrows.",
+      "vi": "Micro blading chính xác cho lông mày hình dáng hoàn hảo.",
+      "ja": "完璧な形の眉毛のための精密マイクロブレーディング。",
+      "es": "Microblading de precisión para cejas perfectamente formadas."
+    },
+    "image": "/images/service05.avif",
+    "technologies": [
+      "Manual Tool",
+      "Pigment Selection",
+      "Blade Sterilization",
+      "Aftercare Products"
+    ]
+  },
+  {
+    "slug": "hairs-strokes",
+    "title": {
+      "en": "HAIRS STROKES",
+      "vi": "HAIRS STROKES",
+      "ja": "ヘアーストローク",
+      "es": "TRAZOS DE PELO"
+    },
+    "description": {
+      "en": "Fine hair strokes technique for ultra-realistic eyebrow appearance.",
+      "vi": "Kỹ thuật nét tóc mỏng cho vẻ ngoài lông mày siêu thực tế.",
+      "ja": "超リアルな眉毛の外観のための細いヘアーストロークテクニック。",
+      "es": "Técnica de trazos de pelo finos para apariencia de cejas ultra realista."
+    },
+    "image": "/images/service06.avif",
+    "technologies": [
+      "Ultra-fine Needles",
+      "Hair Simulation",
+      "Color Gradation",
+      "Precision Tools"
+    ]
+  },
+  {
+    "slug": "eyeliners",
+    "title": {
+      "en": "EYELINERS",
+      "vi": "EYELINERS",
+      "ja": "アイライナー",
+      "es": "DELINEADORES"
+    },
+    "description": {
+      "en": "Professional eyeliner services for defined, beautiful eyes.",
+      "vi": "Dịch vụ eyeliner chuyên nghiệp cho đôi mắt được định hình, đẹp mắt.",
+      "ja": "定義された美しい目ためのプロフェッショナルアイライナーサービス。",
+      "es": "Servicios profesionales de delineador para ojos definidos y hermosos."
+    },
+    "image": "/images/service07.avif",
+    "technologies": [
+      "Waterproof Pigments",
+      "Fine Line Tools",
+      "Color Matching",
+      "Long-lasting Formulas"
+    ]
+  },
+  {
+    "slug": "lip-treatments",
+    "title": {
+      "en": "LIP TREATMENTS",
+      "vi": "ĐIỀU TRỊ MÔI",
+      "ja": "リップトリートメント",
+      "es": "TRATAMIENTOS LABIALES"
+    },
+    "description": {
+      "en": "Lip enhancement and treatment services for fuller, healthier lips.",
+      "vi": "Dịch vụ tăng cường và điều trị môi cho đôi môi đầy đặn, khỏe mạnh hơn.",
+      "ja": "より豊かで健康的な唇のための唇強化とトリートメントサービス。",
+      "es": "Servicios de realce y tratamiento labial para labios más llenos y saludables."
+    },
+    "image": "/images/service08.avif",
+    "technologies": [
+      "Lip Plumping",
+      "Color Enhancement",
+      "Contour Definition",
+      "Moisturizing Agents"
+    ]
+  },
+  {
+    "slug": "dark-lips-remover",
+    "title": {
+      "en": "DARK LIPS REMOVER",
+      "vi": "LOẠI BỎ MÔI TỐI",
+      "ja": "ダークリップスリムーバー",
+      "es": "ELIMINADOR DE LABIOS OSCUROS"
+    },
+    "description": {
+      "en": "Safe and effective treatment to remove dark lip pigmentation.",
+      "vi": "Điều trị an toàn và hiệu quả để loại bỏ sắc tố môi tối.",
+      "ja": "ダークリップの色素沈着を安全かつ効果的に除去する治療。",
+      "es": "Tratamiento seguro y efectivo para eliminar la pigmentación oscura de los labios."
+    },
+    "image": "/images/service09.avif",
+    "technologies": [
+      "Laser Technology",
+      "Chemical Lightening",
+      "Natural Bleaching",
+      "Lip Restoration"
+    ]
+  }
+]

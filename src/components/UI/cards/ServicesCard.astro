@@ -31,12 +31,13 @@ const { title, description, image, link, class: customClass = "" } = Astro.props
       <p class="text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center mb-2" style="font-family: 'Lora', serif; color: #FFD97A;">{description}</p>
       <!-- Details & Book Now buttons -->
       <div class="mt-4 flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <!-- Details button không còn href -->
-        <span
-          class="px-4 py-2 rounded-full bg-yellow-200 text-[#01513A] font-semibold cursor-pointer"
+        <!-- Details button với link -->
+        <a
+          href={link}
+          class="px-4 py-2 rounded-full bg-yellow-200 text-[#01513A] font-semibold hover:bg-yellow-300 transition-colors"
         >
           Details
-        </span>
+        </a>
         <a
           href="https://www.fresha.com/vi/a/vy-brows-academy-houston-13192-bellaire-boulevard-ksjqvy55"
           target="_blank"

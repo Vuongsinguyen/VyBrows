@@ -14,12 +14,7 @@ const { class: customClass = '', heading } = Astro.props;
 // Detect current language from URL
 const currentLang = Astro.url.pathname.split('/')[1] || 'en';
 
-import { getCollection } from 'astro:content';
-const allServices = await getCollection('services');
-const dynamicServices = allServices
-  .filter(s => s.data.lang === currentLang)
-  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
-const services = allServices.filter(s => s.data.lang === currentLang);
+import servicesData from '../../../content/services.json' assert { type: 'json' };
 
 const sectionTitles = {
   en: "Signature Services by Vybrows Academy",
@@ -52,17 +47,17 @@ const basePrefix = currentLang === 'en' ? '' : `/${currentLang}`;
       {sectionTitle}
     </h2>
     <!-- Section Description -->
-    <p class="text-lg md:text-xl text-center mb-10 font-lora" style="color: var(--color-text-secondary); font-family: 'Lora', serif;">
+    <p class="text-lg md:text-xl text-center mb-10 font-lora mx-auto" style="color: var(--color-text-secondary); font-family: 'Lora', serif; max-width: 900px;">
       {sectionDescription}
     </p>
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {dynamicServices.map((service) => (
+      {servicesData.map((service) => (
         <ServicesCard
-          title={service.data.title}
-          description={service.data.description}
-          image={service.data.image}
-          link={`/${currentLang}/service/${service.id}`}
+          title={service.title[currentLang as keyof typeof service.title] || service.title.en}
+          description={service.description[currentLang as keyof typeof service.description] || service.description.en}
+          image={service.image}
+          link={`/${currentLang}/service/${service.slug}`}
           class="h-full"
         />
       ))}

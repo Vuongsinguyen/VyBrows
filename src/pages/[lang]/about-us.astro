@@ -4,6 +4,7 @@ import '/src/styles/color.css';
 import '/src/styles/global.css';
 // ...existing code...
 import PageLayout from '../../layouts/PageLayout.astro';
+import aboutUsData from '../../../src/content/about-us.json' assert { type: 'json' };
 
 export const prerender = true;
 
@@ -15,21 +16,12 @@ export async function getStaticPaths() {
   ];
 }
 const lang = Astro.params.lang;
-const tocLabels = {
-  overview: lang === 'vi' ? 'Tổng quan' : lang === 'ja' ? '概要' : 'Overview',
-  ceo: lang === 'vi' ? 'Thông điệp CEO' : lang === 'ja' ? 'CEOメッセージ' : 'CEO Message',
-  vision: lang === 'vi' ? 'Tầm nhìn & Sứ mệnh' : lang === 'ja' ? 'ビジョン＆ミッション' : 'Vision & Mission',
-  profile: lang === 'vi' ? 'Hồ sơ công ty' : lang === 'ja' ? '会社概要' : 'Profile',
-  timeline: lang === 'vi' ? 'Dấu mốc phát triển' : lang === 'ja' ? '沿革' : 'Timeline',
-  why: lang === 'vi' ? 'Tại sao chọn chúng tôi?' : lang === 'ja' ? '選ばれる理由' : 'Why Choose Us?',
-  customer: lang === 'vi' ? 'Khách hàng' : lang === 'ja' ? '顧客' : 'Our Customer',
-  skills: lang === 'vi' ? 'Kỹ năng & Năng lực' : lang === 'ja' ? 'スキル・能力' : 'Skill & Abilities',
-  tech: lang === 'vi' ? 'Công nghệ' : lang === 'ja' ? '技術' : 'Technologies',
-  flow: lang === 'vi' ? 'Quy trình dự án' : lang === 'ja' ? 'プロジェクトフロー' : 'Project Flow',
-  team: lang === 'vi' ? 'Cơ cấu dự án' : lang === 'ja' ? 'プロジェクト体制' : 'Project Team Structure',
-  sustain: lang === 'vi' ? 'Phát triển bền vững' : lang === 'ja' ? 'サステナビリティ' : 'Sustainability',
-  community: lang === 'vi' ? 'Kết nối cộng đồng' : lang === 'ja' ? 'コミュニティ連携' : 'Community Connect',
-};
+
+// Tạo tocLabels động từ JSON
+const tocLabels = aboutUsData.sections.reduce((acc: Record<string, string>, section: any) => {
+  acc[section.id] = section.title[lang as keyof typeof section.title] || section.title.en;
+  return acc;
+}, {});
 ---
 
 <PageLayout title="About Us">
@@ -41,185 +33,27 @@ const tocLabels = {
         <aside class="w-64 bg-surface rounded-lg shadow p-4 mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
           <h2 class="font-bold text-lg mb-2 text-on-surface">{lang === 'vi' ? 'Mục lục' : lang === 'ja' ? '目次' : 'Table of Contents'}</h2>
           <ul class="border border-border rounded-lg overflow-hidden">
-            <li><a href="#overview" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.overview}</a></li>
-            <li><a href="#ceo-message" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.ceo}</a></li>
-            <li><a href="#vision-mission" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.vision}</a></li>
-            <li><a href="#profile" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.profile}</a></li>
-            <li><a href="#timeline" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.timeline}</a></li>
-            <li><a href="#why-choose-us" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.why}</a></li>
-            <li><a href="#our-customer" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.customer}</a></li>
-            <li><a href="#skills" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.skills}</a></li>
-            <li><a href="#technologies" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.tech}</a></li>
-            <li><a href="#project-flow" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.flow}</a></li>
-            <li><a href="#team-structure" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.team}</a></li>
-            <li><a href="#sustainability" class="block bg-surface rounded-none border-b border-border px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.sustain}</a></li>
-            <li><a href="#community" class="block bg-surface rounded-none px-3 py-2 text-on-surface font-normal scroll-link hover:text-primary">{tocLabels.community}</a></li>
+            {aboutUsData.sections.map((section: any, index: number) => (
+              <li>
+                <a 
+                  href={`/${lang}/about-us/${section.id}`} 
+                  class={`block bg-surface rounded-none ${index < aboutUsData.sections.length - 1 ? 'border-b border-border' : ''} px-3 py-2 text-on-surface font-normal hover:text-primary`}
+                >
+                  {section.title[lang as keyof typeof section.title] || section.title.en}
+                </a>
+              </li>
+            ))}
           </ul>
         </aside>
 
         <!-- Nội dung chính -->
         <main class="flex-1 space-y-12">
-          <section id="overview" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-4 text-on-surface">{tocLabels.overview}</h1>
-            <div class="mb-5">
-              <div class="bg-green-600 text-white text-lg font-bold px-6 py-3 rounded w-fit uppercase tracking-wide">
-                {lang === 'vi' ? 'HƠN 13 NĂM ĐỒNG HÀNH CÙNG DOANH NGHIỆP BẰNG GIẢI PHÁP PHẦN MỀM SÁNG TẠO' : lang === 'ja' ? '13年以上にわたり、革新的なソフトウェアソリューションでビジネスを支援' : 'EMPOWERING BUSINESSES THROUGH INNOVATIVE SOFTWARE SOLUTIONS FOR OVER 13 YEARS'}
-              </div>
-            </div>
-            <p class="text-base mt-4 max-w-3xl" style="color: var(--color-black);">
-              {lang === 'vi' ?
-                'ARIS Vietnam là công ty phát triển phần mềm 100% vốn Nhật Bản, thành lập năm 2011, trụ sở tại Quận Tân Bình, TP.HCM. Chúng tôi chuyên phát triển phần mềm offshore, dịch vụ kỹ thuật, phát triển ứng dụng di động, ứng dụng web & desktop, hệ thống quản lý học tập và kiểm soát chất lượng. Đội ngũ trẻ trung, tài năng, nhiệt huyết của ARIS Vietnam cam kết mang đến giải pháp tối ưu và đồng hành cùng thành công của bạn.' :
-                lang === 'ja' ?
-                'ARIS Vietnamは、2011年設立の100％日本資本のオフショア開発会社です。本社はホーチミン市タンビン区にあり、オフショア開発、エンジニアリングサービス、モバイルアプリ開発、Web・デスクトップアプリ開発、LMS、品質管理、UI/UXデザイン、運用保守まで幅広く対応。若く才能ある熱意あふれるチームが、最適なソリューションと成功をお約束します。' :
-                'ARIS Vietnam, a 100% Japanese-owned offshore software development company, was founded in 2011. Headquartered in Tan Binh District, Ho Chi Minh City, we specialize in Offshore Software Development, Engineering Services, Mobile Application Development, Web & Desktop Application Development, Learning Management System, and Quality Control. Our expertise also extends to UI/UX Design and Operation & Maintenance services. With a dynamic team of young, talented, and enthusiastic professionals, ARIS Vietnam is committed to delivering top-notch solutions and ensuring your success.'
-              }
-            </p>
-          </section>
-          <section id="ceo-message" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-4 text-on-surface">{tocLabels.ceo}</h1>
-            <div class="bg-surface-1 border border-primary rounded-xl flex flex-col md:flex-row items-center gap-6 p-6 md:p-8">
-              <img src="/images/ceo.avif" alt="Tran Tuan Nhat - CEO" class="w-32 h-32 object-cover rounded-full border-2 border-primary shadow" loading="lazy" />
-              <div class="flex-1 text-on-surface">
-                <p class="text-lg font-semibold mb-1">Tran Tuan Nhat <span class="block text-base font-normal">CEO, ARIS Vietnam</span></p>
-                <p class="text-base mb-0">
-                  {lang === 'vi' ? '"Chúng tôi cam kết mang đến giải pháp phần mềm sáng tạo, chất lượng và đồng hành cùng thành công của khách hàng."' : lang === 'ja' ? '「私たちは革新的で高品質なソフトウェアソリューションを提供し、お客様の成功に寄り添います。」' : '"We are committed to delivering innovative, high-quality software solutions and accompanying our clients to success."'}
-                </p>
-              </div>
-            </div>
-          </section>
-          <section id="vision-mission" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-6 text-on-surface">{tocLabels.vision}</h1>
-            <div class="flex flex-col md:flex-row gap-6">
-              <div class="flex-1 bg-surface-1 border border-primary rounded-xl p-6 flex flex-col items-start">
-                <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2"><i class="fa fa-eye"></i> {lang === 'vi' ? 'Tầm nhìn' : lang === 'ja' ? 'ビジョン' : 'Vision'}</h2>
-                <p class="text-on-surface text-base">
-                  {lang === 'vi' ? 'Trở thành đối tác công nghệ hàng đầu, đồng hành cùng khách hàng kiến tạo giá trị bền vững trong kỷ nguyên số.' : lang === 'ja' ? 'デジタル時代において、お客様と共に持続可能な価値を創造する最先端のテクノロジーパートナーを目指します。' : 'To become a leading technology partner, accompanying clients to create sustainable value in the digital era.'}
-                </p>
-              </div>
-              <div class="flex-1 bg-surface-1 border border-primary rounded-xl p-6 flex flex-col items-start">
-                <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2"><i class="fa fa-bullseye"></i> {lang === 'vi' ? 'Sứ mệnh' : lang === 'ja' ? 'ミッション' : 'Mission'}</h2>
-                <p class="text-on-surface text-base">
-                  {lang === 'vi' ? 'Cung cấp giải pháp phần mềm sáng tạo, chất lượng, lấy khách hàng làm trung tâm và phát triển đội ngũ chuyên nghiệp, tận tâm.' : lang === 'ja' ? 'お客様中心の高品質で革新的なソフトウェアソリューションを提供し、プロフェッショナルで情熱的なチームを育成します。' : 'To provide innovative, high-quality, customer-centric software solutions and develop a professional, dedicated team.'}
-                </p>
-              </div>
-            </div>
-          </section>
-          <section id="profile" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.profile}</h1>
-            <div class="overflow-x-auto">
-              <table class="min-w-full border border-border rounded-lg bg-surface text-on-surface">
-                <thead>
-                  <tr class="bg-surface text-left">
-                    <th class="px-4 py-3 font-semibold border-b border-border w-48 text-on-surface">&nbsp;</th>
-                    <th class="px-4 py-3 font-semibold border-b border-border min-w-[220px] text-on-surface">
-                      <div class="flex items-center gap-2">
-                        <span class="text-on-surface">ARIS VIETNAM CO., Ltd</span>
-                        <span class="ml-2"><img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/vn.svg" alt="VN" class="inline w-6 h-4 rounded-sm border" /></span>
-                      </div>
-                    </th>
-                    <th class="px-4 py-3 font-semibold border-b border-border min-w-[220px]">
-                      <div class="flex items-center gap-2">
-                        <span class="text-on-surface">ARIS Inc.</span>
-                        <span class="ml-2"><img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/jp.svg" alt="JP" class="inline w-6 h-4 rounded-sm border" /></span>
-                      </div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-border text-sm">
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-building text-primary mr-2"></i>Company name</td>
-                    <td class="px-4 py-3 text-on-surface">ARIS VIETNAM CO., Ltd</td>
-                    <td class="px-4 py-3 text-on-surface">ARIS Inc.</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Address</td>
-                    <td class="px-4 py-3 text-on-surface"><b class="text-on-surface">Ho Chi Minh Headquarter:</b><br/>(Waseco Bldg.) 10 Pho Quang Street, Ward 2, Tan Binh District, HCMC, Vietnam.<br/><b class="text-on-surface">Hanoi Branch:</b><br/>(Detech Tower II Bldg.), 107 Nguyen Phong Sac Str., W. Dich Vong Hau, Cau Giay Dist., Hanoi, Vietnam.</td>
-                    <td class="px-4 py-3 text-on-surface">Shinjuku Nomura Bldg 10F, 1-26-2 Nishishinjuku, Shinjuku-ku, Tokyo 163-0510, Japan.</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-phone text-primary mr-2"></i>Phone Number</td>
-                    <td class="px-4 py-3 text-on-surface">(+84) 28 3842 4483</td>
-                    <td class="px-4 py-3 text-on-surface">(+81) 3 3340 1053</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-fax text-primary mr-2"></i>Fax</td>
-                    <td class="px-4 py-3 text-on-surface">(+84) 28 3842 4473</td>
-                    <td class="px-4 py-3 text-on-surface">(+84) 3 3340 1054</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-calendar-alt text-primary mr-2"></i>Founded</td>
-                    <td class="px-4 py-3 text-on-surface">August, 2011</td>
-                    <td class="px-4 py-3 text-on-surface">June, 2001</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-coins text-primary mr-2"></i>Capital</td>
-                    <td class="px-4 py-3 text-on-surface">450,000 USD</td>
-                    <td class="px-4 py-3 text-on-surface">40,000,000 yen</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-user-tie text-primary mr-2"></i>CEO</td>
-                    <td class="px-4 py-3 text-on-surface">Tran Tuan Nhat</td>
-                    <td class="px-4 py-3 text-on-surface">Kobayashi Kenji</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-link text-primary mr-2"></i>URL</td>
-                    <td class="px-4 py-3"><a href="https://www.aris-vn.com" class="text-primary hover:underline" target="_blank">https://www.aris-vn.com</a></td>
-                    <td class="px-4 py-3"><a href="https://www.aris-kk.co.jp" class="text-primary hover:underline" target="_blank">https://www.aris-kk.co.jp</a></td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-envelope text-primary mr-2"></i>Email</td>
-                    <td class="px-4 py-3"><a href="mailto:vybrowsk@gmail.com" class="text-primary hover:underline">vybrowsk@gmail.com</a></td>
-                    <td class="px-4 py-3"><a href="mailto:vybrowsk@gmail.com" class="text-primary hover:underline">vybrowsk@gmail.com</a></td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 font-bold text-on-surface"><i class="fa fa-users text-primary mr-2"></i>Group Companies</td>
-                    <td class="px-4 py-3 text-on-surface">ARIS inc.</td>
-                    <td class="px-4 py-3 text-on-surface">IFT inc., Ray Aegis Japan, ARIS Vietnam Co.,Ltd</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-          </section>
-          <section id="timeline" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.timeline}</h1>
-            <p class="text-on-surface">[Timeline content]</p>
-          </section>
-          <section id="why-choose-us" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.why}</h1>
-            <p class="text-on-surface">[Why Choose Us content]</p>
-          </section>
-            <h2 class="text-xl font-bold mb-2 text-on-surface">{tocLabels.why}</h2>
-            <p class="text-on-surface">[Why Choose Us content]</p>
-          </section>
-          <section id="our-customer" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.customer}</h1>
-            <p class="text-on-surface">[Our Customer content]</p>
-          </section>
-          <section id="skills" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.skills}</h1>
-            <p class="text-on-surface">[Skill & Abilities content]</p>
-          </section>
-          <section id="technologies" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.tech}</h1>
-            <p class="text-on-surface">[Technologies content]</p>
-          </section>
-          <section id="project-flow" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.flow}</h1>
-            <p class="text-on-surface">[Project Flow content]</p>
-          </section>
-          <section id="team-structure" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.team}</h1>
-            <p class="text-on-surface">[Project Team Structure content]</p>
-          </section>
-          <section id="sustainability" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.sustain}</h1>
-            <p class="text-on-surface">[Sustainability content]</p>
-          </section>
-          <section id="community" class="bg-surface rounded-lg">
-            <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels.community}</h1>
-            <p class="text-on-surface">[Community Connect content]</p>
-          </section>
+          {aboutUsData.sections.map((section: any) => (
+            <section id={section.id} class="bg-surface rounded-lg">
+              <h1 class="text-3xl font-bold mb-4 text-on-surface">{section.title[lang as keyof typeof section.title] || section.title.en}</h1>
+              <div class="prose prose-lg max-w-none text-on-surface" set:html={section.content[lang as keyof typeof section.content] || section.content.en}></div>
+            </section>
+          ))}
         </main>
 </script>
 <script>
