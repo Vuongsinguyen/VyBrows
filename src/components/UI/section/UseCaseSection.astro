@@ -2,15 +2,8 @@
 
 import UseCaseCard from '../cards/UseCaseCard.astro';
 import Button from '../shared/Button.astro';
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import reviewsData from '../../../data/reviews.json';
 
-// Read reviews from JSON file
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const reviewsPath = join(__dirname, '../../../data/reviews.json');
-const reviewsData = JSON.parse(readFileSync(reviewsPath, 'utf-8'));
 const useCases = reviewsData.reviews;
 
 // Khai báo biến toàn cục cho slider
