@@ -9,6 +9,7 @@ export interface Props {
     months: number;
     description: string;
     techs: Array<{ name: string; color: string }>;
+    image?: string;
   };
   expanded?: boolean;
   avatarIndex?: number;
@@ -43,8 +44,8 @@ const {
   <div class="flex items-center mb-2">
     <div class="flex-shrink-0 mr-4">
       <img
-        src={`https://randomuser.me/api/portraits/women/${avatarIndex % 100}.jpg`}
-        alt="Avatar"
+        src={uc?.image || `https://randomuser.me/api/portraits/women/${(avatarIndex % 20) + 1}.jpg`}
+        alt={uc?.name}
         class="w-[76px] h-[76px] rounded-full object-cover border-2 border-yellow-300 shadow"
       />
     </div>

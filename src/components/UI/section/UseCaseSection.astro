@@ -2,10 +2,16 @@
 
 import UseCaseCard from '../cards/UseCaseCard.astro';
 import Button from '../shared/Button.astro';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-import { getCollection } from 'astro:content';
-
-const useCases = await getCollection('projects');
+// Read reviews from JSON file
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const reviewsPath = join(__dirname, '../../../data/reviews.json');
+const reviewsData = JSON.parse(readFileSync(reviewsPath, 'utf-8'));
+const useCases = reviewsData.reviews;
 
 // Khai báo biến toàn cục cho slider
 let sliderRef: HTMLDivElement | null = null;
@@ -115,56 +121,33 @@ section .text-4xl.font-bold {
           onmouseleave="this.setAttribute('data-paused','false')"
       >
         <div class="usecase-track mt-[30px] mb-[30px]">
-          {useCases.concat(useCases).map((uc, idx) => {
-            // Map .md data to expected UseCaseCard props
-            const data = uc.data;
-            const techColors = [
-              'bg-blue-500',
-              'bg-green-500',
-              'bg-purple-500',
-              'bg-yellow-500',
-              'bg-orange-500',
-              'bg-cyan-500',
-              'bg-pink-500',
-              'bg-red-500',
-              'bg-teal-500',
-              'bg-indigo-500',
-              'bg-lime-500',
-              'bg-amber-500',
-            ];
-            const techs = (data.techs || []).map((t, i) => ({
-              name: t,
-              color: techColors[i % techColors.length],
-            }));
+          {useCases.slice(0, 10).concat(useCases.slice(0, 10)).map((review: any, idx: number) => {
+            // Map review data to UseCaseCard props (Reviews 1-10)
             const mapped = {
-              name: data.name || uc.slug || 'No name',
-              category: data.category || 'Other',
-              industry: 'General',
-              teamSize: Array.isArray((data as any).member) ? (data as any).member.length : 0,
-              months: typeof (data as any).months === 'number' ? (data as any).months : 0,
-              description: data.desc || uc.body?.slice(0, 120) || '',
-              techs,
+              name: review.name || 'Anonymous',
+              category: 'Customer Review',
+              industry: 'Beauty & Wellness',
+              teamSize: 0,
+              months: 0,
+              description: review.content || '',
+              techs: [],
+              image: review.image,
             };
             return <UseCaseCard uc={mapped} expanded={expandedIndex === idx} avatarIndex={idx} />;
           })}
         </div>
         <div class="usecase-track mt-[30px] mb-[30px] reverse">
-          {[...useCases.concat(useCases)].reverse().map((uc, idx) => {
-            const data = uc.data;
-            const techColors = [
-              'bg-blue-500','bg-green-500','bg-purple-500','bg-yellow-500','bg-orange-500',
-              'bg-cyan-500','bg-pink-500','bg-red-500','bg-teal-500','bg-indigo-500',
-              'bg-lime-500','bg-amber-500',
-            ];
-            const techs = (data.techs || []).map((t, i) => ({ name: t, color: techColors[i % techColors.length] }));
+          {useCases.slice(10, 20).concat(useCases.slice(10, 20)).map((review: any, idx: number) => {
+            // Map review data to UseCaseCard props (Reviews 11-20)
             const mapped = {
-              name: data.name || uc.slug || 'No name',
-              category: data.category || 'Other',
-              industry: 'General',
-              teamSize: Array.isArray((data as any).member) ? (data as any).member.length : 0,
-              months: typeof (data as any).months === 'number' ? (data as any).months : 0,
-              description: data.desc || uc.body?.slice(0, 120) || '',
-              techs,
+              name: review.name || 'Anonymous',
+              category: 'Customer Review',
+              industry: 'Beauty & Wellness',
+              teamSize: 0,
+              months: 0,
+              description: review.content || '',
+              techs: [],
+              image: review.image,
             };
             return <UseCaseCard uc={mapped} expanded={expandedIndex === idx} avatarIndex={idx} />;
           })}
