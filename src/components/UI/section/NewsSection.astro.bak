@@ -1,25 +1,30 @@
 ---
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-// Read news from JSON file
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const newsPath = join(__dirname, '../../../data/news.json');
-const newsData = JSON.parse(readFileSync(newsPath, 'utf-8'));
-
-// Get current language from URL or props
-const currentLang = (Astro.props?.lang || Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
-
-// Map news data to display format with current language
-const news = newsData.news.map((item: any) => ({
-  id: item.id,
-  image: item.mainImage,
-  date: item.createdDate,
-  title: item.translations[currentLang].title,
-  desc: item.translations[currentLang].shortDescription,
-}));
+const news = [
+  {
+    title: "Unlock Your Glow with Our AI Beauty Platform",
+    image: "/images/service01.avif",
+    date: "2025-07-20",
+    desc: "Experience personalized skincare recommendations powered by cutting-edge AI, designed to reveal your inner radiance.",
+  },
+  {
+    title: "Mobile Beauty App Wins Top Innovation Award",
+    image: "/images/service02.avif",
+    date: "2025-07-10",
+    desc: "Our award-winning app delivers salon-quality beauty tutorials and virtual try-ons right at your fingertips.",
+  },
+  {
+    title: "ARIS Beauty Partners with Global Aesthetics Leader",
+    image: "/images/service03.avif",
+    date: "2025-06-28",
+    desc: "We’ve partnered with world-renowned experts in aesthetics to bring you the latest beauty advancements.",
+  },
+  {
+    title: "Grand Opening: Da Nang Beauty Studio",
+    image: "/images/service04.avif",
+    date: "2025-06-15",
+    desc: "Join us for the grand opening and discover bespoke beauty treatments in our new Da Nang studio.",
+  },
+];
 ---
 
 <section class="py-16 px-6 bg-primary" style="">
@@ -28,7 +33,7 @@ const news = newsData.news.map((item: any) => ({
       Explore Our Beauty Stories
     </h2>
     <p class="text-base text-center mb-8 max-w-2xl mx-auto font-lora" style="color: var(--color-blacktext2); font-family: 'Lora', serif;">
-      Discover our clients' transformation journeys and boost their confidence, stay updated on the latest aesthetic trends, celebrate natural beauty, and enjoy inspiring stories and care tips from our team of experts.
+      Discover our clients’ transformation journeys and boost their confidence, stay updated on the latest aesthetic trends, celebrate natural beauty, and enjoy inspiring stories and care tips from our team of experts.
     </p>
     <div class="grid md:grid-cols-2 gap-10">
       <!-- Left Column: Big News -->

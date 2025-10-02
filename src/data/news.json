@@ -1,0 +1,132 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "mainImage": "/images/service01.avif",
+      "createdDate": "2025-07-20",
+      "translations": {
+        "en": {
+          "title": "check Unlock Your Glow with Our AI Beauty Platform",
+          "shortDescription": "Experience personalized skincare recommendations powered by cutting-edge AI, designed to reveal your inner radiance.",
+          "content": "<p>At VyBrows Academy, we're revolutionizing the beauty industry with our state-of-the-art AI-powered beauty platform. Our innovative technology analyzes your unique skin characteristics, lifestyle, and beauty goals to deliver personalized recommendations that truly work for you.</p><p>Our AI system considers factors like skin type, tone, texture, sensitivity levels, and environmental conditions to suggest the most effective treatments and products. Whether you're looking for the perfect eyebrow shape, lip enhancement, or comprehensive skincare routine, our platform guides you every step of the way.</p><p>Join thousands of satisfied clients who have discovered their natural beauty through our intelligent beauty solutions. Book your consultation today and experience the future of personalized beauty care.</p>"
+        },
+        "vi": {
+          "title": "Khám Phá Vẻ Đẹp Rạng Ngời Với Nền Tảng AI Làm Đẹp",
+          "shortDescription": "Trải nghiệm các đề xuất chăm sóc da được cá nhân hóa bằng AI tiên tiến, được thiết kế để bộc lộ vẻ rạng ngời bên trong bạn.",
+          "content": "<p>Tại VyBrows Academy, chúng tôi đang cách mạng hóa ngành làm đẹp với nền tảng làm đẹp được hỗ trợ bởi AI hiện đại. Công nghệ đổi mới của chúng tôi phân tích đặc điểm da độc đáo, lối sống và mục tiêu làm đẹp của bạn để đưa ra các đề xuất được cá nhân hóa thực sự phù hợp với bạn.</p><p>Hệ thống AI của chúng tôi xem xét các yếu tố như loại da, tông màu, kết cấu, mức độ nhạy cảm và điều kiện môi trường để gợi ý các liệu trình và sản phẩm hiệu quả nhất. Dù bạn đang tìm kiếm hình dáng lông mày hoàn hảo, làm đẹp môi hay quy trình chăm sóc da toàn diện, nền tảng của chúng tôi sẽ hướng dẫn bạn từng bước.</p><p>Tham gia cùng hàng nghìn khách hàng hài lòng đã khám phá vẻ đẹp tự nhiên của họ thông qua các giải pháp làm đẹp thông minh của chúng tôi. Đặt lịch tư vấn ngay hôm nay và trải nghiệm tương lai của chăm sóc sắc đẹp được cá nhân hóa.</p>"
+        },
+        "ja": {
+          "title": "AIビューティープラットフォームで輝きを解き放つ",
+          "shortDescription": "最先端のAIを活用したパーソナライズされたスキンケアのレコメンデーションで、あなたの内なる輝きを引き出します。",
+          "content": "<p>VyBrows Academyでは、最先端のAI搭載ビューティープラットフォームで美容業界に革命を起こしています。私たちの革新的な技術は、お客様固有の肌の特性、ライフスタイル、美容目標を分析し、本当に効果的なパーソナライズされた推奨事項を提供します。</p><p>当社のAIシステムは、肌タイプ、トーン、テクスチャー、敏感度レベル、環境条件などの要素を考慮して、最も効果的なトリートメントと製品を提案します。完璧な眉の形、リップエンハンスメント、または包括的なスキンケアルーチンをお探しの場合でも、当社のプラットフォームがステップごとにご案内します。</p><p>インテリジェントな美容ソリューションを通じて自然な美しさを発見した何千人もの満足したクライアントに参加してください。今すぐコンサルテーションを予約して、パーソナライズされた美容ケアの未来を体験してください。</p>"
+        },
+        "ko": {
+          "title": "AI 뷰티 플랫폼으로 당신의 빛을 발견하세요",
+          "shortDescription": "최첨단 AI로 구동되는 맞춤형 스킨케어 추천을 경험하고 내면의 빛을 드러내세요.",
+          "content": "<p>VyBrows Academy에서는 최첨단 AI 기반 뷰티 플랫폼으로 뷰티 산업에 혁명을 일으키고 있습니다. 우리의 혁신적인 기술은 고유한 피부 특성, 라이프스타일 및 뷰티 목표를 분석하여 진정으로 효과적인 맞춤형 추천을 제공합니다.</p><p>AI 시스템은 피부 타입, 톤, 질감, 민감도 수준 및 환경 조건과 같은 요소를 고려하여 가장 효과적인 트리트먼트와 제품을 제안합니다. 완벽한 눈썹 모양, 입술 개선 또는 포괄적인 스킨케어 루틴을 찾고 계시다면 플랫폼이 단계별로 안내해 드립니다.</p><p>지능형 뷰티 솔루션을 통해 자연스러운 아름다움을 발견한 수천 명의 만족한 고객과 함께하세요. 오늘 상담을 예약하고 개인 맞춤형 뷰티 케어의 미래를 경험하세요.</p>"
+        },
+        "es": {
+          "title": "Desbloquea Tu Resplandor Con Nuestra Plataforma de Belleza AI",
+          "shortDescription": "Experimenta recomendaciones de cuidado de la piel personalizadas impulsadas por IA de vanguardia, diseñadas para revelar tu resplandor interior.",
+          "content": "<p>En VyBrows Academy, estamos revolucionando la industria de la belleza con nuestra plataforma de belleza impulsada por IA de última generación. Nuestra tecnología innovadora analiza tus características únicas de piel, estilo de vida y objetivos de belleza para ofrecer recomendaciones personalizadas que realmente funcionan para ti.</p><p>Nuestro sistema de IA considera factores como tipo de piel, tono, textura, niveles de sensibilidad y condiciones ambientales para sugerir los tratamientos y productos más efectivos. Ya sea que busques la forma perfecta de cejas, mejora de labios o una rutina completa de cuidado de la piel, nuestra plataforma te guía en cada paso.</p><p>Únete a miles de clientes satisfechos que han descubierto su belleza natural a través de nuestras soluciones de belleza inteligentes. Reserva tu consulta hoy y experimenta el futuro del cuidado de belleza personalizado.</p>"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "mainImage": "/images/service02.avif",
+      "createdDate": "2025-07-10",
+      "translations": {
+        "en": {
+          "title": "Mobile Beauty App Wins Top Innovation Award",
+          "shortDescription": "Our award-winning app delivers salon-quality beauty tutorials and virtual try-ons right at your fingertips.",
+          "content": "<p>We're thrilled to announce that VyBrows Academy's mobile application has been recognized with the prestigious Beauty Tech Innovation Award 2025! This honor celebrates our commitment to bringing professional beauty services directly to your smartphone.</p><p>Our app features include: HD video tutorials from certified beauty professionals, AR-powered virtual try-on for eyebrows and lip colors, personalized beauty consultations via video chat, easy appointment booking and management, and exclusive member discounts and promotions.</p><p>The app has been downloaded over 100,000 times and maintains a 4.9-star rating from satisfied users. Download now on iOS and Android to join our growing community of beauty enthusiasts!</p>"
+        },
+        "vi": {
+          "title": "Ứng Dụng Làm Đẹp Di Động Giành Giải Thưởng Đổi Mới Hàng Đầu",
+          "shortDescription": "Ứng dụng đoạt giải của chúng tôi mang đến hướng dẫn làm đẹp chất lượng salon và dùng thử ảo ngay trong tầm tay bạn.",
+          "content": "<p>Chúng tôi vô cùng vui mừng thông báo rằng ứng dụng di động của VyBrows Academy đã được công nhận với Giải thưởng Đổi mới Công nghệ Làm đẹp danh giá năm 2025! Vinh dự này tôn vinh cam kết của chúng tôi trong việc mang các dịch vụ làm đẹp chuyên nghiệp trực tiếp đến smartphone của bạn.</p><p>Các tính năng của ứng dụng bao gồm: Video hướng dẫn HD từ các chuyên gia làm đẹp được chứng nhận, dùng thử ảo được hỗ trợ AR cho lông mày và màu môi, tư vấn làm đẹp cá nhân hóa qua video chat, đặt lịch hẹn và quản lý dễ dàng, cùng các ưu đãi và khuyến mãi độc quyền dành cho thành viên.</p><p>Ứng dụng đã được tải xuống hơn 100.000 lần và duy trì xếp hạng 4.9 sao từ người dùng hài lòng. Tải xuống ngay trên iOS và Android để tham gia cộng đồng ngày càng phát triển của những người đam mê làm đẹp!</p>"
+        },
+        "ja": {
+          "title": "モバイルビューティーアプリがトップイノベーション賞を受賞",
+          "shortDescription": "受賞歴のあるアプリは、サロン品質のビューティーチュートリアルとバーチャルトライオンを指先で提供します。",
+          "content": "<p>VyBrows Academyのモバイルアプリケーションが、2025年ビューティーテックイノベーション賞を受賞したことを発表できることを嬉しく思います！この栄誉は、プロフェッショナルな美容サービスをスマートフォンに直接提供するという私たちのコミットメントを称えるものです。</p><p>アプリの機能には、認定美容プロフェッショナルによるHDビデオチュートリアル、眉毛とリップカラーのAR搭載バーチャルトライオン、ビデオチャットによるパーソナライズされた美容コンサルテーション、簡単な予約と管理、会員限定の割引とプロモーションが含まれます。</p><p>このアプリは10万回以上ダウンロードされ、満足したユーザーから4.9つ星の評価を維持しています。iOSとAndroidで今すぐダウンロードして、成長し続ける美容愛好家のコミュニティに参加してください！</p>"
+        },
+        "ko": {
+          "title": "모바일 뷰티 앱이 최고 혁신상 수상",
+          "shortDescription": "수상 경력에 빛나는 앱은 살롱 품질의 뷰티 튜토리얼과 가상 체험을 손끝에서 제공합니다.",
+          "content": "<p>VyBrows Academy의 모바일 애플리케이션이 권위 있는 2025 뷰티 테크 혁신상을 수상했다는 소식을 발표하게 되어 기쁩니다! 이 영예는 전문 뷰티 서비스를 스마트폰으로 직접 제공하려는 우리의 헌신을 기념합니다.</p><p>앱 기능에는 인증된 뷰티 전문가의 HD 비디오 튜토리얼, 눈썹 및 립 컬러를 위한 AR 지원 가상 체험, 화상 채팅을 통한 맞춤형 뷰티 상담, 쉬운 예약 및 관리, 회원 전용 할인 및 프로모션이 포함됩니다.</p><p>이 앱은 10만 회 이상 다운로드되었으며 만족한 사용자로부터 4.9점의 평점을 유지하고 있습니다. iOS 및 Android에서 지금 다운로드하여 성장하는 뷰티 애호가 커뮤니티에 참여하세요!</p>"
+        },
+        "es": {
+          "title": "La Aplicación Móvil de Belleza Gana el Premio a la Mejor Innovación",
+          "shortDescription": "Nuestra aplicación galardonada ofrece tutoriales de belleza de calidad de salón y pruebas virtuales al alcance de tu mano.",
+          "content": "<p>¡Nos complace anunciar que la aplicación móvil de VyBrows Academy ha sido reconocida con el prestigioso Premio a la Innovación en Tecnología de Belleza 2025! Este honor celebra nuestro compromiso de llevar servicios de belleza profesionales directamente a tu smartphone.</p><p>Las características de la aplicación incluyen: tutoriales en video HD de profesionales de belleza certificados, prueba virtual con tecnología AR para cejas y colores de labios, consultas de belleza personalizadas por videochat, reserva y gestión de citas fácil, y descuentos y promociones exclusivos para miembros.</p><p>La aplicación se ha descargado más de 100,000 veces y mantiene una calificación de 4.9 estrellas de usuarios satisfechos. ¡Descárgala ahora en iOS y Android para unirte a nuestra creciente comunidad de entusiastas de la belleza!</p>"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "mainImage": "/images/service03.avif",
+      "createdDate": "2025-06-28",
+      "translations": {
+        "en": {
+          "title": "VyBrows Academy Partners with Global Aesthetics Leader",
+          "shortDescription": "We've partnered with world-renowned experts in aesthetics to bring you the latest beauty advancements.",
+          "content": "<p>VyBrows Academy is proud to announce our strategic partnership with International Beauty Institute (IBI), a global leader in aesthetic education and innovation. This collaboration brings together decades of combined expertise to elevate beauty standards worldwide.</p><p>Through this partnership, our clients will benefit from: Access to cutting-edge techniques and technologies, exclusive training programs certified by international standards, premium product lines used by top professionals globally, collaborative research in permanent makeup and microblading innovations, and enhanced quality assurance protocols.</p><p>This partnership reinforces our commitment to providing world-class beauty services while staying at the forefront of industry developments. We're excited to bring these enhanced offerings to our valued clients.</p>"
+        },
+        "vi": {
+          "title": "VyBrows Academy Hợp Tác Với Công Ty Thẩm Mỹ Hàng Đầu Toàn Cầu",
+          "shortDescription": "Chúng tôi đã hợp tác với các chuyên gia thẩm mỹ nổi tiếng thế giới để mang đến cho bạn những tiến bộ làm đẹp mới nhất.",
+          "content": "<p>VyBrows Academy tự hào công bố quan hệ đối tác chiến lược với International Beauty Institute (IBI), công ty dẫn đầu toàn cầu về giáo dục và đổi mới thẩm mỹ. Sự hợp tác này kết hợp nhiều thập kỷ chuyên môn để nâng cao tiêu chuẩn làm đẹp trên toàn thế giới.</p><p>Thông qua quan hệ đối tác này, khách hàng của chúng tôi sẽ được hưởng lợi từ: Tiếp cận các kỹ thuật và công nghệ tiên tiến, các chương trình đào tạo độc quyền được chứng nhận theo tiêu chuẩn quốc tế, dòng sản phẩm cao cấp được sử dụng bởi các chuyên gia hàng đầu toàn cầu, nghiên cứu hợp tác về đổi mới phun xăm thẩm mỹ và microblading, và các quy trình đảm bảo chất lượng nâng cao.</p><p>Quan hệ đối tác này củng cố cam kết của chúng tôi trong việc cung cấp dịch vụ làm đẹp đẳng cấp thế giới đồng thời luôn dẫn đầu các phát triển trong ngành. Chúng tôi rất vui mừng mang những dịch vụ nâng cao này đến với khách hàng quý giá của mình.</p>"
+        },
+        "ja": {
+          "title": "VyBrows Academyがグローバル美容リーダーと提携",
+          "shortDescription": "世界的に有名な美容専門家と提携し、最新の美容の進歩をお届けします。",
+          "content": "<p>VyBrows Academyは、美容教育とイノベーションのグローバルリーダーであるInternational Beauty Institute（IBI）との戦略的パートナーシップを発表できることを誇りに思います。このコラボレーションは、何十年もの統合された専門知識を結集し、世界中の美容基準を向上させます。</p><p>このパートナーシップを通じて、お客様は次のような利益を得られます：最先端の技術とテクノロジーへのアクセス、国際基準で認定された独占トレーニングプログラム、世界中のトッププロフェッショナルが使用するプレミアム製品ライン、パーマネントメイクとマイクロブレーディングの革新における共同研究、強化された品質保証プロトコル。</p><p>このパートナーシップは、業界の発展の最前線にいながら世界クラスの美容サービスを提供するという私たちのコミットメントを強化します。これらの強化されたサービスを大切なお客様にお届けできることを嬉しく思います。</p>"
+        },
+        "ko": {
+          "title": "VyBrows Academy가 글로벌 미용 리더와 파트너십 체결",
+          "shortDescription": "세계적으로 유명한 미용 전문가들과 파트너십을 맺어 최신 뷰티 발전을 제공합니다.",
+          "content": "<p>VyBrows Academy는 미용 교육 및 혁신 분야의 글로벌 리더인 International Beauty Institute(IBI)와의 전략적 파트너십을 발표하게 되어 자랑스럽습니다. 이 협력은 수십 년간의 결합된 전문 지식을 모아 전 세계 뷰티 표준을 높입니다.</p><p>이 파트너십을 통해 고객은 다음과 같은 혜택을 누릴 수 있습니다: 최첨단 기술 및 테크놀로지에 대한 액세스, 국제 표준으로 인증된 독점 교육 프로그램, 전 세계 최고의 전문가들이 사용하는 프리미엄 제품 라인, 반영구 화장 및 마이크로블레이딩 혁신에 대한 협력 연구, 강화된 품질 보증 프로토콜.</p><p>이 파트너십은 업계 발전의 최전선에 머물면서 세계적 수준의 뷰티 서비스를 제공하려는 우리의 약속을 강화합니다. 이러한 향상된 서비스를 소중한 고객에게 제공하게 되어 기쁩니다.</p>"
+        },
+        "es": {
+          "title": "VyBrows Academy Se Asocia Con Líder Global en Estética",
+          "shortDescription": "Nos hemos asociado con expertos de renombre mundial en estética para traerte los últimos avances en belleza.",
+          "content": "<p>VyBrows Academy se enorgullece de anunciar nuestra asociación estratégica con International Beauty Institute (IBI), líder global en educación e innovación estética. Esta colaboración reúne décadas de experiencia combinada para elevar los estándares de belleza en todo el mundo.</p><p>A través de esta asociación, nuestros clientes se beneficiarán de: Acceso a técnicas y tecnologías de vanguardia, programas de capacitación exclusivos certificados por estándares internacionales, líneas de productos premium utilizadas por profesionales de primer nivel a nivel mundial, investigación colaborativa en innovaciones de maquillaje permanente y microblading, y protocolos mejorados de garantía de calidad.</p><p>Esta asociación refuerza nuestro compromiso de brindar servicios de belleza de clase mundial mientras nos mantenemos a la vanguardia de los desarrollos de la industria. Estamos emocionados de llevar estas ofertas mejoradas a nuestros valiosos clientes.</p>"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "mainImage": "/images/service04.avif",
+      "createdDate": "2025-06-15",
+      "translations": {
+        "en": {
+          "title": "Grand Opening: Our New Beauty Studio in Da Nang",
+          "shortDescription": "Join us for the grand opening and discover bespoke beauty treatments in our new Da Nang studio.",
+          "content": "<p>We're excited to announce the grand opening of VyBrows Academy's newest location in beautiful Da Nang, Vietnam! Our state-of-the-art studio brings world-class beauty services to the heart of central Vietnam.</p><p>Our Da Nang studio features: 5 luxurious treatment rooms with premium equipment, dedicated training center for aspiring beauty professionals, exclusive VIP lounge for premium clients, complimentary consultation services, on-site parking and convenient location near Han River.</p><p>Grand opening special offers include 30% off all services for the first month, free eyebrow consultation with any treatment, and exclusive gift packages for early bookings. Visit us at 123 Tran Phu Street, Da Nang. Book your appointment today and experience the VyBrows difference!</p>"
+        },
+        "vi": {
+          "title": "Khai Trương: Studio Làm Đẹp Mới Tại Đà Nẵng",
+          "shortDescription": "Tham gia khai trương và khám phá các liệu trình làm đẹp cao cấp tại studio mới của chúng tôi ở Đà Nẵng.",
+          "content": "<p>Chúng tôi vô cùng hào hứng thông báo khai trương địa điểm mới nhất của VyBrows Academy tại thành phố Đà Nẵng xinh đẹp! Studio hiện đại của chúng tôi mang dịch vụ làm đẹp đẳng cấp thế giới đến trung tâm miền Trung Việt Nam.</p><p>Studio Đà Nẵng của chúng tôi có: 5 phòng điều trị sang trọng với trang thiết bị cao cấp, trung tâm đào tạo dành riêng cho các chuyên gia làm đẹp tương lai, phòng chờ VIP độc quyền cho khách hàng cao cấp, dịch vụ tư vấn miễn phí, bãi đỗ xe tại chỗ và vị trí thuận tiện gần sông Hàn.</p><p>Ưu đãi đặc biệt khai trương bao gồm: Giảm 30% cho tất cả dịch vụ trong tháng đầu tiên, tư vấn lông mày miễn phí khi sử dụng bất kỳ dịch vụ nào, và gói quà tặng độc quyền cho khách hàng đặt lịch sớm. Ghé thăm chúng tôi tại 123 Trần Phú, Đà Nẵng. Đặt lịch hẹn ngay hôm nay và trải nghiệm sự khác biệt của VyBrows!</p>"
+        },
+        "ja": {
+          "title": "グランドオープニング：ダナンの新しいビューティースタジオ",
+          "shortDescription": "グランドオープニングに参加して、ダナンの新しいスタジオでオーダーメイドの美容トリートメントを発見してください。",
+          "content": "<p>美しいベトナムのダナンにVyBrows Academyの最新拠点がグランドオープンすることを発表できることを嬉しく思います！最先端のスタジオは、ベトナム中部の中心部に世界クラスの美容サービスをもたらします。</p><p>ダナンスタジオの特徴：プレミアム機器を備えた5つの豪華なトリートメントルーム、将来の美容プロフェッショナルのための専用トレーニングセンター、プレミアムクライアント向けの専用VIPラウンジ、無料相談サービス、敷地内駐車場とハン川近くの便利な場所。</p><p>グランドオープニング特別オファーには、初月全サービス30%オフ、トリートメントご利用で無料眉毛相談、早期予約限定ギフトパッケージが含まれます。ダナン市トランフー通り123番地にお越しください。今すぐ予約して、VyBrowsの違いを体験してください！</p>"
+        },
+        "ko": {
+          "title": "그랜드 오프닝: 다낭의 새로운 뷰티 스튜디오",
+          "shortDescription": "그랜드 오프닝에 참여하여 다낭의 새 스튜디오에서 맞춤형 뷰티 트리트먼트를 경험하세요.",
+          "content": "<p>베트남의 아름다운 다낭에 VyBrows Academy의 최신 지점이 그랜드 오프닝을 한다는 소식을 발표하게 되어 기쁩니다! 최첨단 스튜디오는 베트남 중부의 중심부에 세계적 수준의 뷰티 서비스를 제공합니다.</p><p>다낭 스튜디오의 특징: 프리미엄 장비를 갖춘 5개의 럭셔리 트리트먼트룸, 미래의 뷰티 전문가를 위한 전용 교육 센터, 프리미엄 고객을 위한 독점 VIP 라운지, 무료 상담 서비스, 현장 주차장 및 한강 근처의 편리한 위치.</p><p>그랜드 오프닝 특별 혜택에는 첫 달 모든 서비스 30% 할인, 트리트먼트 이용 시 무료 눈썹 상담, 조기 예약 고객을 위한 독점 선물 패키지가 포함됩니다. 다낭시 쩐푸 거리 123번지에서 방문하세요. 오늘 예약하고 VyBrows의 차이를 경험하세요!</p>"
+        },
+        "es": {
+          "title": "Gran Inauguración: Nuestro Nuevo Estudio de Belleza en Da Nang",
+          "shortDescription": "Únete a la gran inauguración y descubre tratamientos de belleza personalizados en nuestro nuevo estudio de Da Nang.",
+          "content": "<p>¡Nos complace anunciar la gran inauguración de la ubicación más nueva de VyBrows Academy en la hermosa ciudad de Da Nang, Vietnam! Nuestro estudio de última generación trae servicios de belleza de clase mundial al corazón del centro de Vietnam.</p><p>Nuestro estudio de Da Nang cuenta con: 5 lujosas salas de tratamiento con equipo premium, centro de capacitación dedicado para profesionales de belleza aspirantes, salón VIP exclusivo para clientes premium, servicios de consulta gratuitos, estacionamiento en el lugar y ubicación conveniente cerca del río Han.</p><p>Las ofertas especiales de inauguración incluyen: 30% de descuento en todos los servicios durante el primer mes, consulta de cejas gratis con cualquier tratamiento, y paquetes de regalo exclusivos para reservas anticipadas. Visítanos en 123 Calle Tran Phu, Da Nang. ¡Reserva tu cita hoy y experimenta la diferencia VyBrows!</p>"
+        }
+      }
+    }
+  ]
+}
