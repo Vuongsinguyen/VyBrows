@@ -1,0 +1,107 @@
+---
+import '/src/styles/color.css';
+import '/src/styles/global.css';
+import PageLayout from '../../layouts/PageLayout.astro';
+import servicesData from '../../content/services.json' assert { type: 'json' };
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return servicesData.map(service => ({ params: { service: service.slug } }));
+}
+const lang = 'en';
+const serviceSlug = Astro.params.service as string;
+
+// Tạo tocLabels động từ JSON
+const tocLabels = servicesData.reduce((acc, service) => {
+  acc[service.slug] = service.title[lang] || service.title.en;
+  return acc;
+}, {} as Record<string, string>);
+
+// Tạo serviceContent động từ JSON
+const serviceContent = servicesData.reduce((acc, service) => {
+  acc[service.slug] = service.description;
+  return acc;
+}, {} as Record<string, Record<string, string>>);
+---
+
+<PageLayout title={tocLabels[serviceSlug] || 'Service'}>
+  <div class="w-full bg-surface flex justify-center">
+    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
+      <!-- Sidebar Trái -->
+      <aside class="w-64 bg-surface rounded-lg shadow p-4 mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
+        <h2 class="font-bold text-lg mb-2 text-on-surface">Services Menu</h2>
+        <ul class="border border-border rounded-lg overflow-hidden">
+          {servicesData.map((service, index) => (
+            <li>
+              <a href={`/service/${service.slug}`} class={`block bg-surface rounded-none ${index < servicesData.length - 1 ? 'border-b border-border' : ''} px-3 py-2 text-on-surface font-normal hover:text-primary`}>
+                {service.title[lang] || service.title.en}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      <!-- Nội dung chính -->
+      <main class="flex-1 space-y-12">
+        <h1 class="text-3xl font-bold mb-4 text-on-surface">{tocLabels[serviceSlug] ?? serviceSlug}</h1>
+        {servicesData.find(s => s.slug === serviceSlug)?.image && (
+          <img
+            src={servicesData.find(s => s.slug === serviceSlug)?.image}
+            alt={tocLabels[serviceSlug] ?? serviceSlug}
+            class="w-full max-w-md mx-auto rounded-lg shadow-lg mb-6"
+          />
+        )}
+        <p class="text-lg text-on-surface mb-6">{serviceContent[serviceSlug]?.[lang] || serviceContent[serviceSlug]?.en}</p>
+
+        {servicesData.find(s => s.slug === serviceSlug)?.technologies && (
+          <div class="bg-surface-1 border border-primary rounded-xl p-6">
+            <h2 class="text-xl font-bold text-primary mb-4">Technologies & Equipment</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {servicesData.find(s => s.slug === serviceSlug)?.technologies.map((tech: string) => (
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 bg-primary rounded-full"></span>
+                  <span class="text-on-surface">{tech}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- CTA Section -->
+        <div class="bg-primary/10 border border-primary rounded-xl p-6 text-center">
+          <h3 class="text-xl font-bold text-primary mb-2">Ready to Experience Our Services?</h3>
+          <p class="text-on-surface mb-4">Book your consultation today and discover the VyBrows Academy difference.</p>
+          <a
+            href="https://www.fresha.com/vi/a/vy-brows-academy-houston-13192-bellaire-boulevard-ksjqvy55"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base shadow transition-colors focus:outline-none focus-visible:ring-2 bg-primary text-on-primary hover:bg-primary/90"
+          >
+            Book Now
+          </a>
+        </div>
+      </main>
+
+      <!-- Sidebar Phải: Contact Form -->
+      <aside class="hidden lg:block w-[220px] bg-surface-1 rounded-lg p-4 text-on-surface shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
+        <form class="space-y-4">
+          <h2 class="font-bold text-lg mb-2 text-on-surface">Contact Us</h2>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="name">Name</label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="text" id="name" name="name" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="email">Email</label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="message">Message</label>
+            <textarea class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary text-on-primary rounded-lg p-3 font-semibold shadow-none hover:opacity-90 transition">Send</button>
+        </form>
+      </aside>
+    </div>
+  </div>
+</PageLayout>

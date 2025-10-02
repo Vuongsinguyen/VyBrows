@@ -38,6 +38,16 @@ const socialLinks = [
     <!-- Main Footer Content -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
       
+      <!-- Logo Column -->
+      <div>
+        <a href={currentLang === 'en' ? '/' : `/${currentLang}`} class="block mb-6">
+          <img src="/logo.webp" alt="VyBrows Academy" class="w-48 h-auto" />
+        </a>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          VyBrows Academy - Excellence in permanent makeup artistry and training.
+        </p>
+      </div>
+
       <!-- Services Column -->
       <div>
   <h3 class="text-lg font-bold uppercase tracking-wide mb-6 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">SERVICES</h3>
@@ -61,27 +71,12 @@ const socialLinks = [
             const aboutLinks = aboutMenu?.children || [];
             return aboutLinks.map(link => (
               <li>
-                <a href={link.href} class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed" onclick="event.preventDefault(); const el=document.querySelector(link.href); if(el){ window.smoothScrollTo(el.getBoundingClientRect().top+window.scrollY-80,700); }">
+                <a href={link.href} class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">
                   {link.label}
                 </a>
               </li>
             ));
           })()}
-        </ul>
-      </div>
-
-      <!-- Beauty Creations Column -->
-      <div>
-        <h3 class="text-lg font-bold uppercase tracking-wide mb-6 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">BEAUTY CREATIONS</h3>
-        <ul class="space-y-3">
-          <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">TRAINING</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">BEAUTY STORIES</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">BEAUTY SOLUTIONS</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">WELLNESS SOLUTIONS</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">HEALTH COMMUNICATION</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">WELLNESS COMMUNICATION</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">PROMOTIONS</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">SUPPLY LISTS</a></li>
         </ul>
       </div>
 

@@ -49,9 +49,25 @@ const tocLabels = aboutUsData.sections.reduce((acc: Record<string, string>, sect
         <!-- Nội dung chính -->
         <main class="flex-1 space-y-12">
           {aboutUsData.sections.map((section: any) => (
-            <section id={section.id} class="bg-surface rounded-lg">
-              <h1 class="text-3xl font-bold mb-4 text-on-surface">{section.title[lang as keyof typeof section.title] || section.title.en}</h1>
-              <div class="prose prose-lg max-w-none text-on-surface" set:html={section.content[lang as keyof typeof section.content] || section.content.en}></div>
+            <section class="bg-surface rounded-lg p-6 border border-border">
+              <a href={`/${lang}/about-us/${section.id}`} class="block group">
+                <h1 class="text-3xl font-bold mb-4 text-on-surface group-hover:text-primary transition-colors cursor-pointer">{section.title[lang as keyof typeof section.title] || section.title.en}</h1>
+              </a>
+              <div class="prose prose-lg max-w-none text-on-surface mb-6">
+                {(() => {
+                  const content = section.content[lang as keyof typeof section.content] || section.content.en;
+                  // Hiển thị tóm tắt (khoảng 150 từ đầu tiên)
+                  const words = content.split(' ');
+                  const summary = words.slice(0, 30).join(' ') + (words.length > 30 ? '...' : '');
+                  return <p set:html={summary}></p>;
+                })()}
+              </div>
+              <a
+                href={`/${lang}/about-us/${section.id}`}
+                class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base shadow transition-colors focus:outline-none focus-visible:ring-2 bg-primary text-on-primary hover:bg-primary/90"
+              >
+                {lang === 'vi' ? 'Chi tiết' : lang === 'ja' ? '詳細' : 'Details'}
+              </a>
             </section>
           ))}
         </main>

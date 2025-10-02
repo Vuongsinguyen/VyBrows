@@ -13,8 +13,10 @@ export interface MenuItem {
 // Use services.json for dynamic SERVICES menu
 export async function getServiceMenu(lang: string) {
   const servicesData = await import('./services.json').then(m => m.default);
+  // For English, use /service/ without prefix, for other languages use /{lang}/service/
+  const basePrefix = lang === 'en' ? '' : `/${lang}`;
   return servicesData.map((service: any) => ({
-    href: `/${lang}/service/${service.slug}`,
+    href: `${basePrefix}/service/${service.slug}`,
     title: service.title[lang] || service.title.en,
     description: service.description[lang] || service.description.en,
     label: service.title[lang] || service.title.en,
@@ -37,7 +39,6 @@ export const menus: Record<string, MenuItem[]> = {
       ]
     },
     { label: 'TRAINING', href: '/training', title: 'Training' },
-    { label: 'SOLUTIONS', href: '/solutions', title: 'Solutions' },
     { label: 'COMMUNICATION', href: '/communication', title: 'Communication' },
     { label: 'CONTACT', href: '/#contact', title: 'Contact' }
   ],
@@ -55,7 +56,6 @@ export const menus: Record<string, MenuItem[]> = {
       ]
     },
     { label: 'ĐÀO TẠO', href: '/vi/training', title: 'Đào tạo' },
-    { label: 'GIẢI PHÁP', href: '/vi/solutions', title: 'Giải pháp' },
     { label: 'TRUYỀN THÔNG', href: '/vi/communication', title: 'Truyền thông' },
     { label: 'LIÊN LẠC', href: '/vi/#contact', title: 'Liên lạc' }
   ],
@@ -117,7 +117,6 @@ export const menus: Record<string, MenuItem[]> = {
       ]
     },
     { label: '교육', href: '/ko/training', title: '교육', description: '교육 및 워크숍' },
-    { label: '솔루션', href: '/ko/solutions', title: '솔루션', description: '비즈니스 솔루션' },
     { label: '커뮤니케이션', href: '/ko/communication', title: '커뮤니케이션', description: '소통' },
     { label: '문의', href: '/ko/#contact', title: '문의', description: '문의하기' }
   ]

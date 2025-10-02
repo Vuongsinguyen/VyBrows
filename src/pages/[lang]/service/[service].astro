@@ -7,10 +7,17 @@ import servicesData from '../../../content/services.json' assert { type: 'json' 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ['en', 'vi', 'ja', 'es'];
-  return langs.flatMap(lang => servicesData.map(service => ({ params: { lang, service: service.slug } })));
+  const langs = ['vi', 'ja', 'es'];
+  return langs.flatMap(lang => {
+    return servicesData.map(service => ({ 
+      params: { 
+        lang: lang, 
+        service: service.slug 
+      } 
+    }));
+  });
 }
-const lang = Astro.params.lang as 'en' | 'vi' | 'ja' | 'es';
+const lang = Astro.params.lang as 'vi' | 'ja' | 'es';
 const serviceSlug = Astro.params.service as string;
 
 // Tạo tocLabels động từ JSON
