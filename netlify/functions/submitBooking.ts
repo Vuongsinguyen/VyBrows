@@ -7,21 +7,21 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const {
-  ZOHO_USER,
-  ZOHO_PASS,
-  ZOHO_SMTP_HOST = 'smtppro.zoho.com',
+  SENDER_EMAIL,
+  SENDER_PASS,
+  RECEIVER_EMAIL,
   GOOGLE_SERVICE_ACCOUNT_EMAIL,
   GOOGLE_PRIVATE_KEY,
-  GOOGLE_SHEET_ID,
-  ADMIN_EMAIL = 'vybrowsk@gmail.com'
+  GOOGLE_SHEET_ID
 } = process.env;
 
-function createTransport(port465 = true) {
+function createTransport() {
   return nodemailer.createTransport({
-    host: ZOHO_SMTP_HOST,
-    port: port465 ? 465 : 587,
-    secure: port465,
-    auth: { user: ZOHO_USER, pass: ZOHO_PASS }
+    service: 'gmail',
+    auth: {
+      user: SENDER_EMAIL,
+      pass: SENDER_PASS
+    }
   });
 }
 
@@ -260,11 +260,11 @@ async function appendToGoogleSheet(data: any) {
 }
 
 async function sendEmails(data: any) {
-  if (!ZOHO_USER || !ZOHO_PASS) {
+  if (!SENDER_EMAIL || !SENDER_PASS) {
     throw new Error('Email credentials not configured');
   }
 
-  const transporter = createTransport(true);
+  const transporter = createTransport();
 
   const bookingDetails = `
     <h3>Booking Details:</h3>
@@ -298,28 +298,30 @@ async function sendEmails(data: any) {
     <p>We have received your booking request. Here are the details:</p>
     ${bookingDetails}
     <p>Our team will contact you within 24 hours to confirm your booking.</p>
-    <p>If you have any questions, please contact us at ${ADMIN_EMAIL}</p>
+    <p>If you have any questions, please contact us at ${RECEIVER_EMAIL}</p>
     <p>Best regards,<br>VyBrows Academy Team</p>
     <p style="margin-top:18px;font-size:12px;color:#666">Sent from VyBrows booking system.</p>
   `;
 
   // Gửi email cho Admin
   await transporter.sendMail({
-    from: `"VyBrows Booking" <${ZOHO_USER}>`,
-    to: ADMIN_EMAIL,
-    replyTo: data.email || ZOHO_USER,
+    from: `"VyBrows Booking" <${SENDER_EMAIL}>`,
+    to: RECEIVER_EMAIL,
+    replyTo: data.email || SENDER_EMAIL,
     subject: adminSubject,
     html: adminHtml
   });
 
-  // Gửi email cho Customer
-  await transporter.sendMail({
-    from: `"VyBrows Academy" <${ZOHO_USER}>`,
-    to: data.email,
-    replyTo: ADMIN_EMAIL,
-    subject: customerSubject,
-    html: customerHtml
-  });
+  // Gửi email cho Customer (chỉ khi có email)
+  if (data.email && data.email.trim()) {
+    await transporter.sendMail({
+      from: `"VyBrows Academy" <${SENDER_EMAIL}>`,
+      to: data.email,
+      replyTo: RECEIVER_EMAIL,
+      subject: customerSubject,
+      html: customerHtml
+    });
+  }
 
   return true;
 }

@@ -196,8 +196,10 @@ const serviceContent = servicesData.reduce((acc, service) => {
             <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="text" id="name" name="name" required />
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" for="email">Email</label>
-            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" required />
+            <label class="block text-sm font-medium mb-1" for="email">
+              Email <span class="text-xs opacity-70">(Optional)</span>
+            </label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" />
           </div>
           <div>
             <label class="block text-sm font-medium mb-1" for="phone">
