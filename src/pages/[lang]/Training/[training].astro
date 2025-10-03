@@ -61,7 +61,7 @@ const trainingTitles = trainingData.reduce((acc, training) => {
                 <p class="text-xl text-primary font-semibold mb-4">{currentTraining.subtitle}</p>
               )}
 
-              {/* Duration & Price */}
+              {/* Duration */}
               <div class="flex gap-4 flex-wrap mb-6">
                 {currentTraining?.duration && (
                   <div class="bg-primary/10 border border-primary rounded-lg px-4 py-2">
@@ -69,14 +69,6 @@ const trainingTitles = trainingData.reduce((acc, training) => {
                       ⏱️ {lang === 'vi' ? 'Thời lượng' : lang === 'ja' ? '期間' : lang === 'es' ? 'Duración' : lang === 'ko' ? '기간' : 'Duration'}: 
                     </span>
                     <span class="text-on-surface ml-2">{currentTraining.duration[lang] || currentTraining.duration.en}</span>
-                  </div>
-                )}
-                {currentTraining?.price && (
-                  <div class="bg-primary/10 border border-primary rounded-lg px-4 py-2">
-                    <span class="text-sm font-semibold text-primary">
-                      💰 {lang === 'vi' ? 'Học phí' : lang === 'ja' ? '料金' : lang === 'es' ? 'Precio' : lang === 'ko' ? '가격' : 'Price'}: 
-                    </span>
-                    <span class="text-on-surface ml-2 font-bold">{currentTraining.price[lang] || currentTraining.price.en}</span>
                   </div>
                 )}
               </div>
