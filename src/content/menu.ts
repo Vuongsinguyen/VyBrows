@@ -38,7 +38,7 @@ export const menus: Record<string, MenuItem[]> = {
   { href: '/en/about-us/natural-stunning', label: 'NATURAL & STUNNING RESULTS', title: 'NATURAL & STUNNING RESULTS', description: 'Natural & Stunning Results section' }
       ]
     },
-    { label: 'TRAINING', href: '/training', title: 'Training' },
+    { label: 'TRAINING', href: '/en/training', title: 'Training' },
     { label: 'COMMUNICATION', href: '/communication', title: 'Communication' },
     { label: 'CONTACT', href: '/#contact', title: 'Contact' }
   ],
@@ -98,6 +98,7 @@ export const menus: Record<string, MenuItem[]> = {
     },
     { label: 'PROYECTOS', href: '/es/projects', title: 'Proyectos', description: 'Lista de proyectos' },
     { label: 'NOTICIAS', href: '/es/news', title: 'Noticias', description: 'Últimas noticias y actualizaciones' },
+    { label: 'FORMACIÓN', href: '/es/training', title: 'Formación', description: 'Programas de formación' },
     { label: 'CONTACTO', href: '/es/#contact', title: 'Contacto', description: 'Contáctanos' }
   ],
   ko: [

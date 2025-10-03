@@ -1,0 +1,241 @@
+---
+import '/src/styles/color.css';
+import '/src/styles/global.css';
+import PageLayout from '../../../layouts/PageLayout.astro';
+import trainingData from '../../../content/training.json' assert { type: 'json' };
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const langs = ['en', 'vi', 'ja', 'es', 'ko'];
+  return langs.flatMap(lang => {
+    return trainingData.map(training => ({ 
+      params: { 
+        lang: lang, 
+        training: training.slug 
+      } 
+    }));
+  });
+}
+const lang = Astro.params.lang as 'en' | 'vi' | 'ja' | 'es' | 'ko';
+const trainingSlug = Astro.params.training as string;
+
+// Create training titles for sidebar
+const trainingTitles = trainingData.reduce((acc, training) => {
+  acc[training.slug] = (training.title as any)[lang] || training.title.en;
+  return acc;
+}, {} as Record<string, string>);
+---
+
+<PageLayout title={trainingTitles[trainingSlug] || 'Training'}>
+  <div class="w-full bg-surface flex justify-center">
+    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
+      <!-- Left Sidebar -->
+      <aside class="w-64 bg-surface rounded-lg shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20">
+        <ul class="border border-border rounded-lg overflow-hidden">
+          {trainingData.map((training, index) => (
+            <li>
+              <a 
+                href={`/${lang}/training/${training.slug}`} 
+                class={`block rounded-none ${index < trainingData.length - 1 ? 'border-b border-border' : ''} px-3 py-2 font-normal transition-colors`}
+                style={training.slug === trainingSlug ? 'background-color: var(--color-primary); color: white;' : 'background-color: white; color: var(--color-primary);'}
+              >
+                {(training.title as any)[lang] || training.title.en}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 space-y-8">
+        {(() => {
+          const currentTraining = trainingData.find(t => t.slug === trainingSlug) as any;
+          return (
+            <>
+              {/* Title */}
+              <h1 class="text-3xl font-bold mb-2 text-on-surface">{trainingTitles[trainingSlug] ?? trainingSlug}</h1>
+              
+              {/* Subtitle */}
+              {currentTraining?.subtitle && (
+                <p class="text-xl text-primary font-semibold mb-4">{currentTraining.subtitle}</p>
+              )}
+
+              {/* Duration & Price */}
+              <div class="flex gap-4 flex-wrap mb-6">
+                {currentTraining?.duration && (
+                  <div class="bg-primary/10 border border-primary rounded-lg px-4 py-2">
+                    <span class="text-sm font-semibold text-primary">
+                      ⏱️ {lang === 'vi' ? 'Thời lượng' : lang === 'ja' ? '期間' : lang === 'es' ? 'Duración' : lang === 'ko' ? '기간' : 'Duration'}: 
+                    </span>
+                    <span class="text-on-surface ml-2">{currentTraining.duration[lang] || currentTraining.duration.en}</span>
+                  </div>
+                )}
+                {currentTraining?.price && (
+                  <div class="bg-primary/10 border border-primary rounded-lg px-4 py-2">
+                    <span class="text-sm font-semibold text-primary">
+                      💰 {lang === 'vi' ? 'Học phí' : lang === 'ja' ? '料金' : lang === 'es' ? 'Precio' : lang === 'ko' ? '가격' : 'Price'}: 
+                    </span>
+                    <span class="text-on-surface ml-2 font-bold">{currentTraining.price[lang] || currentTraining.price.en}</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Image */}
+              {currentTraining?.image && (
+                <img
+                  src={currentTraining.image}
+                  alt={trainingTitles[trainingSlug] ?? trainingSlug}
+                  class="w-full rounded-lg shadow-lg mb-6"
+                />
+              )}
+
+              {/* Introduction */}
+              {currentTraining?.introduction && (
+                <p class="text-lg text-on-surface mb-6 leading-relaxed">{currentTraining.introduction}</p>
+              )}
+
+              {/* Curriculum */}
+              {currentTraining?.curriculum && currentTraining.curriculum.length > 0 && (
+                <div class="space-y-6">
+                  <h2 class="text-2xl font-bold text-primary mb-4">
+                    {lang === 'vi' ? 'Chương trình học' : lang === 'ja' ? 'カリキュラム' : lang === 'es' ? 'Plan de estudios' : lang === 'ko' ? '커리큘럼' : 'Curriculum'}
+                  </h2>
+                  {currentTraining.curriculum.map((item: any, idx: number) => (
+                    <div class="bg-surface-1 border border-primary/20 rounded-xl p-6">
+                      <div class="flex items-start gap-3">
+                        <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">{idx + 1}</span>
+                        <div class="flex-1">
+                          <h3 class="text-xl font-bold text-primary mb-2">{item.name}</h3>
+                          <p class="text-on-surface">{item.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* What's Included */}
+              {currentTraining?.includes && currentTraining.includes.length > 0 && (
+                <div class="bg-surface-1 border border-primary rounded-xl p-6">
+                  <h2 class="text-2xl font-bold text-primary mb-4">
+                    {lang === 'vi' ? 'Khóa học bao gồm' : lang === 'ja' ? 'コースに含まれるもの' : lang === 'es' ? 'El curso incluye' : lang === 'ko' ? '코스 포함 사항' : "What's Included"}
+                  </h2>
+                  <ul class="space-y-3">
+                    {currentTraining.includes.map((item: string) => (
+                      <li class="flex items-start gap-3">
+                        <span class="text-primary text-xl">✓</span>
+                        <span class="text-on-surface">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Why Choose Us */}
+              {currentTraining?.whyChooseUs && currentTraining.whyChooseUs.length > 0 && (
+                <div class="bg-primary/5 border border-primary rounded-xl p-6">
+                  <h2 class="text-2xl font-bold text-primary mb-4">
+                    {lang === 'vi' ? 'Tại sao chọn chúng tôi?' : lang === 'ja' ? '私たちを選ぶ理由' : lang === 'es' ? '¿Por qué elegirnos?' : lang === 'ko' ? '왜 우리를 선택해야 할까요?' : 'Why Choose Us?'}
+                  </h2>
+                  <ul class="space-y-3">
+                    {currentTraining.whyChooseUs.map((reason: string) => (
+                      <li class="flex items-start gap-3">
+                        <span class="w-2 h-2 bg-primary rounded-full mt-2"></span>
+                        <span class="text-on-surface">{reason}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* CTA Section */}
+              <div class="bg-primary/10 border border-primary rounded-xl p-6 text-center">
+                <h3 class="text-xl font-bold text-primary mb-2">
+                  {lang === 'vi' ? 'Sẵn sàng bắt đầu hành trình của bạn?' : 
+                   lang === 'ja' ? 'あなたの旅を始める準備はできましたか？' : 
+                   lang === 'es' ? '¿Listo para comenzar tu viaje?' : 
+                   lang === 'ko' ? '여정을 시작할 준비가 되셨나요?' : 
+                   'Ready to Start Your Journey?'}
+                </h3>
+                <p class="text-on-surface mb-4">
+                  {lang === 'vi' ? 'Liên hệ ngay hôm nay để đăng ký khóa học và nhận tư vấn chi tiết.' : 
+                   lang === 'ja' ? '今すぐお問い合わせいただき、コースに登録して詳細な相談を受けてください。' : 
+                   lang === 'es' ? 'Contáctanos hoy para inscribirte en el curso y recibir asesoramiento detallado.' : 
+                   lang === 'ko' ? '오늘 연락하여 과정에 등록하고 자세한 상담을 받으세요.' : 
+                   'Contact us today to enroll and receive detailed consultation.'}
+                </p>
+                <a
+                  href={`/${lang}/#contact`}
+                  class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base shadow transition-colors focus:outline-none focus-visible:ring-2 hover:opacity-90"
+                  style="background-color: var(--color-primary); color: white;"
+                >
+                  {lang === 'vi' ? 'Liên hệ ngay' : lang === 'ja' ? 'お問い合わせ' : lang === 'es' ? 'Contactar ahora' : lang === 'ko' ? '지금 문의' : 'Contact Now'}
+                </a>
+              </div>
+            </>
+          );
+        })()}
+      </main>
+
+      <!-- Right Sidebar: Contact Form -->
+      <aside class="hidden lg:block w-[220px] bg-surface-1 rounded-lg p-4 text-on-surface shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
+        <form id="contactForm" class="space-y-4">
+          <h2 class="font-bold text-lg mb-2 text-on-surface">
+            {lang === 'vi' ? 'Liên hệ' : lang === 'ja' ? 'お問い合わせ' : lang === 'es' ? 'Contacto' : lang === 'ko' ? '연락처' : 'Contact Us'}
+          </h2>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="name">
+              {lang === 'vi' ? 'Tên' : lang === 'ja' ? '名前' : lang === 'es' ? 'Nombre' : lang === 'ko' ? '이름' : 'Name'}
+            </label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="text" id="name" name="name" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="email">
+              Email <span class="text-xs opacity-70">(Optional)</span>
+            </label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="phone">
+              {lang === 'vi' ? 'Điện thoại' : lang === 'ja' ? '電話' : lang === 'es' ? 'Teléfono' : lang === 'ko' ? '전화' : 'Phone'}
+            </label>
+            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="tel" id="phone" name="phone" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" for="message">
+              {lang === 'vi' ? 'Tin nhắn' : lang === 'ja' ? 'メッセージ' : lang === 'es' ? 'Mensaje' : lang === 'ko' ? '메시지' : 'Message'}
+            </label>
+            <textarea class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <input type="hidden" name="subject" value="Training Inquiry" />
+          <button type="submit" class="w-full rounded-lg p-3 font-semibold shadow-none hover:opacity-90 transition" style="background-color: var(--color-primary); color: var(--color-on-primary);">
+            {lang === 'vi' ? 'Gửi' : lang === 'ja' ? '送信' : lang === 'es' ? 'Enviar' : lang === 'ko' ? '보내기' : 'Send'}
+          </button>
+        </form>
+        <script>
+          (document.getElementById('contactForm') as HTMLFormElement).addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target as HTMLFormElement;
+            const formData = new FormData(form);
+            const data: Record<string, string> = {};
+            formData.forEach((value, key) => {
+              data[key] = value as string;
+            });
+            try {
+              const response = await fetch('/.netlify/functions/sendMail', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              alert(result.message);
+            } catch (error) {
+              alert('Error sending message');
+            }
+          });
+        </script>
+      </aside>
+    </div>
+  </div>
+</PageLayout>

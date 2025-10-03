@@ -1,0 +1,175 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import trainingData from '../../../content/training.json' assert { type: 'json' };
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const langs = ['en', 'vi', 'ja', 'es', 'ko'];
+  return langs.map(lang => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as 'en' | 'vi' | 'ja' | 'es' | 'ko';
+
+const pageTitle = {
+  en: 'Professional Training Programs',
+  vi: 'Chương Trình Đào Tạo Chuyên Nghiệp',
+  ja: 'プロフェッショナルトレーニングプログラム',
+  es: 'Programas de Formación Profesional',
+  ko: '전문 교육 프로그램'
+};
+
+const pageDescription = {
+  en: 'Elevate your permanent makeup career with world-class training from VyBrows Academy. Our comprehensive courses are designed by industry experts with over 10 years of experience.',
+  vi: 'Nâng cao sự nghiệp phun xăm thẩm mỹ của bạn với khóa đào tạo đẳng cấp quốc tế từ VyBrows Academy. Các khóa học toàn diện được thiết kế bởi các chuyên gia hàng đầu với hơn 10 năm kinh nghiệm.',
+  ja: 'VyBrows Academyの世界クラスのトレーニングで、アートメイクのキャリアを向上させましょう。10年以上の経験を持つ業界の専門家によって設計された包括的なコースです。',
+  es: 'Eleva tu carrera de maquillaje permanente con capacitación de clase mundial de VyBrows Academy. Nuestros cursos integrales están diseñados por expertos de la industria con más de 10 años de experiencia.',
+  ko: 'VyBrows Academy의 세계적 수준의 교육으로 반영구 화장 경력을 향상시키세요. 10년 이상의 경험을 가진 업계 전문가들이 설계한 종합적인 과정입니다.'
+};
+
+const ctaText = {
+  en: 'Not sure which course is right for you?',
+  vi: 'Chưa chắc khóa học nào phù hợp với bạn?',
+  ja: 'どのコースが適しているかわかりませんか？',
+  es: '¿No estás seguro de qué curso es el adecuado para ti?',
+  ko: '어떤 과정이 적합한지 확실하지 않으신가요?'
+};
+
+const ctaButton = {
+  en: 'Schedule a Free Consultation',
+  vi: 'Đặt lịch tư vấn miễn phí',
+  ja: '無料相談を予約する',
+  es: 'Programar una consulta gratuita',
+  ko: '무료 상담 예약하기'
+};
+---
+
+<PageLayout title={pageTitle[lang]}>
+  <section class="pt-16 pb-16 bg-surface px-6">
+    <div class="max-w-7xl mx-auto">
+      <!-- Hero Section -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold font-lora mb-6" style="color: var(--color-primary);">
+          {pageTitle[lang]}
+        </h1>
+        <p class="text-lg md:text-xl text-on-surface max-w-3xl mx-auto leading-relaxed">
+          {pageDescription[lang]}
+        </p>
+      </div>
+
+      <!-- Training Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {trainingData.map((training) => (
+          <div class="bg-surface-1 border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <a href={`/${lang}/training/${training.slug}`}>
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src={training.image}
+                  alt={(training.title as any)[lang] || training.title.en}
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-primary mb-2">
+                  {(training.title as any)[lang] || training.title.en}
+                </h3>
+                <p class="text-on-surface mb-4 line-clamp-2">
+                  {(training.description as any)[lang] || training.description.en}
+                </p>
+                <div class="flex justify-between items-center text-sm mb-4">
+                  {training.duration && (
+                    <span class="text-primary font-semibold">
+                      ⏱️ {(training.duration as any)[lang] || training.duration.en}
+                    </span>
+                  )}
+                  {training.price && (
+                    <span class="text-on-surface font-bold">
+                      {(training.price as any)[lang] || training.price.en}
+                    </span>
+                  )}
+                </div>
+                <button
+                  class="w-full px-4 py-2 rounded-lg font-semibold transition-colors"
+                  style="background-color: var(--color-primary); color: white;"
+                >
+                  {lang === 'vi' ? 'Xem chi tiết' : lang === 'ja' ? '詳細を見る' : lang === 'es' ? 'Ver detalles' : lang === 'ko' ? '자세히 보기' : 'Learn More'}
+                </button>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA Section -->
+      <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center">
+        <h2 class="text-2xl font-bold text-primary mb-4">
+          {ctaText[lang]}
+        </h2>
+        <p class="text-on-surface mb-6 max-w-2xl mx-auto">
+          {lang === 'vi' 
+            ? 'Đội ngũ chuyên gia của chúng tôi sẵn sàng giúp bạn chọn khóa học phù hợp nhất với mục tiêu nghề nghiệp và kỹ năng hiện tại của bạn.'
+            : lang === 'ja'
+            ? '私たちの専門家チームが、あなたのキャリア目標と現在のスキルに最適なコースを選ぶお手伝いをします。'
+            : lang === 'es'
+            ? 'Nuestro equipo de expertos está listo para ayudarte a elegir el curso más adecuado para tus objetivos profesionales y habilidades actuales.'
+            : lang === 'ko'
+            ? '전문가 팀이 귀하의 경력 목표와 현재 기술에 가장 적합한 과정을 선택하는 데 도움을 드릴 준비가 되어 있습니다.'
+            : 'Our expert team is ready to help you choose the most suitable course for your career goals and current skills.'
+          }
+        </p>
+        <a
+          href={`/${lang}/#contact`}
+          class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-all hover:scale-105"
+          style="background-color: var(--color-primary); color: white;"
+        >
+          {ctaButton[lang]}
+        </a>
+      </div>
+
+      <!-- Why Train With Us -->
+      <div class="mt-16">
+        <h2 class="text-3xl font-bold text-center text-primary mb-8">
+          {lang === 'vi' ? 'Tại sao đào tạo với chúng tôi?' : lang === 'ja' ? '私たちとトレーニングする理由' : lang === 'es' ? '¿Por qué entrenar con nosotros?' : lang === 'ko' ? '우리와 함께 교육받는 이유' : 'Why Train With Us?'}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">👩‍🏫</div>
+            <h3 class="font-bold text-primary mb-2">
+              {lang === 'vi' ? 'Giảng viên chuyên gia' : lang === 'ja' ? '専門講師' : lang === 'es' ? 'Instructores expertos' : lang === 'ko' ? '전문 강사' : 'Expert Instructors'}
+            </h3>
+            <p class="text-sm text-on-surface">
+              {lang === 'vi' ? '10+ năm kinh nghiệm thực tế' : lang === 'ja' ? '10年以上の実務経験' : lang === 'es' ? 'Más de 10 años de experiencia práctica' : lang === 'ko' ? '10년 이상의 실무 경험' : '10+ years practical experience'}
+            </p>
+          </div>
+          <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🎓</div>
+            <h3 class="font-bold text-primary mb-2">
+              {lang === 'vi' ? 'Chứng chỉ quốc tế' : lang === 'ja' ? '国際認証' : lang === 'es' ? 'Certificación internacional' : lang === 'ko' ? '국제 인증' : 'International Certification'}
+            </h3>
+            <p class="text-sm text-on-surface">
+              {lang === 'vi' ? 'Được công nhận toàn cầu' : lang === 'ja' ? '世界的に認められた' : lang === 'es' ? 'Reconocida globalmente' : lang === 'ko' ? '전 세계적으로 인정됨' : 'Globally recognized'}
+            </p>
+          </div>
+          <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">👥</div>
+            <h3 class="font-bold text-primary mb-2">
+              {lang === 'vi' ? 'Lớp học nhỏ' : lang === 'ja' ? '少人数クラス' : lang === 'es' ? 'Clases pequeñas' : lang === 'ko' ? '소규모 수업' : 'Small Classes'}
+            </h3>
+            <p class="text-sm text-on-surface">
+              {lang === 'vi' ? 'Tối đa 4 học viên/lớp' : lang === 'ja' ? 'クラス最大4名' : lang === 'es' ? 'Máximo 4 estudiantes por clase' : lang === 'ko' ? '수업당 최대 4명' : 'Maximum 4 students per class'}
+            </p>
+          </div>
+          <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🛠️</div>
+            <h3 class="font-bold text-primary mb-2">
+              {lang === 'vi' ? 'Bộ dụng cụ đầy đủ' : lang === 'ja' ? '完全なツールキット' : lang === 'es' ? 'Kit completo de herramientas' : lang === 'ko' ? '완전한 도구 키트' : 'Complete Toolkit'}
+            </h3>
+            <p class="text-sm text-on-surface">
+              {lang === 'vi' ? 'Bao gồm tất cả vật tư' : lang === 'ja' ? 'すべての材料を含む' : lang === 'es' ? 'Incluye todos los materiales' : lang === 'ko' ? '모든 재료 포함' : 'All materials included'}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
