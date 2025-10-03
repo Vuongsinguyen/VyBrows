@@ -21,6 +21,20 @@ function smoothScrollTo(targetY, duration = 700) {
 
 // Intercept all anchor clicks with href starting with #
 document.addEventListener('DOMContentLoaded', function () {
+  // Handle hash in URL on page load
+  if (window.location.hash) {
+    const hash = window.location.hash;
+    const el = document.querySelector(hash);
+    if (el) {
+      // Delay to ensure page is fully loaded
+      setTimeout(() => {
+        const offset = el.getBoundingClientRect().top + window.scrollY - 80;
+        smoothScrollTo(offset, 700);
+      }, 100);
+    }
+  }
+
+  // Handle anchor clicks
   document.body.addEventListener('click', function (e) {
     const a = e.target.closest('a[href^="#"]');
     if (a && a.getAttribute('href').length > 1) {
