@@ -345,54 +345,109 @@ export const handler: Handler = async (event) => {
 
   console.log('Booking submission:', data);
 
+  let sheetResult: any = null;
+  let emailResult: any = null;
+  let sheetError: any = null;
+  let emailError: any = null;
+
+  // Step 1: Try to save to Google Sheets
   try {
-    // Chỉ ghi lên Google Sheets, không gửi email
     console.log('Calling appendToGoogleSheet...');
-    const sheetResult = await appendToGoogleSheet(data);
+    sheetResult = await appendToGoogleSheet(data);
     console.log('appendToGoogleSheet result:', sheetResult);
+  } catch (error: any) {
+    console.error('Google Sheets error:', error);
+    sheetError = error;
+    sheetResult = false;
+  }
 
-    if (sheetResult === 'DUPLICATE') {
-      return {
-        statusCode: 409,
-        body: JSON.stringify({
-          success: false,
-          error: 'Duplicate booking: This exact booking (same service, option, date, time, and customer) already exists.'
-        })
-      };
-    }
+  // Step 2: Send emails regardless of Google Sheets result
+  try {
+    console.log('Calling sendEmails...');
+    emailResult = await sendEmails(data);
+    console.log('sendEmails result:', emailResult);
+  } catch (error: any) {
+    console.error('Email sending error:', error);
+    emailError = error;
+    emailResult = false;
+  }
 
-    if (sheetResult === 'PARTIAL') {
-      return {
-        statusCode: 207,
-        body: JSON.stringify({
-          success: true,
-          message: 'Some bookings submitted successfully, others were duplicates.',
-          sheetUpdated: sheetResult
-        })
-      };
-    }
+  // Step 3: Handle response based on results
+  
+  // If duplicate booking detected
+  if (sheetResult === 'DUPLICATE') {
+    return {
+      statusCode: 409,
+      body: JSON.stringify({
+        success: false,
+        error: 'Duplicate booking: This exact booking (same service, option, date, time, and customer) already exists.',
+        emailSent: emailResult === true
+      })
+    };
+  }
 
+  // If partial success (some duplicates)
+  if (sheetResult === 'PARTIAL') {
+    return {
+      statusCode: 207,
+      body: JSON.stringify({
+        success: true,
+        message: 'Some bookings submitted successfully, others were duplicates.',
+        sheetUpdated: sheetResult,
+        emailSent: emailResult === true
+      })
+    };
+  }
+
+  // If both succeeded
+  if (sheetResult && emailResult) {
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
         message: 'Booking submitted successfully',
-        sheetUpdated: sheetResult
-      })
-    };
-  } catch (error: any) {
-    console.error('Booking submission error:', {
-      message: error.message,
-      stack: error.stack,
-      code: error.code,
-      status: error.status
-    });
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        success: false,
-        error: error.message || 'Internal server error'
+        sheetUpdated: true,
+        emailSent: true
       })
     };
   }
+
+  // If email sent but sheet failed
+  if (emailResult && !sheetResult) {
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        success: true,
+        message: 'Booking email sent successfully (Google Sheets may have failed)',
+        sheetUpdated: false,
+        emailSent: true,
+        warning: sheetError?.message || 'Google Sheets update failed'
+      })
+    };
+  }
+
+  // If sheet saved but email failed
+  if (sheetResult && !emailResult) {
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        success: true,
+        message: 'Booking saved to Google Sheets (email may have failed)',
+        sheetUpdated: true,
+        emailSent: false,
+        warning: emailError?.message || 'Email sending failed'
+      })
+    };
+  }
+
+  // If both failed
+  return {
+    statusCode: 500,
+    body: JSON.stringify({
+      success: false,
+      error: 'Both Google Sheets and email sending failed',
+      sheetError: sheetError?.message,
+      emailError: emailError?.message
+    })
+  };
 };
