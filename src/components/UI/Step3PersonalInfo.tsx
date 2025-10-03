@@ -42,13 +42,9 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
 
     if (!booking.fullName?.trim()) {
       newErrors.fullName = 'Full name is required';
-    } else if (booking.fullName.trim().length < 2) {
-      newErrors.fullName = 'Full name must be at least 2 characters';
     }
 
-    if (!booking.email?.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!validateEmail(booking.email)) {
+    if (booking.email?.trim() && !validateEmail(booking.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
 
@@ -143,7 +139,7 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
                 htmlFor="email" 
                 className="block text-sm font-medium text-gray-700 mb-2"
               >
-                Email Address *
+                Email Address (Optional)
               </label>
               <input
                 type="email"
@@ -160,7 +156,6 @@ const Step3PersonalInfo: React.FC<Step3Props> = ({
                 aria-describedby={errors.email ? 'email-error' : undefined}
                 aria-invalid={showValidation && !!errors.email}
                 autoComplete="email"
-                required
               />
               {showValidation && errors.email && (
                 <div id="email-error" className="text-red-600 text-sm mt-1" role="alert">

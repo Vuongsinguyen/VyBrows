@@ -256,15 +256,17 @@ const BookingComponent: React.FC = () => {
       case 3:
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^[0-9+\-\s()]{10,15}$/;
-        const nameRegex = /^[A-Za-z\s]{2,50}$/;
         
-        if (!nameRegex.test(booking.fullName)) {
-          return { isValid: false, message: 'Please enter a valid name (2-50 letters only)' };
+        // Full name - only check if not empty
+        if (!booking.fullName?.trim()) {
+          return { isValid: false, message: 'Please enter your name' };
         }
+        // Phone - check format
         if (!phoneRegex.test(booking.phone)) {
           return { isValid: false, message: 'Please enter a valid phone number (10-15 digits)' };
         }
-        if (!emailRegex.test(booking.email)) {
+        // Email - only validate format if provided (optional field)
+        if (booking.email?.trim() && !emailRegex.test(booking.email)) {
           return { isValid: false, message: 'Please enter a valid email address' };
         }
         break;
