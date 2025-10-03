@@ -266,12 +266,34 @@ async function sendEmails(data: any) {
 
   const transporter = createTransport();
 
+  // Handle multiple services format vs single service format
+  let servicesHtml = '';
+  if (data.services && Array.isArray(data.services)) {
+    // Multiple services format
+    servicesHtml = '<h3>Selected Services:</h3><ul>';
+    for (const serviceId of data.services) {
+      const serviceName = data.serviceNames?.[serviceId] || serviceId;
+      const optionName = data.options?.[serviceId] || 'No option selected';
+      servicesHtml += `<li><strong>${serviceName}</strong> - ${optionName}</li>`;
+    }
+    servicesHtml += '</ul>';
+  } else {
+    // Single service format
+    const serviceName = data.service || 'N/A';
+    const optionName = data.option || 'N/A';
+    servicesHtml = `
+      <h3>Selected Service:</h3>
+      <ul>
+        <li><strong>Service:</strong> ${serviceName}</li>
+        <li><strong>Option:</strong> ${optionName}</li>
+      </ul>
+    `;
+  }
+
   const bookingDetails = `
     <h3>Booking Details:</h3>
     <ul>
       <li><strong>Category:</strong> ${data.category || 'N/A'}</li>
-      <li><strong>Service:</strong> ${data.service || 'N/A'}</li>
-      <li><strong>Option:</strong> ${data.option || 'N/A'}</li>
       <li><strong>Date:</strong> ${data.date || 'N/A'}</li>
       <li><strong>Time:</strong> ${data.time || 'N/A'}</li>
       <li><strong>Name:</strong> ${data.name || 'N/A'}</li>
@@ -279,10 +301,18 @@ async function sendEmails(data: any) {
       <li><strong>Email:</strong> ${data.email || 'N/A'}</li>
       <li><strong>Notes:</strong> ${data.notes || 'N/A'}</li>
     </ul>
+    ${servicesHtml}
   `;
 
   // Email cho Admin
-  const adminSubject = `New Booking: ${data.service || 'Service'} - ${data.name || 'Customer'}`;
+  const firstService = data.services && data.services.length > 0 
+    ? (data.serviceNames?.[data.services[0]] || data.services[0])
+    : (data.service || 'Service');
+  const serviceCount = data.services && data.services.length > 1 
+    ? ` (+${data.services.length - 1} more)`
+    : '';
+  
+  const adminSubject = `New Booking: ${firstService}${serviceCount} - ${data.name || 'Customer'}`;
   const adminHtml = `
     <h2>New Booking Received</h2>
     ${bookingDetails}
