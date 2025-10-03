@@ -44,6 +44,22 @@ if (path.length > 1 && path[1] === 'service') {
 if (path.length > 0 && path[0] === 'service') {
   heading = 'Our Services';
 }
+
+// Handle training pages - supporting multi-language routes /{lang}/training
+if (path.length > 1 && path[1] === 'training') {
+  const trainingLabels: Record<string, string> = {
+    en: 'Professional Training',
+    vi: 'Đào Tạo Chuyên Nghiệp',
+    ja: 'プロフェッショナルトレーニング',
+    es: 'Formación Profesional',
+    ko: '전문 교육'
+  };
+  heading = trainingLabels[currentLang] || trainingLabels['en'];
+}
+// Also handle legacy training pages /training (if any still exist)
+if (path.length > 0 && path[0] === 'training') {
+  heading = 'Professional Training';
+}
 ---
 
 <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
