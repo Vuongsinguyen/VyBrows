@@ -40,7 +40,7 @@ export const menus: Record<string, MenuItem[]> = {
     },
     { label: 'TRAINING', href: '/en/training', title: 'Training' },
     { label: 'COMMUNICATION', href: '/communication', title: 'Communication' },
-    { label: 'CONTACT', href: '/#contact', title: 'Contact' }
+    { label: 'CONTACT', href: '/en/contact', title: 'Contact' }
   ],
   vi: [
     { label: 'TRANG CHỦ', href: '/vi/', title: 'Trang chủ' },
@@ -57,7 +57,7 @@ export const menus: Record<string, MenuItem[]> = {
     },
     { label: 'ĐÀO TẠO', href: '/vi/training', title: 'Đào tạo' },
     { label: 'TRUYỀN THÔNG', href: '/vi/communication', title: 'Truyền thông' },
-    { label: 'LIÊN LẠC', href: '/vi/#contact', title: 'Liên lạc' }
+    { label: 'LIÊN LẠC', href: '/vi/contact', title: 'Liên lạc' }
   ],
   ja: [
     { label: 'ホーム', href: '/ja/', title: 'ホーム' },
@@ -75,7 +75,7 @@ export const menus: Record<string, MenuItem[]> = {
     { label: 'プロジェクト', href: '/ja/projects', title: 'プロジェクト', description: 'プロジェクト一覧' },
     { label: 'ニュース', href: '/ja/news', title: 'ニュース', description: '最新ニュースとアップデート' },
     { label: 'トレーニング', href: '/ja/training', title: 'トレーニング', description: '研修・ワークショップ' },
-    { label: 'お問い合わせ', href: '/ja/#contact', title: 'お問い合わせ', description: 'お問い合わせ' }
+    { label: 'お問い合わせ', href: '/ja/contact', title: 'お問い合わせ', description: 'お問い合わせ' }
   ],
   es: [
     { label: 'Inicio', href: '/es/', title: 'Inicio' },
@@ -99,7 +99,7 @@ export const menus: Record<string, MenuItem[]> = {
     { label: 'PROYECTOS', href: '/es/projects', title: 'Proyectos', description: 'Lista de proyectos' },
     { label: 'NOTICIAS', href: '/es/news', title: 'Noticias', description: 'Últimas noticias y actualizaciones' },
     { label: 'FORMACIÓN', href: '/es/training', title: 'Formación', description: 'Programas de formación' },
-    { label: 'CONTACTO', href: '/es/#contact', title: 'Contacto', description: 'Contáctanos' }
+    { label: 'CONTACTO', href: '/es/contact', title: 'Contacto', description: 'Contáctanos' }
   ],
   ko: [
     { label: '홈', href: '/ko/', title: '홈' },
@@ -119,6 +119,6 @@ export const menus: Record<string, MenuItem[]> = {
     },
     { label: '교육', href: '/ko/training', title: '교육', description: '교육 및 워크숍' },
     { label: '커뮤니케이션', href: '/ko/communication', title: '커뮤니케이션', description: '소통' },
-    { label: '문의', href: '/ko/#contact', title: '문의', description: '문의하기' }
+    { label: '문의', href: '/ko/contact', title: '문의', description: '문의하기' }
   ]
 };

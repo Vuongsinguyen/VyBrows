@@ -1,0 +1,27 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import FullContactSection from '../../../components/UI/section/FullContactSection.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const langs = ['en', 'vi', 'ja', 'es', 'ko'];
+  return langs.map(lang => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as 'en' | 'vi' | 'ja' | 'es' | 'ko';
+
+const pageTitle = {
+  en: 'Contact Us',
+  vi: 'Liên Hệ',
+  ja: 'お問い合わせ',
+  es: 'Contacto',
+  ko: '문의하기'
+};
+---
+
+<MainLayout title={pageTitle[lang]}>
+  <div class="pt-32">
+    <FullContactSection />
+  </div>
+</MainLayout>
