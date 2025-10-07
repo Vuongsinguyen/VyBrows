@@ -141,6 +141,52 @@
       "ja": "デトックス＆ハーブヘッドスパ",
       "es": "DESINTOXICACIÓN Y LAVADO DE CABELLO HERBAL"
     },
+    "subtitle": "Restore Your Hair's Natural Vitality",
+    "introduction": "Experience the ancient wisdom of herbal hair care combined with modern detox techniques. At Vy Brows Academy & Studio, our Detox & Herbal Hair Wash service is designed to purify your scalp, remove toxins, and nourish your hair with the power of nature. This therapeutic treatment not only cleanses deeply but also promotes healthy hair growth and restores your hair's natural shine and strength.",
+    "services": [
+      {
+        "name": "Deep Scalp Detoxification",
+        "description": "A comprehensive cleansing process that removes buildup, toxins, and impurities from your scalp and hair follicles.",
+        "options": [
+          "Activated charcoal treatment to draw out toxins",
+          "Clay mask application for deep pore cleansing",
+          "Gentle exfoliation to remove dead skin cells",
+          "Promotes healthy hair follicle environment"
+        ],
+        "result": "A refreshed, clean scalp free from buildup and ready for optimal hair growth."
+      },
+      {
+        "name": "Traditional Herbal Hair Wash",
+        "description": "Using time-tested herbal formulations that nourish, strengthen, and protect your hair naturally.",
+        "options": [
+          "Vietnamese traditional herbal blend",
+          "Ginseng and green tea extracts for vitality",
+          "Aloe vera and coconut oil for moisture",
+          "Essential oils for aromatherapy benefits"
+        ],
+        "result": "Soft, manageable hair with improved texture and natural shine."
+      },
+      {
+        "name": "Therapeutic Scalp Massage",
+        "description": "A relaxing massage that stimulates blood circulation, reduces stress, and promotes hair growth.",
+        "options": [
+          "Pressure point stimulation techniques",
+          "Improved blood circulation to hair follicles",
+          "Stress relief and relaxation",
+          "Enhanced nutrient delivery to scalp"
+        ],
+        "result": "Relaxed mind and body with improved scalp health and hair growth potential."
+      }
+    ],
+    "whyChooseUs": [
+      "Natural Ingredients sourced from organic, high-quality herbs and botanicals",
+      "Traditional Techniques passed down through generations of Vietnamese hair care wisdom",
+      "Customized Treatments tailored to your hair type and specific scalp concerns",
+      "Holistic Approach combining detoxification, nourishment, and relaxation",
+      "Expert Therapists trained in traditional herbal hair care methods"
+    ],
+    "closing": "Detox & Herbal Hair Wash is more than just a cleansing treatment – it's a journey back to your hair's natural health and beauty. Let nature's wisdom restore your hair's vitality while you enjoy a truly relaxing and rejuvenating experience.",
+    "callToAction": "Book your Detox & Herbal Hair Wash session today at Vy Brows Academy & Studio and rediscover your hair's natural beauty.",
     "description": {
       "en": "Natural detox and herbal hair treatments for healthy, shiny hair.",
       "vi": "Giải độc tự nhiên và điều trị tóc bằng thảo mộc cho mái tóc khỏe mạnh, bóng mượt.",
@@ -149,10 +195,11 @@
     },
     "image": "/images/service03.avif",
     "technologies": [
-      "Organic Herbs",
-      "Essential Oils",
-      "Scalp Massage Tools",
-      "pH Balancing"
+      "Organic Vietnamese Herbs",
+      "Essential Oil Aromatherapy",
+      "Scalp Massage Techniques",
+      "Natural pH Balancing",
+      "Activated Charcoal Detox"
     ]
   },
   {
@@ -163,6 +210,52 @@
       "ja": "シェーディングオンブレ",
       "es": "SOMBREADO OMBRE"
     },
+    "subtitle": "Soft, Natural Gradient Brows",
+    "introduction": "Shading Ombré is the perfect blend of artistry and technique, creating beautifully soft, gradient eyebrows that look naturally fuller and more defined. At Vy Brows Academy & Studio, our Ombré Shading technique delivers a powder-soft finish that starts lighter at the front of the brow and gradually deepens toward the tail, mimicking the natural way brow hairs grow and creating a stunning, sophisticated look.",
+    "services": [
+      {
+        "name": "Classic Ombré Shading",
+        "description": "The signature ombré technique that creates a soft, powdered effect with a beautiful gradient from light to dark.",
+        "options": [
+          "Soft powder finish for natural-looking fullness",
+          "Gradient color transition from front to tail",
+          "Perfect for sparse or over-plucked brows",
+          "Long-lasting results that fade naturally"
+        ],
+        "result": "Beautifully shaped brows with a soft, makeup-like finish that looks natural and polished."
+      },
+      {
+        "name": "Combination Ombré",
+        "description": "Combines hair strokes at the front with ombré shading through the body and tail for the most natural, multidimensional look.",
+        "options": [
+          "Hair strokes at the front for natural texture",
+          "Ombré shading through the arch and tail",
+          "Creates depth and dimension",
+          "Best of both microblading and shading techniques"
+        ],
+        "result": "Ultra-realistic brows that look like natural hair with perfect definition and fullness."
+      },
+      {
+        "name": "Color Correction Ombré",
+        "description": "Specialized technique to correct previous permanent makeup work or uneven natural brow color.",
+        "options": [
+          "Corrects old, faded, or poorly done PMU",
+          "Neutralizes unwanted tones and colors",
+          "Restores symmetry and proper shape",
+          "Advanced color theory application"
+        ],
+        "result": "Restored, beautifully balanced brows that look fresh and natural."
+      }
+    ],
+    "whyChooseUs": [
+      "Master Artists specialized in advanced ombré shading techniques",
+      "Premium Pigments that heal to beautiful, natural-looking colors",
+      "Customized Color Matching to complement your skin tone and hair color",
+      "Precise Technique for smooth, even gradients without harsh lines",
+      "Professional Equipment including digital machines for consistent results"
+    ],
+    "closing": "Ombré Shading is the ultimate solution for those who want the look of perfectly applied brow makeup every day. This technique is ideal for clients who prefer a softer, more filled-in appearance rather than individual hair strokes, and it's perfect for all skin types, especially oily skin.",
+    "callToAction": "Transform your brows with our expert Ombré Shading technique at Vy Brows Academy & Studio. Book your consultation today and wake up to perfect brows every morning.",
     "description": {
       "en": "Beautiful ombre shading technique for natural-looking eyebrows.",
       "vi": "Kỹ thuật shading ombre đẹp mắt cho lông mày tự nhiên.",
@@ -171,10 +264,11 @@
     },
     "image": "/images/service04.avif",
     "technologies": [
-      "Powder Brows",
-      "Color Blending",
-      "3D Effect",
-      "Natural Pigments"
+      "Digital Shading Machine",
+      "Premium Powder Pigments",
+      "Color Gradient Techniques",
+      "3D Dimensional Effect",
+      "Advanced Color Theory"
     ]
   },
   {
@@ -185,6 +279,52 @@
       "ja": "マイクロブレーディング",
       "es": "MICROBLADING"
     },
+    "subtitle": "Hair-Like Strokes for Natural Brows",
+    "introduction": "Microblading is the most popular semi-permanent eyebrow technique that creates incredibly natural-looking hair strokes. At Vy Brows Academy & Studio, our skilled artists use ultra-fine manual tools to implant pigment into the skin, creating individual hair-like strokes that blend seamlessly with your natural brows. Perfect for those who want to add fullness, define shape, or completely reconstruct their eyebrows.",
+    "services": [
+      {
+        "name": "Classic Microblading",
+        "description": "The traditional microblading technique that creates natural, hair-like strokes for a completely authentic look.",
+        "options": [
+          "Individual hair stroke creation",
+          "Natural brow pattern following",
+          "Perfect for sparse or thin brows",
+          "Lasts 12-18 months with proper care"
+        ],
+        "result": "Natural-looking brows with individual hair strokes that are indistinguishable from real hair."
+      },
+      {
+        "name": "3D Microblading",
+        "description": "Advanced technique that creates multi-dimensional hair strokes in different directions and lengths for ultra-realistic results.",
+        "options": [
+          "Multi-directional hair patterns",
+          "Varying stroke lengths and thickness",
+          "Creates natural hair growth patterns",
+          "Most realistic microblading technique"
+        ],
+        "result": "Ultra-realistic brows with natural hair growth patterns and dimensional texture."
+      },
+      {
+        "name": "Microblading Touch-Up",
+        "description": "Maintenance and perfection sessions to keep your microbladed brows looking fresh and perfect.",
+        "options": [
+          "Color refreshing and enhancement",
+          "Shape refinement and adjustment",
+          "Adding density where needed",
+          "Extending longevity of results"
+        ],
+        "result": "Refreshed, perfectly shaped brows that maintain their natural appearance."
+      }
+    ],
+    "whyChooseUs": [
+      "Master Microblading Artists with international certification and training",
+      "Premium Pigments that are organic, hypoallergenic, and fade naturally",
+      "Precise Hand Technique for the most natural-looking hair strokes",
+      "Customized Brow Design based on your face shape and natural brow pattern",
+      "Strict Safety Standards with sterile, single-use tools for every client"
+    ],
+    "closing": "Microblading is perfect for anyone who wants natural-looking, fuller brows without the daily hassle of makeup. Whether you have sparse brows, over-plucked brows, or no brows at all, microblading can give you the perfect shape and fullness that complements your unique features.",
+    "callToAction": "Discover the art of microblading at Vy Brows Academy & Studio. Book your consultation today and wake up to perfect brows every day.",
     "description": {
       "en": "Precision micro blading for perfectly shaped eyebrows.",
       "vi": "Micro blading chính xác cho lông mày hình dáng hoàn hảo.",
@@ -193,10 +333,11 @@
     },
     "image": "/images/service05.avif",
     "technologies": [
-      "Manual Tool",
-      "Pigment Selection",
-      "Blade Sterilization",
-      "Aftercare Products"
+      "Manual Microblading Tool",
+      "Organic Pigment Selection",
+      "Sterile Blade Systems",
+      "Professional Aftercare Products",
+      "Numbing Agents"
     ]
   },
   {
@@ -207,6 +348,52 @@
       "ja": "ヘアーストローク",
       "es": "TRAZOS DE PELO"
     },
+    "subtitle": "Ultra-Fine Hair Simulation Technology",
+    "introduction": "Hair Strokes technique represents the pinnacle of eyebrow artistry, using advanced digital technology to create the finest, most realistic hair simulation possible. At Vy Brows Academy & Studio, our Hair Strokes method goes beyond traditional microblading, utilizing ultra-fine needles and precise digital machines to create hair strokes that are virtually indistinguishable from natural brow hairs.",
+    "services": [
+      {
+        "name": "Digital Hair Strokes",
+        "description": "Advanced digital technique using ultra-fine needles to create the most realistic hair simulation available.",
+        "options": [
+          "Ultra-fine needle technology",
+          "Precise digital machine control",
+          "Variable stroke depth and width",
+          "Perfect hair direction and flow"
+        ],
+        "result": "Incredibly realistic brows with hair strokes finer than natural hair, creating the most authentic appearance."
+      },
+      {
+        "name": "Nano Hair Strokes",
+        "description": "The finest hair stroke technique available, creating incredibly detailed and natural-looking eyebrow hair patterns.",
+        "options": [
+          "Nano-fine needle precision",
+          "Microscopic hair stroke detail",
+          "Natural hair growth simulation",
+          "Seamless blend with existing hair"
+        ],
+        "result": "Ultra-realistic brows with microscopic detail that looks completely natural even up close."
+      },
+      {
+        "name": "Combination Hair Strokes",
+        "description": "Combines different hair stroke techniques to create the most natural and dimensional eyebrow appearance.",
+        "options": [
+          "Multiple stroke techniques combined",
+          "Varying hair thickness and length",
+          "Natural density variation",
+          "3D dimensional appearance"
+        ],
+        "result": "Multi-dimensional brows with natural variation in hair thickness, length, and direction."
+      }
+    ],
+    "whyChooseUs": [
+      "Advanced Digital Technology for the finest hair stroke precision",
+      "Expert Artists specialized in ultra-realistic hair simulation techniques",
+      "Premium Pigments that mimic natural hair color variations",
+      "Customized Hair Patterns that follow your natural brow growth",
+      "State-of-the-Art Equipment for consistent, precise results"
+    ],
+    "closing": "Hair Strokes technique is the ultimate choice for clients who want the most realistic, natural-looking eyebrows possible. This advanced method is perfect for those with fine hair, sensitive skin, or anyone who demands the highest level of artistry and realism in their permanent makeup.",
+    "callToAction": "Experience the most advanced hair stroke technology at Vy Brows Academy & Studio. Book your consultation today for ultra-realistic, natural-looking brows.",
     "description": {
       "en": "Fine hair strokes technique for ultra-realistic eyebrow appearance.",
       "vi": "Kỹ thuật nét tóc mỏng cho vẻ ngoài lông mày siêu thực tế.",
@@ -215,10 +402,11 @@
     },
     "image": "/images/service06.avif",
     "technologies": [
-      "Ultra-fine Needles",
-      "Hair Simulation",
-      "Color Gradation",
-      "Precision Tools"
+      "Digital Hair Stroke Machine",
+      "Ultra-fine Nano Needles",
+      "Advanced Hair Simulation Software",
+      "Color Gradation Technology",
+      "Precision Depth Control"
     ]
   },
   {
@@ -229,6 +417,52 @@
       "ja": "アイライナー",
       "es": "DELINEADORES"
     },
+    "subtitle": "Define Your Eyes, Enhance Your Beauty",
+    "introduction": "Permanent eyeliner is the perfect solution for beautifully defined eyes that never smudge, run, or fade throughout the day. At Vy Brows Academy & Studio, our expert artists specialize in creating stunning eyeliner designs that enhance your natural eye shape, making your eyes appear larger, brighter, and more youthful. From subtle lash line enhancement to bold winged designs, we customize each treatment to perfectly complement your unique features.",
+    "services": [
+      {
+        "name": "Lash Line Enhancement",
+        "description": "Subtle enhancement that darkens and defines the lash line for a natural, fresh-faced look.",
+        "options": [
+          "Natural lash line darkening",
+          "Creates fuller lash appearance",
+          "Perfect for everyday wear",
+          "Subtle and professional look"
+        ],
+        "result": "Naturally defined eyes with the appearance of fuller, darker lashes without obvious makeup."
+      },
+      {
+        "name": "Classic Eyeliner",
+        "description": "Traditional eyeliner application that creates clean, defined lines for a polished, sophisticated look.",
+        "options": [
+          "Clean, precise lines",
+          "Customizable thickness",
+          "Upper and/or lower liner options",
+          "Classic makeup-like appearance"
+        ],
+        "result": "Perfectly defined eyes with clean, professional eyeliner that looks like expertly applied makeup."
+      },
+      {
+        "name": "Winged Eyeliner",
+        "description": "Dramatic winged design that lifts and elongates the eye shape for a glamorous, youthful appearance.",
+        "options": [
+          "Custom wing design",
+          "Eye-lifting effect",
+          "Dramatic and glamorous look",
+          "Perfect symmetry guaranteed"
+        ],
+        "result": "Stunning, symmetrical winged eyeliner that creates an instant eye-lift and glamorous appearance."
+      }
+    ],
+    "whyChooseUs": [
+      "Expert Eye Artists trained in advanced eyeliner techniques and eye anatomy",
+      "Premium Pigments that are waterproof, smudge-proof, and long-lasting",
+      "Customized Designs tailored to your eye shape and personal style preferences",
+      "Precise Application using advanced digital machines for perfect symmetry",
+      "Safe Procedures with medical-grade tools and strict hygiene standards"
+    ],
+    "closing": "Permanent eyeliner is perfect for active lifestyles, those with allergies to traditional makeup, or anyone who wants to wake up with perfectly defined eyes every day. Whether you prefer a natural enhancement or dramatic definition, our eyeliner services will give you confidence and convenience.",
+    "callToAction": "Transform your eyes with professional permanent eyeliner at Vy Brows Academy & Studio. Schedule your consultation today and enjoy beautifully defined eyes 24/7.",
     "description": {
       "en": "Professional eyeliner services for defined, beautiful eyes.",
       "vi": "Dịch vụ eyeliner chuyên nghiệp cho đôi mắt được định hình, đẹp mắt.",
@@ -237,10 +471,11 @@
     },
     "image": "/images/service07.avif",
     "technologies": [
-      "Waterproof Pigments",
-      "Fine Line Tools",
-      "Color Matching",
-      "Long-lasting Formulas"
+      "Digital Eyeliner Machine",
+      "Waterproof Premium Pigments",
+      "Ultra-fine Liner Needles",
+      "Color Matching Technology",
+      "Symmetry Measurement Tools"
     ]
   },
   {
@@ -251,6 +486,52 @@
       "ja": "リップトリートメント",
       "es": "TRATAMIENTOS LABIALES"
     },
+    "subtitle": "Beautiful, Youthful Lips Naturally Enhanced",
+    "introduction": "Our comprehensive lip treatments are designed to restore, enhance, and beautify your lips naturally. At Vy Brows Academy & Studio, we offer a range of lip services from permanent makeup to rejuvenating treatments that address color loss, asymmetry, and aging signs. Whether you want subtle enhancement or dramatic transformation, our expert artists create beautiful, natural-looking results that complement your unique features.",
+    "services": [
+      {
+        "name": "Lip Blush Permanent Makeup",
+        "description": "Semi-permanent lip color that enhances your natural lip tone with a soft, natural-looking tint.",
+        "options": [
+          "Natural lip color enhancement",
+          "Soft, gradient color application",
+          "Corrects uneven lip pigmentation",
+          "Lasts 2-3 years with proper care"
+        ],
+        "result": "Naturally tinted lips with improved color and definition that looks like a perfect lip stain."
+      },
+      {
+        "name": "Lip Contouring & Definition",
+        "description": "Precision lip liner and shading to create perfect lip shape, symmetry, and definition.",
+        "options": [
+          "Corrects asymmetrical lip shape",
+          "Creates fuller lip appearance",
+          "Defines lip borders precisely",
+          "Enhances natural lip contours"
+        ],
+        "result": "Perfectly shaped, symmetrical lips with enhanced definition and the appearance of natural fullness."
+      },
+      {
+        "name": "Lip Rejuvenation Treatment",
+        "description": "Comprehensive treatment to restore youthful color, texture, and vitality to aging or damaged lips.",
+        "options": [
+          "Restores lost lip color",
+          "Improves lip texture and hydration",
+          "Reduces fine lines around lips",
+          "Anti-aging lip therapy"
+        ],
+        "result": "Youthful, healthy-looking lips with restored color, improved texture, and enhanced natural beauty."
+      }
+    ],
+    "whyChooseUs": [
+      "Lip Specialists with advanced training in lip anatomy and enhancement techniques",
+      "Safe, High-Quality Pigments that are FDA-approved and hypoallergenic",
+      "Customized Color Matching to complement your skin tone and personal style",
+      "Natural-Looking Results that enhance rather than overpower your features",
+      "Comprehensive Aftercare to ensure optimal healing and long-lasting results"
+    ],
+    "closing": "Lip treatments are perfect for anyone who wants to restore youthful color to their lips, correct asymmetry, or simply enhance their natural beauty. Our treatments save you time on daily makeup while giving you confidence in your natural appearance.",
+    "callToAction": "Discover beautiful, naturally enhanced lips at Vy Brows Academy & Studio. Book your lip treatment consultation today and restore your lip's natural beauty.",
     "description": {
       "en": "Lip enhancement and treatment services for fuller, healthier lips.",
       "vi": "Dịch vụ tăng cường và điều trị môi cho đôi môi đầy đặn, khỏe mạnh hơn.",
@@ -259,10 +540,11 @@
     },
     "image": "/images/service08.avif",
     "technologies": [
-      "Lip Plumping",
-      "Color Enhancement",
-      "Contour Definition",
-      "Moisturizing Agents"
+      "Lip Blush Technique",
+      "Color Enhancement Pigments",
+      "Lip Contouring Tools",
+      "Moisturizing Treatment Agents",
+      "Anti-aging Lip Therapy"
     ]
   },
   {
@@ -273,6 +555,52 @@
       "ja": "ダークリップスリムーバー",
       "es": "ELIMINADOR DE LABIOS OSCUROS"
     },
+    "subtitle": "Restore Your Natural Lip Color",
+    "introduction": "Dark lip pigmentation can affect your confidence and natural beauty. At Vy Brows Academy & Studio, our Dark Lips Remover treatment is specifically designed to safely and effectively lighten dark, discolored lips and restore your natural, healthy lip color. Using advanced techniques and safe, proven methods, we help you achieve beautiful, naturally pink lips that enhance your overall appearance and boost your confidence.",
+    "services": [
+      {
+        "name": "Advanced Laser Lightening",
+        "description": "State-of-the-art laser technology that safely targets and breaks down excess melanin in the lips.",
+        "options": [
+          "Precise laser targeting of dark pigments",
+          "Safe, non-invasive treatment",
+          "Gradual, natural-looking lightening",
+          "Minimal downtime and discomfort"
+        ],
+        "result": "Gradually lighter, more naturally colored lips with restored pink tone and healthy appearance."
+      },
+      {
+        "name": "Natural Lightening Treatment",
+        "description": "Gentle, natural approach using safe lightening agents and nourishing ingredients to restore lip color.",
+        "options": [
+          "Natural lightening ingredients",
+          "Gentle, gradual color restoration",
+          "Nourishing and moisturizing",
+          "Safe for sensitive lips"
+        ],
+        "result": "Naturally lightened lips with improved color, texture, and overall health."
+      },
+      {
+        "name": "Comprehensive Lip Restoration",
+        "description": "Complete treatment program that combines multiple techniques for optimal lip color restoration and health.",
+        "options": [
+          "Multi-technique approach",
+          "Complete color restoration program",
+          "Includes aftercare and maintenance",
+          "Long-term lip health improvement"
+        ],
+        "result": "Fully restored, naturally beautiful lips with healthy color and improved overall appearance."
+      }
+    ],
+    "whyChooseUs": [
+      "Specialized Expertise in lip pigmentation treatment and color restoration",
+      "Safe, Proven Methods using advanced technology and natural ingredients",
+      "Customized Treatment Plans based on your specific lip condition and goals",
+      "Professional Care with medical-grade equipment and strict safety protocols",
+      "Comprehensive Support including aftercare guidance and follow-up treatments"
+    ],
+    "closing": "Dark lips can be caused by various factors including smoking, sun exposure, hormonal changes, or genetics. Our Dark Lips Remover treatment addresses these concerns safely and effectively, helping you restore your natural lip beauty and regain confidence in your smile.",
+    "callToAction": "Restore your natural lip color with our safe and effective Dark Lips Remover treatment at Vy Brows Academy & Studio. Schedule your consultation today and rediscover your beautiful, natural lips.",
     "description": {
       "en": "Safe and effective treatment to remove dark lip pigmentation.",
       "vi": "Điều trị an toàn và hiệu quả để loại bỏ sắc tố môi tối.",
@@ -281,10 +609,11 @@
     },
     "image": "/images/service09.avif",
     "technologies": [
-      "Laser Technology",
-      "Chemical Lightening",
-      "Natural Bleaching",
-      "Lip Restoration"
+      "Advanced Laser Technology",
+      "Natural Lightening Agents",
+      "Pigmentation Analysis Tools",
+      "Lip Restoration Treatments",
+      "Medical-grade Safety Equipment"
     ]
   }
 ]
