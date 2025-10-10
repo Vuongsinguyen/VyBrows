@@ -126,7 +126,92 @@ import Header from '../components/UI/layout/Header.astro';
           "@type": "ImageObject",
           "url": "https://vybrowsbeauty.com/logo.webp"
         }
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vybrowsbeauty.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
+    }
+    </script>
+
+    <!-- Site Navigation Schema for Sitelinks -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "Services",
+          "description": "Professional Permanent Makeup Services",
+          "url": "https://vybrowsbeauty.com/en/service/pmu-permanent-makeup"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "Training",
+          "description": "PMU Academy Training Courses",
+          "url": "https://vybrowsbeauty.com/en/training"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "About Us",
+          "description": "About VYBROWS ACADEMY",
+          "url": "https://vybrowsbeauty.com/en/about-us"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Gallery",
+          "description": "Our Work Portfolio",
+          "url": "https://vybrowsbeauty.com/en/projects"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Contact",
+          "description": "Get in Touch",
+          "url": "https://vybrowsbeauty.com/en/contact"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 6,
+          "name": "Microblading",
+          "description": "Microblading Services",
+          "url": "https://vybrowsbeauty.com/en/service/micro-blading"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vybrowsbeauty.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://vybrowsbeauty.com/en/service/pmu-permanent-makeup"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Training",
+          "item": "https://vybrowsbeauty.com/en/training"
+        }
+      ]
     }
     </script>
 

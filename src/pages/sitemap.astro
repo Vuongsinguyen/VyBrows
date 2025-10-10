@@ -1,0 +1,204 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const siteData = {
+  mainPages: [
+    { name: 'Home', url: '/en/', description: 'Welcome to VYBROWS ACADEMY' },
+    { name: 'Services', url: '/en/service/pmu-permanent-makeup/', description: 'Professional Permanent Makeup Services' },
+    { name: 'Training', url: '/en/training/', description: 'PMU Academy Training Courses' },
+    { name: 'About Us', url: '/en/about-us/', description: 'About VYBROWS ACADEMY' },
+    { name: 'Projects', url: '/en/projects/', description: 'Our Work Portfolio & Gallery' },
+    { name: 'Contact', url: '/en/contact/', description: 'Get in Touch with Us' },
+  ],
+  services: [
+    { name: 'PMU Permanent Makeup', url: '/en/service/pmu-permanent-makeup/' },
+    { name: 'Microblading', url: '/en/service/micro-blading/' },
+    { name: 'Shading Ombre', url: '/en/service/shading-ombre/' },
+    { name: 'Hair Strokes', url: '/en/service/hairs-strokes/' },
+    { name: 'Eyeliners', url: '/en/service/eyeliners/' },
+    { name: 'Lip Treatments', url: '/en/service/lip-treatments/' },
+    { name: 'Skincare & Acne Treatment', url: '/en/service/skincare-acne-treatment/' },
+    { name: 'Detox Herbal Hair Wash', url: '/en/service/detox-herbal-hair-wash/' },
+    { name: 'Dark Lips Remover', url: '/en/service/dark-lips-remover/' },
+  ],
+  training: [
+    { name: 'PMU Foundation', url: '/en/training/pmu-foundation/' },
+    { name: 'Advanced Microblading', url: '/en/training/advanced-microblading/' },
+    { name: 'Ombre Powder Brows', url: '/en/training/ombre-powder-brows/' },
+    { name: 'Lip Blush Training', url: '/en/training/lip-blush-training/' },
+    { name: 'Combo Brow Technique', url: '/en/training/combo-brow-technique/' },
+    { name: 'Business Mastery', url: '/en/training/business-mastery/' },
+  ]
+};
+---
+
+<MainLayout title="Sitemap - VYBROWS ACADEMY | PMU Studio & Academy">
+  <div class="container mx-auto px-6 py-12 max-w-6xl">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-primary mb-4">Site Map</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Navigate through all pages of VYBROWS ACADEMY | PMU Studio & Academy
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Main Pages -->
+      <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-primary">
+        <h2 class="text-2xl font-semibold text-primary mb-4 flex items-center">
+          <span class="material-icons-outlined mr-2">home</span>
+          Main Pages
+        </h2>
+        <ul class="space-y-3">
+          {siteData.mainPages.map((page) => (
+            <li>
+              <a 
+                href={page.url} 
+                class="block p-3 rounded-lg hover:bg-gray-50 border border-gray-200 transition-colors group"
+              >
+                <div class="font-medium text-primary group-hover:text-primary-dark">
+                  {page.name}
+                </div>
+                <div class="text-sm text-gray-600 mt-1">
+                  {page.description}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-secondary">
+        <h2 class="text-2xl font-semibold text-secondary mb-4 flex items-center">
+          <span class="material-icons-outlined mr-2">medical_services</span>
+          Services
+        </h2>
+        <ul class="space-y-2">
+          {siteData.services.map((service) => (
+            <li>
+              <a 
+                href={service.url} 
+                class="block p-2 rounded hover:bg-gray-50 text-gray-700 hover:text-secondary transition-colors"
+              >
+                {service.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Training -->
+      <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-accent">
+        <h2 class="text-2xl font-semibold text-accent mb-4 flex items-center">
+          <span class="material-icons-outlined mr-2">school</span>
+          Training Courses
+        </h2>
+        <ul class="space-y-2">
+          {siteData.training.map((course) => (
+            <li>
+              <a 
+                href={course.url} 
+                class="block p-2 rounded hover:bg-gray-50 text-gray-700 hover:text-accent transition-colors"
+              >
+                {course.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="mt-12 bg-gradient-to-r from-primary to-secondary rounded-lg p-6">
+      <h2 class="text-2xl font-semibold text-white mb-4 text-center">
+        Available Languages
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/en/" class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+          🇺🇸 English
+        </a>
+        <a href="/vi/" class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+          🇻🇳 Tiếng Việt
+        </a>
+        <a href="/ja/" class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+          🇯🇵 日本語
+        </a>
+        <a href="/es/" class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+          🇪🇸 Español
+        </a>
+        <a href="/ko/" class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+          🇰🇷 한국어
+        </a>
+      </div>
+    </div>
+
+    <!-- XML Sitemaps -->
+    <div class="mt-8 text-center">
+      <h3 class="text-lg font-semibold text-gray-700 mb-4">XML Sitemaps for Search Engines</h3>
+      <div class="flex justify-center space-x-4">
+        <a 
+          href="/sitemap-index.xml" 
+          class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+          target="_blank"
+        >
+          Main Sitemap
+        </a>
+        <a 
+          href="/sitemap-0.xml" 
+          class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-secondary-dark transition-colors"
+          target="_blank"
+        >
+          Pages Sitemap
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Structured Data for Sitemap Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Sitemap - VYBROWS ACADEMY",
+    "description": "Complete sitemap of VYBROWS ACADEMY website with all services, training courses and pages",
+    "url": "https://vybrowsbeauty.com/sitemap",
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Website Navigation",
+      "numberOfItems": 20,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Services",
+          "url": "https://vybrowsbeauty.com/en/service/pmu-permanent-makeup"
+        },
+        {
+          "@type": "ListItem", 
+          "position": 2,
+          "name": "Training",
+          "url": "https://vybrowsbeauty.com/en/training"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3, 
+          "name": "About Us",
+          "url": "https://vybrowsbeauty.com/en/about-us"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Projects",
+          "url": "https://vybrowsbeauty.com/en/projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Contact",
+          "url": "https://vybrowsbeauty.com/en/contact"
+        }
+      ]
+    }
+  }
+  </script>
+</MainLayout>
