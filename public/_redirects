@@ -38,6 +38,23 @@
 /index.html / 301
 /homepage/ / 301
 
+# Vietnamese old URLs (tiếng Việt cũ)
+/san-pham-cham-soc-da/ /vi/service/pmu-permanent-makeup/ 301
+/san-pham-cham-soc-da /vi/service/pmu-permanent-makeup/ 301
+/cham-soc-da/ /vi/service/pmu-permanent-makeup/ 301
+/dich-vu-pmu/ /vi/service/pmu-permanent-makeup/ 301
+/dao-tao/ /vi/training/ 301
+/lien-he/ /vi/contact/ 301
+
+# Blog/Tag old URLs
+/tag/2025-permanent-makeup-trends/ /en/news/ 301
+/tag/2025-permanent-makeup-trends /en/news/ 301
+/tag/permanent-makeup-trends/ /en/news/ 301
+/tag/pmu-trends/ /en/news/ 301
+/blog/2025-trends/ /en/news/ 301
+/trends/ /en/news/ 301
+/makeup-trends/ /en/service/pmu-permanent-makeup/ 301
+
 # Catch-all for common variations
 /services/ /en/service/pmu-permanent-makeup/ 301
 /service/ /en/service/pmu-permanent-makeup/ 301
