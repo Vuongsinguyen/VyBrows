@@ -1,0 +1,17 @@
+{
+  "id": 2,
+  "mainImage": "/images/service02.avif",
+  "createdDate": "September 25, 2025",
+  "translations": {
+    "en": {
+      "title": "PLASMA TECHNOLOGY – A BREAKTHROUGH IN BEAUTY INDUSTRY",
+      "shortDescription": "Plasma is an advanced technology that uses non-invasive plasma energy to rejuvenate and regenerate the skin.",
+      "content": "<p>At Vy Brows Academy, Plasma is not only introduced as the latest trend but also integrated into in-depth training programs so students can master and apply it in real practice.</p><p><strong>Key Benefits:</strong><br/>✅ Non-surgical, non-invasive, minimal downtime<br/>✅ Effective for skin tightening, wrinkle reduction, pore minimizing<br/>✅ Enhances skin brightness and natural rejuvenation<br/>✅ Builds trust and adds value to beauty professionals' services</p><p>Plasma is not just technology – it's the future of aesthetics!</p>"
+    },
+    "vi": {
+      "title": "CÔNG NGHỆ PLASMA – BƯỚC ĐỘT PHÁ TRONG NGÀNH LÀM ĐẸP",
+      "shortDescription": "Plasma là công nghệ tiên tiến sử dụng năng lượng plasma không xâm lấn để trẻ hóa và tái tạo làn da.",
+      "content": "<p>Tại Vy Brows Academy, Plasma không chỉ được giới thiệu như xu hướng mới nhất mà còn được tích hợp vào các chương trình đào tạo chuyên sâu để học viên có thể thành thạo và ứng dụng trong thực tế.</p><p><strong>Lợi Ích Nổi Bật:</strong><br/>✅ Không phẫu thuật, không xâm lấn, thời gian phục hồi tối thiểu<br/>✅ Hiệu quả trong việc làm săn chắc da, giảm nếp nhăn, thu nhỏ lỗ chân lông<br/>✅ Tăng cường độ sáng da và trẻ hóa tự nhiên<br/>✅ Xây dựng lòng tin và gia tăng giá trị dịch vụ cho chuyên gia làm đẹp</p><p>Plasma không chỉ là công nghệ – đó là tương lai của thẩm mỹ!</p>"
+    }
+  }
+}

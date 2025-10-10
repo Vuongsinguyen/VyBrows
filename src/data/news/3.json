@@ -1,0 +1,17 @@
+{
+  "id": 3,
+  "mainImage": "/images/service03.avif",
+  "createdDate": "September 18, 2025",
+  "translations": {
+    "en": {
+      "title": "SCALP DETOX – NOT JUST BEAUTY, BUT HEALTH BENEFITS TOO",
+      "shortDescription": "Did you know? Just like facial skin, your scalp needs detoxing to remove dirt, excess oil, and accumulated toxins.",
+      "content": "<p>Did you know? Just like facial skin, your scalp needs detoxing to remove dirt, excess oil, and accumulated toxins. Scalp detox helps: ✅ Deeply cleanse hair follicles, reduce dandruff and itching ✅ Improve blood circulation, strengthen hair growth ✅ Stimulate faster, healthier hair and reduce hair loss ✅ Relieve stress and promote relaxation</p><p>A healthy scalp not only gives you beautiful hair but also supports your overall well-being. Try regular scalp detox and feel the difference from the inside out!</p>"
+    },
+    "vi": {
+      "title": "DETOX DA ĐẦU – KHÔNG CHỈ LÀM ĐẸP, MÀ CÒN TỐT CHO SỨC KHỎE",
+      "shortDescription": "Bạn có biết? Da đầu cũng giống như da mặt, cần được thanh lọc để loại bỏ bụi bẩn, dầu thừa và độc tố tích tụ.",
+      "content": "<p>Bạn có biết? Da đầu cũng giống như da mặt, cần được thanh lọc để loại bỏ bụi bẩn, dầu thừa và độc tố tích tụ. Detox da đầu giúp: ✅ Làm sạch sâu nang tóc, giảm gàu và ngứa ✅ Tăng cường tuần hoàn máu, nuôi dưỡng tóc chắc khỏe ✅ Giúp tóc mọc nhanh, hạn chế gãy rụng ✅ Cải thiện tinh thần, giảm căng thẳng, mang lại cảm giác thư giãn</p><p>Khi da đầu khỏe mạnh, không chỉ mái tóc đẹp hơn mà còn góp phần cải thiện sức khỏe tổng thể. Hãy thử detox da đầu định kỳ để cảm nhận sự khác biệt từ trong ra ngoài!</p>"
+    }
+  }
+}

@@ -1,0 +1,204 @@
+---
+import '/src/styles/color.css';
+import '/src/styles/global.css';
+import NewsLayout from '../../layouts/NewsLayout.astro';
+import servicesData from '../../content/services.json' assert { type: 'json' };
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return servicesData.map(service => ({ 
+    params: { 
+      service: service.slug 
+    } 
+  }));
+}
+
+const lang = 'en'; // English version without prefix
+const serviceSlug = Astro.params.service as string;
+
+// Create service titles for sidebar
+const serviceLabels = servicesData.reduce((acc, service) => {
+  acc[service.slug] = service.title.en;
+  return acc;
+}, {} as Record<string, string>);
+
+// Create service content
+const serviceContent = servicesData.reduce((acc, service) => {
+  acc[service.slug] = service.description;
+  return acc;
+}, {} as Record<string, Record<string, string>>);
+---
+
+<NewsLayout title={serviceLabels[serviceSlug] || 'Service'}>
+  <!-- Hero Header Section - Services Style -->
+  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
+    <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
+      <!-- Dynamic Heading -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Playfair Display', serif;">{serviceLabels[serviceSlug] || 'Our Services'}</h1>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
+        Professional Beauty Services
+      </p>
+    </div>
+    <!-- SVG Wave -->
+    <div class="absolute inset-0 w-full h-full pointer-events-none select-none">
+      <svg class="absolute bottom-0 left-0 w-full h-40" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--color-primary-dark)" fill-opacity="1" d="M0,288L80,272C160,256,320,224,480,197.3C640,171,800,149,960,154.7C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b">
+    <div class="max-w-7xl mx-auto px-6 py-3">
+      <nav class="flex items-center text-sm text-gray-600">
+        <a href="/" class="hover:text-[#8B4513] transition-colors">Home</a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="/#services" class="hover:text-[#8B4513] transition-colors">Services</a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-gray-900 font-medium">{serviceLabels[serviceSlug]}</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="w-full bg-surface flex justify-center">
+    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
+      <!-- Left Sidebar -->
+      <aside class="w-64 bg-surface rounded-lg shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20">
+        <ul class="border border-border rounded-lg overflow-hidden">
+          {servicesData.map((service, index) => (
+            <li>
+              <a 
+                href={`/service/${service.slug}`} 
+                class={`block rounded-none ${index < servicesData.length - 1 ? 'border-b border-border' : ''} px-3 py-2 font-normal transition-colors`}
+                style={service.slug === serviceSlug ? 'background-color: var(--color-primary); color: white;' : 'background-color: white; color: var(--color-primary);'}
+              >
+                {service.title.en}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 space-y-8">
+        {(() => {
+          const currentService = servicesData.find(s => s.slug === serviceSlug) as any;
+          return (
+            <>
+              {/* Title */}
+              <h1 class="text-3xl font-bold mb-2 text-on-surface">{serviceLabels[serviceSlug] ?? serviceSlug}</h1>
+              
+              {/* Subtitle */}
+              {currentService?.subtitle && (
+                <p class="text-xl text-primary font-semibold mb-4">{currentService.subtitle}</p>
+              )}
+
+              {/* Image */}
+              {currentService?.image && (
+                <img
+                  src={currentService.image}
+                  alt={serviceLabels[serviceSlug] ?? serviceSlug}
+                  class="w-full rounded-lg shadow-lg mb-6"
+                />
+              )}
+
+              {/* Introduction */}
+              {currentService?.introduction && (
+                <p class="text-lg text-on-surface mb-6 leading-relaxed">{currentService.introduction}</p>
+              )}
+
+              {/* Services List */}
+              {currentService?.services && currentService.services.length > 0 && (
+                <div class="space-y-6">
+                  <h2 class="text-2xl font-bold text-primary mb-4">Our Services</h2>
+                  {currentService.services.map((service: any) => (
+                    <div class="bg-surface-1 border border-primary/20 rounded-xl p-6">
+                      <h3 class="text-xl font-bold text-primary mb-3">{service.name}</h3>
+                      <p class="text-on-surface mb-4">{service.description}</p>
+                      {service.options && service.options.length > 0 && (
+                        <ul class="space-y-2 mb-4">
+                          {service.options.map((option: string) => (
+                            <li class="flex items-start gap-2">
+                              <span class="text-primary mt-1">•</span>
+                              <span class="text-on-surface">{option}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {service.price && (
+                        <div class="text-lg font-bold text-primary">{service.price}</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Features */}
+              {currentService?.features && currentService.features.length > 0 && (
+                <div class="space-y-4">
+                  <h2 class="text-2xl font-bold text-primary mb-4">Key Features</h2>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    {currentService.features.map((feature: string) => (
+                      <div class="flex items-start gap-3 p-4 bg-surface-1 border border-primary/20 rounded-lg">
+                        <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span class="text-on-surface">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Benefits */}
+              {currentService?.benefits && currentService.benefits.length > 0 && (
+                <div class="space-y-4">
+                  <h2 class="text-2xl font-bold text-primary mb-4">Benefits</h2>
+                  <div class="space-y-3">
+                    {currentService.benefits.map((benefit: string, index: number) => (
+                      <div class="flex items-start gap-3 p-4 bg-gradient-to-r from-primary/5 to-transparent border-l-4 border-primary rounded-r-lg">
+                        <span class="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                          {index + 1}
+                        </span>
+                        <span class="text-on-surface">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Call to Action */}
+              <div class="bg-primary/10 border border-primary rounded-xl p-6 text-center">
+                <h3 class="text-xl font-bold text-primary mb-2">
+                  {currentService?.callToAction ? currentService.callToAction.split('📍')[0] : 'Ready to Experience Our Services?'}
+                </h3>
+                <p class="text-on-surface mb-4">
+                  Book your appointment today and let our experts transform your look with precision and care.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="/contact" 
+                    class="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
+                  >
+                    Book Consultation
+                  </a>
+                  <a 
+                    href="/#contact" 
+                    class="inline-block px-8 py-3 border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              </div>
+            </>
+          );
+        })()}
+      </main>
+    </div>
+  </div>
+</NewsLayout>

@@ -13,8 +13,8 @@ export interface MenuItem {
 // Use services.json for dynamic SERVICES menu
 export async function getServiceMenu(lang: string) {
   const servicesData = await import('./services.json').then(m => m.default);
-  // All languages now use /{lang}/service/ prefix since we removed the standalone /service/ route
-  const basePrefix = `/${lang}`;
+  // English uses /service/ without prefix, other languages use /{lang}/service/
+  const basePrefix = lang === 'en' ? '' : `/${lang}`;
   return servicesData.map((service: any) => ({
     href: `${basePrefix}/service/${service.slug}`,
     title: service.title[lang] || service.title.en,
@@ -31,16 +31,17 @@ export const menus: Record<string, MenuItem[]> = {
     {
       label: 'ABOUT US', href: '/about-us', title: 'About Us',
       children: [
-  { href: '/en/about-us/why-choose-us', label: 'WHY CHOOSE US', title: 'WHY CHOOSE US', description: 'Why Choose Us section' },
-  { href: '/en/about-us/expertise-experience', label: 'EXPERTISE & EXPERIENCE', title: 'EXPERTISE & EXPERIENCE', description: 'Expertise & Experience section' },
-  { href: '/en/about-us/safe-painless', label: 'SAFE & PAINLESS TECHNIQUES', title: 'SAFE & PAINLESS TECHNIQUES', description: 'Safe & Painless Techniques section' },
-  { href: '/en/about-us/world-class-training', label: 'WORLD-CLASS TRAINING', title: 'WORLD-CLASS TRAINING', description: 'World-Class Training section' },
-  { href: '/en/about-us/natural-stunning', label: 'NATURAL & STUNNING RESULTS', title: 'NATURAL & STUNNING RESULTS', description: 'Natural & Stunning Results section' }
+  { href: '/about-us/why-choose-us', label: 'WHY CHOOSE US', title: 'WHY CHOOSE US', description: 'Why Choose Us section' },
+  { href: '/about-us/expertise-experience', label: 'EXPERTISE & EXPERIENCE', title: 'EXPERTISE & EXPERIENCE', description: 'Expertise & Experience section' },
+  { href: '/about-us/safe-painless', label: 'SAFE & PAINLESS TECHNIQUES', title: 'SAFE & PAINLESS TECHNIQUES', description: 'Safe & Painless Techniques section' },
+  { href: '/about-us/world-class-training', label: 'WORLD-CLASS TRAINING', title: 'WORLD-CLASS TRAINING', description: 'World-Class Training section' },
+  { href: '/about-us/natural-stunning', label: 'NATURAL & STUNNING RESULTS', title: 'NATURAL & STUNNING RESULTS', description: 'Natural & Stunning Results section' }
       ]
     },
-    { label: 'TRAINING', href: '/en/training', title: 'Training' },
+    { label: 'NEWS', href: '/news', title: 'News', description: 'Latest news and updates' },
+    { label: 'TRAINING', href: '/training', title: 'Training' },
     { label: 'COMMUNICATION', href: '/communication', title: 'Communication' },
-    { label: 'CONTACT', href: '/en/contact', title: 'Contact' }
+    { label: 'CONTACT', href: '/contact', title: 'Contact' }
   ],
   vi: [
     { label: 'TRANG CHỦ', href: '/vi/', title: 'Trang chủ' },
@@ -55,6 +56,7 @@ export const menus: Record<string, MenuItem[]> = {
   { href: '/vi/about-us/natural-stunning', label: 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ', title: 'KẾT QUẢ TỰ NHIÊN & RẠNG RỠ', description: 'Natural & Stunning Results section' }
       ]
     },
+    { label: 'TIN TỨC', href: '/vi/news', title: 'Tin tức', description: 'Tin tức và cập nhật mới nhất' },
     { label: 'ĐÀO TẠO', href: '/vi/training', title: 'Đào tạo' },
     { label: 'TRUYỀN THÔNG', href: '/vi/communication', title: 'Truyền thông' },
     { label: 'LIÊN LẠC', href: '/vi/contact', title: 'Liên lạc' }
@@ -117,6 +119,7 @@ export const menus: Record<string, MenuItem[]> = {
         { href: '/ko/about-us#skills', label: '역량 및 기술', title: '역량 및 기술', description: '역량 및 기술' },
       ]
     },
+    { label: '뉴스', href: '/ko/news', title: '뉴스', description: '최신 뉴스와 업데이트' },
     { label: '교육', href: '/ko/training', title: '교육', description: '교육 및 워크숍' },
     { label: '커뮤니케이션', href: '/ko/communication', title: '커뮤니케이션', description: '소통' },
     { label: '문의', href: '/ko/contact', title: '문의', description: '문의하기' }

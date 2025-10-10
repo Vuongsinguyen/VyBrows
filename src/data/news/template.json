@@ -1,0 +1,32 @@
+{
+  "id": 0,
+  "mainImage": "/images/service0X.avif",
+  "createdDate": "YYYY-MM-DD",
+  "translations": {
+    "en": {
+      "title": "YOUR ENGLISH TITLE HERE",
+      "shortDescription": "Your English short description here (1-2 sentences)",
+      "content": "<p>Your English content here. Use HTML tags for formatting.</p><p>You can include multiple paragraphs, images, and even videos.</p>"
+    },
+    "vi": {
+      "title": "TIÊU ĐỀ TIẾNG VIỆT",
+      "shortDescription": "Mô tả ngắn tiếng Việt (1-2 câu)",
+      "content": "<p>Nội dung tiếng Việt. Sử dụng thẻ HTML để định dạng.</p><p>Bạn có thể thêm nhiều đoạn văn, hình ảnh, và cả video.</p>"
+    },
+    "ja": {
+      "title": "日本語のタイトル",
+      "shortDescription": "日本語の短い説明（1〜2文）",
+      "content": "<p>日本語のコンテンツをここに書きます。HTMLタグを使用してフォーマットします。</p>"
+    },
+    "ko": {
+      "title": "한국어 제목",
+      "shortDescription": "한국어 짧은 설명 (1-2문장)",
+      "content": "<p>한국어 콘텐츠를 여기에 작성하세요. HTML 태그를 사용하여 형식을 지정하세요.</p>"
+    },
+    "es": {
+      "title": "TÍTULO EN ESPAÑOL",
+      "shortDescription": "Descripción corta en español (1-2 oraciones)",
+      "content": "<p>Contenido en español aquí. Usa etiquetas HTML para formatear.</p>"
+    }
+  }
+}

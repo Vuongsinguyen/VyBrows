@@ -1,5 +1,6 @@
 ---
-import PageLayout from '../../../layouts/PageLayout.astro';
+import NewsLayout from '../../../layouts/NewsLayout.astro';
+import TrainingListComp from '../../../components/UI/layout/TrainingListComp.astro';
 import trainingData from '../../../content/training.json' assert { type: 'json' };
 
 export const prerender = true;
@@ -20,7 +21,7 @@ const pageTitle = {
 };
 
 const pageDescription = {
-  en: 'Elevate your permanent makeup career with world-class training from VyBrows Academy. Our comprehensive courses are designed by industry experts with over 10 years of experience.',
+  en: 'Elevate your permanent makeup career with world-class training from VyBrows Academy. Our comprehensive courses are designed by industry experts with over 20 years of experience.',
   vi: 'Nâng cao sự nghiệp phun xăm thẩm mỹ của bạn với khóa đào tạo đẳng cấp quốc tế từ VyBrows Academy. Các khóa học toàn diện được thiết kế bởi các chuyên gia hàng đầu với hơn 10 năm kinh nghiệm.',
   ja: 'VyBrows Academyの世界クラスのトレーニングで、アートメイクのキャリアを向上させましょう。10年以上の経験を持つ業界の専門家によって設計された包括的なコースです。',
   es: 'Eleva tu carrera de maquillaje permanente con capacitación de clase mundial de VyBrows Academy. Nuestros cursos integrales están diseñados por expertos de la industria con más de 10 años de experiencia.',
@@ -28,72 +29,55 @@ const pageDescription = {
 };
 
 const ctaText = {
-  en: 'Not sure which course is right for you?',
-  vi: 'Chưa chắc khóa học nào phù hợp với bạn?',
-  ja: 'どのコースが適しているかわかりませんか？',
-  es: '¿No estás seguro de qué curso es el adecuado para ti?',
-  ko: '어떤 과정이 적합한지 확실하지 않으신가요?'
+  en: 'Ready to elevate your skills?',
+  vi: 'Sẵn sàng nâng cao kỹ năng của bạn?',
+  ja: 'スキルアップの準備はできましたか？',
+  es: '¿Listo para mejorar tus habilidades?',
+  ko: '기술을 향상시킬 준비가 되셨나요?'
 };
 
-const ctaButton = {
-  en: 'Schedule a Free Consultation',
+const ctaButtonText = {
+  en: 'Book Free Consultation',
   vi: 'Đặt lịch tư vấn miễn phí',
   ja: '無料相談を予約する',
   es: 'Programar una consulta gratuita',
   ko: '무료 상담 예약하기'
 };
+
+// Prepare training data for component
+const trainingList = trainingData.map(training => ({
+  slug: training.slug,
+  title: (training.title as any)[lang] || training.title.en,
+  description: (training.description as any)[lang] || training.description.en,
+  image: training.image,
+  duration: training.duration ? ((training.duration as any)[lang] || training.duration.en) : undefined,
+  link: `/${lang}/training/${training.slug}`
+}));
 ---
 
-<PageLayout title={pageTitle[lang]}>
+<NewsLayout title={pageTitle[lang]}>
+  <!-- Hero Header Section - Services Style -->
+  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
+    <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
+      <!-- Dynamic Heading -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Playfair Display', serif;">{pageTitle[lang]}</h1>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
+        {pageDescription[lang]}
+      </p>
+    </div>
+    <!-- SVG Wave -->
+    <div class="absolute inset-0 w-full h-full pointer-events-none select-none">
+      <svg class="absolute bottom-0 left-0 w-full h-40" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--color-primary-dark)" fill-opacity="1" d="M0,288L80,272C160,256,320,224,480,197.3C640,171,800,149,960,154.7C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
   <section class="pt-16 pb-16 bg-surface px-6">
     <div class="max-w-7xl mx-auto">
-      <!-- Hero Section -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold font-lora mb-6" style="color: var(--color-primary);">
-          {pageTitle[lang]}
-        </h1>
-        <p class="text-lg md:text-xl text-on-surface max-w-3xl mx-auto leading-relaxed">
-          {pageDescription[lang]}
-        </p>
-      </div>
 
-      <!-- Training Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        {trainingData.map((training) => (
-          <div class="bg-surface-1 border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-            <a href={`/${lang}/training/${training.slug}`}>
-              <div class="relative h-48 overflow-hidden">
-                <img
-                  src={training.image}
-                  alt={(training.title as any)[lang] || training.title.en}
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold text-primary mb-2">
-                  {(training.title as any)[lang] || training.title.en}
-                </h3>
-                <p class="text-on-surface mb-4 line-clamp-2">
-                  {(training.description as any)[lang] || training.description.en}
-                </p>
-                <div class="flex justify-between items-center text-sm mb-4">
-                  {training.duration && (
-                    <span class="text-primary font-semibold">
-                      ⏱️ {(training.duration as any)[lang] || training.duration.en}
-                    </span>
-                  )}
-                </div>
-                <button
-                  class="w-full px-4 py-2 rounded-lg font-semibold transition-colors"
-                  style="background-color: var(--color-primary); color: white;"
-                >
-                  {lang === 'vi' ? 'Xem chi tiết' : lang === 'ja' ? '詳細を見る' : lang === 'es' ? 'Ver detalles' : lang === 'ko' ? '자세히 보기' : 'Learn More'}
-                </button>
-              </div>
-            </a>
-          </div>
-        ))}
-      </div>
+      <!-- Training Grid with Modern Card Design -->
+      <TrainingListComp trainings={trainingList} viewMode="grid" lang={lang} />
 
       <!-- CTA Section -->
       <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center">
@@ -117,7 +101,7 @@ const ctaButton = {
           class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-all hover:scale-105"
           style="background-color: var(--color-primary); color: white;"
         >
-          {ctaButton[lang]}
+          {ctaButtonText[lang]}
         </a>
       </div>
 
@@ -165,6 +149,26 @@ const ctaButton = {
           </div>
         </div>
       </div>
+
+      <!-- CTA Section -->
+      <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center">
+        <h2 class="text-2xl font-bold text-primary mb-4">
+          {ctaText[lang]}
+        </h2>
+        <p class="text-lg text-on-surface mb-6">
+          {lang === 'vi' ? 'Liên hệ ngay hôm nay để được tư vấn chi tiết về các khóa học phù hợp với bạn.' : 
+           lang === 'ja' ? '今すぐお問い合わせいただき、あなたに最適なコースについて詳細にご相談ください。' : 
+           lang === 'es' ? 'Contacta hoy para recibir asesoramiento detallado sobre los cursos que mejor se adapten a ti.' : 
+           lang === 'ko' ? '오늘 연락하여 귀하에게 적합한 강좌에 대한 자세한 상담을 받으세요.' : 
+           'Contact us today for detailed consultation about courses that suit you best.'}
+        </p>
+        <a 
+          href={`/${lang}/booking`}
+          class="inline-block px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors text-lg"
+        >
+          {ctaButtonText[lang]}
+        </a>
+      </div>
     </div>
   </section>
-</PageLayout>
+</NewsLayout>

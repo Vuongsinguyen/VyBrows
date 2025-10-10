@@ -8,17 +8,128 @@ export interface Props {
     date?: string;
     link: string;
   }>;
+  viewMode?: 'grid' | 'list';
 }
-const { news } = Astro.props;
+const { news, viewMode = 'grid' } = Astro.props;
 ---
 
-<div class="flex flex-col gap-8">
-  {news.map(item => (
-    <a href={item.link} class="block rounded-lg shadow hover:shadow-lg transition bg-white p-4">
-      {item.image && <img src={item.image} alt={item.title} class="mb-3 rounded" />}
-      <h2 class="text-lg font-bold mb-1">{item.title}</h2>
-      {item.date && <p class="text-sm text-gray-500 mb-2">{item.date}</p>}
-      <p class="text-gray-700">{item.description}</p>
-    </a>
-  ))}
-</div>
+{viewMode === 'grid' ? (
+  <!-- Grid Layout -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {news.map(item => (
+      <article class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+        <a href={item.link} class="block h-full">
+          {item.image && (
+            <div class="relative overflow-hidden h-48">
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          )}
+          
+          <div class="p-6">
+            {item.date && (
+              <div class="flex items-center gap-2 mb-3">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <time class="text-sm text-gray-500 font-medium">{item.date}</time>
+              </div>
+            )}
+            
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#8B4513] transition-colors duration-300 line-clamp-2 leading-tight">
+              {item.title}
+            </h2>
+            
+            <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+              {item.description}
+            </p>
+            
+            <div class="flex items-center text-[#8B4513] font-medium text-sm group-hover:gap-2 transition-all duration-300">
+              <span>Read More</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+) : (
+  <!-- List Layout -->
+  <div class="space-y-6">
+    {news.map(item => (
+      <article class="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
+        <a href={item.link} class="block">
+          <div class="md:flex">
+            {item.image && (
+              <div class="md:w-64 md:flex-shrink-0 h-48 md:h-auto relative overflow-hidden">
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+            )}
+            
+            <div class="p-6 flex-1">
+              {item.date && (
+                <div class="flex items-center gap-2 mb-3">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <time class="text-sm text-gray-500 font-medium">{item.date}</time>
+                </div>
+              )}
+              
+              <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#8B4513] transition-colors duration-300 leading-tight">
+                {item.title}
+              </h2>
+              
+              <p class="text-gray-600 leading-relaxed mb-4 line-clamp-4">
+                {item.description}
+              </p>
+              
+              <div class="flex items-center text-[#8B4513] font-medium group-hover:gap-2 transition-all duration-300">
+                <span>Read More</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+)}
+
+<style>
+  /* Line clamp utilities for text truncation */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

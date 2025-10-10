@@ -1,0 +1,24 @@
+{
+  "newsIndex": [
+    {
+      "id": 1,
+      "file": "1.json",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "file": "2.json",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "file": "3.json",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "file": "4.json",
+      "featured": false
+    }
+  ]
+}

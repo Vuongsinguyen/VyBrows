@@ -1,28 +1,20 @@
 ---
 import '/src/styles/global.css';
-import NewsLayout from '../../layouts/NewsLayout.astro';
-import NewsListComp from '../../components/UI/layout/NewsListComp.astro';
-import { getAllNews } from '../../data/newsLoader.js';
+import NewsLayout from '../layouts/NewsLayout.astro';
+import NewsListComp from '../components/UI/layout/NewsListComp.astro';
+import { getAllNews } from '../data/newsLoader.js';
 
 export const prerender = true;
 
-export async function getStaticPaths() {
-  return [
-    { params: { lang: 'en' } },
-    { params: { lang: 'vi' } },
-    { params: { lang: 'ja' } }
-  ];
-}
-
-const lang = Astro.params.lang;
+const lang = 'en'; // English version without prefix
 const PAGE_SIZE = 25;
 const pageParam = Astro.url?.searchParams.get('page');
 const currentPage = pageParam ? parseInt(pageParam) : 1;
 
-// Get news from JSON data
+// Get news from JSON data for English
 const allNews = getAllNews();
 const news = allNews.map((item) => {
-  const translation = item.translations[lang as keyof typeof item.translations] || item.translations.en; // Fallback to English
+  const translation = item.translations.en; // Always English for this route
   return {
     id: item.id,
     title: translation.title,
@@ -30,7 +22,7 @@ const news = allNews.map((item) => {
     image: item.mainImage,
     date: item.createdDate,
     category: 'PMU News', // Default category
-    link: `/${lang}/news/${item.id}`,
+    link: `/news/${item.id}`, // No /en/ prefix
   };
 })
 // Sort by date descending (newest first)
@@ -63,7 +55,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
   <div class="bg-gray-50 border-b">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <nav class="flex items-center text-sm text-gray-600">
-        <a href={lang === 'en' ? '/' : `/${lang}`} class="hover:text-[#8B4513] transition-colors">Home</a>
+        <a href="/" class="hover:text-[#8B4513] transition-colors">Home</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
@@ -101,12 +93,12 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
           
           <!-- View Mode Toggle -->
           <div class="flex items-center bg-white border border-gray-300 rounded-lg p-1">
-            <button class="p-2 rounded text-gray-400 hover:text-[#8B4513] transition-colors view-toggle active" data-view="grid">
+            <button id="gridView" class="p-2 rounded text-gray-400 hover:text-[#8B4513] transition-colors view-toggle active" data-view="grid">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
               </svg>
             </button>
-            <button class="p-2 rounded text-gray-400 hover:text-[#8B4513] transition-colors view-toggle" data-view="list">
+            <button id="listView" class="p-2 rounded text-gray-400 hover:text-[#8B4513] transition-colors view-toggle" data-view="list">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
               </svg>
@@ -126,7 +118,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
           <!-- Previous Button -->
           {currentPage > 1 && (
             <a 
-              href={`/${lang}/news?page=${currentPage - 1}`}
+              href={`/news?page=${currentPage - 1}`}
               class="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,21 +128,60 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
             </a>
           )}
 
-          <!-- Simple pagination for multi-language -->
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
+          <!-- Page 1 -->
+          <a 
+            href="/news?page=1"
+            class={currentPage === 1 
+              ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white' 
+              : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
+            }
+          >1</a>
+
+          {totalPages > 1 && (
             <a 
-              href={`/${lang}/news?page=${pageNum}`}
-              class={pageNum === currentPage 
+              href="/news?page=2"
+              class={currentPage === 2 
                 ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white' 
                 : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
               }
-            >{pageNum}</a>
-          ))}
+            >2</a>
+          )}
+
+          {totalPages > 2 && (
+            <a 
+              href="/news?page=3"
+              class={currentPage === 3 
+                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white' 
+                : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
+              }
+            >3</a>
+          )}
+
+          {totalPages > 4 && currentPage > 3 && <span class="px-2 text-gray-500">...</span>}
+
+          {totalPages > 3 && currentPage > 3 && currentPage < totalPages && (
+            <a 
+              href={`/news?page=${currentPage}`}
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white"
+            >{currentPage}</a>
+          )}
+
+          {totalPages > 4 && currentPage < totalPages - 2 && <span class="px-2 text-gray-500">...</span>}
+
+          {totalPages > 3 && (
+            <a 
+              href={`/news?page=${totalPages}`}
+              class={currentPage === totalPages 
+                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white' 
+                : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
+              }
+            >{totalPages}</a>
+          )}
 
           <!-- Next Button -->
           {currentPage < totalPages && (
             <a 
-              href={`/${lang}/news?page=${currentPage + 1}`}
+              href={`/news?page=${currentPage + 1}`}
               class="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
             >
               Next
@@ -168,6 +199,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
       const viewToggles = document.querySelectorAll('.view-toggle');
+      const newsContainer = document.getElementById('newsContainer');
       
       viewToggles.forEach(function(toggle) {
         toggle.addEventListener('click', function(event) {
@@ -185,6 +217,8 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
           target.classList.remove('text-gray-400');
           target.classList.add('text-[#8B4513]', 'bg-[#8B4513]/10');
           
+          // Here you would typically make an AJAX call to reload the news list with the new view mode
+          // For now, we'll just show a visual feedback
           const viewMode = target.dataset.view;
           console.log('Switching to', viewMode, 'view');
         });

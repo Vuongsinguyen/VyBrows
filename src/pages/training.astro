@@ -1,0 +1,142 @@
+---
+import NewsLayout from '../layouts/NewsLayout.astro';
+import TrainingListComp from '../components/UI/layout/TrainingListComp.astro';
+import trainingData from '../content/training.json' assert { type: 'json' };
+
+export const prerender = true;
+
+const lang = 'en'; // English version without prefix
+
+const pageTitle = 'Professional Training Programs';
+const pageDescription = 'Elevate your permanent makeup career with world-class training from VyBrows Academy. Our comprehensive courses are designed by industry experts with over 20 years of experience.';
+
+const ctaText = 'Ready to elevate your skills?';
+const ctaButtonText = 'Book Free Consultation';
+
+// Prepare training data for component (English only)
+const trainingList = trainingData.map(training => ({
+  slug: training.slug,
+  title: training.title.en,
+  description: training.description.en,
+  image: training.image,
+  duration: training.duration ? training.duration.en : undefined,
+  link: `/training/${training.slug}` // No /en/ prefix
+}));
+---
+
+<NewsLayout title={pageTitle}>
+  <!-- Hero Header Section - Services Style -->
+  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
+    <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
+      <!-- Dynamic Heading -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Playfair Display', serif;">{pageTitle}</h1>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
+        {pageDescription}
+      </p>
+    </div>
+    <!-- SVG Wave -->
+    <div class="absolute inset-0 w-full h-full pointer-events-none select-none">
+      <svg class="absolute bottom-0 left-0 w-full h-40" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--color-primary-dark)" fill-opacity="1" d="M0,288L80,272C160,256,320,224,480,197.3C640,171,800,149,960,154.7C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b">
+    <div class="max-w-7xl mx-auto px-6 py-3">
+      <nav class="flex items-center text-sm text-gray-600">
+        <a href="/" class="hover:text-[#8B4513] transition-colors">Home</a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-gray-900 font-medium">Training</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="pt-16 pb-16 bg-surface px-6">
+    <div class="max-w-7xl mx-auto">
+      <!-- Intro Section -->
+      <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-4">
+          Transform Your Passion Into Profession
+        </h2>
+        <p class="text-lg text-on-surface mb-6">
+          Join thousands of successful PMU artists who started their journey at VyBrows Academy. Our expert-led programs combine theory, hands-on practice, and business skills.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-all hover:scale-105"
+          style="background-color: var(--color-primary); color: white;"
+        >
+          {ctaButtonText}
+        </a>
+      </div>
+
+      <!-- Training Grid with Modern Card Design -->
+      <TrainingListComp trainings={trainingList} viewMode="grid" lang={lang} />
+
+      <!-- Why Train With Us -->
+      <div class="mt-16">
+        <h2 class="text-3xl font-bold text-center mb-8 text-primary">
+          Why Train With Us?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">👩‍🏫</div>
+            <h3 class="font-bold text-primary mb-2">
+              Expert Instructors
+            </h3>
+            <p class="text-sm text-on-surface">
+              Learn from industry leaders
+            </p>
+          </div>
+          <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🎓</div>
+            <h3 class="font-bold text-primary mb-2">
+              International Certification
+            </h3>
+            <p class="text-sm text-on-surface">
+              Globally recognized
+            </p>
+          </div>
+          <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">👥</div>
+            <h3 class="font-bold text-primary mb-2">
+              Small Classes
+            </h3>
+            <p class="text-sm text-on-surface">
+              Maximum 4 students per class
+            </p>
+          </div>
+          <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🛠️</div>
+            <h3 class="font-bold text-primary mb-2">
+              Complete Toolkit
+            </h3>
+            <p class="text-sm text-on-surface">
+              All materials included
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center mt-16">
+        <h2 class="text-2xl font-bold text-primary mb-4">
+          {ctaText}
+        </h2>
+        <p class="text-lg text-on-surface mb-6">
+          Contact us today for detailed consultation about courses that suit you best.
+        </p>
+        <a 
+          href="/booking"
+          class="inline-block px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors text-lg"
+        >
+          {ctaButtonText}
+        </a>
+      </div>
+    </div>
+  </section>
+</NewsLayout>

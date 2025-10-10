@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "mainImage": "/images/service01.avif",
+  "createdDate": "October 5, 2025",
+  "translations": {
+    "en": {
+      "title": "WHAT DO STUDENTS SAY ABOUT VYBROWS ACADEMY?",
+      "shortDescription": "Student Mimi shares: Seeing clients happy with the results — that's what makes my whole day brighter.",
+      "content": "<p>Student Mimi shares: Seeing clients happy with the results — that's what makes my whole day brighter. From professional techniques to real-life hands-on experience – Vy Brows Academy always provides an intensive, practical, and inspiring learning environment.</p><div class=\"video-container\" style=\"margin: 20px 0; text-align: center;\"><iframe src=\"https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1561446911898754&show_text=false&width=267&t=0\" width=\"267\" height=\"476\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\" allowFullScreen=\"true\"></iframe></div><p>And the journey doesn't stop here! This October, Vy Brows Academy is bringing an advanced course for beauty professionals who want to elevate their skills.</p>"
+    },
+    "vi": {
+      "title": "HỌC VIÊN NÓI GÌ VỀ VYBROWS ACADEMY?",
+      "shortDescription": "Học viên Mimi chia sẻ: Thấy khách hàng hạnh phúc với kết quả — đó chính là điều khiến tôi vui cả ngày.",
+      "content": "<p>Học viên Mimi chia sẻ: Thấy khách hàng hạnh phúc với kết quả — đó chính là điều khiến tôi vui cả ngày. Từ kỹ thuật chuyên môn đến trải nghiệm thực hành trên người thật – Vy Brows Academy luôn mang đến môi trường học tập chuyên sâu, thực tế và truyền cảm hứng.</p><div class=\"video-container\" style=\"margin: 20px 0; text-align: center;\"><iframe src=\"https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1561446911898754&show_text=false&width=267&t=0\" width=\"267\" height=\"476\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\" allowFullScreen=\"true\"></iframe></div><p>Hành trình không dừng lại ở đó! Ngay trong tháng 10 này, Vy Brows Academy tiếp tục mang đến khóa học chuyên môn mới.</p>"
+    }
+  }
+}

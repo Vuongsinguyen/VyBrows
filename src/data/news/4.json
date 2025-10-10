@@ -1,0 +1,17 @@
+{
+  "id": 4,
+  "mainImage": "/images/service04.avif",
+  "createdDate": "September 1, 2025",
+  "translations": {
+    "en": {
+      "title": "THE HEART OF BEAUTY – BRINGING HAPPINESS TO EVERYONE",
+      "shortDescription": "The beauty profession is not just about techniques or technology; it comes from the heart – love, dedication, and the desire to bring joy to others.",
+      "content": "<p>The beauty profession is not just about techniques or technology; it comes from the heart – love, dedication, and the desire to bring joy to others. When an artist pours passion into every detail, the result is not only a radiant appearance but also confidence and happiness that shine from within.</p><p>Beauty is not only to be seen, but also to live more fully every day. At Vy Brows Academy, we honor the human value of beauty – because when you bring beauty to others, you are also nurturing your own soul.</p>"
+    },
+    "vi": {
+      "title": "CÁI TÂM CỦA NGHỀ – MANG CÁI ĐẸP ĐẾN CHO MỌI NGƯỜI",
+      "shortDescription": "Nghề làm đẹp không chỉ dừng lại ở kỹ thuật hay công nghệ, mà còn bắt nguồn từ cái tâm – tình yêu, sự tận tụy và mong muốn mang đến niềm vui cho khách hàng.",
+      "content": "<p>Nghề làm đẹp không chỉ dừng lại ở kỹ thuật hay công nghệ, mà còn bắt nguồn từ cái tâm – tình yêu, sự tận tụy và mong muốn mang đến niềm vui cho khách hàng. Khi người nghệ nhân đặt hết tâm huyết vào từng đường nét, kết quả không chỉ là vẻ ngoài rạng rỡ, mà còn là sự tự tin, hạnh phúc lan tỏa từ bên trong.</p><p>Cái đẹp không chỉ để ngắm nhìn, mà còn để sống trọn vẹn hơn mỗi ngày. Vy Brows Academy luôn đề cao giá trị nhân văn của nghề làm đẹp – bởi khi bạn mang lại cái đẹp cho người khác, bạn cũng đang làm đẹp cho chính tâm hồn mình.</p>"
+    }
+  }
+}

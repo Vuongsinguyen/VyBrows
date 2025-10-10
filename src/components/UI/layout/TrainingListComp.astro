@@ -1,0 +1,143 @@
+---
+export interface Props {
+  trainings: Array<{
+    slug: string;
+    title: string;
+    description: string;
+    image: string;
+    duration?: string;
+    link: string;
+  }>;
+  viewMode?: 'grid' | 'list';
+  lang: string;
+}
+const { trainings, viewMode = 'grid', lang } = Astro.props;
+
+const getButtonText = (lang: string) => {
+  switch (lang) {
+    case 'vi': return 'Xem chi tiết';
+    case 'ja': return '詳細を見る';
+    case 'es': return 'Ver detalles';
+    case 'ko': return '자세히 보기';
+    default: return 'Learn More';
+  }
+};
+---
+
+{viewMode === 'grid' ? (
+  <!-- Grid Layout -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {trainings.map(training => (
+      <article class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+        <a href={training.link} class="block h-full">
+          <div class="relative overflow-hidden h-48">
+            <img 
+              src={training.image} 
+              alt={training.title} 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          
+          <div class="p-6">
+            {training.duration && (
+              <div class="flex items-center gap-2 mb-3">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm text-gray-500 font-medium">⏱️ {training.duration}</span>
+              </div>
+            )}
+            
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#8B4513] transition-colors duration-300 line-clamp-2 leading-tight">
+              {training.title}
+            </h2>
+            
+            <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+              {training.description}
+            </p>
+            
+            <div class="mt-auto">
+              <button class="w-full px-4 py-3 bg-[#8B4513] text-white font-semibold rounded-lg hover:bg-[#8B4513]/90 transition-colors duration-300 group-hover:transform group-hover:translateY-[-2px] shadow-md hover:shadow-lg">
+                {getButtonText(lang)}
+              </button>
+            </div>
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+) : (
+  <!-- List Layout -->
+  <div class="space-y-6">
+    {trainings.map(training => (
+      <article class="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
+        <a href={training.link} class="block">
+          <div class="md:flex">
+            <div class="md:w-64 md:flex-shrink-0 h-48 md:h-auto relative overflow-hidden">
+              <img 
+                src={training.image} 
+                alt={training.title} 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col">
+              {training.duration && (
+                <div class="flex items-center gap-2 mb-3">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-sm text-gray-500 font-medium">⏱️ {training.duration}</span>
+                </div>
+              )}
+              
+              <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#8B4513] transition-colors duration-300 leading-tight">
+                {training.title}
+              </h2>
+              
+              <p class="text-gray-600 leading-relaxed mb-6 line-clamp-4 flex-1">
+                {training.description}
+              </p>
+              
+              <div class="mt-auto">
+                <button class="inline-flex items-center gap-2 px-6 py-3 bg-[#8B4513] text-white font-semibold rounded-lg hover:bg-[#8B4513]/90 transition-all duration-300 group-hover:gap-3 shadow-md hover:shadow-lg">
+                  <span>{getButtonText(lang)}</span>
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+)}
+
+<style>
+  /* Line clamp utilities for text truncation */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
