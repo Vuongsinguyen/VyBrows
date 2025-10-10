@@ -9,13 +9,17 @@ const urlPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
 
 // Map news data to display format with current language
 const allNews = getAllNews();
-const news = allNews.map((item: any) => ({
-  id: item.id,
-  image: item.mainImage,
-  date: item.createdDate,
-  title: item.translations[currentLang].title,
-  desc: item.translations[currentLang].shortDescription,
-}));
+const news = allNews.map((item: any) => {
+  // Fallback to English if translation for current language doesn't exist
+  const translation = item.translations[currentLang] || item.translations['en'];
+  return {
+    id: item.id,
+    image: item.mainImage,
+    date: item.createdDate,
+    title: translation.title,
+    desc: translation.shortDescription,
+  };
+});
 ---
 
 <section class="py-16 px-6 bg-primary" style="">

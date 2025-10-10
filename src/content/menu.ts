@@ -40,7 +40,6 @@ export const menus: Record<string, MenuItem[]> = {
     },
     { label: 'NEWS', href: '/news', title: 'News', description: 'Latest news and updates' },
     { label: 'TRAINING', href: '/training', title: 'Training' },
-    { label: 'COMMUNICATION', href: '/communication', title: 'Communication' },
     { label: 'CONTACT', href: '/contact', title: 'Contact' }
   ],
   vi: [
@@ -58,7 +57,6 @@ export const menus: Record<string, MenuItem[]> = {
     },
     { label: 'TIN TỨC', href: '/vi/news', title: 'Tin tức', description: 'Tin tức và cập nhật mới nhất' },
     { label: 'ĐÀO TẠO', href: '/vi/training', title: 'Đào tạo' },
-    { label: 'TRUYỀN THÔNG', href: '/vi/communication', title: 'Truyền thông' },
     { label: 'LIÊN LẠC', href: '/vi/contact', title: 'Liên lạc' }
   ],
   ja: [
@@ -74,7 +72,6 @@ export const menus: Record<string, MenuItem[]> = {
         { href: '/ja/about-us/natural-stunning', label: '自然で美しい結果', title: '自然で美しい結果', description: 'Natural & Stunning Results section' }
       ]
     },
-    { label: 'プロジェクト', href: '/ja/projects', title: 'プロジェクト', description: 'プロジェクト一覧' },
     { label: 'ニュース', href: '/ja/news', title: 'ニュース', description: '最新ニュースとアップデート' },
     { label: 'トレーニング', href: '/ja/training', title: 'トレーニング', description: '研修・ワークショップ' },
     { label: 'お問い合わせ', href: '/ja/contact', title: 'お問い合わせ', description: 'お問い合わせ' }
@@ -88,17 +85,13 @@ export const menus: Record<string, MenuItem[]> = {
     {
       label: 'SOBRE NOSOTROS', href: '/es/about-us', title: 'Sobre nosotros', description: 'Conoce Vy Brows Beauty',
       children: [
-        { href: '/es/about-us#overview', label: 'RESUMEN', title: 'Resumen', description: 'Resumen' },
-        { href: '/es/about-us#ceo-message', label: 'MENSAJE DEL CEO', title: 'Mensaje del CEO', description: 'Mensaje del CEO' },
-        { href: '/es/about-us#vision-mission', label: 'VISIÓN Y MISIÓN', title: 'Visión y Misión', description: 'Visión y Misión' },
-        { href: '/es/about-us#profile', label: 'PERFIL DE LA EMPRESA', title: 'Perfil de la empresa', description: 'Perfil de la empresa' },
-        { href: '/es/about-us#timeline', label: 'CRONOLOGÍA', title: 'Cronología', description: 'Cronología' },
-        { href: '/es/about-us#why-choose-us', label: '¿POR QUÉ ELEGIRNOS?', title: '¿Por qué elegirnos?', description: '¿Por qué elegirnos?' },
-        { href: '/es/about-us#our-customer', label: 'CLIENTES', title: 'Clientes', description: 'Clientes' },
-        { href: '/es/about-us#skills', label: 'HABILIDADES Y CAPACIDADES', title: 'Habilidades y Capacidades', description: 'Habilidades y Capacidades' },
+        { href: '/es/about-us/why-choose-us', label: '¿POR QUÉ ELEGIRNOS?', title: '¿Por qué elegirnos?', description: '¿Por qué elegirnos?' },
+        { href: '/es/about-us/expertise-experience', label: 'EXPERIENCIA Y PERICIA', title: 'Experiencia y Pericia', description: 'Experiencia y Pericia' },
+        { href: '/es/about-us/safe-painless', label: 'TÉCNICAS SEGURAS Y SIN DOLOR', title: 'Técnicas Seguras y Sin Dolor', description: 'Técnicas Seguras y Sin Dolor' },
+        { href: '/es/about-us/world-class-training', label: 'ENTRENAMIENTO DE CLASE MUNDIAL', title: 'Entrenamiento de Clase Mundial', description: 'Entrenamiento de Clase Mundial' },
+        { href: '/es/about-us/natural-stunning', label: 'RESULTADOS NATURALES Y IMPRESIONANTES', title: 'Resultados Naturales y Impresionantes', description: 'Resultados Naturales y Impresionantes' }
       ]
     },
-    { label: 'PROYECTOS', href: '/es/projects', title: 'Proyectos', description: 'Lista de proyectos' },
     { label: 'NOTICIAS', href: '/es/news', title: 'Noticias', description: 'Últimas noticias y actualizaciones' },
     { label: 'FORMACIÓN', href: '/es/training', title: 'Formación', description: 'Programas de formación' },
     { label: 'CONTACTO', href: '/es/contact', title: 'Contacto', description: 'Contáctanos' }
@@ -109,19 +102,15 @@ export const menus: Record<string, MenuItem[]> = {
     {
       label: '회사 소개', href: '/ko/about-us', title: '회사 소개', description: 'Vy Brows Beauty 소개',
       children: [
-        { href: '/ko/about-us#overview', label: '개요', title: '개요', description: '개요' },
-        { href: '/ko/about-us#ceo-message', label: 'CEO 메시지', title: 'CEO 메시지', description: 'CEO 메시지' },
-        { href: '/ko/about-us#vision-mission', label: '비전과 미션', title: '비전과 미션', description: '비전과 미션' },
-        { href: '/ko/about-us#profile', label: '회사 프로필', title: '회사 프로필', description: '회사 프로필' },
-        { href: '/ko/about-us#timeline', label: '연혁', title: '연혁', description: '연혁' },
-        { href: '/ko/about-us#why-choose-us', label: '선택받는 이유', title: '선택받는 이유', description: '선택받는 이유' },
-        { href: '/ko/about-us#our-customer', label: '고객사', title: '고객사', description: '고객사' },
-        { href: '/ko/about-us#skills', label: '역량 및 기술', title: '역량 및 기술', description: '역량 및 기술' },
+        { href: '/ko/about-us/why-choose-us', label: '선택받는 이유', title: '선택받는 이유', description: '선택받는 이유' },
+        { href: '/ko/about-us/expertise-experience', label: '전문성과 경험', title: '전문성과 경험', description: '전문성과 경험' },
+        { href: '/ko/about-us/safe-painless', label: '안전하고 무통증 기법', title: '안전하고 무통증 기법', description: '안전하고 무통증 기법' },
+        { href: '/ko/about-us/world-class-training', label: '세계 수준의 교육', title: '세계 수준의 교육', description: '세계 수준의 교육' },
+        { href: '/ko/about-us/natural-stunning', label: '자연스럽고 놀라운 결과', title: '자연스럽고 놀라운 결과', description: '자연스럽고 놀라운 결과' }
       ]
     },
     { label: '뉴스', href: '/ko/news', title: '뉴스', description: '최신 뉴스와 업데이트' },
     { label: '교육', href: '/ko/training', title: '교육', description: '교육 및 워크숍' },
-    { label: '커뮤니케이션', href: '/ko/communication', title: '커뮤니케이션', description: '소통' },
     { label: '문의', href: '/ko/contact', title: '문의', description: '문의하기' }
   ]
 };
