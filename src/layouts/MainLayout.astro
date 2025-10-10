@@ -24,8 +24,8 @@ import Header from '../components/UI/layout/Header.astro';
         } catch {}
       })();
     </script>
-    <meta name="description" content="VYBROWS ACADEMY | PMU Studio & Academy - Professional Permanent Makeup & Beauty Services" />
-    <meta name="keywords" content="permanent makeup, microblading, PMU training, eyebrow tattoo, lip blush, eyeliner tattoo, beauty academy, cosmetic tattooing, semi permanent makeup" />
+    <meta name="description" content="VYBROWS ACADEMY | America's Premier PMU Training Institute - Professional Permanent Makeup Certification, Advanced Microblading Courses & Beauty Academy Training" />
+    <meta name="keywords" content="VYBROWS ACADEMY, permanent makeup training, PMU certification, professional microblading academy, advanced beauty training, permanent makeup courses, PMU studio academy, eyebrow tattoo training, lip blush certification, cosmetic tattoo academy, semi permanent makeup school" />
     <meta name="author" content="VYBROWS ACADEMY" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="en" />
@@ -34,6 +34,10 @@ import Header from '../components/UI/layout/Header.astro';
     
     <!-- Canonical URL -->
     <link rel="canonical" href={Astro.url} />
+    
+    <!-- Primary Domain Declaration -->
+    <meta name="google-site-verification" content="your-verification-code" />
+    <meta name="msvalidate.01" content="your-bing-verification-code" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -80,7 +84,7 @@ import Header from '../components/UI/layout/Header.astro';
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "VYBROWS ACADEMY | PMU Studio & Academy",
-      "alternateName": ["VyBrows Academy", "Vy Brows Beauty", "VyBrowsBeauty"],
+      "alternateName": ["VyBrows Academy", "Vy Brows Beauty", "VyBrowsBeauty", "VYBROWS ACADEMY", "VY BROWS BEAUTY"],
       "url": "https://vybrowsbeauty.com",
       "logo": {
         "@type": "ImageObject",
@@ -90,7 +94,7 @@ import Header from '../components/UI/layout/Header.astro';
         "contentUrl": "https://vybrowsbeauty.com/logo.webp"
       },
       "image": "https://vybrowsbeauty.com/logo.webp",
-      "description": "VYBROWS ACADEMY | PMU Studio & Academy - Leading permanent makeup studio specializing in microblading, PMU services, and natural beauty enhancements. Expert artists, safe techniques, stunning results.",
+      "description": "VYBROWS ACADEMY | PMU Studio & Academy - America's Premier Permanent Makeup Training Institute. Professional PMU Certification, Advanced Microblading Courses & Beauty Academy. Certified instructors, hands-on training, career transformation.",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "US"
@@ -107,7 +111,23 @@ import Header from '../components/UI/layout/Header.astro';
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "reviewCount": "150"
-      }
+      },
+      "accreditedBy": {
+        "@type": "Organization",
+        "name": "Professional Beauty Association"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Professional Certification",
+          "name": "Certified PMU Instructor"
+        },
+        {
+          "@type": "EducationalOccupationalCredential", 
+          "credentialCategory": "Safety Certification",
+          "name": "Health & Safety Certified Academy"
+        }
+      ]
     }
     </script>
 

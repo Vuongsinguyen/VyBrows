@@ -1,0 +1,142 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const competitiveAdvantages = [
+  {
+    title: "America's Premier PMU Academy",
+    description: "Leading permanent makeup training institute with certified instructors and hands-on learning.",
+    benefits: ["Professional Certification", "Career Transformation", "Expert Training"]
+  },
+  {
+    title: "Advanced Training Programs", 
+    description: "Comprehensive courses from beginner to master level PMU techniques.",
+    benefits: ["Microblading Mastery", "Ombre Techniques", "Lip Blush Certification"]
+  },
+  {
+    title: "Industry Recognition",
+    description: "Accredited academy with professional certifications and industry partnerships.",
+    benefits: ["Health & Safety Certified", "Professional Standards", "Career Support"]
+  }
+];
+
+const uniqueFeatures = [
+  "Small Class Sizes (Max 6 Students)",
+  "Lifetime Support & Mentorship", 
+  "Business Training Included",
+  "Professional Kit Included",
+  "Job Placement Assistance",
+  "Continued Education Programs"
+];
+---
+
+<MainLayout title="Why Choose VYBROWS ACADEMY Over Competitors | Premier PMU Training">
+  <div class="container mx-auto px-6 py-16 max-w-6xl">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-5xl font-bold text-primary mb-6">
+        America's Premier PMU Academy
+      </h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+        Why VYBROWS ACADEMY stands above the rest in permanent makeup training and certification. 
+        Professional education, proven results, career transformation.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <span class="bg-primary text-white px-4 py-2 rounded-full font-semibold">
+          🏆 #1 PMU Training Institute
+        </span>
+        <span class="bg-secondary text-white px-4 py-2 rounded-full font-semibold">
+          📜 Nationally Certified
+        </span>
+        <span class="bg-accent text-white px-4 py-2 rounded-full font-semibold">
+          👩‍🎓 500+ Graduates
+        </span>
+      </div>
+    </div>
+
+    <!-- Competitive Advantages -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      {competitiveAdvantages.map((advantage) => (
+        <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-primary">
+          <h3 class="text-2xl font-bold text-primary mb-4">{advantage.title}</h3>
+          <p class="text-gray-700 mb-6">{advantage.description}</p>
+          <ul class="space-y-2">
+            {advantage.benefits.map((benefit) => (
+              <li class="flex items-center text-gray-600">
+                <span class="text-green-500 mr-2">✓</span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Unique Features -->
+    <div class="bg-gradient-to-r from-primary to-secondary rounded-lg p-8 mb-16">
+      <h2 class="text-3xl font-bold text-white text-center mb-8">
+        What Makes VYBROWS ACADEMY Different
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {uniqueFeatures.map((feature) => (
+          <div class="bg-white bg-opacity-10 rounded-lg p-4">
+            <p class="text-white font-semibold text-center">{feature}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-primary mb-4">
+        Start Your PMU Career Today
+      </h2>
+      <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+        Join hundreds of successful PMU artists who chose VYBROWS ACADEMY for their professional training.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/training/" class="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:bg-primary-dark transition-colors">
+          View Training Programs
+        </a>
+        <a href="/en/contact/" class="border-2 border-primary text-primary px-8 py-4 rounded-lg font-bold hover:bg-primary hover:text-white transition-colors">
+          Schedule Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Structured Data for Competitive Advantage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "VYBROWS ACADEMY | PMU Studio & Academy",
+    "description": "America's Premier Permanent Makeup Training Institute with professional certification programs",
+    "url": "https://vybrowsbeauty.com",
+    "logo": "https://vybrowsbeauty.com/logo.webp",
+    "foundingDate": "2020",
+    "accreditedBy": {
+      "@type": "Organization", 
+      "name": "Professional Beauty Association"
+    },
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Professional Certification",
+        "name": "Certified PMU Training Institute"
+      }
+    ],
+    "numberOfStudents": "500+",
+    "courseMode": ["In-person", "Hands-on Training"],
+    "educationalLevel": "Professional Certification",
+    "offers": {
+      "@type": "Course",
+      "name": "Professional PMU Certification Program",
+      "description": "Comprehensive permanent makeup training with certification",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "VYBROWS ACADEMY"
+      }
+    }
+  }
+  </script>
+</MainLayout>

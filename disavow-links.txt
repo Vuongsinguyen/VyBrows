@@ -1,0 +1,13 @@
+# Disavow old domain links (if needed)
+# Submit this file to Google Search Console under "Disavow Links" tool
+# Only use if old domain has bad backlinks
+
+# Format: domain:vybrows.com
+# This tells Google to ignore links from the old domain
+
+# Note: Only use this if:
+# 1. Old domain has spam/low-quality backlinks
+# 2. You cannot 301 redirect the old domain
+# 3. Old domain is competing with new domain
+
+domain:vybrows.com
