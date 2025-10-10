@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://vybrowsbeauty.com/sitemap.xml
+
+# Disallow development and test files
+Disallow: /test-*
+Disallow: /*.html$
+Disallow: /api/
+
+# Allow important paths
+Allow: /en/
+Allow: /vi/
+Allow: /ja/
+Allow: /es/
+Allow: /ko/
+Allow: /images/
+Allow: /logo.webp
+Allow: /favicon.svg
+
+# Crawl-delay (optional, helps prevent overloading server)
+Crawl-delay: 1
