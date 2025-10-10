@@ -1,9 +1,9 @@
 export const messages = {
   en: {
     aboutTitle: "About Us - English",
-    aboutHeading: "About ARIS Vietnam",
+    aboutHeading: "About VyBrows Beauty",
     aboutDescription:
-      "ARIS Vietnam is a leading technology company specializing in innovative digital solutions. We empower businesses to transform and grow in the digital age through cutting-edge software, mobile apps, and IT consulting. Our mission is to deliver exceptional value and help clients achieve sustainable success.",
+      "VyBrows Beauty is a leading permanent makeup and beauty studio specializing in natural-looking enhancements. We empower clients to feel confident and beautiful through expert microblading, PMU services, and professional beauty treatments. Our mission is to deliver exceptional results and help clients achieve their natural beauty goals.",
     mission: "Empower businesses with innovative technology, drive productivity, and create exceptional user experiences. We believe in meaningful innovation.",
     vision: "Be the trusted partner for digital transformation, helping companies grow sustainably through technology and confidence in a changing world.",
     coreValues: [

@@ -84,7 +84,7 @@ export const menus: Record<string, MenuItem[]> = {
       // children will be populated asynchronously elsewhere
     },
     {
-      label: 'SOBRE NOSOTROS', href: '/es/about-us', title: 'Sobre nosotros', description: 'Conoce ARIS Vietnam',
+      label: 'SOBRE NOSOTROS', href: '/es/about-us', title: 'Sobre nosotros', description: 'Conoce VyBrows Beauty',
       children: [
         { href: '/es/about-us#overview', label: 'RESUMEN', title: 'Resumen', description: 'Resumen' },
         { href: '/es/about-us#ceo-message', label: 'MENSAJE DEL CEO', title: 'Mensaje del CEO', description: 'Mensaje del CEO' },
@@ -105,7 +105,7 @@ export const menus: Record<string, MenuItem[]> = {
     { label: '홈', href: '/ko/', title: '홈' },
     { label: '서비스', href: '/ko/#services', title: '서비스' },
     {
-      label: '회사 소개', href: '/ko/about-us', title: '회사 소개', description: 'ARIS Vietnam 소개',
+      label: '회사 소개', href: '/ko/about-us', title: '회사 소개', description: 'VyBrows Beauty 소개',
       children: [
         { href: '/ko/about-us#overview', label: '개요', title: '개요', description: '개요' },
         { href: '/ko/about-us#ceo-message', label: 'CEO 메시지', title: 'CEO 메시지', description: 'CEO 메시지' },
