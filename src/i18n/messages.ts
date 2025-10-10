@@ -3,7 +3,7 @@ export const messages = {
     aboutTitle: "About Us - English",
     aboutHeading: "About VyBrows Beauty",
     aboutDescription:
-      "VyBrows Beauty is a leading permanent makeup and beauty studio specializing in natural-looking enhancements. We empower clients to feel confident and beautiful through expert microblading, PMU services, and professional beauty treatments. Our mission is to deliver exceptional results and help clients achieve their natural beauty goals.",
+      "Vy Brows Beauty is a leading permanent makeup and beauty studio specializing in natural-looking enhancements. We empower clients to feel confident and beautiful through expert microblading, PMU services, and professional beauty treatments. Our mission is to deliver exceptional results and help clients achieve their natural beauty goals.",
     mission: "Empower businesses with innovative technology, drive productivity, and create exceptional user experiences. We believe in meaningful innovation.",
     vision: "Be the trusted partner for digital transformation, helping companies grow sustainably through technology and confidence in a changing world.",
     coreValues: [
