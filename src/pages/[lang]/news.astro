@@ -2,6 +2,7 @@
 import '/src/styles/global.css';
 import PageLayout from '../../layouts/PageLayout.astro';
 import NewsListComp from '../../components/UI/layout/NewsListComp.astro';
+import newsData from '../../data/news.json';
 
 export const prerender = true;
 
@@ -14,32 +15,28 @@ export async function getStaticPaths() {
 }
 
 const lang = Astro.params.lang;
-const allEntries = Object.values(await import.meta.glob('/src/content/news/*/*.md', { eager: true })) as any[];
-const newsEntries = allEntries.filter(entry => entry.file.endsWith(`.${lang}.md`));
 const PAGE_SIZE = 25;
 const pageParam = Astro.url?.searchParams.get('page');
 const currentPage = pageParam ? parseInt(pageParam) : 1;
-const totalNews = newsEntries.length;
-const totalPages = Math.ceil(totalNews / PAGE_SIZE);
 
-const news = newsEntries.map((entry, idx) => {
-  const parts = entry.file.split('/');
-  const folder = parts[parts.length - 2];
-  const fileBase = parts[parts.length - 1].replace(`.${lang}.md`, '');
-  const slug = `${folder}/${fileBase}`;
+// Get news from JSON data
+const news = newsData.news.map((item) => {
+  const translation = item.translations[lang as keyof typeof item.translations] || item.translations.en; // Fallback to English
   return {
-    id: idx + 1,
-    title: entry.frontmatter.title,
-    description: entry.frontmatter.desc,
-    image: entry.frontmatter.image,
-    date: entry.frontmatter.date,
-    category: entry.frontmatter.category,
-    link: `/${lang}/news/${slug}`,
+    id: item.id,
+    title: translation.title,
+    description: translation.shortDescription,
+    image: item.mainImage,
+    date: item.createdDate,
+    category: 'PMU News', // Default category
+    link: `/${lang}/news/${item.id}`,
   };
 })
-// Sắp xếp theo ngày giảm dần (mới nhất lên trên)
+// Sort by date descending (newest first)
 .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
+const totalNews = news.length;
+const totalPages = Math.ceil(totalNews / PAGE_SIZE);
 const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 ---
 

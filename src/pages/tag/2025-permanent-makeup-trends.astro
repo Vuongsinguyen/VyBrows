@@ -1,0 +1,25 @@
+---
+// Redirect page for old blog/tag URLs
+export const prerender = true;
+---
+
+<script>
+  // Client-side redirect for old URLs
+  if (typeof window !== 'undefined') {
+    window.location.replace('/en/news/');
+  }
+</script>
+
+<html>
+<head>
+  <meta http-equiv="refresh" content="0;url=/en/news/">
+  <link rel="canonical" href="/en/news/">
+  <title>Redirecting to VYBROWS ACADEMY News...</title>
+</head>
+<body>
+  <p>Redirecting to <a href="/en/news/">VYBROWS ACADEMY News</a>...</p>
+  <script>
+    window.location.href = '/en/news/';
+  </script>
+</body>
+</html>

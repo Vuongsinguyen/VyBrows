@@ -13,15 +13,6 @@ export const collections = {
       // Thêm các trường khác nếu cần
     }),
   }),
-  news: defineCollection({
-    type: "content",
-    schema: z.object({
-      title: z.string(),
-      date: z.string(),
-      excerpt: z.string(),
-      coverImage: z.string().optional(),
-    }),
-  }),
   services: defineCollection({
     type: "content",
     schema: z.object({
