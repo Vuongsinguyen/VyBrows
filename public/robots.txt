@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://vybrowsbeauty.com/sitemap.xml
+Sitemap: https://vybrowsbeauty.com/sitemap-index.xml
 
 # Disallow development and test files
 Disallow: /test-*
