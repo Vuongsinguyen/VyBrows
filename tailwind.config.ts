@@ -7,7 +7,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0055FF',
+        primary: 'var(--color-primary)',
+        'primary-dark': 'var(--color-primary-dark)',
+        'primary-hover': 'var(--color-primary-hover)',
         // CSS Variables integration
         'theme-bg': 'var(--color-bg)',
         'theme-text': 'var(--color-text)',

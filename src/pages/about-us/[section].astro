@@ -25,6 +25,43 @@ const sectionLabels = aboutUsData.sections.reduce((acc, section) => {
   acc[section.id] = section.title.en;
   return acc;
 }, {} as Record<string, string>);
+
+// CEO Message HTML component
+const ceoMessageHTML = `
+<div class="bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg p-8 border-l-4 border-primary shadow-sm" style="border-left-color: var(--color-primary);">
+  <h3 class="text-2xl font-bold mb-6" style="color: var(--color-primary);">Message from Our CEO</h3>
+  <div class="flex flex-col md:flex-row gap-6 items-start">
+    <div class="flex-shrink-0">
+      <img 
+        src="/images/mem03.avif" 
+        alt="Vy Nguyen - CEO & Founder" 
+        class="w-32 h-32 rounded-full object-cover shadow-lg"
+        style="border: 1px solid var(--color-primary);"
+      />
+    </div>
+    <div class="flex-1">
+      <p class="italic text-lg text-gray-700 leading-relaxed mb-4">
+        "At VyBrows Academy, we are committed to excellence in permanent makeup artistry and training. 
+        Our mission is to empower artists with the skills and confidence to create natural, stunning results 
+        that enhance beauty and transform lives."
+      </p>
+      <div class="text-right">
+        <p class="font-bold text-lg" style="color: var(--color-primary);">Vy Nguyen</p>
+        <p class="text-gray-600 text-sm">Founder & CEO, VyBrows Academy</p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+// Insert CEO message only in "Why Choose Us" page - before "20+ Years of Proven Excellence"
+let contentWithCEO = currentSection?.content.en || '';
+if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.includes('Hơn 13 Năm Xuất Sắc')) {
+  contentWithCEO = contentWithCEO.replace(
+    /<div class="bg-gradient-to-r from-amber-50/,
+    ceoMessageHTML + '<div class="bg-gradient-to-r from-amber-50'
+  );
+}
 ---
 
 <NewsLayout title={currentSection ? currentSection.title.en : 'About Us'}>
@@ -67,14 +104,14 @@ const sectionLabels = aboutUsData.sections.reduce((acc, section) => {
   <div class="w-full bg-surface flex justify-center">
     <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
       <!-- Left Sidebar -->
-      <aside class="w-64 bg-surface rounded-lg shadow p-4 mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
-        <h2 class="font-bold text-lg mb-2 text-on-surface">About Us</h2>
-        <ul class="border border-border rounded-lg overflow-hidden">
+      <aside class="w-64 bg-surface rounded-lg mt-4 lg:mt-0 lg:sticky lg:top-32 z-20">
+        <ul class="rounded-lg overflow-hidden">
           {aboutUsData.sections.map((section, index) => (
             <li>
               <a 
                 href={`/about-us/${section.id}`} 
-                class={`block bg-surface rounded-none ${index < aboutUsData.sections.length - 1 ? 'border-b border-border' : ''} px-3 py-2 text-on-surface font-normal hover:text-primary ${section.id === sectionId ? 'bg-primary/10 text-primary font-semibold' : ''}`}
+                class={`block rounded-none px-3 py-2 font-normal transition-colors ${section.id === sectionId ? 'text-primary font-semibold' : 'hover:text-primary'}`}
+                style={section.id === sectionId ? '' : 'color: rgba(0, 0, 0, 0.7);'}
               >
                 {section.title.en}
               </a>
@@ -88,14 +125,8 @@ const sectionLabels = aboutUsData.sections.reduce((acc, section) => {
         {currentSection ? (
           <>
             <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8">
-              <h1 class="text-3xl font-bold mb-6 text-primary">{currentSection.title.en}</h1>
-              
               {/* Content */}
-
-              {/* Content */}
-              <div class="prose prose-lg max-w-none text-on-surface" set:html={currentSection.content.en}></div>
-
-
+              <div class="prose prose-lg max-w-none text-on-surface" set:html={contentWithCEO}></div>
             </div>
 
             {/* Navigation to Other Sections */}
@@ -133,13 +164,15 @@ const sectionLabels = aboutUsData.sections.reduce((acc, section) => {
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                   href="/contact" 
-                  class="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
+                  class="inline-block px-8 py-3 font-semibold rounded-lg transition-colors"
+                  style="background: var(--color-primary); color: #ffffff;"
                 >
                   Contact Us
                 </a>
                 <a 
                   href="/training" 
-                  class="inline-block px-8 py-3 border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors"
+                  class="inline-block px-8 py-3 font-semibold rounded-lg transition-colors hover:bg-opacity-10"
+                  style="border: 2px solid var(--color-primary); color: var(--color-primary);"
                 >
                   View Training
                 </a>

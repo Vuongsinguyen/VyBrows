@@ -8,7 +8,11 @@ export interface Props {
 const { class: customClass = '' } = Astro.props;
 
 // Lấy ngôn ngữ hiện tại từ URL
-const currentLang = Astro.url.pathname.split('/')[1] || 'en';
+const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+// If first part is 'service', it's English version without lang prefix
+const currentLang = (pathParts[0] === 'service' || pathParts[0] === 'about-us' || pathParts[0] === 'contact' || pathParts[0] === 'training' || pathParts[0] === 'news') 
+  ? 'en' 
+  : (pathParts[0] || 'en');
 const menuItems = menus[currentLang] || menus['en'];
 
 // Lấy danh sách dịch vụ từ getServiceMenu (async)
@@ -115,16 +119,18 @@ const socialLinks = [
 
         <!-- Facebook Fanpage -->
         <div class="mt-6">
-          <iframe 
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvybrows%2F&tabs=timeline&width=280&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-            width="280" 
-            height="300" 
-            style="border:none;overflow:hidden" 
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true" 
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>
+          <div class="w-full max-w-[280px]">
+            <iframe 
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvybrows%2F&tabs=timeline&width=280&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+              width="100%" 
+              height="300" 
+              style="border:none;overflow:hidden" 
+              scrolling="no" 
+              frameborder="0" 
+              allowfullscreen="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
