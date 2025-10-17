@@ -2,6 +2,10 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://vybrowsbeauty.com/sitemap-0.xml</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://vybrowsbeauty.com/image-sitemap.xml</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
   </sitemap>
 </sitemapindex>

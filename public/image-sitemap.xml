@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage with primary SEO image -->
+  <url>
+    <loc>https://vybrowsbeauty.com/</loc>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/SEO.png</image:loc>
+      <image:title>VYBROWS ACADEMY - Premier PMU Training Institute</image:title>
+      <image:caption>America's Premier Permanent Makeup Training Institute - Professional PMU Certification, Advanced Microblading Courses &amp; Beauty Academy Training</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/logo.webp</image:loc>
+      <image:title>VYBROWS ACADEMY Logo</image:title>
+      <image:caption>Official logo of VYBROWS ACADEMY PMU Studio &amp; Academy</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- About Us -->
+  <url>
+    <loc>https://vybrowsbeauty.com/about-us/</loc>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/about_01.avif</image:loc>
+      <image:title>About VYBROWS ACADEMY</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/about_02.avif</image:loc>
+      <image:title>VYBROWS Team</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/about_03.avif</image:loc>
+      <image:title>Professional PMU Training</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Services -->
+  <url>
+    <loc>https://vybrowsbeauty.com/service/pmu-permanent-makeup/</loc>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/service01.avif</image:loc>
+      <image:title>Permanent Makeup Services</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://vybrowsbeauty.com/service/micro-blading/</loc>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/service02.avif</image:loc>
+      <image:title>Microblading Services</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://vybrowsbeauty.com/service/shading-ombre/</loc>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/service03.avif</image:loc>
+      <image:title>Ombre Powder Brows</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://vybrowsbeauty.com/service/lip-treatments/</loc>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/service05.avif</image:loc>
+      <image:title>Lip Blush Treatments</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Training Programs -->
+  <url>
+    <loc>https://vybrowsbeauty.com/training/</loc>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/SEO.png</image:loc>
+      <image:title>PMU Training Programs at VYBROWS ACADEMY</image:title>
+      <image:caption>Comprehensive permanent makeup training programs - microblading, ombre brows, lip blush, and business mastery courses</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Gallery Images -->
+  <url>
+    <loc>https://vybrowsbeauty.com/</loc>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/gallery/photo-thumb1.avif</image:loc>
+      <image:title>VYBROWS Portfolio Gallery</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/gallery/photo-thumb2.avif</image:loc>
+      <image:title>Before After Results</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vybrowsbeauty.com/images/gallery/photo-thumb3.avif</image:loc>
+      <image:title>Professional PMU Work</image:title>
+    </image:image>
+  </url>
+</urlset>

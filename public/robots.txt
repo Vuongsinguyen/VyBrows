@@ -1,15 +1,19 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap locations
 Sitemap: https://vybrowsbeauty.com/sitemap-index.xml
+Sitemap: https://vybrowsbeauty.com/sitemap-0.xml
+Sitemap: https://vybrowsbeauty.com/image-sitemap.xml
 
 # Disallow development and test files
 Disallow: /test-*
 Disallow: /*.html$
 Disallow: /api/
+Disallow: /_astro/
+Disallow: /build/
 
-# Allow important paths
+# Allow important paths and resources
 Allow: /en/
 Allow: /vi/
 Allow: /ja/
@@ -18,6 +22,33 @@ Allow: /ko/
 Allow: /images/
 Allow: /logo.webp
 Allow: /favicon.svg
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+Allow: /*.avif
+Allow: /*.svg
+
+# Special rules for Googlebot (including image indexing)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /logo.webp
+Allow: /favicon.svg
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
 
 # Crawl-delay (optional, helps prevent overloading server)
 Crawl-delay: 1
+
+# Host (prefer canonical domain)
+Host: https://vybrowsbeauty.com
