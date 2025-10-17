@@ -7,11 +7,34 @@ const { title } = Astro.props;
 
 // Lấy ngôn ngữ từ URL
 const lang = Astro.url.pathname.split('/')[1] || 'en';
+
+// Xác định ngôn ngữ hợp lệ
+const validLangs = ['en', 'vi', 'ja', 'es', 'ko'];
+const currentLang = validLangs.includes(lang) ? lang : 'en';
+
+// Tạo alternate URLs cho hreflang
+const pathname = Astro.url.pathname;
+const baseUrl = 'https://vybrowsbeauty.com';
+
+// Extract path without language prefix
+let pathWithoutLang = pathname;
+if (validLangs.some(l => pathname.startsWith(`/${l}/`) || pathname === `/${l}`)) {
+  pathWithoutLang = pathname.replace(/^\/(en|vi|ja|es|ko)(\/|$)/, '/');
+}
+// Ensure path starts with /
+if (!pathWithoutLang.startsWith('/')) {
+  pathWithoutLang = '/' + pathWithoutLang;
+}
+// Remove trailing slash for consistency (except root)
+if (pathWithoutLang !== '/' && pathWithoutLang.endsWith('/')) {
+  pathWithoutLang = pathWithoutLang.slice(0, -1);
+}
+
 import Header from '../components/UI/layout/Header.astro';
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <!-- Apply theme early (avoid FOUC) -->
@@ -28,12 +51,20 @@ import Header from '../components/UI/layout/Header.astro';
     <meta name="keywords" content="VYBROWS ACADEMY, permanent makeup training, PMU certification, professional microblading academy, advanced beauty training, permanent makeup courses, PMU studio academy, eyebrow tattoo training, lip blush certification, cosmetic tattoo academy, semi permanent makeup school" />
     <meta name="author" content="VYBROWS ACADEMY" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="en" />
+    <meta name="language" content={currentLang} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- Canonical URL -->
     <link rel="canonical" href={Astro.url} />
+    
+    <!-- Hreflang Tags for Multilingual SEO -->
+    <link rel="alternate" hreflang="en" href={`${baseUrl}${pathWithoutLang === '/' ? '/' : '/en' + pathWithoutLang}`} />
+    <link rel="alternate" hreflang="vi" href={`${baseUrl}/vi${pathWithoutLang}`} />
+    <link rel="alternate" hreflang="ja" href={`${baseUrl}/ja${pathWithoutLang}`} />
+    <link rel="alternate" hreflang="es" href={`${baseUrl}/es${pathWithoutLang}`} />
+    <link rel="alternate" hreflang="ko" href={`${baseUrl}/ko${pathWithoutLang}`} />
+    <link rel="alternate" hreflang="x-default" href={`${baseUrl}${pathWithoutLang === '/' ? '/' : '/en' + pathWithoutLang}`} />
     
     <!-- Primary Domain Declaration -->
     <meta name="google-site-verification" content="your-verification-code" />
@@ -164,44 +195,44 @@ import Header from '../components/UI/layout/Header.astro';
         {
           "@type": "SiteNavigationElement",
           "position": 1,
-          "name": "Services",
-          "description": "Professional Permanent Makeup Services",
-          "url": "https://vybrowsbeauty.com/en/service/pmu-permanent-makeup"
+          "name": "About Us",
+          "description": "Learn about VYBROWS ACADEMY - Expert PMU artists and certified instructors",
+          "url": "https://vybrowsbeauty.com/about-us"
         },
         {
           "@type": "SiteNavigationElement",
           "position": 2,
-          "name": "Training",
-          "description": "PMU Academy Training Courses",
-          "url": "https://vybrowsbeauty.com/en/training"
+          "name": "Services",
+          "description": "Professional Permanent Makeup Services - Microblading, PMU, Lip Blush & More",
+          "url": "https://vybrowsbeauty.com/#services"
         },
         {
           "@type": "SiteNavigationElement",
           "position": 3,
-          "name": "About Us",
-          "description": "About VYBROWS ACADEMY",
-          "url": "https://vybrowsbeauty.com/en/about-us"
+          "name": "Training",
+          "description": "Professional PMU Training & Certification Courses",
+          "url": "https://vybrowsbeauty.com/training"
         },
         {
           "@type": "SiteNavigationElement",
           "position": 4,
-          "name": "Gallery",
-          "description": "Our Work Portfolio",
-          "url": "https://vybrowsbeauty.com/en/projects"
+          "name": "Contact",
+          "description": "Book Your Consultation - Houston Location",
+          "url": "https://vybrowsbeauty.com/contact"
         },
         {
           "@type": "SiteNavigationElement",
           "position": 5,
-          "name": "Contact",
-          "description": "Get in Touch",
-          "url": "https://vybrowsbeauty.com/en/contact"
+          "name": "News",
+          "description": "Latest Beauty Trends & PMU Updates",
+          "url": "https://vybrowsbeauty.com/news"
         },
         {
           "@type": "SiteNavigationElement",
           "position": 6,
           "name": "Microblading",
-          "description": "Microblading Services",
-          "url": "https://vybrowsbeauty.com/en/service/micro-blading"
+          "description": "Natural Hair-Stroke Eyebrow Technique",
+          "url": "https://vybrowsbeauty.com/service/micro-blading"
         }
       ]
     }

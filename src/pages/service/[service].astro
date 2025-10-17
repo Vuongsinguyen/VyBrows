@@ -90,8 +90,8 @@ const serviceContent = servicesData.reduce((acc, service) => {
           const currentService = servicesData.find(s => s.slug === serviceSlug) as any;
           return (
             <>
-              {/* Title */}
-              <h1 class="text-3xl font-bold mb-2 text-on-surface">{serviceLabels[serviceSlug] ?? serviceSlug}</h1>
+              {/* Title - Changed from H1 to H2 to avoid duplicate H1 (already have H1 in hero) */}
+              <h2 class="text-3xl font-bold mb-2 text-on-surface">{serviceLabels[serviceSlug] ?? serviceSlug}</h2>
               
               {/* Subtitle */}
               {currentService?.subtitle && (

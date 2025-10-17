@@ -59,8 +59,8 @@ const serviceContent = servicesData.reduce((acc, service) => {
           const currentService = servicesData.find(s => s.slug === serviceSlug) as any;
           return (
             <>
-              {/* Title */}
-              <h1 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels[serviceSlug] ?? serviceSlug}</h1>
+              {/* Title - Changed from H1 to H2 to avoid duplicate H1 (already have H1 in hero) */}
+              <h2 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels[serviceSlug] ?? serviceSlug}</h2>
               
               {/* Subtitle */}
               {currentService?.subtitle && (
@@ -171,7 +171,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
                 <a
                   href="https://www.fresha.com/vi/a/vy-brows-academy-houston-13192-bellaire-boulevard-ksjqvy55"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base shadow transition-colors focus:outline-none focus-visible:ring-2 hover:opacity-90"
                   style="background-color: var(--color-primary); color: white;"
                 >

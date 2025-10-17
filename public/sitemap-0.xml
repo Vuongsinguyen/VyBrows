@@ -3,908 +3,1328 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vybrowsbeauty.com/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/BookStepAction/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/about-us/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/about-us/expertise-experience/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/about-us/natural-stunning/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/about-us/safe-painless/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/about-us/why-choose-us/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/about-us/world-class-training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/contact/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/news/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-001/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-002/e-commerce-platform/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-003/iot-dashboard/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-004/mobile-banking-app/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-005/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-006/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-007/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-008/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-009/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-010/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-011/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/projects/project-012/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/dark-lips-remover/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/detox-herbal-hair-wash/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/eyeliners/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/hairs-strokes/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/lip-treatments/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/micro-blading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/pmu-permanent-makeup/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/shading-ombre/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/service/skincare-acne-treatment/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/training/advanced-microblading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/training/business-mastery/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/training/combo-brow-technique/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/training/lip-blush-training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/training/ombre-powder-brows/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/en/training/pmu-foundation/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/"/>
   </url>
   <url>
     <loc>https://vybrowsbeauty.com/es/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/contact/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/dark-lips-remover/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/detox-herbal-hair-wash/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/eyeliners/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/hairs-strokes/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/lip-treatments/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/micro-blading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/pmu-permanent-makeup/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/shading-ombre/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/service/skincare-acne-treatment/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/training/advanced-microblading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/training/business-mastery/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/training/combo-brow-technique/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/training/lip-blush-training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/training/ombre-powder-brows/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/es/training/pmu-foundation/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/"/>
   </url>
   <url>
     <loc>https://vybrowsbeauty.com/ja/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/about-us/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/about-us/expertise-experience/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/about-us/natural-stunning/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/about-us/safe-painless/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/about-us/why-choose-us/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/about-us/world-class-training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/contact/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/news/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-001/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-002/e-commerce-platform/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-003/iot-dashboard/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-004/mobile-banking-app/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-005/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-006/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-007/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-008/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-009/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-010/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-011/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/projects/project-012/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/dark-lips-remover/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/detox-herbal-hair-wash/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/eyeliners/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/hairs-strokes/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/lip-treatments/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/micro-blading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/pmu-permanent-makeup/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/shading-ombre/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/service/skincare-acne-treatment/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/training/advanced-microblading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/training/business-mastery/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/training/combo-brow-technique/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/training/lip-blush-training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/training/ombre-powder-brows/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ja/training/pmu-foundation/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/"/>
   </url>
   <url>
     <loc>https://vybrowsbeauty.com/ko/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/contact/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/dark-lips-remover/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/detox-herbal-hair-wash/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/eyeliners/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/hairs-strokes/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/lip-treatments/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/micro-blading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/pmu-permanent-makeup/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/shading-ombre/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/service/skincare-acne-treatment/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/training/advanced-microblading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/training/business-mastery/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/training/combo-brow-technique/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/training/lip-blush-training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/training/ombre-powder-brows/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/ko/training/pmu-foundation/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/"/>
   </url>
   <url>
     <loc>https://vybrowsbeauty.com/vi/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/about-us/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/about-us/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/"/>
   </url>
   <url>
     <loc>https://vybrowsbeauty.com/vi/about-us/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/about-us/expertise-experience/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/es/about-us/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/about-us/natural-stunning/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/ko/about-us/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/about-us/safe-painless/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/contact/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/contact/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/about-us/why-choose-us/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/es/contact/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/contact/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/about-us/world-class-training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/ja/contact/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/contact/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/contact/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/contact/"/>
   </url>
   <url>
     <loc>https://vybrowsbeauty.com/vi/contact/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/contact/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/news/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/es/training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-001/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/ja/training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-002/e-commerce-platform/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/ko/training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-003/iot-dashboard/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-004/mobile-banking-app/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-005/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-006/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-007/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-008/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-009/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-010/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-011/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/projects/project-012/ai-chatbot/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/dark-lips-remover/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/detox-herbal-hair-wash/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/eyeliners/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/hairs-strokes/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/lip-treatments/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/micro-blading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/pmu-permanent-makeup/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/shading-ombre/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vybrowsbeauty.com/vi/service/skincare-acne-treatment/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/"/>
   </url>
   <url>
     <loc>https://vybrowsbeauty.com/vi/training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/training/advanced-microblading/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://vybrowsbeauty.com/news/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/news/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/news/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/news/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/training/business-mastery/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://vybrowsbeauty.com/ja/news/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/news/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/news/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/news/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/training/combo-brow-technique/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://vybrowsbeauty.com/vi/news/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/news/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/news/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/news/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/training/lip-blush-training/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/service/micro-blading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/micro-blading/"/>
   </url>
   <url>
-    <loc>https://vybrowsbeauty.com/vi/training/ombre-powder-brows/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <loc>https://vybrowsbeauty.com/es/service/micro-blading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/micro-blading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/micro-blading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/micro-blading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/micro-blading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/micro-blading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/service/pmu-permanent-makeup/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/service/pmu-permanent-makeup/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/pmu-permanent-makeup/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/pmu-permanent-makeup/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/pmu-permanent-makeup/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/pmu-permanent-makeup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/pmu-permanent-makeup/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/service/shading-ombre/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/service/shading-ombre/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/shading-ombre/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/shading-ombre/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/shading-ombre/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/shading-ombre/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/shading-ombre/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/service/lip-treatments/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/service/lip-treatments/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/lip-treatments/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/lip-treatments/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/lip-treatments/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/lip-treatments/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/lip-treatments/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/service/eyeliners/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/service/eyeliners/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/eyeliners/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/eyeliners/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/eyeliners/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/eyeliners/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/eyeliners/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/service/hairs-strokes/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/service/hairs-strokes/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/hairs-strokes/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/hairs-strokes/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/hairs-strokes/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/hairs-strokes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/hairs-strokes/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/service/dark-lips-remover/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/service/dark-lips-remover/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/dark-lips-remover/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/dark-lips-remover/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/dark-lips-remover/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/dark-lips-remover/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/dark-lips-remover/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/service/detox-herbal-hair-wash/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/service/detox-herbal-hair-wash/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/detox-herbal-hair-wash/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/detox-herbal-hair-wash/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/detox-herbal-hair-wash/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/detox-herbal-hair-wash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/detox-herbal-hair-wash/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/service/skincare-acne-treatment/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/service/skincare-acne-treatment/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/service/skincare-acne-treatment/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/service/skincare-acne-treatment/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/service/skincare-acne-treatment/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/service/skincare-acne-treatment/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/service/skincare-acne-treatment/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/training/pmu-foundation/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/training/pmu-foundation/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/training/pmu-foundation/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/training/pmu-foundation/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
   </url>
   <url>
     <loc>https://vybrowsbeauty.com/vi/training/pmu-foundation/</loc>
-    <lastmod>2025-10-10T15:00:00+00:00</lastmod>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/pmu-foundation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/pmu-foundation/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/training/advanced-microblading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/training/advanced-microblading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/training/advanced-microblading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/training/advanced-microblading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/training/advanced-microblading/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/advanced-microblading/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/advanced-microblading/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/training/ombre-powder-brows/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/training/ombre-powder-brows/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/training/ombre-powder-brows/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/training/ombre-powder-brows/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/training/ombre-powder-brows/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/ombre-powder-brows/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/ombre-powder-brows/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/training/lip-blush-training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/training/lip-blush-training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/training/lip-blush-training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/training/lip-blush-training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/training/lip-blush-training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/lip-blush-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/lip-blush-training/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/training/combo-brow-technique/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/training/combo-brow-technique/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/training/combo-brow-technique/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/training/combo-brow-technique/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/training/combo-brow-technique/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/combo-brow-technique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/combo-brow-technique/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/training/business-mastery/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/es/training/business-mastery/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/training/business-mastery/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ko/training/business-mastery/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/training/business-mastery/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vybrowsbeauty.com/es/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://vybrowsbeauty.com/ko/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/training/business-mastery/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/training/business-mastery/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/about-us/why-choose-us/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/why-choose-us/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/about-us/why-choose-us/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/why-choose-us/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/about-us/why-choose-us/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/why-choose-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/why-choose-us/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/about-us/expertise-experience/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/expertise-experience/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/about-us/expertise-experience/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/expertise-experience/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/about-us/expertise-experience/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/expertise-experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/expertise-experience/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/about-us/safe-painless/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/safe-painless/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/about-us/safe-painless/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/safe-painless/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/about-us/safe-painless/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/safe-painless/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/safe-painless/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/about-us/world-class-training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/world-class-training/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/about-us/world-class-training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/world-class-training/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/about-us/world-class-training/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/world-class-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/world-class-training/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/about-us/natural-stunning/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/natural-stunning/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/ja/about-us/natural-stunning/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/natural-stunning/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/vi/about-us/natural-stunning/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vybrowsbeauty.com/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://vybrowsbeauty.com/ja/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://vybrowsbeauty.com/vi/about-us/natural-stunning/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vybrowsbeauty.com/about-us/natural-stunning/"/>
+  </url>
+  <url>
+    <loc>https://vybrowsbeauty.com/BookStepAction/</loc>
+    <lastmod>2025-10-17T15:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
