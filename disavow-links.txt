@@ -1,13 +1,53 @@
-# Disavow old domain links (if needed)
+# Disavow Links File for vybrowsbeauty.com
 # Submit this file to Google Search Console under "Disavow Links" tool
-# Only use if old domain has bad backlinks
+# Last Updated: October 17, 2025
 
-# Format: domain:vybrows.com
-# This tells Google to ignore links from the old domain
+# =============================================================================
+# INSTRUCTIONS
+# =============================================================================
+# This file tells Google to ignore backlinks from specific domains or URLs
+# 
+# Format:
+# - domain:example.com (ignores ALL links from this domain)
+# - http://example.com/bad-page.html (ignores specific URL only)
+#
+# Use ONLY when:
+# 1. Spam/low-quality backlinks that you cannot remove manually
+# 2. Negative SEO attacks
+# 3. Link schemes or unnatural links
+#
+# WARNING: Misuse can hurt your rankings. Be careful!
+# =============================================================================
 
-# Note: Only use this if:
-# 1. Old domain has spam/low-quality backlinks
-# 2. You cannot 301 redirect the old domain
-# 3. Old domain is competing with new domain
-
+# -----------------------------------------------------------------------------
+# OLD DOMAIN (if competing or has bad backlinks)
+# -----------------------------------------------------------------------------
 domain:vybrows.com
+
+# -----------------------------------------------------------------------------
+# SPAM DOMAINS - Negative SEO / Low Quality Links
+# -----------------------------------------------------------------------------
+# Added: October 17, 2025
+# Reason: Spam backlinks, suspicious SEO services
+
+domain:rankvanceseo.info
+domain:algolinkers.agency
+domain:lawlist.info
+domain:data.vtcdns.com
+
+# -----------------------------------------------------------------------------
+# ADDITIONAL SPAM DOMAINS (add more as needed)
+# -----------------------------------------------------------------------------
+# Format: domain:example.com
+# 
+# Common spam patterns to watch for:
+# - SEO service domains with unnatural links
+# - Link farms or PBNs (Private Blog Networks)
+# - Adult or gambling sites (if irrelevant)
+# - Hacked sites with injected links
+# - Foreign language sites with no relevance
+# 
+# Add more domains below as you discover them:
+
+# domain:another-spam-site.com
+# domain:bad-seo-service.net
