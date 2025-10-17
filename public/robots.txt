@@ -14,6 +14,7 @@ Disallow: /_astro/
 Disallow: /build/
 
 # Allow important paths and resources
+# Language paths: / (default English), /vi/ /ja/ /es/ /ko/ and /en/ (alternative)
 Allow: /en/
 Allow: /vi/
 Allow: /ja/
