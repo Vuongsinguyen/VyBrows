@@ -1,0 +1,70 @@
+{
+  "slug": "pmu-foundation",
+  "image": "/images/service01.avif",
+  "title": {
+    "en": "PMU Foundation Course",
+    "vi": "Khóa Học PMU Nền Tảng",
+    "ja": "PMU基礎コース",
+    "es": "Curso Básico de PMU",
+    "ko": "PMU 기초 과정"
+  },
+  "description": {
+    "en": "Master the fundamentals of permanent makeup with our comprehensive foundation course",
+    "vi": "Làm chủ những kiến thức nền tảng về phun xăm thẩm mỹ với khóa học toàn diện",
+    "ja": "包括的な基礎コースでアートメイクの基礎をマスターしましょう",
+    "es": "Domina los fundamentos del maquillaje permanente con nuestro curso integral",
+    "ko": "종합적인 기초 과정으로 반영구 화장의 기초를 마스터하세요"
+  },
+  "subtitle": "Complete Foundation Training",
+  "introduction": "Our PMU Foundation Course provides a comprehensive introduction to permanent makeup techniques, covering theory, safety protocols, and hands-on practice. Perfect for beginners looking to start their career in the beauty industry.",
+  "duration": {
+    "en": "5 Days (40 Hours)",
+    "vi": "5 Ngày (40 Giờ)",
+    "ja": "5日間（40時間）",
+    "es": "5 Días (40 Horas)",
+    "ko": "5일 (40시간)"
+  },
+  "price": {
+    "en": "$2,500",
+    "vi": "2.500 USD",
+    "ja": "2,500ドル",
+    "es": "$2,500",
+    "ko": "$2,500"
+  },
+  "curriculum": [
+    {
+      "name": "Day 1: Theory & Safety",
+      "description": "Learn PMU fundamentals, color theory, skin anatomy, and sterilization protocols"
+    },
+    {
+      "name": "Day 2: Eyebrow Techniques",
+      "description": "Master microblading and powder brow techniques with practice on synthetic skin"
+    },
+    {
+      "name": "Day 3: Lip Procedures",
+      "description": "Learn lip blushing and full lip techniques, color selection, and numbing protocols"
+    },
+    {
+      "name": "Day 4: Eyeliner Methods",
+      "description": "Practice lash enhancement and classic eyeliner on models"
+    },
+    {
+      "name": "Day 5: Live Model Practice",
+      "description": "Work on live models under instructor supervision with certification exam"
+    }
+  ],
+  "whyChooseUs": [
+    "Small class sizes (maximum 4 students) for personalized attention",
+    "Internationally certified instructors with 10+ years experience",
+    "All training materials and tools included",
+    "Lifetime support and mentorship after graduation",
+    "Certificate recognized in multiple countries"
+  ],
+  "includes": [
+    "Complete PMU starter kit worth $800",
+    "Training manual and digital resources",
+    "5 days of hands-on instruction",
+    "Certificate of completion",
+    "Business startup guidance"
+  ]
+}

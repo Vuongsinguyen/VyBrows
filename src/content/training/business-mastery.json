@@ -1,0 +1,66 @@
+{
+  "slug": "business-mastery",
+  "image": "/images/service06.avif",
+  "title": {
+    "en": "PMU Business Mastery",
+    "vi": "Làm Chủ Kinh Doanh PMU",
+    "ja": "PMUビジネスマスター",
+    "es": "Dominio del Negocio PMU",
+    "ko": "PMU 비즈니스 마스터"
+  },
+  "description": {
+    "en": "Build and grow a successful permanent makeup business",
+    "vi": "Xây dựng và phát triển doanh nghiệp phun xăm thành công",
+    "ja": "成功するアートメイクビジネスを構築する",
+    "es": "Construye y haz crecer un negocio exitoso de maquillaje permanente",
+    "ko": "성공적인 반영구 화장 사업을 구축하고 성장시키세요"
+  },
+  "subtitle": "Turn Your Skills Into Profit",
+  "introduction": "Learn the business side of PMU - from setting up your studio, pricing strategies, marketing, client retention, and scaling your business. This course is essential for artists ready to become successful entrepreneurs.",
+  "duration": {
+    "en": "2 Days (16 Hours)",
+    "vi": "2 Ngày (16 Giờ)",
+    "ja": "2日間（16時間）",
+    "es": "2 Días (16 Horas)",
+    "ko": "2일 (16시간)"
+  },
+  "price": {
+    "en": "$1,200",
+    "vi": "1.200 USD",
+    "ja": "1,200ドル",
+    "es": "$1,200",
+    "ko": "$1,200"
+  },
+  "curriculum": [
+    {
+      "name": "Studio Setup & Licensing",
+      "description": "Legal requirements, insurance, and studio design"
+    },
+    {
+      "name": "Pricing & Packages",
+      "description": "How to price your services competitively and profitably"
+    },
+    {
+      "name": "Marketing & Branding",
+      "description": "Social media strategy, website design, and client acquisition"
+    },
+    {
+      "name": "Client Experience",
+      "description": "Consultation process, retention strategies, and referral programs"
+    }
+  ],
+  "whyChooseUs": [
+    "Real business strategies that work",
+    "Marketing templates and contracts",
+    "Financial planning guidance",
+    "Online presence optimization",
+    "Network with successful artists"
+  ],
+  "includes": [
+    "Business plan template",
+    "Marketing materials pack",
+    "Contract templates",
+    "Social media content calendar",
+    "Ongoing business consultation"
+  ]
+}

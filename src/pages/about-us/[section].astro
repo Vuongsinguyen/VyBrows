@@ -85,7 +85,7 @@ if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.
   </section>
 
   <!-- Breadcrumb -->
-  <div class="bg-gray-50 border-b">
+  <div class="bg-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <nav class="flex items-center text-sm text-gray-600">
         <a href="/" class="hover:text-[#8B4513] transition-colors">Home</a>
@@ -110,8 +110,8 @@ if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.
             <li>
               <a 
                 href={`/about-us/${section.id}`} 
-                class={`block rounded-none px-3 py-2 font-normal transition-colors ${section.id === sectionId ? 'text-primary font-semibold' : 'hover:text-primary'}`}
-                style={section.id === sectionId ? '' : 'color: rgba(0, 0, 0, 0.7);'}
+                class={`block rounded-none px-3 py-2 font-normal transition-colors ${section.id === sectionId ? 'font-semibold' : 'hover:text-primary'}`}
+                style={section.id === sectionId ? 'color: var(--color-primary);' : 'color: rgba(0, 0, 0, 0.7);'}
               >
                 {section.title.en}
               </a>

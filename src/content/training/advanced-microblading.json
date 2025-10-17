@@ -1,0 +1,66 @@
+{
+  "slug": "advanced-microblading",
+  "image": "/images/service02.avif",
+  "title": {
+    "en": "Advanced Microblading",
+    "vi": "Microblading Nâng Cao",
+    "ja": "高度なマイクロブレーディング",
+    "es": "Microblading Avanzado",
+    "ko": "고급 마이크로블레이딩"
+  },
+  "description": {
+    "en": "Advanced techniques for creating natural, hair-like strokes",
+    "vi": "Kỹ thuật nâng cao tạo nét lông mày tự nhiên như thật",
+    "ja": "自然な毛並みを作る高度なテクニック",
+    "es": "Técnicas avanzadas para crear trazos naturales similares al cabello",
+    "ko": "자연스러운 모발 같은 선을 만드는 고급 기술"
+  },
+  "subtitle": "Master Natural Brow Artistry",
+  "introduction": "Take your microblading skills to the next level with advanced stroke patterns, challenging skin types, and corrective techniques. This course is designed for PMU artists who want to refine their craft.",
+  "duration": {
+    "en": "3 Days (24 Hours)",
+    "vi": "3 Ngày (24 Giờ)",
+    "ja": "3日間（24時間）",
+    "es": "3 Días (24 Horas)",
+    "ko": "3일 (24시간)"
+  },
+  "price": {
+    "en": "$1,800",
+    "vi": "1.800 USD",
+    "ja": "1,800ドル",
+    "es": "$1,800",
+    "ko": "$1,800"
+  },
+  "curriculum": [
+    {
+      "name": "Advanced Stroke Techniques",
+      "description": "Master various stroke patterns for different brow styles and face shapes"
+    },
+    {
+      "name": "Difficult Skin Types",
+      "description": "Learn to work with oily, mature, and scarred skin successfully"
+    },
+    {
+      "name": "Color Correction",
+      "description": "Fix old PMU work and correct unwanted pigmentation"
+    },
+    {
+      "name": "Business & Marketing",
+      "description": "Pricing strategies, client management, and social media marketing"
+    }
+  ],
+  "whyChooseUs": [
+    "Focus on real-world challenging cases",
+    "Advanced color theory and pigment mixing",
+    "Portfolio building strategies",
+    "Marketing and branding guidance",
+    "Ongoing mentor support"
+  ],
+  "includes": [
+    "Advanced training manual",
+    "Premium pigment set",
+    "Practice skins and supplies",
+    "Certificate of advanced training",
+    "Access to private alumni group"
+  ]
+}

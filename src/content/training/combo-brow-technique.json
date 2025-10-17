@@ -1,0 +1,66 @@
+{
+  "slug": "combo-brow-technique",
+  "image": "/images/service05.avif",
+  "title": {
+    "en": "Combo Brow Technique",
+    "vi": "Kỹ Thuật Phun Mày Kết Hợp",
+    "ja": "コンボブロウテクニック",
+    "es": "Técnica de Cejas Combo",
+    "ko": "콤보 브로우 테크닉"
+  },
+  "description": {
+    "en": "Combine microblading and powder for dimensional, natural brows",
+    "vi": "Kết hợp microblading và phun phấn tạo mày tự nhiên có chiều sâu",
+    "ja": "マイクロブレーディングとパウダーを組み合わせて立体的な眉毛を作る",
+    "es": "Combina microblading y polvo para cejas naturales y dimensionales",
+    "ko": "마이크로블레이딩과 파우더를 결합한 입체적이고 자연스러운 눈썹"
+  },
+  "subtitle": "Best of Both Worlds",
+  "introduction": "Master the combination technique that blends hair-like strokes with soft shading for the most natural and dimensional brow results. This is the most requested brow style by clients worldwide.",
+  "duration": {
+    "en": "3 Days (24 Hours)",
+    "vi": "3 Ngày (24 Giờ)",
+    "ja": "3日間（24時間）",
+    "es": "3 Días (24 Horas)",
+    "ko": "3일 (24시간)"
+  },
+  "price": {
+    "en": "$1,800",
+    "vi": "1.800 USD",
+    "ja": "1,800ドル",
+    "es": "$1,800",
+    "ko": "$1,800"
+  },
+  "curriculum": [
+    {
+      "name": "Technique Integration",
+      "description": "Learn when and how to combine microblading with powder shading"
+    },
+    {
+      "name": "Stroke Placement",
+      "description": "Strategic hair stroke placement for maximum natural effect"
+    },
+    {
+      "name": "Shading Methods",
+      "description": "Background shading techniques to add depth and dimension"
+    },
+    {
+      "name": "Complete Procedures",
+      "description": "Perform full combo brow procedures from start to finish"
+    }
+  ],
+  "whyChooseUs": [
+    "Versatile technique for all clients",
+    "Higher service pricing potential",
+    "Longer lasting results",
+    "Client satisfaction guarantee",
+    "Portfolio-worthy results"
+  ],
+  "includes": [
+    "Both manual and machine tools",
+    "Complete pigment collection",
+    "Training materials",
+    "Dual certification",
+    "Marketing templates"
+  ]
+}
