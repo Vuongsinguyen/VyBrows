@@ -122,7 +122,7 @@
   --color-primary-hover: #01513A;
   --color-primary-ring: #3b82f633;
   --color-primary2cream: #e2dac1;  /* Cream color for dark mode */
-  --color-primary-dark: #172554;
+  --color-primary-dark: #01513A;
   --color-on-primary: var(--color-white);
   --color-on-primary-hover: var(--color-white);
   --color-button-secondary-text: #3b82f6;
