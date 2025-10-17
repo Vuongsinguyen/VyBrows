@@ -13,6 +13,7 @@ const currentPage = pageParam ? parseInt(pageParam) : 1;
 
 // Get news from JSON data for English
 const allNews = getAllNews();
+console.log('Total news articles:', allNews.length);
 const news = allNews.map((item) => {
   const translation = item.translations.en; // Always English for this route
   return {

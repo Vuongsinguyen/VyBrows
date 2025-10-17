@@ -5,13 +5,15 @@ import news1 from './news/1.json';
 import news2 from './news/2.json';
 import news3 from './news/3.json';
 import news4 from './news/4.json';
+import news5 from './news/5.json';
 
 // Create a map of news data
 const newsData = {
   1: news1,
   2: news2,
   3: news3,
-  4: news4
+  4: news4,
+  5: news5
 };
 
 // Get all news articles
