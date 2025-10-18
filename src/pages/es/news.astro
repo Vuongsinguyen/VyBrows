@@ -1,0 +1,159 @@
+---
+import '/src/styles/global.css';
+import NewsLayout from '../../layouts/NewsLayout.astro';
+import NewsListComp from '../../components/UI/layout/NewsListComp.astro';
+import { getAllNews } from '../../data/newsLoader.js';
+
+export const prerender = true;
+
+const lang = 'es'; // Spanish
+const PAGE_SIZE = 25;
+const pageParam = Astro.url?.searchParams.get('page');
+const currentPage = pageParam ? parseInt(pageParam) : 1;
+
+// Get news from JSON data for Spanish
+const allNews = getAllNews();
+console.log('Total news articles:', allNews.length);
+const news = allNews.map((item) => {
+  const translation = item.translations.es || item.translations.en; // Fallback to English if Spanish not available
+  return {
+    id: item.id,
+    title: translation.title,
+    description: translation.shortDescription,
+    image: item.mainImage,
+    date: item.createdDate,
+    category: 'Noticias PMU',
+    link: `/es/news/${item.slug || item.id}`,
+  };
+})
+// Sort by date descending (newest first)
+.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const totalNews = news.length;
+const totalPages = Math.ceil(totalNews / PAGE_SIZE);
+const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+---
+
+<NewsLayout title="Noticias y Actualizaciones">
+  <!-- Hero Header Section - Services Style -->
+  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-40 md:pt-60">
+    <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
+      <!-- Dynamic Heading -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Playfair Display', serif;">Noticias y Actualizaciones</h1>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
+        Mantente actualizado con las últimas noticias, tendencias e información de VyBrows Academy
+      </p>
+    </div>
+    <!-- SVG Wave -->
+    <div class="absolute inset-0 w-full h-full pointer-events-none select-none">
+      <svg class="absolute bottom-0 left-0 w-full h-40" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--color-primary-dark)" fill-opacity="1" d="M0,288L80,272C160,256,320,224,480,197.3C640,171,800,149,960,154.7C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-3">
+      <nav class="flex items-center text-sm text-gray-600">
+        <a href="/es" class="hover:text-primary transition-colors">Inicio</a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-gray-900 font-medium">Noticias</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="py-16 px-6 min-h-screen" style="background: var(--color-bg);">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- News Content -->
+      <div id="newsContainer">
+        <NewsListComp news={pagedNews} viewMode="grid" />
+      </div>
+
+      <!-- Pagination -->
+      {totalPages > 1 && (
+        <div class="flex justify-center items-center mt-12 gap-2">
+          <!-- Previous Button -->
+          {currentPage > 1 && (
+            <a 
+              href={`/es/news?page=${currentPage - 1}`}
+              class="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+              Anterior
+            </a>
+          )}
+
+          <!-- Page 1 -->
+          <a 
+            href="/es/news?page=1"
+            class={currentPage === 1 
+              ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white' 
+              : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
+            }
+          >1</a>
+
+          {totalPages > 1 && (
+            <a 
+              href="/es/news?page=2"
+              class={currentPage === 2 
+                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white' 
+                : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
+              }
+            >2</a>
+          )}
+
+          {totalPages > 2 && (
+            <a 
+              href="/es/news?page=3"
+              class={currentPage === 3 
+                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white' 
+                : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
+              }
+            >3</a>
+          )}
+
+          {totalPages > 4 && currentPage > 3 && <span class="px-2 text-gray-500">...</span>}
+
+          {totalPages > 3 && currentPage > 3 && currentPage < totalPages && (
+            <a 
+              href={`/es/news?page=${currentPage}`}
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white"
+            >{currentPage}</a>
+          )}
+
+          {totalPages > 4 && currentPage < totalPages - 2 && <span class="px-2 text-gray-500">...</span>}
+
+          {totalPages > 3 && (
+            <a 
+              href={`/es/news?page=${totalPages}`}
+              class={currentPage === totalPages 
+                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white' 
+                : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
+              }
+            >{totalPages}</a>
+          )}
+
+          <!-- Next Button -->
+          {currentPage < totalPages && (
+            <a 
+              href={`/es/news?page=${currentPage + 1}`}
+              class="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
+            >
+              Siguiente
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </section>
+</NewsLayout>
