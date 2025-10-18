@@ -1,0 +1,48 @@
+{
+  "slug": "ultra-plasma-pro",
+  "image": "/images/service02.avif",
+  "title": {
+    "en": "Ultra Plasma Pro",
+    "vi": "Ultra Plasma Pro",
+    "ja": "ウルトラプラズマプロ",
+    "es": "Ultra Plasma Pro",
+    "ko": "울트라 플라즈마 프로"
+  },
+  "description": {
+    "en": "Advanced plasma technology for skin rejuvenation and non-invasive treatments",
+    "vi": "Công nghệ plasma tiên tiến cho trẻ hóa da và điều trị không xâm lấn",
+    "ja": "肌の若返りと非侵襲的治療のための高度なプラズマ技術",
+    "es": "Tecnología de plasma avanzada para rejuvenecimiento de la piel y tratamientos no invasivos",
+    "ko": "피부 젊어짐과 비침습적 치료를 위한 고급 플라즈마 기술"
+  },
+  "subtitle": "Master Advanced Plasma Technology",
+  "introduction": "Learn to harness the power of Ultra Plasma Pro technology for remarkable skin transformation. This cutting-edge course covers plasma pen techniques for skin tightening, wrinkle reduction, and scar treatment without surgery.",
+  "curriculum": [
+    {
+      "name": "Day 1: Plasma Technology Fundamentals",
+      "description": "Understanding plasma science, safety protocols, and skin assessment techniques"
+    },
+    {
+      "name": "Day 2: Advanced Treatment Techniques",
+      "description": "Master plasma pen techniques for skin tightening, wrinkle reduction, and rejuvenation"
+    },
+    {
+      "name": "Day 3: Specialized Applications & Practice",
+      "description": "Scar treatment, stretch mark removal, and hands-on practice with live models"
+    }
+  ],
+  "whyChooseUs": [
+    "Expert instruction from certified plasma specialists",
+    "Latest Ultra Plasma Pro equipment and technology",
+    "Small class sizes for personalized training",
+    "Comprehensive safety and risk management training",
+    "Lifetime access to updated techniques and protocols"
+  ],
+  "includes": [
+    "Ultra Plasma Pro starter kit",
+    "Training manual and safety guidelines",
+    "3 days of intensive hands-on instruction",
+    "Certificate of completion",
+    "Post-training support and consultation"
+  ]
+}

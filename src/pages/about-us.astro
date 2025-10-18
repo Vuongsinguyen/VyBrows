@@ -34,7 +34,7 @@ const sectionLabels = aboutUsData.sections.reduce((acc: Record<string, string>, 
   </section>
 
   <!-- Breadcrumb -->
-  <div class="bg-gray-50 border-b">
+  <div class="bg-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <nav class="flex items-center text-sm text-gray-600">
         <a href="/" class="hover:text-primary transition-colors">Home</a>
@@ -81,25 +81,91 @@ const sectionLabels = aboutUsData.sections.reduce((acc: Record<string, string>, 
 
           <!-- Quick Navigation Cards -->
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {aboutUsData.sections.map((section: any) => (
-              <a 
-                href={`/about-us/${section.id}`} 
-                class="group block bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 hover:border-primary"
-              >
-                <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-primary-dark transition-colors">
-                  {section.title.en}
-                </h3>
-                <p class="text-gray-600 text-sm line-clamp-3">
-                  Learn more about this aspect of our academy...
-                </p>
-                <div class="flex items-center text-primary text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
-                  <span>Learn More</span>
-                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </a>
-            ))}
+            <a 
+              href="/about-us/why-choose-us" 
+              class="group block bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-lg shadow-sm border border-amber-200 hover:shadow-md transition-all duration-300 hover:border-amber-400"
+            >
+              <h3 class="text-xl font-bold text-amber-800 mb-3 group-hover:text-amber-900 transition-colors">
+                WHY CHOOSE US
+              </h3>
+              <p class="text-gray-700 text-sm line-clamp-3">
+                Discover what sets VyBrows Academy apart - our expertise, quality, and commitment to excellence...
+              </p>
+              <div class="flex items-center text-amber-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                <span>Learn More</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+            <a 
+              href="/about-us/expertise-experience" 
+              class="group block bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-lg shadow-sm border border-emerald-200 hover:shadow-md transition-all duration-300 hover:border-emerald-400"
+            >
+              <h3 class="text-xl font-bold text-emerald-800 mb-3 group-hover:text-emerald-900 transition-colors">
+                EXPERTISE & EXPERIENCE
+              </h3>
+              <p class="text-gray-700 text-sm line-clamp-3">
+                Learn about our master-level artistry, international certifications, and proven track record...
+              </p>
+              <div class="flex items-center text-emerald-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                <span>Learn More</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+            <a 
+              href="/about-us/safe-painless" 
+              class="group block bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg shadow-sm border border-green-200 hover:shadow-md transition-all duration-300 hover:border-green-400"
+            >
+              <h3 class="text-xl font-bold text-green-800 mb-3 group-hover:text-green-900 transition-colors">
+                SAFE & PAINLESS TECHNIQUES
+              </h3>
+              <p class="text-gray-700 text-sm line-clamp-3">
+                Explore our advanced pain management and medical-grade sterilization protocols...
+              </p>
+              <div class="flex items-center text-green-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                <span>Learn More</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+            <a 
+              href="/about-us/world-class-training" 
+              class="group block bg-gradient-to-br from-indigo-50 to-blue-50 p-6 rounded-lg shadow-sm border border-indigo-200 hover:shadow-md transition-all duration-300 hover:border-indigo-400"
+            >
+              <h3 class="text-xl font-bold text-indigo-800 mb-3 group-hover:text-indigo-900 transition-colors">
+                WORLD-CLASS TRAINING
+              </h3>
+              <p class="text-gray-700 text-sm line-clamp-3">
+                Discover our comprehensive training programs, international certifications, and continuous education...
+              </p>
+              <div class="flex items-center text-indigo-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                <span>Learn More</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+            <a 
+              href="/about-us/natural-stunning" 
+              class="group block bg-gradient-to-br from-pink-50 to-rose-50 p-6 rounded-lg shadow-sm border border-pink-200 hover:shadow-md transition-all duration-300 hover:border-pink-400"
+            >
+              <h3 class="text-xl font-bold text-pink-800 mb-3 group-hover:text-pink-900 transition-colors">
+                NATURAL & STUNNING RESULTS
+              </h3>
+              <p class="text-gray-700 text-sm line-clamp-3">
+                See how we create breathtaking, natural-looking enhancements with artistic mastery...
+              </p>
+              <div class="flex items-center text-pink-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                <span>Learn More</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
           </div>
 
           <!-- Featured Content -->

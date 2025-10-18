@@ -1,0 +1,44 @@
+{
+  "slug": "eye-detox",
+  "image": "/images/service03.avif",
+  "title": {
+    "en": "Eye Detox Treatment",
+    "vi": "Điều Trị Thải Độc Mắt",
+    "ja": "アイデトックストリートメント",
+    "es": "Tratamiento de Desintoxicación Ocular",
+    "ko": "아이 디톡스 트리트먼트"
+  },
+  "description": {
+    "en": "Specialized training in advanced eye area detoxification and rejuvenation techniques",
+    "vi": "Đào tạo chuyên sâu về kỹ thuật thải độc và trẻ hóa vùng mắt tiên tiến",
+    "ja": "高度な目元のデトックスと若返り技術の専門トレーニング",
+    "es": "Capacitación especializada en técnicas avanzadas de desintoxicación y rejuvenecimiento del área ocular",
+    "ko": "고급 눈가 디톡스 및 젊어짐 기술에 대한 전문 교육"
+  },
+  "subtitle": "Advanced Eye Area Rejuvenation",
+  "introduction": "Master the art of eye detox treatments to address dark circles, puffiness, and signs of aging around the delicate eye area. This specialized course combines traditional techniques with modern innovations for exceptional results.",
+  "curriculum": [
+    {
+      "name": "Day 1: Eye Area Anatomy & Assessment",
+      "description": "Understanding delicate eye anatomy, common concerns, and professional assessment techniques"
+    },
+    {
+      "name": "Day 2: Advanced Treatment Protocols",
+      "description": "Hands-on training in detox techniques, lymphatic drainage, and rejuvenation methods with live practice"
+    }
+  ],
+  "whyChooseUs": [
+    "Specialized focus on the delicate eye area",
+    "Proven techniques for visible results",
+    "Expert instructors with years of experience",
+    "Comprehensive product knowledge and application",
+    "Safe, effective protocols for all skin types"
+  ],
+  "includes": [
+    "Professional eye detox treatment kit",
+    "Detailed training manual with protocols",
+    "2 days of hands-on practice",
+    "Certificate of completion",
+    "Access to professional-grade products at wholesale prices"
+  ]
+}

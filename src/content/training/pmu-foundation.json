@@ -17,20 +17,6 @@
   },
   "subtitle": "Complete Foundation Training",
   "introduction": "Our PMU Foundation Course provides a comprehensive introduction to permanent makeup techniques, covering theory, safety protocols, and hands-on practice. Perfect for beginners looking to start their career in the beauty industry.",
-  "duration": {
-    "en": "5 Days (40 Hours)",
-    "vi": "5 Ngày (40 Giờ)",
-    "ja": "5日間（40時間）",
-    "es": "5 Días (40 Horas)",
-    "ko": "5일 (40시간)"
-  },
-  "price": {
-    "en": "$2,500",
-    "vi": "2.500 USD",
-    "ja": "2,500ドル",
-    "es": "$2,500",
-    "ko": "$2,500"
-  },
   "curriculum": [
     {
       "name": "Day 1: Theory & Safety",
