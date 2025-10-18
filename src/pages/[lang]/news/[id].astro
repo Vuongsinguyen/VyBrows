@@ -49,7 +49,7 @@ const pageTitle = `${translation.title} - VYBROWS ACADEMY | PMU Studio & Academy
   <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
     <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
       <!-- Dynamic Heading -->
-      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center line-clamp-2" style="font-family: 'Playfair Display', serif;">{translation.title}</h1>
+      <h1 class="text-3xl md:text-4xl font-bold mb-8 text-white text-center line-clamp-2" style="font-family: 'Playfair Display', serif;">{translation.title}</h1>
       <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
         {translation.shortDescription}
       </p>
@@ -188,14 +188,15 @@ const pageTitle = `${translation.title} - VYBROWS ACADEMY | PMU Studio & Academy
           </div>
 
           <!-- Contact CTA -->
-          <div class="bg-gradient-to-br from-[#8B4513] to-[#8B4513]/80 rounded-xl p-6 text-white">
+          <div class="rounded-xl p-6 text-white" style="background: linear-gradient(to bottom right, var(--color-primary), var(--color-primary-dark));">
             <h3 class="text-lg font-bold mb-3">Ready to Get Started?</h3>
             <p class="text-white/90 text-sm mb-4">
               Join our PMU training program and start your journey to becoming a certified professional.
             </p>
             <a 
               href={`/${lang}/contact`} 
-              class="inline-block w-full bg-white text-primary font-semibold py-3 px-4 rounded-lg text-center hover:bg-gray-50 transition-colors"
+              class="inline-block w-full font-semibold py-3 px-4 rounded-lg text-center transition-colors"
+              style="background-color: #D4AF37; color: #000;"
             >
               Contact Us Today
             </a>
@@ -258,7 +259,10 @@ const pageTitle = `${translation.title} - VYBROWS ACADEMY | PMU Studio & Academy
       <div class="text-center mt-12">
         <a 
           href={`/${lang}/news`} 
-          class="inline-flex items-center gap-2 px-8 py-4 bg-[#8B4513] text-white font-semibold rounded-lg hover:bg-[#8B4513]/90 transition-colors shadow-md hover:shadow-lg"
+          class="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
+          style="background-color: var(--color-primary);"
+          onmouseover="this.style.backgroundColor='var(--color-primary-dark)'"
+          onmouseout="this.style.backgroundColor='var(--color-primary)'"
         >
           <span>View All Articles</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
