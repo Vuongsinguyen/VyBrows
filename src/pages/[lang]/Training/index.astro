@@ -73,75 +73,90 @@ const trainingList = trainingData.map(training => ({
     </div>
   </section>
 
+  <!-- Breadcrumb -->
+  <div class="bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-3">
+      <nav class="flex items-center text-sm text-gray-600">
+        <a href={`/${lang}`} class="hover:text-primary transition-colors">
+          {lang === 'vi' ? 'Trang chủ' : lang === 'ja' ? 'ホーム' : lang === 'es' ? 'Inicio' : lang === 'ko' ? '홈' : 'Home'}
+        </a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-gray-900 font-medium">
+          {lang === 'vi' ? 'Đào tạo' : lang === 'ja' ? 'トレーニング' : lang === 'es' ? 'Formación' : lang === 'ko' ? '교육' : 'Training'}
+        </span>
+      </nav>
+    </div>
+  </div>
+
   <section class="pt-16 pb-16 bg-surface px-6">
     <div class="max-w-7xl mx-auto">
-
-      <!-- Training Grid with Modern Card Design -->
-      <TrainingListComp trainings={trainingList} viewMode="grid" lang={lang} />
-
-      <!-- CTA Section -->
-      <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center">
+      <!-- Intro Section -->
+      <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center mb-12">
         <h2 class="text-2xl font-bold text-primary mb-4">
-          {ctaText[lang]}
+          {lang === 'vi' ? 'Biến Đam Mê Thành Nghề Nghiệp' : 
+           lang === 'ja' ? '情熱をプロフェッションに変える' : 
+           lang === 'es' ? 'Transforma Tu Pasión En Profesión' : 
+           lang === 'ko' ? '열정을 직업으로 변화시키세요' : 
+           'Transform Your Passion Into Profession'}
         </h2>
-        <p class="text-on-surface mb-6 max-w-2xl mx-auto">
-          {lang === 'vi' 
-            ? 'Đội ngũ chuyên gia của chúng tôi sẵn sàng giúp bạn chọn khóa học phù hợp nhất với mục tiêu nghề nghiệp và kỹ năng hiện tại của bạn.'
-            : lang === 'ja'
-            ? '私たちの専門家チームが、あなたのキャリア目標と現在のスキルに最適なコースを選ぶお手伝いをします。'
-            : lang === 'es'
-            ? 'Nuestro equipo de expertos está listo para ayudarte a elegir el curso más adecuado para tus objetivos profesionales y habilidades actuales.'
-            : lang === 'ko'
-            ? '전문가 팀이 귀하의 경력 목표와 현재 기술에 가장 적합한 과정을 선택하는 데 도움을 드릴 준비가 되어 있습니다.'
-            : 'Our expert team is ready to help you choose the most suitable course for your career goals and current skills.'
-          }
+        <p class="text-lg text-on-surface mb-6">
+          {lang === 'vi' ? 'Hãy tham gia cùng hàng nghìn nghệ sĩ PMU thành công đã bắt đầu hành trình của họ tại VyBrows Academy. Các chương trình do chuyên gia giảng dạy kết hợp lý thuyết, thực hành và kỹ năng kinh doanh.' : 
+           lang === 'ja' ? 'VyBrows Academyで旅を始めた何千人もの成功したPMUアーティストに参加しましょう。専門家主導のプログラムは、理論、実践、ビジネススキルを組み合わせています。' : 
+           lang === 'es' ? 'Únete a miles de artistas de PMU exitosos que comenzaron su viaje en VyBrows Academy. Nuestros programas dirigidos por expertos combinan teoría, práctica práctica y habilidades comerciales.' : 
+           lang === 'ko' ? 'VyBrows Academy에서 여정을 시작한 수천 명의 성공적인 PMU 아티스트에 합류하세요. 전문가가 이끄는 프로그램은 이론, 실습 및 비즈니스 기술을 결합합니다.' : 
+           'Join thousands of successful PMU artists who started their journey at VyBrows Academy. Our expert-led programs combine theory, hands-on practice, and business skills.'}
         </p>
         <a
           href={`/${lang}/contact`}
-          class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-all hover:scale-105"
+          class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-all hover:scale-105 hover:opacity-90"
           style="background-color: var(--color-primary); color: white;"
         >
           {ctaButtonText[lang]}
         </a>
       </div>
 
+      <!-- Training Grid with Modern Card Design -->
+      <TrainingListComp trainings={trainingList} viewMode="grid" lang={lang} />
+
       <!-- Why Train With Us -->
       <div class="mt-16">
-        <h2 class="text-3xl font-bold text-center text-primary mb-8">
-          {lang === 'vi' ? 'Tại sao đào tạo với chúng tôi?' : lang === 'ja' ? '私たちとトレーニングする理由' : lang === 'es' ? '¿Por qué entrenar con nosotros?' : lang === 'ko' ? '우리와 함께 교육받는 이유' : 'Why Train With Us?'}
+        <h2 class="text-3xl font-bold text-center mb-8 text-primary">
+          {lang === 'vi' ? 'Tại Sao Đào Tạo Với Chúng Tôi?' : lang === 'ja' ? '私たちとトレーニングする理由' : lang === 'es' ? '¿Por qué entrenar con nosotros?' : lang === 'ko' ? '우리와 함께 교육받는 이유' : 'Why Train With Us?'}
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
             <div class="text-4xl mb-4">👩‍🏫</div>
             <h3 class="font-bold text-primary mb-2">
-              {lang === 'vi' ? 'Giảng viên chuyên gia' : lang === 'ja' ? '専門講師' : lang === 'es' ? 'Instructores expertos' : lang === 'ko' ? '전문 강사' : 'Expert Instructors'}
+              {lang === 'vi' ? 'Giảng Viên Chuyên Gia' : lang === 'ja' ? '専門講師' : lang === 'es' ? 'Instructores Expertos' : lang === 'ko' ? '전문 강사' : 'Expert Instructors'}
             </h3>
             <p class="text-sm text-on-surface">
-              {lang === 'vi' ? '10+ năm kinh nghiệm thực tế' : lang === 'ja' ? '10年以上の実務経験' : lang === 'es' ? 'Más de 10 años de experiencia práctica' : lang === 'ko' ? '10년 이상의 실무 경험' : '10+ years practical experience'}
+              {lang === 'vi' ? 'Học từ những chuyên gia hàng đầu' : lang === 'ja' ? '業界のリーダーから学ぶ' : lang === 'es' ? 'Aprende de líderes de la industria' : lang === 'ko' ? '업계 리더로부터 배우기' : 'Learn from industry leaders'}
             </p>
           </div>
           <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
             <div class="text-4xl mb-4">🎓</div>
             <h3 class="font-bold text-primary mb-2">
-              {lang === 'vi' ? 'Chứng chỉ quốc tế' : lang === 'ja' ? '国際認証' : lang === 'es' ? 'Certificación internacional' : lang === 'ko' ? '국제 인증' : 'International Certification'}
+              {lang === 'vi' ? 'Chứng Chỉ Quốc Tế' : lang === 'ja' ? '国際認証' : lang === 'es' ? 'Certificación Internacional' : lang === 'ko' ? '국제 인증' : 'International Certification'}
             </h3>
             <p class="text-sm text-on-surface">
-              {lang === 'vi' ? 'Được công nhận toàn cầu' : lang === 'ja' ? '世界的に認められた' : lang === 'es' ? 'Reconocida globalmente' : lang === 'ko' ? '전 세계적으로 인정됨' : 'Globally recognized'}
+              {lang === 'vi' ? 'Được công nhận toàn cầu' : lang === 'ja' ? '世界的に認められた' : lang === 'es' ? 'Reconocida Globalmente' : lang === 'ko' ? '전 세계적으로 인정됨' : 'Globally recognized'}
             </p>
           </div>
           <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
             <div class="text-4xl mb-4">👥</div>
             <h3 class="font-bold text-primary mb-2">
-              {lang === 'vi' ? 'Lớp học nhỏ' : lang === 'ja' ? '少人数クラス' : lang === 'es' ? 'Clases pequeñas' : lang === 'ko' ? '소규모 수업' : 'Small Classes'}
+              {lang === 'vi' ? 'Lớp Học Nhỏ' : lang === 'ja' ? '少人数クラス' : lang === 'es' ? 'Clases Pequeñas' : lang === 'ko' ? '소규모 수업' : 'Small Classes'}
             </h3>
             <p class="text-sm text-on-surface">
-              {lang === 'vi' ? 'Tối đa 4 học viên/lớp' : lang === 'ja' ? 'クラス最大4名' : lang === 'es' ? 'Máximo 4 estudiantes por clase' : lang === 'ko' ? '수업당 최대 4명' : 'Maximum 4 students per class'}
+              {lang === 'vi' ? 'Tối đa 4 học viên mỗi lớp' : lang === 'ja' ? 'クラス最大4名' : lang === 'es' ? 'Máximo 4 estudiantes por clase' : lang === 'ko' ? '수업당 최대 4명' : 'Maximum 4 students per class'}
             </p>
           </div>
           <div class="bg-surface-1 border border-border rounded-xl p-6 text-center">
             <div class="text-4xl mb-4">🛠️</div>
             <h3 class="font-bold text-primary mb-2">
-              {lang === 'vi' ? 'Bộ dụng cụ đầy đủ' : lang === 'ja' ? '完全なツールキット' : lang === 'es' ? 'Kit completo de herramientas' : lang === 'ko' ? '완전한 도구 키트' : 'Complete Toolkit'}
+              {lang === 'vi' ? 'Bộ Dụng Cụ Đầy Đủ' : lang === 'ja' ? '完全なツールキット' : lang === 'es' ? 'Kit Completo de Herramientas' : lang === 'ko' ? '완전한 도구 키트' : 'Complete Toolkit'}
             </h3>
             <p class="text-sm text-on-surface">
               {lang === 'vi' ? 'Bao gồm tất cả vật tư' : lang === 'ja' ? 'すべての材料を含む' : lang === 'es' ? 'Incluye todos los materiales' : lang === 'ko' ? '모든 재료 포함' : 'All materials included'}
@@ -151,7 +166,7 @@ const trainingList = trainingData.map(training => ({
       </div>
 
       <!-- CTA Section -->
-      <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center">
+      <div class="bg-primary/10 border border-primary rounded-xl p-8 text-center mt-16">
         <h2 class="text-2xl font-bold text-primary mb-4">
           {ctaText[lang]}
         </h2>
@@ -164,7 +179,8 @@ const trainingList = trainingData.map(training => ({
         </p>
         <a 
           href={`/${lang}/booking`}
-          class="inline-block px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors text-lg"
+          class="inline-block px-8 py-4 text-white font-bold rounded-lg transition-all hover:opacity-90 text-lg"
+          style="background-color: var(--color-primary);"
         >
           {ctaButtonText[lang]}
         </a>
