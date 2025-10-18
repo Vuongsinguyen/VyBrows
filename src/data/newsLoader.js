@@ -6,6 +6,7 @@ import news2 from './news/2.json';
 import news3 from './news/3.json';
 import news4 from './news/4.json';
 import news5 from './news/5.json';
+import news6 from './news/6.json';
 
 // Create a map of news data
 const newsData = {
@@ -13,7 +14,8 @@ const newsData = {
   2: news2,
   3: news3,
   4: news4,
-  5: news5
+  5: news5,
+  6: news6
 };
 
 // Get all news articles

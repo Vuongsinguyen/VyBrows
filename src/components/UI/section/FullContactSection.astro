@@ -5,7 +5,9 @@
   <div class="max-w-7xl mx-auto px-6">
     {/** Detect current language from URL **/}
     {(() => {
-      const lang = (Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
+      const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+      const validLangs = ['en', 'vi', 'ja', 'ko', 'es'];
+      const lang = (validLangs.includes(pathParts[0]) ? pathParts[0] : 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
       const labels = {
         en: {
           contact: "Contact Us",
@@ -169,7 +171,9 @@
       <div class="w-full md:w-1/2 flex flex-col rounded-2xl shadow-lg bg-surface">
   <form id="contactForm" class="px-8 py-8 flex flex-col gap-0 flex-1">
           {(() => {
-            const lang = (Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
+            const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+            const validLangs = ['en', 'vi', 'ja', 'ko', 'es'];
+            const lang = (validLangs.includes(pathParts[0]) ? pathParts[0] : 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';
             const labels = {
               en: { name: "Name", email: "Email", phone: "Phone", service: "Subject", selectService: "Enter Subject", message: "Message", submit: "Submit" },
               vi: { name: "Họ tên", email: "Email", phone: "Số điện thoại", service: "Chủ đề", selectService: "Nhập chủ đề", message: "Nội dung", submit: "Gửi" },

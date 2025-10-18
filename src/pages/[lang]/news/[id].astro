@@ -16,7 +16,7 @@ export async function getStaticPaths() {
       paths.push({
         params: { 
           lang: lang,
-          id: newsItem.id.toString()
+          id: newsItem.slug || newsItem.id.toString()
         }
       });
     }
@@ -26,16 +26,15 @@ export async function getStaticPaths() {
 }
 
 const { lang, id } = Astro.params;
-const newsId = parseInt(id!);
 
 // Get all news for related articles
 const allNews = getAllNews();
 
-// Find the news item
-const newsItem = getNewsById(newsId);
+// Find the news item by slug or id
+const newsItem = allNews.find(item => item.slug === id || item.id.toString() === id);
 
 if (!newsItem) {
-  throw new Error(`News item with id ${newsId} not found`);
+  throw new Error(`News item with slug/id ${id} not found`);
 }
 
 // Get translation for current language
@@ -46,10 +45,10 @@ const pageTitle = `${translation.title} - VYBROWS ACADEMY | PMU Studio & Academy
 
 <NewsLayout title={pageTitle}>
   <!-- Hero Header Section - Services Style -->
-  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
+  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-[280px]">
     <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
       <!-- Dynamic Heading -->
-      <h1 class="text-3xl md:text-4xl font-bold mb-8 text-white text-center line-clamp-2" style="font-family: 'Playfair Display', serif;">{translation.title}</h1>
+      <h1 class="text-2xl md:text-3xl font-bold mb-8 text-white text-center line-clamp-2" style="font-family: 'Montserrat', sans-serif;">{translation.title}</h1>
       <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
         {translation.shortDescription}
       </p>
@@ -211,11 +210,11 @@ const pageTitle = `${translation.title} - VYBROWS ACADEMY | PMU Studio & Academy
     <div class="max-w-7xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Related Articles</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {allNews.filter((item: any) => item.id !== newsId).slice(0, 3).map((item: any) => {
+        {allNews.filter((item: any) => item.id !== newsItem.id).slice(0, 3).map((item: any) => {
           const relatedTranslation = item.translations[lang as keyof typeof item.translations] || item.translations.en;
           return (
             <article class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
-              <a href={`/${lang}/news/${item.id}`} class="block h-full">
+              <a href={`/${lang}/news/${item.slug || item.id}`} class="block h-full">
                 <div class="relative overflow-hidden h-48">
                   <img 
                     src={item.mainImage} 

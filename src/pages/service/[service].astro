@@ -32,7 +32,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
 
 <NewsLayout title={serviceLabels[serviceSlug] || 'Service'}>
   <!-- Hero Header Section - Services Style -->
-  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
+  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-40 md:pt-60">
     <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
       <!-- Dynamic Heading -->
       <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Playfair Display', serif;">{serviceLabels[serviceSlug] || 'Our Services'}</h1>

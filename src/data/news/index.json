@@ -1,9 +1,14 @@
 {
   "newsIndex": [
     {
+      "id": 6,
+      "file": "6.json",
+      "featured": true
+    },
+    {
       "id": 1,
       "file": "1.json",
-      "featured": true
+      "featured": false
     },
     {
       "id": 2,

@@ -1,7 +1,7 @@
 ---
 import '/src/styles/color.css';
 import '/src/styles/global.css';
-import PageLayout from '../../../layouts/PageLayout.astro';
+import NewsLayout from '../../../layouts/NewsLayout.astro';
 import servicesData from '../../../content/services.json' assert { type: 'json' };
 
 export const prerender = true;
@@ -20,20 +20,55 @@ export async function getStaticPaths() {
 const lang = Astro.params.lang as 'en' | 'vi' | 'ja' | 'es' | 'ko';
 const serviceSlug = Astro.params.service as string;
 
-// Tạo tocLabels động từ JSON
-const tocLabels = servicesData.reduce((acc, service) => {
+// Create service labels for sidebar
+const serviceLabels = servicesData.reduce((acc, service) => {
   acc[service.slug] = (service.title as any)[lang] || service.title.en;
   return acc;
 }, {} as Record<string, string>);
 
-// Tạo serviceContent động từ JSON
+// Create service content
 const serviceContent = servicesData.reduce((acc, service) => {
   acc[service.slug] = service.description;
   return acc;
 }, {} as Record<string, Record<string, string>>);
 ---
 
-<PageLayout title={tocLabels[serviceSlug] || 'Service'}>
+<NewsLayout title={serviceLabels[serviceSlug] || 'Service'}>
+  <!-- Hero Header Section - Services Style -->
+  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-40 md:pt-60">
+    <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
+      <!-- Dynamic Heading -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Playfair Display', serif;">{serviceLabels[serviceSlug] || 'Our Services'}</h1>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
+        Professional Beauty Services
+      </p>
+    </div>
+    <!-- SVG Wave -->
+    <div class="absolute inset-0 w-full h-full pointer-events-none select-none">
+      <svg class="absolute bottom-0 left-0 w-full h-40" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--color-primary-dark)" fill-opacity="1" d="M0,288L80,272C160,256,320,224,480,197.3C640,171,800,149,960,154.7C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-3">
+      <nav class="flex items-center text-sm text-gray-600">
+        <a href={`/${lang}`} class="hover:text-primary transition-colors">Home</a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href={`/${lang}/service`} class="hover:text-primary transition-colors">Services</a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-gray-900 font-medium">{serviceLabels[serviceSlug]}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
   <div class="w-full bg-surface flex justify-center">
     <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
       <!-- Left Sidebar -->
@@ -61,7 +96,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
           return (
             <>
               {/* Title - Changed from H1 to H2 to avoid duplicate H1 (already have H1 in hero) */}
-              <h2 class="text-3xl font-bold mb-2 text-on-surface">{tocLabels[serviceSlug] ?? serviceSlug}</h2>
+              <h2 class="text-3xl font-bold mb-2 text-on-surface">{serviceLabels[serviceSlug] ?? serviceSlug}</h2>
               
               {/* Subtitle */}
               {currentService?.subtitle && (
@@ -72,7 +107,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
               {currentService?.image && (
                 <img
                   src={currentService.image}
-                  alt={tocLabels[serviceSlug] ?? serviceSlug}
+                  alt={serviceLabels[serviceSlug] ?? serviceSlug}
                   class="w-full rounded-lg shadow-lg mb-6"
                 />
               )}
@@ -89,7 +124,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
                     {lang === 'vi' ? 'Dịch vụ của chúng tôi' : lang === 'ja' ? '私たちのサービス' : lang === 'es' ? 'Nuestros Servicios' : lang === 'ko' ? '우리의 서비스' : 'Our Services'}
                   </h2>
                   {currentService.services.map((service: any) => (
-                    <div class="bg-surface-1 border border-primary/20 rounded-xl p-6">
+                    <div class="bg-surface-1 rounded-xl p-6" style="border: 1px solid rgba(1, 81, 58, 0.1);">
                       <h3 class="text-xl font-bold text-primary mb-3">{service.name}</h3>
                       <p class="text-on-surface mb-4">{service.description}</p>
                       {service.options && service.options.length > 0 && (
@@ -112,7 +147,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
 
               {/* Why Choose Us */}
               {currentService?.whyChooseUs && currentService.whyChooseUs.length > 0 && (
-                <div class="bg-primary/5 border border-primary rounded-xl p-6">
+                <div class="bg-primary/5 rounded-xl p-6" style="border: 1px solid rgba(1, 81, 58, 0.1);">
                   <h2 class="text-2xl font-bold text-primary mb-4">
                     {lang === 'vi' ? 'Tại sao chọn chúng tôi?' : lang === 'ja' ? '私たちを選ぶ理由' : lang === 'es' ? '¿Por qué elegirnos?' : lang === 'ko' ? '왜 우리를 선택해야 할까요?' : 'Why Choose Us?'}
                   </h2>
@@ -129,7 +164,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
 
               {/* Technologies & Equipment (old format fallback) */}
               {currentService?.technologies && (
-                <div class="bg-surface-1 border border-primary rounded-xl p-6">
+                <div class="bg-surface-1 rounded-xl p-6" style="border: 1px solid rgba(1, 81, 58, 0.1);">
                   <h2 class="text-xl font-bold text-primary mb-4">
                     {lang === 'vi' ? 'Công nghệ & Thiết bị' : lang === 'ja' ? '技術・設備' : lang === 'es' ? 'Tecnología y Equipos' : lang === 'ko' ? '기술 및 장비' : 'Technologies & Equipment'}
                   </h2>
@@ -150,7 +185,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
               )}
 
               {/* CTA Section */}
-              <div class="bg-primary/10 border border-primary rounded-xl p-6 text-center">
+              <div class="bg-primary/10 rounded-xl p-6 text-center" style="border: 1px solid rgba(1, 81, 58, 0.1);">
                 <h3 class="text-xl font-bold text-primary mb-2">
                   {currentService?.callToAction ? currentService.callToAction.split('📍')[0] : 
                     (lang === 'vi' ? 'Sẵn sàng trải nghiệm dịch vụ của chúng tôi?' : 
@@ -183,65 +218,6 @@ const serviceContent = servicesData.reduce((acc, service) => {
           );
         })()}
       </main>
-
-      <!-- Sidebar Phải: Contact Form -->
-      <aside class="hidden lg:block w-[220px] bg-surface-1 rounded-lg p-4 text-on-surface shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
-        <form id="contactForm" class="space-y-4">
-          <h2 class="font-bold text-lg mb-2 text-on-surface">
-            {lang === 'vi' ? 'Liên hệ' : lang === 'ja' ? 'お問い合わせ' : lang === 'es' ? 'Contacto' : lang === 'ko' ? '연락처' : 'Contact Us'}
-          </h2>
-          <div>
-            <label class="block text-sm font-medium mb-1" for="name">
-              {lang === 'vi' ? 'Tên' : lang === 'ja' ? '名前' : lang === 'es' ? 'Nombre' : lang === 'ko' ? '이름' : 'Name'}
-            </label>
-            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="text" id="name" name="name" required />
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-1" for="email">
-              Email <span class="text-xs opacity-70">(Optional)</span>
-            </label>
-            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-1" for="phone">
-              {lang === 'vi' ? 'Điện thoại' : lang === 'ja' ? '電話' : lang === 'es' ? 'Teléfono' : lang === 'ko' ? '전화' : 'Phone'}
-            </label>
-            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="tel" id="phone" name="phone" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-1" for="message">
-              {lang === 'vi' ? 'Tin nhắn' : lang === 'ja' ? 'メッセージ' : lang === 'es' ? 'Mensaje' : lang === 'ko' ? '메시지' : 'Message'}
-            </label>
-            <textarea class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" id="message" name="message" rows="4" required></textarea>
-          </div>
-          <input type="hidden" name="subject" value="Contact Form Submission" />
-          <button type="submit" class="w-full rounded-lg p-3 font-semibold shadow-none hover:opacity-90 transition" style="background-color: var(--color-primary); color: var(--color-on-primary);">
-            {lang === 'vi' ? 'Gửi' : lang === 'ja' ? '送信' : lang === 'es' ? 'Enviar' : lang === 'ko' ? '보내기' : 'Send'}
-          </button>
-        </form>
-        <script>
-          (document.getElementById('contactForm') as HTMLFormElement).addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.target as HTMLFormElement;
-            const formData = new FormData(form);
-            const data: Record<string, string> = {};
-            formData.forEach((value, key) => {
-              data[key] = value as string;
-            });
-            try {
-              const response = await fetch('/.netlify/functions/sendMail', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-              });
-              const result = await response.json();
-              alert(result.message);
-            } catch (error) {
-              alert('Error sending message');
-            }
-          });
-        </script>
-      </aside>
     </div>
   </div>
-</PageLayout>
+</NewsLayout>
