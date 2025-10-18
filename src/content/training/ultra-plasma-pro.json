@@ -9,40 +9,168 @@
     "ko": "울트라 플라즈마 프로"
   },
   "description": {
-    "en": "Advanced plasma technology for skin rejuvenation and non-invasive treatments",
-    "vi": "Công nghệ plasma tiên tiến cho trẻ hóa da và điều trị không xâm lấn",
-    "ja": "肌の若返りと非侵襲的治療のための高度なプラズマ技術",
-    "es": "Tecnología de plasma avanzada para rejuvenecimiento de la piel y tratamientos no invasivos",
-    "ko": "피부 젊어짐과 비침습적 치료를 위한 고급 플라즈마 기술"
+    "en": "Revolutionary plasma technology for advanced skin rejuvenation and non-surgical aesthetic treatments",
+    "vi": "Công nghệ plasma cách mạng cho trẻ hóa da tiên tiến và các liệu trình thẩm mỹ không phẫu thuật",
+    "ja": "高度な肌の若返りと非外科的美容治療のための革新的なプラズマ技術",
+    "es": "Tecnología de plasma revolucionaria para rejuvenecimiento avanzado de la piel y tratamientos estéticos no quirúrgicos",
+    "ko": "고급 피부 젊어짐과 비수술적 미용 치료를 위한 혁신적인 플라즈마 기술"
   },
-  "subtitle": "Master Advanced Plasma Technology",
-  "introduction": "Learn to harness the power of Ultra Plasma Pro technology for remarkable skin transformation. This cutting-edge course covers plasma pen techniques for skin tightening, wrinkle reduction, and scar treatment without surgery.",
-  "curriculum": [
-    {
-      "name": "Day 1: Plasma Technology Fundamentals",
-      "description": "Understanding plasma science, safety protocols, and skin assessment techniques"
-    },
-    {
-      "name": "Day 2: Advanced Treatment Techniques",
-      "description": "Master plasma pen techniques for skin tightening, wrinkle reduction, and rejuvenation"
-    },
-    {
-      "name": "Day 3: Specialized Applications & Practice",
-      "description": "Scar treatment, stretch mark removal, and hands-on practice with live models"
-    }
-  ],
-  "whyChooseUs": [
-    "Expert instruction from certified plasma specialists",
-    "Latest Ultra Plasma Pro equipment and technology",
-    "Small class sizes for personalized training",
-    "Comprehensive safety and risk management training",
-    "Lifetime access to updated techniques and protocols"
-  ],
-  "includes": [
-    "Ultra Plasma Pro starter kit",
-    "Training manual and safety guidelines",
-    "3 days of intensive hands-on instruction",
-    "Certificate of completion",
-    "Post-training support and consultation"
-  ]
+  "introduction": {
+    "en": "Discover the future of non-invasive aesthetic treatments with Ultra Plasma Pro training. This advanced certification program teaches you to master cutting-edge plasma pen technology for dramatic skin transformation without surgery. Learn professional techniques for skin tightening, wrinkle reduction, scar removal, and overall skin rejuvenation. Perfect for beauty professionals seeking to offer high-demand, high-margin treatments with minimal downtime for clients.",
+    "vi": "Khám phá tương lai của các liệu trình thẩm mỹ không xâm lấn với đào tạo Ultra Plasma Pro. Chương trình chứng chỉ tiên tiến này dạy bạn làm chủ công nghệ bút plasma tiên tiến để chuyển đổi da đáng kể mà không cần phẫu thuật. Học các kỹ thuật chuyên nghiệp để làm săn chắc da, giảm nếp nhăn, loại bỏ scar và trẻ hóa da tổng thể. Hoàn hảo cho các chuyên gia làm đẹp muốn cung cấp các liệu trình có nhu cầu cao, lợi nhuận cao với thời gian nghỉ dưỡng tối thiểu cho khách hàng.",
+    "ja": "Ultra Plasma Proトレーニングで非侵襲的美容治療の未来を発見してください。この高度な認定プログラムでは、手術なしで劇的な肌の変化をもたらす最先端のプラズマペン技術をマスターします。肌の引き締め、しわの軽減、傷跡の除去、全体的な肌の若返りのためのプロフェッショナルな技術を学びます。クライアントのダウンタイムを最小限に抑えながら、高需要で高利益率の治療を提供したい美容専門家に最適です。",
+    "es": "Descubra el futuro de los tratamientos estéticos no invasivos con la capacitación Ultra Plasma Pro. Este programa de certificación avanzada le enseña a dominar la tecnología de bolígrafo de plasma de vanguardia para una transformación dramática de la piel sin cirugía. Aprenda técnicas profesionales para tensar la piel, reducir arrugas, eliminar cicatrices y rejuvenecer la piel en general. Perfecto para profesionales de la belleza que buscan ofrecer tratamientos de alta demanda y alto margen con tiempo de inactividad mínimo para los clientes.",
+    "ko": "Ultra Plasma Pro 교육으로 비침습적 미용 치료의 미래를 발견하세요. 이 고급 인증 프로그램은 수술 없이 극적인 피부 변화를 위한 최첨단 플라즈마 펜 기술을 마스터하도록 가르칩니다. 피부 탄력, 주름 감소, 흉터 제거 및 전반적인 피부 젊어짐을 위한 전문 기술을 배우세요. 고객의 다운타임을 최소화하면서 수요가 높고 마진이 높은 치료를 제공하려는 뷰티 전문가에게 완벽합니다."
+  },
+  "benefits": {
+    "en": [
+      "Non-surgical alternative with minimal client downtime",
+      "High-demand treatment with excellent profit margins",
+      "Versatile applications for multiple skin concerns",
+      "Safe and effective for all skin types",
+      "Immediate visible results that build client loyalty",
+      "Low ongoing operational costs",
+      "Advanced technology that sets you apart from competitors",
+      "Growing market with increasing client awareness"
+    ],
+    "vi": [
+      "Thay thế không phẫu thuật với thời gian nghỉ dưỡng tối thiểu",
+      "Liệu trình có nhu cầu cao với lợi nhuận tuyệt vời",
+      "Ứng dụng đa năng cho nhiều vấn đề về da",
+      "An toàn và hiệu quả cho mọi loại da",
+      "Kết quả nhìn thấy ngay lập tức xây dựng lòng trung thành của khách hàng",
+      "Chi phí vận hành liên tục thấp",
+      "Công nghệ tiên tiến giúp bạn khác biệt với đối thủ",
+      "Thị trường đang phát triển với nhận thức khách hàng ngày càng tăng"
+    ],
+    "ja": [
+      "クライアントのダウンタイムが最小限の非外科的代替手段",
+      "優れた利益率を持つ高需要治療",
+      "複数の肌の悩みに対する多目的なアプリケーション",
+      "すべての肌タイプに安全で効果的",
+      "クライアントのロイヤリティを構築する即座の目に見える結果",
+      "低い継続的な運用コスト",
+      "競合他社と差別化する高度な技術",
+      "クライアントの認識が高まる成長市場"
+    ],
+    "es": [
+      "Alternativa no quirúrgica con tiempo de inactividad mínimo del cliente",
+      "Tratamiento de alta demanda con excelentes márgenes de beneficio",
+      "Aplicaciones versátiles para múltiples preocupaciones de la piel",
+      "Seguro y efectivo para todo tipo de piel",
+      "Resultados visibles inmediatos que generan lealtad del cliente",
+      "Bajos costos operativos continuos",
+      "Tecnología avanzada que lo distingue de los competidores",
+      "Mercado en crecimiento con creciente conciencia del cliente"
+    ],
+    "ko": [
+      "최소한의 고객 다운타임을 가진 비수술적 대안",
+      "우수한 이익률을 가진 수요가 높은 치료",
+      "여러 피부 문제에 대한 다목적 적용",
+      "모든 피부 유형에 안전하고 효과적",
+      "고객 충성도를 구축하는 즉각적인 가시적 결과",
+      "낮은 지속적인 운영 비용",
+      "경쟁자와 차별화되는 고급 기술",
+      "고객 인식이 증가하는 성장 시장"
+    ]
+  },
+  "features": {
+    "en": [
+      "Comprehensive plasma technology theory and principles",
+      "Advanced skin assessment and client consultation techniques",
+      "Professional plasma pen handling and precision control",
+      "Skin tightening and lifting protocols for face and body",
+      "Wrinkle reduction and fine line treatment methods",
+      "Scar revision and stretch mark improvement techniques",
+      "Safety protocols, contraindications, and risk management",
+      "Post-treatment care and client aftercare guidance"
+    ],
+    "vi": [
+      "Lý thuyết và nguyên lý công nghệ plasma toàn diện",
+      "Kỹ thuật đánh giá da và tư vấn khách hàng tiên tiến",
+      "Xử lý bút plasma chuyên nghiệp và kiểm soát chính xác",
+      "Quy trình làm săn chắc và nâng da cho mặt và cơ thể",
+      "Phương pháp giảm nếp nhăn và điều trị nếp nhăn nhỏ",
+      "Kỹ thuật sửa scar và cải thiện vết rạn da",
+      "Quy trình an toàn, chống chỉ định và quản lý rủi ro",
+      "Chăm sóc sau điều trị và hướng dẫn chăm sóc khách hàng"
+    ],
+    "ja": [
+      "包括的なプラズマ技術の理論と原理",
+      "高度な肌評価とクライアントコンサルテーション技術",
+      "プロフェッショナルなプラズマペンの取り扱いと精密制御",
+      "顔と体の肌の引き締めとリフティングプロトコル",
+      "しわの軽減と細かい線の治療方法",
+      "傷跡修正とストレッチマーク改善技術",
+      "安全プロトコル、禁忌、リスク管理",
+      "治療後のケアとクライアントのアフターケアガイダンス"
+    ],
+    "es": [
+      "Teoría y principios integrales de la tecnología de plasma",
+      "Técnicas avanzadas de evaluación de la piel y consulta con el cliente",
+      "Manejo profesional del bolígrafo de plasma y control de precisión",
+      "Protocolos de tensado y elevación de la piel para cara y cuerpo",
+      "Métodos de reducción de arrugas y tratamiento de líneas finas",
+      "Técnicas de revisión de cicatrices y mejora de estrías",
+      "Protocolos de seguridad, contraindicaciones y gestión de riesgos",
+      "Cuidado posterior al tratamiento y orientación de cuidado posterior del cliente"
+    ],
+    "ko": [
+      "포괄적인 플라즈마 기술 이론 및 원리",
+      "고급 피부 평가 및 고객 상담 기술",
+      "전문 플라즈마 펜 핸들링 및 정밀 제어",
+      "얼굴 및 신체를 위한 피부 타이트닝 및 리프팅 프로토콜",
+      "주름 감소 및 미세 선 치료 방법",
+      "흉터 수정 및 스트레치 마크 개선 기술",
+      "안전 프로토콜, 금기 사항 및 위험 관리",
+      "치료 후 관리 및 고객 사후 관리 지침"
+    ]
+  },
+  "includes": {
+    "en": [
+      "Professional Ultra Plasma Pro training kit with essential tools",
+      "Comprehensive training manual and digital resources",
+      "Intensive hands-on practice with expert instructors",
+      "Safety guidelines and treatment protocols documentation",
+      "Industry-recognized certification upon completion",
+      "Marketing materials and client consultation templates",
+      "Ongoing technical support and updates on new techniques"
+    ],
+    "vi": [
+      "Bộ kit đào tạo Ultra Plasma Pro chuyên nghiệp với các công cụ thiết yếu",
+      "Sổ tay đào tạo toàn diện và tài nguyên kỹ thuật số",
+      "Thực hành chuyên sâu với các giảng viên chuyên gia",
+      "Tài liệu hướng dẫn an toàn và quy trình điều trị",
+      "Chứng chỉ được công nhận trong ngành khi hoàn thành",
+      "Tài liệu marketing và mẫu tư vấn khách hàng",
+      "Hỗ trợ kỹ thuật liên tục và cập nhật về các kỹ thuật mới"
+    ],
+    "ja": [
+      "必須ツールを含むプロフェッショナルなUltra Plasma Proトレーニングキット",
+      "包括的なトレーニングマニュアルとデジタルリソース",
+      "専門インストラクターによる集中実習",
+      "安全ガイドラインと治療プロトコルのドキュメント",
+      "修了時に業界で認められた認定証",
+      "マーケティング資料とクライアントコンサルテーションテンプレート",
+      "継続的な技術サポートと新技術のアップデート"
+    ],
+    "es": [
+      "Kit de capacitación profesional Ultra Plasma Pro con herramientas esenciales",
+      "Manual de capacitación integral y recursos digitales",
+      "Práctica intensiva con instructores expertos",
+      "Documentación de pautas de seguridad y protocolos de tratamiento",
+      "Certificación reconocida por la industria al finalizar",
+      "Materiales de marketing y plantillas de consulta con el cliente",
+      "Soporte técnico continuo y actualizaciones sobre nuevas técnicas"
+    ],
+    "ko": [
+      "필수 도구가 포함된 전문 Ultra Plasma Pro 교육 키트",
+      "포괄적인 교육 매뉴얼 및 디지털 리소스",
+      "전문 강사와 함께하는 집중 실습",
+      "안전 지침 및 치료 프로토콜 문서",
+      "완료 시 업계에서 인정하는 인증",
+      "마케팅 자료 및 고객 상담 템플릿",
+      "지속적인 기술 지원 및 새로운 기술 업데이트"
+    ]
+  }
 }

@@ -1,29 +1,102 @@
 ---
 import '/src/styles/color.css';
 import '/src/styles/global.css';
-import PageLayout from '../../../layouts/PageLayout.astro';
+import NewsLayout from '../../../layouts/NewsLayout.astro';
 import aboutUsData from '../../../content/about-us.json' assert { type: 'json' };
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ['en', 'vi', 'ja'];
+  const langs = ['en', 'vi', 'ja', 'es', 'ko'];
   return langs.flatMap(lang => aboutUsData.sections.map(section => ({ params: { lang, section: section.id } })));
 }
-const lang = Astro.params.lang as 'en' | 'vi' | 'ja';
+const lang = Astro.params.lang as string;
 const sectionId = Astro.params.section as string;
 
-// Tìm section hiện tại
+// Find current section
 const currentSection = aboutUsData.sections.find(section => section.id === sectionId);
 
-// Tạo tocLabels động từ JSON
-const tocLabels = aboutUsData.sections.reduce((acc, section) => {
-  acc[section.id] = section.title[lang] || section.title.en;
+// Create section labels for sidebar
+const sectionLabels = aboutUsData.sections.reduce((acc, section) => {
+  acc[section.id] = (section.title as any)[lang] || section.title.en;
   return acc;
 }, {} as Record<string, string>);
+
+// CEO Message HTML component
+const ceoMessageHTML = `
+<div class="bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg p-8 border-l-4 border-primary shadow-sm" style="border-left-color: var(--color-primary);">
+  <h3 class="text-2xl font-bold mb-6" style="color: var(--color-primary);">Message from Our CEO</h3>
+  <div class="flex flex-col md:flex-row gap-6 items-start">
+    <div class="flex-shrink-0">
+      <img 
+        src="/images/mem03.avif" 
+        alt="Vy Nguyen - CEO & Founder" 
+        class="w-32 h-32 rounded-full object-cover shadow-lg"
+        style="border: 1px solid var(--color-primary);"
+      />
+    </div>
+    <div class="flex-1">
+      <p class="italic text-lg text-gray-700 leading-relaxed mb-4">
+        "At VyBrows Academy, we are committed to excellence in permanent makeup artistry and training. 
+        Our mission is to empower artists with the skills and confidence to create natural, stunning results 
+        that enhance beauty and transform lives."
+      </p>
+      <div class="text-right">
+        <p class="font-bold text-lg" style="color: var(--color-primary);">Vy Nguyen</p>
+        <p class="text-gray-600 text-sm">Founder & CEO, VyBrows Academy</p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+// Insert CEO message only in "Why Choose Us" page - before "20+ Years of Proven Excellence"
+let contentWithCEO = (currentSection?.content as any)?.[lang] || currentSection?.content.en || '';
+if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.includes('Hơn 13 Năm Xuất Sắc') || contentWithCEO.includes('13年以上の実証された卓越性')) {
+  contentWithCEO = contentWithCEO.replace(
+    /<div class="bg-gradient-to-r from-amber-50/,
+    ceoMessageHTML + '<div class="bg-gradient-to-r from-amber-50'
+  );
+}
 ---
 
-<PageLayout title={currentSection ? (currentSection.title[lang] || currentSection.title.en) : 'About Us'}>
+<NewsLayout title={currentSection ? ((currentSection.title as any)[lang] || currentSection.title.en) : 'About Us'}>
+  <!-- Hero Header Section - Services Style -->
+  <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-40 md:pt-60">
+    <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
+      <!-- Dynamic Heading -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Playfair Display', serif;">
+        {currentSection ? ((currentSection.title as any)[lang] || currentSection.title.en) : 'About Us'}
+      </h1>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
+        Learn more about VyBrows Academy
+      </p>
+    </div>
+    <!-- SVG Wave -->
+    <div class="absolute inset-0 w-full h-full pointer-events-none select-none">
+      <svg class="absolute bottom-0 left-0 w-full h-40" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--color-primary-dark)" fill-opacity="1" d="M0,288L80,272C160,256,320,224,480,197.3C640,171,800,149,960,154.7C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-3">
+      <nav class="flex items-center text-sm text-gray-600">
+        <a href={`/${lang}`} class="hover:text-primary transition-colors">Home</a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href={`/${lang}/about-us`} class="hover:text-primary transition-colors">About Us</a>
+        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-gray-900 font-medium">{currentSection ? ((currentSection.title as any)[lang] || currentSection.title.en) : 'Section'}</span>
+      </nav>
+    </div>
+  </div>
+
   <div class="w-full bg-surface flex justify-center">
     <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
       <!-- Left Sidebar -->
@@ -37,7 +110,7 @@ const tocLabels = aboutUsData.sections.reduce((acc, section) => {
                 style={section.id === sectionId ? 'color: var(--color-primary);' : 'color: rgba(0, 0, 0, 0.7);'}
               >
                 <img src="/images/diamond.svg" alt="" class="w-8 h-8 flex-shrink-0" />
-                <span>{section.title[lang] || section.title.en}</span>
+                <span>{(section.title as any)[lang] || section.title.en}</span>
               </a>
             </li>
           ))}
@@ -48,36 +121,90 @@ const tocLabels = aboutUsData.sections.reduce((acc, section) => {
       <main class="flex-1 space-y-12 order-2">
         {currentSection ? (
           <>
-            <h1 class="text-3xl font-bold mb-4 text-on-surface">{currentSection.title[lang] || currentSection.title.en}</h1>
-            <div class="prose prose-lg max-w-none text-on-surface" set:html={currentSection.content[lang] || currentSection.content.en}></div>
+            <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8">
+              {/* Content */}
+              <div class="prose prose-lg max-w-none text-on-surface" set:html={contentWithCEO}></div>
+            </div>
+
+            {/* Navigation to Other Sections */}
+            <div class="bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg p-6">
+              <h3 class="text-lg font-bold text-primary mb-4">Explore More About Us</h3>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {aboutUsData.sections.filter(section => section.id !== sectionId).slice(0, 3).map((section) => (
+                  <a 
+                    href={`/${lang}/about-us/${section.id}`}
+                    class="block p-4 bg-white rounded-lg border border-gray-200 hover:border-primary hover:shadow-md transition-all duration-300 group"
+                  >
+                    <h4 class="font-semibold text-primary group-hover:text-primary-dark transition-colors mb-2">
+                      {(section.title as any)[lang] || section.title.en}
+                    </h4>
+                    <p class="text-sm text-gray-600 line-clamp-2">
+                      Learn more about this aspect of VyBrows Academy...
+                    </p>
+                    <div class="flex items-center text-primary text-xs font-medium mt-2 group-hover:gap-1 transition-all duration-300">
+                      <span>Read More</span>
+                      <svg class="w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Call to Action */}
+            <div class="bg-primary/10 border border-primary rounded-xl p-6 text-center">
+              <h3 class="text-xl font-bold text-primary mb-2">Ready to Start Your Journey?</h3>
+              <p class="text-on-surface mb-4">
+                Join VyBrows Academy and discover the art of permanent makeup with our expert training programs.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href={`/${lang}/contact`}
+                  class="inline-block px-8 py-3 font-semibold rounded-lg transition-colors"
+                  style="background: var(--color-primary); color: #ffffff;"
+                >
+                  Contact Us
+                </a>
+                <a 
+                  href={`/${lang}/training`}
+                  class="inline-block px-8 py-3 font-semibold rounded-lg transition-colors hover:bg-opacity-10"
+                  style="border: 2px solid var(--color-primary); color: var(--color-primary);"
+                >
+                  View Training
+                </a>
+              </div>
+            </div>
           </>
         ) : (
           <div class="text-center py-12">
-            <h1 class="text-2xl font-bold text-on-surface mb-4">{lang === 'vi' ? 'Không tìm thấy trang' : lang === 'ja' ? 'ページが見つかりません' : 'Page Not Found'}</h1>
-            <p class="text-on-surface">{lang === 'vi' ? 'Trang bạn tìm kiếm không tồn tại.' : lang === 'ja' ? 'お探しのページは存在しません。' : 'The page you are looking for does not exist.'}</p>
+            <h1 class="text-2xl font-bold text-gray-600 mb-4">Section Not Found</h1>
+            <p class="text-gray-500 mb-6">The requested section could not be found.</p>
+            <a 
+              href={`/${lang}/about-us`}
+              class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
+            >
+              Return to About Us
+            </a>
           </div>
         )}
       </main>
-
-      <!-- Sidebar Phải: Contact Form -->
-      <aside class="hidden lg:block w-[220px] bg-surface-1 rounded-lg p-4 text-on-surface shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
-        <form class="space-y-4">
-          <h2 class="font-bold text-lg mb-2 text-on-surface">Contact Us</h2>
-          <div>
-            <label class="block text-sm font-medium mb-1" for="name">Name</label>
-            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="text" id="name" name="name" required />
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-1" for="email">Email</label>
-            <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" required />
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-1" for="message">Message</label>
-            <textarea class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" id="message" name="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="w-full bg-primary text-on-primary rounded-lg p-3 font-semibold shadow-none hover:opacity-90 transition">Send</button>
-        </form>
-      </aside>
     </div>
   </div>
-</PageLayout>
+</NewsLayout>
+
+<style>
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

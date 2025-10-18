@@ -1,37 +1,133 @@
 ---
 import '/src/styles/color.css';
 import '/src/styles/global.css';
-import NewsLayout from '../../layouts/NewsLayout.astro';
-import trainingData from '../../data/trainingLoader.js';
+import NewsLayout from '../../../layouts/NewsLayout.astro';
+import trainingData from '../../../data/trainingLoader.js';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  return trainingData.map(training => ({ 
-    params: { 
-      slug: training.slug 
-    } 
-  }));
+  const languages = ['vi', 'ja', 'es', 'ko'];
+  const paths: any[] = [];
+  
+  languages.forEach(lang => {
+    trainingData.forEach(training => {
+      paths.push({
+        params: { lang, slug: training.slug }
+      });
+    });
+  });
+  
+  return paths;
 }
 
-const lang = 'en'; // English version without prefix
-const trainingSlug = Astro.params.slug as string;
+const { lang, slug: trainingSlug } = Astro.params;
 
 // Create training titles for sidebar
 const trainingTitles = trainingData.reduce((acc, training) => {
-  acc[training.slug] = training.title.en;
+  acc[training.slug] = (training.title as any)[lang] || training.title.en;
   return acc;
 }, {} as Record<string, string>);
+
+// Language-specific text
+const translations = {
+  vi: {
+    home: 'Trang chủ',
+    training: 'Đào tạo',
+    professionalTraining: 'Chương trình đào tạo chuyên nghiệp',
+    curriculum: 'Chương trình học',
+    whatsIncluded: 'Bao gồm',
+    whyChooseUs: 'Tại sao chọn chúng tôi?',
+    exploreMore: 'Khám phá thêm các chương trình đào tạo',
+    learnMore: 'Tìm hiểu thêm',
+    readyToStart: 'Sẵn sàng bắt đầu hành trình?',
+    readyDescription: 'Liên hệ với chúng tôi ngay hôm nay để đăng ký khóa học này và nhận tư vấn chi tiết.',
+    contactNow: 'Liên hệ ngay',
+    contactUs: 'Liên hệ với chúng tôi',
+    name: 'Họ tên',
+    email: 'Email',
+    optional: '(Tùy chọn)',
+    phone: 'Số điện thoại',
+    message: 'Tin nhắn',
+    messagePlaceholder: 'Cho chúng tôi biết về mục tiêu đào tạo của bạn...',
+    sendMessage: 'Gửi tin nhắn'
+  },
+  ja: {
+    home: 'ホーム',
+    training: 'トレーニング',
+    professionalTraining: 'プロフェッショナルトレーニングプログラム',
+    curriculum: 'カリキュラム',
+    whatsIncluded: '含まれるもの',
+    whyChooseUs: '選ばれる理由',
+    exploreMore: 'その他のトレーニングプログラムを探す',
+    learnMore: '詳細を見る',
+    readyToStart: '始める準備はできましたか？',
+    readyDescription: '今すぐお問い合わせいただき、このコースに登録して詳細な相談を受けてください。',
+    contactNow: 'お問い合わせ',
+    contactUs: 'お問い合わせ',
+    name: 'お名前',
+    email: 'メール',
+    optional: '（任意）',
+    phone: '電話番号',
+    message: 'メッセージ',
+    messagePlaceholder: 'トレーニングの目標についてお聞かせください...',
+    sendMessage: 'メッセージを送信'
+  },
+  es: {
+    home: 'Inicio',
+    training: 'Capacitación',
+    professionalTraining: 'Programa de capacitación profesional',
+    curriculum: 'Plan de estudios',
+    whatsIncluded: 'Qué incluye',
+    whyChooseUs: '¿Por qué elegirnos?',
+    exploreMore: 'Explorar más programas de capacitación',
+    learnMore: 'Más información',
+    readyToStart: '¿Listo para comenzar tu viaje?',
+    readyDescription: 'Contáctenos hoy para inscribirse en este curso y recibir una consulta detallada.',
+    contactNow: 'Contáctenos ahora',
+    contactUs: 'Contáctenos',
+    name: 'Nombre',
+    email: 'Correo electrónico',
+    optional: '(Opcional)',
+    phone: 'Teléfono',
+    message: 'Mensaje',
+    messagePlaceholder: 'Cuéntanos sobre tus objetivos de capacitación...',
+    sendMessage: 'Enviar mensaje'
+  },
+  ko: {
+    home: '홈',
+    training: '교육',
+    professionalTraining: '전문 교육 프로그램',
+    curriculum: '커리큘럼',
+    whatsIncluded: '포함 사항',
+    whyChooseUs: '선택해야 하는 이유',
+    exploreMore: '더 많은 교육 프로그램 탐색',
+    learnMore: '자세히 보기',
+    readyToStart: '시작할 준비가 되셨나요?',
+    readyDescription: '오늘 저희에게 연락하여 이 과정에 등록하고 자세한 상담을 받으세요.',
+    contactNow: '지금 문의하기',
+    contactUs: '문의하기',
+    name: '이름',
+    email: '이메일',
+    optional: '(선택사항)',
+    phone: '전화번호',
+    message: '메시지',
+    messagePlaceholder: '교육 목표에 대해 알려주세요...',
+    sendMessage: '메시지 보내기'
+  }
+};
+
+const t = (translations as any)[lang] || translations.vi;
 ---
 
-<NewsLayout title={trainingTitles[trainingSlug] || 'Training'}>
+<NewsLayout title={trainingTitles[trainingSlug] || t.training}>
   <!-- Hero Header Section - Services Style -->
   <section class="relative bg-gradient-to-b from-[var(--color-primary-dark)] to-black pb-12 pt-60">
     <div class="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col items-center text-left pt-16">
       <!-- Dynamic Heading -->
-      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Montserrat', sans-serif;">{trainingTitles[trainingSlug] || 'Training'}</h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center" style="font-family: 'Montserrat', sans-serif;">{trainingTitles[trainingSlug] || t.training}</h1>
       <p class="text-xl text-white/90 max-w-2xl mx-auto text-center mb-8">
-        Professional Training Program
+        {t.professionalTraining}
       </p>
     </div>
     <!-- SVG Wave -->
@@ -45,11 +141,11 @@ const trainingTitles = trainingData.reduce((acc, training) => {
   <div class="bg-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <nav class="flex items-center text-sm text-gray-600">
-        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <a href={`/${lang}`} class="hover:text-primary transition-colors">{t.home}</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
-        <a href="/training" class="hover:text-primary transition-colors">Training</a>
+        <a href={`/${lang}/training`} class="hover:text-primary transition-colors">{t.training}</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
@@ -66,12 +162,12 @@ const trainingTitles = trainingData.reduce((acc, training) => {
           {trainingData.map((training, index) => (
             <li>
               <a 
-                href={`/training/${training.slug}`} 
+                href={`/${lang}/training/${training.slug}`} 
                 class={`block rounded-none px-3 py-2 font-normal transition-colors flex items-center gap-2 ${training.slug === trainingSlug ? 'font-semibold' : 'hover:text-primary'}`}
                 style={training.slug === trainingSlug ? 'color: var(--color-primary);' : 'color: rgba(0, 0, 0, 0.7);'}
               >
                 <img src="/images/diamond.svg" alt="" class="w-8 h-8 flex-shrink-0" />
-                <span>{training.title.en}</span>
+                <span>{(training.title as any)[lang] || training.title.en}</span>
               </a>
             </li>
           ))}
@@ -91,7 +187,7 @@ const trainingTitles = trainingData.reduce((acc, training) => {
                 {/* Subtitle */}
                 {currentTraining?.subtitle && (
                   <p class="text-xl text-primary font-semibold mb-6">
-                    {typeof currentTraining.subtitle === 'object' ? currentTraining.subtitle[lang] : currentTraining.subtitle}
+                    {typeof currentTraining.subtitle === 'object' ? (currentTraining.subtitle as any)[lang] || currentTraining.subtitle.en : currentTraining.subtitle}
                   </p>
                 )}
 
@@ -107,7 +203,7 @@ const trainingTitles = trainingData.reduce((acc, training) => {
                 {/* Introduction */}
                 {currentTraining?.introduction && (
                   <p class="text-lg text-on-surface mb-6 leading-relaxed">
-                    {typeof currentTraining.introduction === 'object' ? currentTraining.introduction[lang] : currentTraining.introduction}
+                    {typeof currentTraining.introduction === 'object' ? (currentTraining.introduction as any)[lang] || currentTraining.introduction.en : currentTraining.introduction}
                   </p>
                 )}
 
@@ -115,12 +211,12 @@ const trainingTitles = trainingData.reduce((acc, training) => {
                 {currentTraining?.benefits && (
                   <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-400 rounded-xl p-6 mb-8">
                     <h2 class="text-2xl font-bold text-green-800 mb-4">
-                      ✓ Key Benefits
+                      ✓ {lang === 'vi' ? 'Lợi ích chính' : lang === 'ja' ? '主な利点' : lang === 'es' ? 'Beneficios clave' : lang === 'ko' ? '주요 이점' : 'Key Benefits'}
                     </h2>
                     <ul class="space-y-3">
                       {(() => {
                         const benefitsData = typeof currentTraining.benefits === 'object' && !Array.isArray(currentTraining.benefits) 
-                          ? currentTraining.benefits[lang] 
+                          ? (currentTraining.benefits as any)[lang] || currentTraining.benefits.en
                           : currentTraining.benefits;
                         return (benefitsData || []).map((item: string) => (
                           <li class="flex items-start gap-3">
@@ -137,12 +233,12 @@ const trainingTitles = trainingData.reduce((acc, training) => {
                 {currentTraining?.features && (
                   <div class="bg-primary/5 border border-primary/20 rounded-xl p-6 mb-8">
                     <h2 class="text-2xl font-bold text-primary mb-4">
-                      📚 What You'll Learn
+                      📚 {lang === 'vi' ? 'Bạn sẽ học được gì' : lang === 'ja' ? '学ぶ内容' : lang === 'es' ? 'Lo que aprenderás' : lang === 'ko' ? '배울 내용' : 'What You\'ll Learn'}
                     </h2>
                     <ul class="space-y-3">
                       {(() => {
                         const featuresData = typeof currentTraining.features === 'object' && !Array.isArray(currentTraining.features) 
-                          ? currentTraining.features[lang] 
+                          ? (currentTraining.features as any)[lang] || currentTraining.features.en
                           : currentTraining.features;
                         return (featuresData || []).map((item: string) => (
                           <li class="flex items-start gap-3">
@@ -159,12 +255,12 @@ const trainingTitles = trainingData.reduce((acc, training) => {
                 {currentTraining?.includes && (
                   <div class="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-400 rounded-xl p-6 mb-8">
                     <h2 class="text-2xl font-bold text-blue-800 mb-4">
-                      🎁 What's Included
+                      🎁 {t.whatsIncluded}
                     </h2>
                     <ul class="space-y-3">
                       {(() => {
                         const includesData = typeof currentTraining.includes === 'object' && !Array.isArray(currentTraining.includes) 
-                          ? currentTraining.includes[lang] 
+                          ? (currentTraining.includes as any)[lang] || currentTraining.includes.en
                           : currentTraining.includes;
                         return (includesData || []).map((item: string) => (
                           <li class="flex items-start gap-3">

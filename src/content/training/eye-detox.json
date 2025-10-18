@@ -9,36 +9,121 @@
     "ko": "아이 디톡스 트리트먼트"
   },
   "description": {
-    "en": "Specialized training in advanced eye area detoxification and rejuvenation techniques",
-    "vi": "Đào tạo chuyên sâu về kỹ thuật thải độc và trẻ hóa vùng mắt tiên tiến",
-    "ja": "高度な目元のデトックスと若返り技術の専門トレーニング",
-    "es": "Capacitación especializada en técnicas avanzadas de desintoxicación y rejuvenecimiento del área ocular",
-    "ko": "고급 눈가 디톡스 및 젊어짐 기술에 대한 전문 교육"
+    "en": "Advanced eye detoxification technique for reducing puffiness, dark circles, and rejuvenating the eye area",
+    "vi": "Kỹ thuật thải độc mắt tiên tiến giúp giảm bọng mắt, quầng thâm và trẻ hóa vùng mắt",
+    "ja": "目の周りのむくみ、クマを軽減し、若返りを促す高度なアイデトックス技術",
+    "es": "Técnica avanzada de desintoxicación ocular para reducir hinchazón, ojeras y rejuvenecer el área de los ojos",
+    "ko": "부기, 다크서클을 줄이고 눈가를 젊어지게 하는 고급 눈 디톡스 기술"
   },
-  "subtitle": "Advanced Eye Area Rejuvenation",
-  "introduction": "Master the art of eye detox treatments to address dark circles, puffiness, and signs of aging around the delicate eye area. This specialized course combines traditional techniques with modern innovations for exceptional results.",
-  "curriculum": [
-    {
-      "name": "Day 1: Eye Area Anatomy & Assessment",
-      "description": "Understanding delicate eye anatomy, common concerns, and professional assessment techniques"
-    },
-    {
-      "name": "Day 2: Advanced Treatment Protocols",
-      "description": "Hands-on training in detox techniques, lymphatic drainage, and rejuvenation methods with live practice"
-    }
-  ],
-  "whyChooseUs": [
-    "Specialized focus on the delicate eye area",
-    "Proven techniques for visible results",
-    "Expert instructors with years of experience",
-    "Comprehensive product knowledge and application",
-    "Safe, effective protocols for all skin types"
-  ],
-  "includes": [
-    "Professional eye detox treatment kit",
-    "Detailed training manual with protocols",
-    "2 days of hands-on practice",
-    "Certificate of completion",
-    "Access to professional-grade products at wholesale prices"
-  ]
+  "introduction": {
+    "en": "Eye Detox Treatment is a revolutionary, non-invasive technique designed to address common eye area concerns. This specialized training teaches you how to effectively reduce puffiness, minimize dark circles, and promote lymphatic drainage around the delicate eye area. Perfect for beauty professionals looking to add a high-demand service with minimal equipment investment and fast results for clients.",
+    "vi": "Điều Trị Thải Độc Mắt là kỹ thuật không xâm lấn mang tính cách mạng, được thiết kế để giải quyết các vấn đề phổ biến ở vùng mắt. Khóa đào tạo chuyên biệt này sẽ dạy bạn cách giảm bọng mắt hiệu quả, giảm thiểu quầng thâm và thúc đẩy dẫn lưu bạch huyết quanh vùng mắt nhạy cảm. Hoàn hảo cho các chuyên gia làm đẹp muốn bổ sung dịch vụ có nhu cầu cao với chi phí thiết bị tối thiểu và kết quả nhanh cho khách hàng.",
+    "ja": "アイデトックストリートメントは、目の周りの一般的な悩みに対処するために設計された革新的な非侵襲的技術です。この専門トレーニングでは、むくみを効果的に減らし、クマを最小限に抑え、繊細な目の周りのリンパドレナージュを促進する方法を学びます。最小限の機器投資で、クライアントに迅速な結果をもたらす高需要サービスを追加したい美容専門家に最適です。",
+    "es": "El Tratamiento de Desintoxicación Ocular es una técnica revolucionaria y no invasiva diseñada para abordar las preocupaciones comunes del área de los ojos. Esta capacitación especializada le enseña cómo reducir eficazmente la hinchazón, minimizar las ojeras y promover el drenaje linfático alrededor del delicado área ocular. Perfecto para profesionales de la belleza que buscan agregar un servicio de alta demanda con inversión mínima en equipos y resultados rápidos para los clientes.",
+    "ko": "아이 디톡스 트리트먼트는 일반적인 눈가 문제를 해결하기 위해 설계된 혁신적이고 비침습적인 기술입니다. 이 전문 교육은 부기를 효과적으로 줄이고 다크서클을 최소화하며 민감한 눈가 주변의 림프 배출을 촉진하는 방법을 가르칩니다. 최소한의 장비 투자로 고객에게 빠른 결과를 제공하는 수요가 높은 서비스를 추가하려는 미용 전문가에게 완벽합니다."
+  },
+  "benefits": {
+    "en": [
+      "Non-invasive treatment suitable for all skin types",
+      "Immediate visible results that clients love",
+      "Minimal equipment investment required",
+      "Quick treatment time - perfect for busy schedules",
+      "High client satisfaction and repeat bookings",
+      "Easy to learn and master technique",
+      "Can be combined with other facial treatments",
+      "Natural approach to eye area rejuvenation"
+    ],
+    "vi": [
+      "Phương pháp điều trị không xâm lấn phù hợp với mọi loại da",
+      "Kết quả nhìn thấy ngay lập tức mà khách hàng yêu thích",
+      "Đầu tư thiết bị tối thiểu",
+      "Thời gian điều trị nhanh - hoàn hảo cho lịch trình bận rộn",
+      "Sự hài lòng cao của khách hàng và đặt lịch tái diễn",
+      "Kỹ thuật dễ học và làm chủ",
+      "Có thể kết hợp với các liệu trình chăm sóc da mặt khác",
+      "Cách tiếp cận tự nhiên để trẻ hóa vùng mắt"
+    ],
+    "ja": [
+      "あらゆる肌タイプに適した非侵襲的トリートメント",
+      "クライアントが喜ぶ即座の目に見える結果",
+      "最小限の機器投資で済む",
+      "短い施術時間 - 忙しいスケジュールに最適",
+      "高いクライアント満足度とリピート予約",
+      "習得しやすい技術",
+      "他のフェイシャルトリートメントと組み合わせ可能",
+      "目元の若返りへの自然なアプローチ"
+    ],
+    "es": [
+      "Tratamiento no invasivo adecuado para todo tipo de piel",
+      "Resultados visibles inmediatos que los clientes adoran",
+      "Inversión mínima en equipo requerida",
+      "Tiempo de tratamiento rápido - perfecto para horarios ocupados",
+      "Alta satisfacción del cliente y reservas repetidas",
+      "Técnica fácil de aprender y dominar",
+      "Se puede combinar con otros tratamientos faciales",
+      "Enfoque natural para el rejuvenecimiento del área ocular"
+    ],
+    "ko": [
+      "모든 피부 타입에 적합한 비침습적 트리트먼트",
+      "고객이 좋아하는 즉각적인 가시적 결과",
+      "최소한의 장비 투자 필요",
+      "빠른 치료 시간 - 바쁜 일정에 완벽",
+      "높은 고객 만족도 및 재예약",
+      "배우고 마스터하기 쉬운 기술",
+      "다른 페이셜 트리트먼트와 결합 가능",
+      "눈가 젊어지게 하는 자연스러운 접근법"
+    ]
+  },
+  "features": {
+    "en": [
+      "Comprehensive training on eye area anatomy and physiology",
+      "Professional lymphatic drainage techniques",
+      "Hands-on practice with real models",
+      "Step-by-step application protocols",
+      "Client consultation and assessment methods",
+      "Safety guidelines and contraindications",
+      "Marketing tips for this high-demand service",
+      "Ongoing support and guidance from expert instructors"
+    ],
+    "vi": [
+      "Đào tạo toàn diện về giải phẫu và sinh lý vùng mắt",
+      "Kỹ thuật dẫn lưu bạch huyết chuyên nghiệp",
+      "Thực hành với mô hình thật",
+      "Quy trình thực hiện từng bước chi tiết",
+      "Phương pháp tư vấn và đánh giá khách hàng",
+      "Hướng dẫn an toàn và chống chỉ định",
+      "Mẹo marketing cho dịch vụ có nhu cầu cao này",
+      "Hỗ trợ liên tục từ giảng viên chuyên gia"
+    ],
+    "ja": [
+      "目の周りの解剖学と生理学に関する包括的なトレーニング",
+      "プロフェッショナルなリンパドレナージュ技術",
+      "実際のモデルでの実習練習",
+      "段階的な施術プロトコル",
+      "クライアントコンサルテーションと評価方法",
+      "安全ガイドラインと禁忌事項",
+      "この高需要サービスのマーケティングのヒント",
+      "専門インストラクターによる継続的なサポートとガイダンス"
+    ],
+    "es": [
+      "Capacitación integral sobre anatomía y fisiología del área ocular",
+      "Técnicas profesionales de drenaje linfático",
+      "Práctica práctica con modelos reales",
+      "Protocolos de aplicación paso a paso",
+      "Métodos de consulta y evaluación de clientes",
+      "Pautas de seguridad y contraindicaciones",
+      "Consejos de marketing para este servicio de alta demanda",
+      "Apoyo y orientación continua de instructores expertos"
+    ],
+    "ko": [
+      "눈가 해부학 및 생리학에 대한 포괄적인 교육",
+      "전문 림프 배출 기술",
+      "실제 모델을 사용한 실습 연습",
+      "단계별 적용 프로토콜",
+      "고객 상담 및 평가 방법",
+      "안전 지침 및 금기 사항",
+      "이 수요가 높은 서비스에 대한 마케팅 팁",
+      "전문 강사의 지속적인 지원 및 지도"
+    ]
+  }
 }

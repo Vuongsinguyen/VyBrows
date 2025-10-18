@@ -9,48 +9,168 @@
     "ko": "PMU 기초 과정"
   },
   "description": {
-    "en": "Master the fundamentals of permanent makeup with our comprehensive foundation course",
-    "vi": "Làm chủ những kiến thức nền tảng về phun xăm thẩm mỹ với khóa học toàn diện",
-    "ja": "包括的な基礎コースでアートメイクの基礎をマスターしましょう",
-    "es": "Domina los fundamentos del maquillaje permanente con nuestro curso integral",
-    "ko": "종합적인 기초 과정으로 반영구 화장의 기초를 마스터하세요"
+    "en": "Master the fundamentals of permanent makeup artistry and build a successful beauty career",
+    "vi": "Làm chủ những kiến thức nền tảng về nghệ thuật phun xăm thẩm mỹ và xây dựng sự nghiệp làm đẹp thành công",
+    "ja": "アートメイクの基礎をマスターし、成功する美容キャリアを築きましょう",
+    "es": "Domina los fundamentos del arte del maquillaje permanente y construye una carrera exitosa en belleza",
+    "ko": "반영구 화장 예술의 기초를 마스터하고 성공적인 뷰티 경력을 쌓으세요"
   },
-  "subtitle": "Complete Foundation Training",
-  "introduction": "Our PMU Foundation Course provides a comprehensive introduction to permanent makeup techniques, covering theory, safety protocols, and hands-on practice. Perfect for beginners looking to start their career in the beauty industry.",
-  "curriculum": [
-    {
-      "name": "Day 1: Theory & Safety",
-      "description": "Learn PMU fundamentals, color theory, skin anatomy, and sterilization protocols"
-    },
-    {
-      "name": "Day 2: Eyebrow Techniques",
-      "description": "Master microblading and powder brow techniques with practice on synthetic skin"
-    },
-    {
-      "name": "Day 3: Lip Procedures",
-      "description": "Learn lip blushing and full lip techniques, color selection, and numbing protocols"
-    },
-    {
-      "name": "Day 4: Eyeliner Methods",
-      "description": "Practice lash enhancement and classic eyeliner on models"
-    },
-    {
-      "name": "Day 5: Live Model Practice",
-      "description": "Work on live models under instructor supervision with certification exam"
-    }
-  ],
-  "whyChooseUs": [
-    "Small class sizes (maximum 4 students) for personalized attention",
-    "Internationally certified instructors with 10+ years experience",
-    "All training materials and tools included",
-    "Lifetime support and mentorship after graduation",
-    "Certificate recognized in multiple countries"
-  ],
-  "includes": [
-    "Complete PMU starter kit worth $800",
-    "Training manual and digital resources",
-    "5 days of hands-on instruction",
-    "Certificate of completion",
-    "Business startup guidance"
-  ]
+  "introduction": {
+    "en": "Our PMU Foundation Course is the most comprehensive permanent makeup training program designed for aspiring beauty professionals. Learn industry-leading techniques in eyebrows, lips, and eyeliner from internationally certified master artists. This intensive program combines theoretical knowledge with extensive hands-on practice, ensuring you graduate with the confidence and skills to start your own successful PMU business.",
+    "vi": "Khóa Học PMU Nền Tảng của chúng tôi là chương trình đào tạo phun xăm thẩm mỹ toàn diện nhất được thiết kế cho các chuyên gia làm đẹp đầy tham vọng. Học các kỹ thuật hàng đầu trong ngành về lông mày, môi và viền mắt từ các nghệ sĩ bậc thầy được chứng nhận quốc tế. Chương trình chuyên sâu này kết hợp kiến thức lý thuyết với thực hành thực tế sâu rộng, đảm bảo bạn tốt nghiệp với sự tự tin và kỹ năng để bắt đầu doanh nghiệp PMU thành công của riêng mình.",
+    "ja": "当校のPMU基礎コースは、意欲的な美容専門家向けに設計された最も包括的なアートメイクトレーニングプログラムです。国際認定マスターアーティストから、眉、唇、アイラインの業界最先端技術を学びます。この集中プログラムは理論知識と広範な実技練習を組み合わせ、自信とスキルを持って卒業し、成功するPMUビジネスを始められるようにします。",
+    "es": "Nuestro Curso Básico de PMU es el programa de capacitación en maquillaje permanente más completo diseñado para profesionales de la belleza aspirantes. Aprenda técnicas líderes en la industria en cejas, labios y delineador de ojos de artistas maestros certificados internacionalmente. Este programa intensivo combina conocimientos teóricos con práctica extensa, asegurando que se gradúe con la confianza y las habilidades para iniciar su propio negocio PMU exitoso.",
+    "ko": "우리의 PMU 기초 과정은 야심 찬 뷰티 전문가를 위해 설계된 가장 포괄적인 반영구 화장 교육 프로그램입니다. 국제적으로 인증된 마스터 아티스트로부터 눈썹, 입술, 아이라이너의 업계 최고 기술을 배우세요. 이 집중 프로그램은 이론 지식과 광범위한 실습을 결합하여 자신감과 기술을 가지고 졸업하여 자신의 성공적인 PMU 비즈니스를 시작할 수 있도록 합니다."
+  },
+  "benefits": {
+    "en": [
+      "Comprehensive training in all major PMU techniques",
+      "Learn from internationally certified master artists",
+      "Small class sizes for personalized attention and guidance",
+      "Complete starter kit with professional-grade tools included",
+      "Hands-on practice with live models under expert supervision",
+      "Recognized certification to establish credibility",
+      "Business development guidance to launch your career",
+      "Lifetime mentorship and ongoing support network"
+    ],
+    "vi": [
+      "Đào tạo toàn diện tất cả các kỹ thuật PMU chính",
+      "Học từ các nghệ sĩ bậc thầy được chứng nhận quốc tế",
+      "Lớp học nhỏ để được chú ý và hướng dẫn cá nhân hóa",
+      "Bộ kit khởi đầu hoàn chỉnh với công cụ cấp chuyên nghiệp",
+      "Thực hành với mô hình thật dưới sự giám sát của chuyên gia",
+      "Chứng chỉ được công nhận để xây dựng uy tín",
+      "Hướng dẫn phát triển kinh doanh để khởi nghiệp",
+      "Cố vấn suốt đời và mạng lưới hỗ trợ liên tục"
+    ],
+    "ja": [
+      "すべての主要なPMU技術の包括的なトレーニング",
+      "国際認定マスターアーティストから学ぶ",
+      "個別の注意と指導のための少人数クラス",
+      "プロ仕様のツールを含む完全なスターターキット",
+      "専門家の監督下での実際のモデルでの実習",
+      "信頼性を確立するための認定証明書",
+      "キャリアを開始するためのビジネス開発ガイダンス",
+      "生涯にわたるメンターシップと継続的なサポートネットワーク"
+    ],
+    "es": [
+      "Capacitación integral en todas las principales técnicas de PMU",
+      "Aprenda de artistas maestros certificados internacionalmente",
+      "Clases pequeñas para atención personalizada y orientación",
+      "Kit de inicio completo con herramientas de grado profesional incluidas",
+      "Práctica práctica con modelos en vivo bajo supervisión experta",
+      "Certificación reconocida para establecer credibilidad",
+      "Orientación de desarrollo empresarial para lanzar su carrera",
+      "Mentoría de por vida y red de apoyo continuo"
+    ],
+    "ko": [
+      "모든 주요 PMU 기술에 대한 종합 교육",
+      "국제적으로 인증된 마스터 아티스트로부터 배우기",
+      "개인화된 관심과 지도를 위한 소규모 수업",
+      "전문가급 도구가 포함된 완벽한 스타터 키트",
+      "전문가 감독하에 실제 모델로 실습 연습",
+      "신뢰성을 구축하기 위한 인정된 인증",
+      "경력을 시작하기 위한 비즈니스 개발 지침",
+      "평생 멘토십 및 지속적인 지원 네트워크"
+    ]
+  },
+  "features": {
+    "en": [
+      "Fundamentals of permanent makeup theory and color science",
+      "Advanced eyebrow techniques: microblading, powder brows, combination brows",
+      "Professional lip blushing and full lip color techniques",
+      "Precision eyeliner methods: lash enhancement and classic liner",
+      "Skin analysis, client consultation, and design principles",
+      "Comprehensive safety, sanitation, and sterilization protocols",
+      "Practice sessions on synthetic skin and live models",
+      "Marketing strategies and business setup guidance"
+    ],
+    "vi": [
+      "Kiến thức nền tảng về lý thuyết phun xăm thẩm mỹ và khoa học màu sắc",
+      "Kỹ thuật lông mày nâng cao: vi chạm, phun mày dạng bột, lông mày kết hợp",
+      "Kỹ thuật phun môi ửng hồng và màu môi đầy chuyên nghiệp",
+      "Phương pháp kẻ viền mắt chính xác: tăng cường lông mi và viền mắt cổ điển",
+      "Phân tích da, tư vấn khách hàng và nguyên tắc thiết kế",
+      "Quy trình an toàn, vệ sinh và khử trùng toàn diện",
+      "Các buổi thực hành trên da tổng hợp và mô hình thật",
+      "Chiến lược marketing và hướng dẫn thiết lập kinh doanh"
+    ],
+    "ja": [
+      "アートメイク理論とカラーサイエンスの基礎",
+      "高度な眉技術：マイクロブレーディング、パウダーブロウ、コンビネーションブロウ",
+      "プロフェッショナルなリップブラッシングとフルリップカラー技術",
+      "精密なアイライナー方法：ラッシュエンハンスメントとクラシックライナー",
+      "肌分析、クライアントコンサルテーション、デザイン原則",
+      "包括的な安全、衛生、滅菌プロトコル",
+      "合成皮膚と実際のモデルでの練習セッション",
+      "マーケティング戦略とビジネスセットアップガイダンス"
+    ],
+    "es": [
+      "Fundamentos de la teoría del maquillaje permanente y la ciencia del color",
+      "Técnicas avanzadas de cejas: microblading, cejas en polvo, cejas combinadas",
+      "Técnicas profesionales de rubor labial y color labial completo",
+      "Métodos de delineador de precisión: realce de pestañas y delineador clásico",
+      "Análisis de piel, consulta con el cliente y principios de diseño",
+      "Protocolos completos de seguridad, saneamiento y esterilización",
+      "Sesiones de práctica en piel sintética y modelos en vivo",
+      "Estrategias de marketing y orientación para configurar el negocio"
+    ],
+    "ko": [
+      "반영구 화장 이론 및 색상 과학의 기초",
+      "고급 눈썹 기술: 마이크로블레이딩, 파우더 브로우, 콤비네이션 브로우",
+      "전문 립 블러싱 및 풀 립 컬러 기술",
+      "정밀 아이라이너 방법: 래쉬 인핸스먼트 및 클래식 라이너",
+      "피부 분석, 고객 상담 및 디자인 원칙",
+      "포괄적인 안전, 위생 및 멸균 프로토콜",
+      "합성 피부 및 실제 모델에서의 연습 세션",
+      "마케팅 전략 및 비즈니스 설정 지침"
+    ]
+  },
+  "includes": {
+    "en": [
+      "Complete professional PMU starter kit with all essential tools",
+      "Comprehensive training manual and digital learning resources",
+      "Hands-on instruction from certified master artists",
+      "Practice materials including synthetic skin and supplies",
+      "Industry-recognized certification upon completion",
+      "Business startup kit with templates and marketing materials",
+      "Ongoing mentorship and alumni support network"
+    ],
+    "vi": [
+      "Bộ kit PMU chuyên nghiệp hoàn chỉnh với tất cả các công cụ thiết yếu",
+      "Sổ tay đào tạo toàn diện và tài nguyên học tập kỹ thuật số",
+      "Hướng dẫn thực hành từ các nghệ sĩ bậc thầy được chứng nhận",
+      "Vật liệu thực hành bao gồm da tổng hợp và vật tư",
+      "Chứng chỉ được công nhận trong ngành khi hoàn thành",
+      "Bộ kit khởi nghiệp kinh doanh với mẫu và tài liệu marketing",
+      "Cố vấn liên tục và mạng lưới hỗ trợ cựu sinh viên"
+    ],
+    "ja": [
+      "すべての必須ツールを含む完全なプロフェッショナルPMUスターターキット",
+      "包括的なトレーニングマニュアルとデジタル学習リソース",
+      "認定マスターアーティストによる実技指導",
+      "合成皮膚と用品を含む練習材料",
+      "修了時に業界で認められた認定証",
+      "テンプレートとマーケティング資料を含むビジネススタートアップキット",
+      "継続的なメンターシップと卒業生サポートネットワーク"
+    ],
+    "es": [
+      "Kit de inicio profesional PMU completo con todas las herramientas esenciales",
+      "Manual de capacitación integral y recursos de aprendizaje digital",
+      "Instrucción práctica de artistas maestros certificados",
+      "Materiales de práctica que incluyen piel sintética y suministros",
+      "Certificación reconocida por la industria al finalizar",
+      "Kit de inicio de negocio con plantillas y materiales de marketing",
+      "Mentoría continua y red de apoyo de ex alumnos"
+    ],
+    "ko": [
+      "모든 필수 도구가 포함된 완벽한 전문 PMU 스타터 키트",
+      "포괄적인 교육 매뉴얼 및 디지털 학습 자료",
+      "인증된 마스터 아티스트의 실습 지도",
+      "합성 피부 및 용품을 포함한 연습 재료",
+      "완료 시 업계에서 인정하는 인증",
+      "템플릿 및 마케팅 자료가 포함된 비즈니스 시작 키트",
+      "지속적인 멘토십 및 동문 지원 네트워크"
+    ]
+  }
 }
