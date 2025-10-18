@@ -28,8 +28,8 @@ const getButtonText = (lang: string) => {
   <!-- Grid Layout -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {trainings.map(training => (
-      <article class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
-        <a href={training.link} class="block h-full">
+      <article class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 flex flex-col">
+        <a href={training.link} class="flex flex-col h-full">
           <div class="relative overflow-hidden h-48">
             <img 
               src={training.image} 
@@ -40,7 +40,7 @@ const getButtonText = (lang: string) => {
             <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
           
-          <div class="p-6">
+          <div class="p-6 flex flex-col flex-1">
             {training.duration && (
               <div class="flex items-center gap-2 mb-3">
                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,11 +54,11 @@ const getButtonText = (lang: string) => {
               {training.title}
             </h2>
             
-            <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+            <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4 flex-grow">
               {training.description}
             </p>
             
-            <div class="mt-auto">
+            <div class="mt-auto pt-4">
               <button class="w-full px-4 py-3 text-white font-semibold rounded-lg transition-all duration-300 group-hover:transform group-hover:translateY-[-2px] shadow-md hover:shadow-lg hover:opacity-90" style="background-color: var(--color-primary);">
                 {getButtonText(lang)}
               </button>
