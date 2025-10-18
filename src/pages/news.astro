@@ -56,7 +56,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
   <div class="bg-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <nav class="flex items-center text-sm text-gray-600">
-        <a href="/" class="hover:text-[#8B4513] transition-colors">Home</a>
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
@@ -68,45 +68,6 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
   <!-- Main Content -->
   <section class="py-16 px-6 min-h-screen" style="background: var(--color-bg);">
     <div class="max-w-7xl mx-auto">
-      
-      <!-- Toolbar -->
-      <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-        <div class="flex items-center gap-4">
-          <h2 class="text-2xl font-bold text-gray-900">Latest Articles</h2>
-          <span class="bg-[#8B4513] text-white px-3 py-1 rounded-full text-sm font-medium">
-            {totalNews} articles
-          </span>
-        </div>
-        
-        <!-- View Toggle & Search -->
-        <div class="flex items-center gap-4">
-          <!-- Search Bar -->
-          <div class="relative">
-            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input 
-              type="text" 
-              placeholder="Search articles..." 
-              class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B4513]/20 focus:border-[#8B4513] outline-none transition-colors w-64"
-            />
-          </div>
-          
-          <!-- View Mode Toggle -->
-          <div class="flex items-center bg-white border border-gray-300 rounded-lg p-1">
-            <button id="gridView" class="p-2 rounded text-gray-400 hover:text-[#8B4513] transition-colors view-toggle active" data-view="grid">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-              </svg>
-            </button>
-            <button id="listView" class="p-2 rounded text-gray-400 hover:text-[#8B4513] transition-colors view-toggle" data-view="list">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
 
       <!-- News Content -->
       <div id="newsContainer">
@@ -133,7 +94,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
           <a 
             href="/news?page=1"
             class={currentPage === 1 
-              ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white' 
+              ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white' 
               : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
             }
           >1</a>
@@ -142,7 +103,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
             <a 
               href="/news?page=2"
               class={currentPage === 2 
-                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white' 
+                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white' 
                 : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
               }
             >2</a>
@@ -152,7 +113,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
             <a 
               href="/news?page=3"
               class={currentPage === 3 
-                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white' 
+                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white' 
                 : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
               }
             >3</a>
@@ -163,7 +124,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
           {totalPages > 3 && currentPage > 3 && currentPage < totalPages && (
             <a 
               href={`/news?page=${currentPage}`}
-              class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white"
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white"
             >{currentPage}</a>
           )}
 
@@ -173,7 +134,7 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
             <a 
               href={`/news?page=${totalPages}`}
               class={currentPage === totalPages 
-                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#8B4513] text-white' 
+                ? 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-white' 
                 : 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white border border-gray-300 hover:bg-gray-50 text-gray-700'
               }
             >{totalPages}</a>
@@ -195,41 +156,4 @@ const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_S
       )}
     </div>
   </section>
-
-  <!-- JavaScript for View Toggle -->
-  <script is:inline>
-    document.addEventListener('DOMContentLoaded', function() {
-      const viewToggles = document.querySelectorAll('.view-toggle');
-      const newsContainer = document.getElementById('newsContainer');
-      
-      viewToggles.forEach(function(toggle) {
-        toggle.addEventListener('click', function(event) {
-          const target = event.currentTarget;
-          
-          // Remove active class from all toggles
-          viewToggles.forEach(function(t) {
-            t.classList.remove('active');
-            t.classList.add('text-gray-400');
-            t.classList.remove('text-[#8B4513]', 'bg-[#8B4513]/10');
-          });
-          
-          // Add active class to clicked toggle
-          target.classList.add('active');
-          target.classList.remove('text-gray-400');
-          target.classList.add('text-[#8B4513]', 'bg-[#8B4513]/10');
-          
-          // Here you would typically make an AJAX call to reload the news list with the new view mode
-          // For now, we'll just show a visual feedback
-          const viewMode = target.dataset.view;
-          console.log('Switching to', viewMode, 'view');
-        });
-      });
-    });
-  </script>
-
-  <style>
-    .view-toggle.active {
-      @apply text-[#8B4513] bg-[#8B4513]/10;
-    }
-  </style>
 </NewsLayout>

@@ -35,26 +35,27 @@ const serviceContent = servicesData.reduce((acc, service) => {
 
 <PageLayout title={tocLabels[serviceSlug] || 'Service'}>
   <div class="w-full bg-surface flex justify-center">
-    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
-      <!-- Sidebar Trái -->
-      <aside class="w-64 bg-surface rounded-lg shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20">
-        <ul class="border border-border rounded-lg overflow-hidden">
+    <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
+      <!-- Left Sidebar -->
+      <aside class="w-full lg:w-64 bg-surface rounded-lg lg:mt-0 lg:sticky lg:top-32 z-20 order-1">
+        <ul class="rounded-lg overflow-hidden flex flex-col">
           {servicesData.map((service, index) => (
             <li>
               <a 
                 href={`/${lang}/service/${service.slug}`} 
-                class={`block rounded-none ${index < servicesData.length - 1 ? 'border-b border-border' : ''} px-3 py-2 font-normal transition-colors`}
-                style={service.slug === serviceSlug ? 'background-color: var(--color-primary); color: white;' : 'background-color: white; color: var(--color-primary);'}
+                class={`block rounded-none px-3 py-2 font-normal transition-colors flex items-center gap-2 ${service.slug === serviceSlug ? 'font-semibold' : 'hover:text-primary'}`}
+                style={service.slug === serviceSlug ? 'color: var(--color-primary);' : 'color: rgba(0, 0, 0, 0.7);'}
               >
-                {(service.title as any)[lang] || service.title.en}
+                <img src="/images/diamond.svg" alt="" class="w-8 h-8 flex-shrink-0" />
+                <span>{(service.title as any)[lang] || service.title.en}</span>
               </a>
             </li>
           ))}
         </ul>
       </aside>
 
-      <!-- Nội dung chính -->
-      <main class="flex-1 space-y-8">
+      <!-- Main Content -->
+      <main class="flex-1 space-y-8 order-2">
         {(() => {
           const currentService = servicesData.find(s => s.slug === serviceSlug) as any;
           return (

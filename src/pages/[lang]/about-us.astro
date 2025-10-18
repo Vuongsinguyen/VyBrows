@@ -26,28 +26,29 @@ const tocLabels = aboutUsData.sections.reduce((acc: Record<string, string>, sect
 
 <PageLayout title="About Us">
 <div class="w-full bg-surface flex justify-center">
-<div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
+<div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
 
 
-        <!-- Sidebar Trái -->
-        <aside class="w-64 bg-surface rounded-lg shadow p-4 mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
-          <h2 class="font-bold text-lg mb-2 text-on-surface">{lang === 'vi' ? 'Mục lục' : lang === 'ja' ? '目次' : 'Table of Contents'}</h2>
-          <ul class="border border-border rounded-lg overflow-hidden">
+        <!-- Left Sidebar -->
+        <aside class="w-full lg:w-64 bg-surface rounded-lg lg:mt-0 lg:sticky lg:top-32 z-20 order-1">
+          <ul class="rounded-lg overflow-hidden flex flex-col">
             {aboutUsData.sections.map((section: any, index: number) => (
               <li>
                 <a 
                   href={`/${lang}/about-us/${section.id}`} 
-                  class={`block bg-surface rounded-none ${index < aboutUsData.sections.length - 1 ? 'border-b border-border' : ''} px-3 py-2 text-on-surface font-normal hover:text-primary`}
+                  class="block rounded-none px-3 py-2 font-normal transition-colors flex items-center gap-2 hover:text-primary"
+                  style="color: rgba(0, 0, 0, 0.7);"
                 >
-                  {section.title[lang as keyof typeof section.title] || section.title.en}
+                  <img src="/images/diamond.svg" alt="" class="w-8 h-8 flex-shrink-0" />
+                  <span>{section.title[lang as keyof typeof section.title] || section.title.en}</span>
                 </a>
               </li>
             ))}
           </ul>
         </aside>
 
-        <!-- Nội dung chính -->
-        <main class="flex-1 space-y-12">
+        <!-- Main Content -->
+        <main class="flex-1 space-y-12 order-2">
           {aboutUsData.sections.map((section: any) => (
             <section class="bg-surface rounded-lg p-6 border border-border">
               <a href={`/${lang}/about-us/${section.id}`} class="block group">

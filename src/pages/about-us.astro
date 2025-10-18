@@ -37,7 +37,7 @@ const sectionLabels = aboutUsData.sections.reduce((acc: Record<string, string>, 
   <div class="bg-gray-50 border-b">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <nav class="flex items-center text-sm text-gray-600">
-        <a href="/" class="hover:text-[#8B4513] transition-colors">Home</a>
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
@@ -47,18 +47,19 @@ const sectionLabels = aboutUsData.sections.reduce((acc: Record<string, string>, 
   </div>
 
   <div class="w-full bg-surface flex justify-center">
-    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
+    <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
       <!-- Left Sidebar -->
-      <aside class="w-64 bg-surface rounded-lg shadow p-4 mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
-        <h2 class="font-bold text-lg mb-2 text-on-surface">Table of Contents</h2>
-        <ul class="border border-border rounded-lg overflow-hidden">
+      <aside class="w-full lg:w-64 bg-surface rounded-lg lg:mt-0 lg:sticky lg:top-32 z-20 order-1">
+        <ul class="rounded-lg overflow-hidden flex flex-col">
           {aboutUsData.sections.map((section: any, index: number) => (
             <li>
               <a 
                 href={`/about-us/${section.id}`} 
-                class={`block bg-surface rounded-none ${index < aboutUsData.sections.length - 1 ? 'border-b border-border' : ''} px-3 py-2 text-on-surface font-normal hover:text-primary`}
+                class="block rounded-none px-3 py-2 font-normal transition-colors flex items-center gap-2 hover:text-primary"
+                style="color: rgba(0, 0, 0, 0.7);"
               >
-                {section.title.en}
+                <img src="/images/diamond.svg" alt="" class="w-8 h-8 flex-shrink-0" />
+                <span>{section.title.en}</span>
               </a>
             </li>
           ))}
@@ -66,7 +67,7 @@ const sectionLabels = aboutUsData.sections.reduce((acc: Record<string, string>, 
       </aside>
 
       <!-- Main Content -->
-      <main class="flex-1 space-y-12">
+      <main class="flex-1 space-y-12 order-2">
         <!-- Overview Section -->
         <div class="space-y-8">
           <div class="text-center mb-12">

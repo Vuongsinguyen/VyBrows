@@ -1,8 +1,8 @@
 ---
 /* Frontmatter có thể để trống hoặc thêm logic server nếu cần */
 ---
-<section id="contact" class="pt-16 pb-16 bg-primary contact-section px-5 md:px-0">
-  <div class="max-w-7xl mx-auto">
+<section id="contact" class="pt-16 pb-16 bg-primary contact-section">
+  <div class="max-w-7xl mx-auto px-6">
     {/** Detect current language from URL **/}
     {(() => {
       const lang = (Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es';

@@ -27,7 +27,8 @@ const config: Config = {
         'dynamic': 'var(--color-primary)',
       },
       fontFamily: {
-  lora: ['Lora', 'serif'],
+        sans: ['Montserrat', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        lora: ['Lora', 'serif'],
       },
     },
   },

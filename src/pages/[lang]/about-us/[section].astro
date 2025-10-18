@@ -25,23 +25,27 @@ const tocLabels = aboutUsData.sections.reduce((acc, section) => {
 
 <PageLayout title={currentSection ? (currentSection.title[lang] || currentSection.title.en) : 'About Us'}>
   <div class="w-full bg-surface flex justify-center">
-    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
-      <!-- Sidebar Trái -->
-      <aside class="w-64 bg-surface rounded-lg shadow p-4 mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
-        <h2 class="font-bold text-lg mb-2 text-on-surface">{lang === 'vi' ? 'Về chúng tôi' : lang === 'ja' ? '私たちについて' : 'About Us'}</h2>
-        <ul class="border border-border rounded-lg overflow-hidden">
+    <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
+      <!-- Left Sidebar -->
+      <aside class="w-full lg:w-64 bg-surface rounded-lg lg:mt-0 lg:sticky lg:top-32 z-20 order-1">
+        <ul class="rounded-lg overflow-hidden flex flex-col">
           {aboutUsData.sections.map((section, index) => (
             <li>
-              <a href={`/${lang}/about-us/${section.id}`} class={`block bg-surface rounded-none ${index < aboutUsData.sections.length - 1 ? 'border-b border-border' : ''} px-3 py-2 text-on-surface font-normal hover:text-primary ${section.id === sectionId ? 'bg-primary/10 text-primary font-semibold' : ''}`}>
-                {section.title[lang] || section.title.en}
+              <a 
+                href={`/${lang}/about-us/${section.id}`} 
+                class={`block rounded-none px-3 py-2 font-normal transition-colors flex items-center gap-2 ${section.id === sectionId ? 'font-semibold' : 'hover:text-primary'}`}
+                style={section.id === sectionId ? 'color: var(--color-primary);' : 'color: rgba(0, 0, 0, 0.7);'}
+              >
+                <img src="/images/diamond.svg" alt="" class="w-8 h-8 flex-shrink-0" />
+                <span>{section.title[lang] || section.title.en}</span>
               </a>
             </li>
           ))}
         </ul>
       </aside>
 
-      <!-- Nội dung chính -->
-      <main class="flex-1 space-y-12">
+      <!-- Main Content -->
+      <main class="flex-1 space-y-12 order-2">
         {currentSection ? (
           <>
             <h1 class="text-3xl font-bold mb-4 text-on-surface">{currentSection.title[lang] || currentSection.title.en}</h1>

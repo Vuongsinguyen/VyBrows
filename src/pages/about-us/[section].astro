@@ -88,11 +88,11 @@ if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.
   <div class="bg-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <nav class="flex items-center text-sm text-gray-600">
-        <a href="/" class="hover:text-[#8B4513] transition-colors">Home</a>
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
-        <a href="/about-us" class="hover:text-[#8B4513] transition-colors">About Us</a>
+        <a href="/about-us" class="hover:text-primary transition-colors">About Us</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
@@ -102,18 +102,19 @@ if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.
   </div>
 
   <div class="w-full bg-surface flex justify-center">
-    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
+    <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
       <!-- Left Sidebar -->
-      <aside class="w-64 bg-surface rounded-lg mt-4 lg:mt-0 lg:sticky lg:top-32 z-20">
-        <ul class="rounded-lg overflow-hidden">
+      <aside class="w-full lg:w-64 bg-surface rounded-lg lg:mt-0 lg:sticky lg:top-32 z-20 order-1">
+        <ul class="rounded-lg overflow-hidden flex flex-col">
           {aboutUsData.sections.map((section, index) => (
             <li>
               <a 
                 href={`/about-us/${section.id}`} 
-                class={`block rounded-none px-3 py-2 font-normal transition-colors ${section.id === sectionId ? 'font-semibold' : 'hover:text-primary'}`}
+                class={`block rounded-none px-3 py-2 font-normal transition-colors flex items-center gap-2 ${section.id === sectionId ? 'font-semibold' : 'hover:text-primary'}`}
                 style={section.id === sectionId ? 'color: var(--color-primary);' : 'color: rgba(0, 0, 0, 0.7);'}
               >
-                {section.title.en}
+                <img src="/images/diamond.svg" alt="" class="w-8 h-8 flex-shrink-0" />
+                <span>{section.title.en}</span>
               </a>
             </li>
           ))}
@@ -121,7 +122,7 @@ if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.
       </aside>
 
       <!-- Main Content -->
-      <main class="flex-1 space-y-12">
+      <main class="flex-1 space-y-12 order-2">
         {currentSection ? (
           <>
             <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8">

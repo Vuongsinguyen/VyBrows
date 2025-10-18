@@ -41,7 +41,7 @@ const { news, viewMode = 'grid' } = Astro.props;
               </div>
             )}
             
-            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#8B4513] transition-colors duration-300 line-clamp-2 leading-tight">
+            <h2 class="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 line-clamp-2 leading-tight news-title">
               {item.title}
             </h2>
             
@@ -49,7 +49,7 @@ const { news, viewMode = 'grid' } = Astro.props;
               {item.description}
             </p>
             
-            <div class="flex items-center text-[#8B4513] font-medium text-sm group-hover:gap-2 transition-all duration-300">
+            <div class="flex items-center font-medium text-sm group-hover:gap-2 transition-all duration-300 read-more-btn">
               <span>Read More</span>
               <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -88,7 +88,7 @@ const { news, viewMode = 'grid' } = Astro.props;
                 </div>
               )}
               
-              <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#8B4513] transition-colors duration-300 leading-tight">
+              <h2 class="text-2xl font-bold text-gray-900 mb-3 transition-colors duration-300 leading-tight news-title">
                 {item.title}
               </h2>
               
@@ -96,7 +96,7 @@ const { news, viewMode = 'grid' } = Astro.props;
                 {item.description}
               </p>
               
-              <div class="flex items-center text-[#8B4513] font-medium group-hover:gap-2 transition-all duration-300">
+              <div class="flex items-center font-medium group-hover:gap-2 transition-all duration-300 read-more-btn">
                 <span>Read More</span>
                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -131,5 +131,14 @@ const { news, viewMode = 'grid' } = Astro.props;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Primary color for news items */
+  .read-more-btn {
+    color: var(--color-primary);
+  }
+
+  article:hover .news-title {
+    color: var(--color-primary);
   }
 </style>

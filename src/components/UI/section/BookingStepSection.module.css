@@ -134,7 +134,7 @@
 }
 
 .tabBtn:hover:not(.active) {
-  background-color: #e7d48e;
+  background-color: rgba(1, 81, 58, 0.1);
   border-color: var(--color-primary);
   color: var(--color-primary);
   cursor: pointer !important;

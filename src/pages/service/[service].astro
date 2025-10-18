@@ -52,11 +52,11 @@ const serviceContent = servicesData.reduce((acc, service) => {
   <div class="bg-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <nav class="flex items-center text-sm text-gray-600">
-        <a href="/" class="hover:text-[#8B4513] transition-colors">Home</a>
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
-        <a href="/#services" class="hover:text-[#8B4513] transition-colors">Services</a>
+        <a href="/#services" class="hover:text-primary transition-colors">Services</a>
         <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
@@ -66,18 +66,19 @@ const serviceContent = servicesData.reduce((acc, service) => {
   </div>
 
   <div class="w-full bg-surface flex justify-center">
-    <div class="w-full max-w-7xl bg-surface flex gap-6 items-start px-6 py-8">
+    <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
       <!-- Left Sidebar -->
-      <aside class="w-64 bg-surface rounded-lg mt-4 lg:mt-0 lg:sticky lg:top-32 z-20">
-        <ul class="rounded-lg overflow-hidden">
+      <aside class="w-full lg:w-64 bg-surface rounded-lg lg:mt-0 lg:sticky lg:top-32 z-20 order-1">
+        <ul class="rounded-lg overflow-hidden flex flex-col">
           {servicesData.map((service, index) => (
             <li>
               <a 
                 href={`/service/${service.slug}`} 
-                class={`block rounded-none px-3 py-2 font-normal transition-colors ${service.slug === serviceSlug ? 'text-primary font-semibold' : 'hover:text-primary'}`}
-                style={service.slug === serviceSlug ? '' : 'color: rgba(0, 0, 0, 0.7);'}
+                class={`block rounded-none px-3 py-2 font-normal transition-colors flex items-center gap-2 ${service.slug === serviceSlug ? 'font-semibold' : 'hover:text-primary'}`}
+                style={service.slug === serviceSlug ? 'color: var(--color-primary);' : 'color: rgba(0, 0, 0, 0.7);'}
               >
-                {service.title.en}
+                <img src="/images/diamond.svg" alt="" class="w-8 h-8 flex-shrink-0" />
+                <span>{service.title.en}</span>
               </a>
             </li>
           ))}
@@ -85,7 +86,7 @@ const serviceContent = servicesData.reduce((acc, service) => {
       </aside>
 
       <!-- Main Content -->
-      <main class="flex-1 space-y-8">
+      <main class="flex-1 space-y-8 order-2">
         {(() => {
           const currentService = servicesData.find(s => s.slug === serviceSlug) as any;
           return (
