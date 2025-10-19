@@ -5,7 +5,15 @@ import BannerFix from '../components/UI/section/BannerFix.astro';
 import Header from '../components/UI/layout/Header.astro';
 import FooterSection from '../components/UI/layout/FooterSection.astro';
 import SidebarLayout from '../components/UI/layout/SidebarLayout.astro';
-// Removed title prop and interface
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  showBreadcrumb?: boolean;
+  breadcrumbItems?: Array<{ href: string; label: string }>;
+}
+
+const { title, subtitle, showBreadcrumb = true, breadcrumbItems = [] } = Astro.props;
 const lang = Astro.url.pathname.split('/')[1] || 'en';
 ---
 
@@ -82,12 +90,16 @@ const lang = Astro.url.pathname.split('/')[1] || 'en';
       (window as any).setTheme = setTheme;
     </script>
     <Header />
-    <BannerFix />
+    <BannerFix 
+      title={title}
+      subtitle={subtitle}
+      showBreadcrumb={showBreadcrumb}
+      breadcrumbItems={breadcrumbItems}
+    />
     <main>
       <section class="flex-1">
         <slot />
       </section>
-    </main>
     </main>
     <FooterSection />
   </body>

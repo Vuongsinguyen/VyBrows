@@ -1,8 +1,7 @@
 ---
 import '/src/styles/color.css';
 import '/src/styles/global.css';
-import NewsLayout from '../../layouts/NewsLayout.astro';
-import BannerFix from '../../components/UI/section/BannerFix.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import aboutUsData from '../../content/about-us.json' assert { type: 'json' };
 
 export const prerender = true;
@@ -65,38 +64,17 @@ if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.
 }
 ---
 
-<NewsLayout title={currentSection ? currentSection.title.en : 'About Us'}>
-  <BannerFix 
-    title={currentSection ? currentSection.title.en : 'About Us'} 
-    subtitle="Learn more about VyBrows Academy"
-    showBreadcrumb={true}
-    breadcrumbItems={[
-      { href: '/about-us', label: 'About Us' },
-      { href: `/about-us/${sectionId}`, label: sectionLabels[sectionId] || 'Section' }
-    ]}
-  />
-    }
-  </style>
-
-  <!-- Breadcrumb -->
-  <div class="bg-gray-100">
-    <div class="max-w-7xl mx-auto px-6 py-3">
-      <nav class="flex items-center text-sm text-gray-600">
-        <a href="/" class="hover:text-primary transition-colors">Home</a>
-        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-        <a href="/about-us" class="hover:text-primary transition-colors">About Us</a>
-        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-        <span class="text-gray-900 font-medium">{currentSection ? currentSection.title.en : 'Section'}</span>
-      </nav>
-    </div>
-  </div>
-
-  <div class="w-full bg-surface flex justify-center">
-    <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
+<PageLayout 
+  title={currentSection ? currentSection.title.en : 'About Us'}
+  subtitle="Learn more about VyBrows Academy"
+  showBreadcrumb={true}
+  breadcrumbItems={[
+    { href: '/about-us', label: 'About Us' },
+    { href: `/about-us/${sectionId}`, label: sectionLabels[sectionId] || 'Section' }
+  ]}
+>
+<div class="w-full bg-surface flex justify-center">
+<div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
       <!-- Left Sidebar -->
       <aside class="w-full lg:w-64 bg-surface rounded-lg lg:mt-0 lg:sticky lg:top-32 z-20 order-1">
         <ul class="rounded-lg overflow-hidden flex flex-col">
@@ -189,7 +167,7 @@ if (contentWithCEO.includes('20+ Years of Proven Excellence') || contentWithCEO.
       </main>
     </div>
   </div>
-</NewsLayout>
+</PageLayout>
 
 <style>
   .line-clamp-1 {

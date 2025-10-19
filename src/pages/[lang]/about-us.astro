@@ -22,9 +22,20 @@ const tocLabels = aboutUsData.sections.reduce((acc: Record<string, string>, sect
   acc[section.id] = section.title[lang as keyof typeof section.title] || section.title.en;
   return acc;
 }, {});
+
+// Get translated titles
+const aboutUsTitle = lang === 'vi' ? 'Giới Thiệu' : lang === 'ja' ? '会社情報' : 'About Us';
+const aboutUsSubtitle = lang === 'vi' ? 'Tìm hiểu thêm về VyBrows Academy' : lang === 'ja' ? 'VyBrowsアカデミーについて' : 'Learn more about VyBrows Academy';
 ---
 
-<PageLayout title="About Us">
+<PageLayout 
+  title={aboutUsTitle}
+  subtitle={aboutUsSubtitle}
+  showBreadcrumb={true}
+  breadcrumbItems={[
+    { href: `/${lang}/about-us`, label: aboutUsTitle }
+  ]}
+>
 <div class="w-full bg-surface flex justify-center">
 <div class="w-full max-w-7xl bg-surface flex flex-col lg:flex-row gap-6 items-start px-6 py-8">
 
