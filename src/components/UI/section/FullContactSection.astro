@@ -1,5 +1,9 @@
 ---
-/* Frontmatter có thể để trống hoặc thêm logic server nếu cần */
+export interface Props {
+  hideHeading?: boolean;
+}
+
+const { hideHeading = false } = Astro.props;
 ---
 <section id="contact" class="pt-16 pb-16 bg-primary contact-section">
   <div class="max-w-7xl mx-auto px-6">
@@ -95,7 +99,7 @@
           captcha: "❌ Por favor verifica la seguridad.",
         },
       };
-      return <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-8 font-lora tracking-tight" style="color:#f8f7dc; font-family:'Lora', serif;">{labels[lang].contact}</h2>;
+      return !hideHeading ? <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-8 font-lora tracking-tight" style="color:#f8f7dc; font-family:'Lora', serif;">{labels[lang].contact}</h2> : null;
     })()}
 
     <div class="w-full mb-8">
