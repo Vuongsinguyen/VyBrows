@@ -16,26 +16,26 @@
   },
   "introduction": {
     "en": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
-    "vi": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
-    "ja": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
-    "es": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
-    "ko": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day."
+    "vi": "Phun Xăm Thẩm Mỹ (PMU) là nghệ thuật tăng cường vẻ đẹp tự nhiên với các kỹ thuật vi sắc tố tiên tiến. Tại Vy Brows Academy & Studio, chúng tôi chuyên cung cấp các dịch vụ PMU chuyên nghiệp được thiết kế để mang đến cho bạn kết quả hoàn hảo, lâu dài đồng thời tiết kiệm thời gian mỗi ngày.",
+    "ja": "パーマネントメイク（PMU）は、先進的なマイクロピグメンテーション技術で自然な美しさを高める芸術です。Vy Brows Academy & Studioでは、毎日の時間を節約しながら、完璧で長持ちする結果をお届けするプロフェッショナルなPMUサービスを専門としています。",
+    "es": "El Maquillaje Permanente (PMU) es el arte de realzar la belleza natural con técnicas avanzadas de micropigmentación. En Vy Brows Academy & Studio, nos especializamos en brindar servicios PMU profesionales diseñados para ofrecerte resultados impecables y duraderos mientras ahorras tiempo cada día.",
+    "ko": "반영구 화장(PMU)은 첨단 마이크로 피그먼테이션 기술로 자연스러운 아름다움을 향상시키는 예술입니다. Vy Brows Academy & Studio에서는 매일 시간을 절약하면서 완벽하고 오래 지속되는 결과를 제공하는 전문 PMU 서비스를 전문으로 합니다."
   },
   "services": [
     {
       "name": {
         "en": "Eyebrows",
-        "vi": "Eyebrows",
-        "ja": "Eyebrows",
-        "es": "Eyebrows",
-        "ko": "Eyebrows"
+        "vi": "Lông Mày",
+        "ja": "眉毛",
+        "es": "Cejas",
+        "ko": "눈썹"
       },
       "description": {
         "en": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
-        "vi": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
-        "ja": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
-        "es": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
-        "ko": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:"
+        "vi": "Lông mày tạo khung cho khuôn mặt và định hình biểu cảm của bạn. Với PMU, bạn có thể tạm biệt những cây chì và phấn hàng ngày. Chúng tôi cung cấp các kỹ thuật tùy chỉnh như:",
+        "ja": "眉毛は顔のフレームとなり、表情を定義します。PMUを使えば、毎日のペンシルやパウダーとはお別れです。カスタマイズされた技術を提供します：",
+        "es": "Tus cejas enmarcan tu rostro y definen tu expresión. Con PMU, puedes despedirte de lápices y polvos diarios. Ofrecemos técnicas personalizadas como:",
+        "ko": "눈썹은 얼굴의 틀을 만들고 표정을 정의합니다. PMU를 사용하면 매일 사용하는 펜슬과 파우더에 작별을 고할 수 있습니다. 다음과 같은 맞춤형 기술을 제공합니다:"
       },
       "options": {
         "en": [
@@ -44,48 +44,48 @@
           "Hybrid Brows – blending the best of both worlds"
         ],
         "vi": [
-          "Microblading – for natural, hair-like strokes",
-          "Ombre / Powder Brows – for soft, shaded definition",
-          "Hybrid Brows – blending the best of both worlds"
+          "Microblading – nét vẽ tự nhiên giống như sợi lông thật",
+          "Ombre / Powder Brows – định hình mềm mại, có bóng đổ",
+          "Hybrid Brows – kết hợp tốt nhất của cả hai kỹ thuật"
         ],
         "ja": [
-          "Microblading – for natural, hair-like strokes",
-          "Ombre / Powder Brows – for soft, shaded definition",
-          "Hybrid Brows – blending the best of both worlds"
+          "マイクロブレーディング – 自然な毛並みのようなストローク",
+          "オンブレ/パウダーブロウ – 柔らかくシェーディングされた定義",
+          "ハイブリッドブロウ – 両方の最高の要素を融合"
         ],
         "es": [
-          "Microblading – for natural, hair-like strokes",
-          "Ombre / Powder Brows – for soft, shaded definition",
-          "Hybrid Brows – blending the best of both worlds"
+          "Microblading – trazos naturales similares al cabello",
+          "Ombre / Cejas en Polvo – definición suave y sombreada",
+          "Cejas Híbridas – combinando lo mejor de ambos mundos"
         ],
         "ko": [
-          "Microblading – for natural, hair-like strokes",
-          "Ombre / Powder Brows – for soft, shaded definition",
-          "Hybrid Brows – blending the best of both worlds"
+          "마이크로블레이딩 – 자연스러운 모발 같은 선",
+          "옴브레/파우더 브로우 – 부드럽고 음영진 정의",
+          "하이브리드 브로우 – 두 가지 기술의 최고를 결합"
         ]
       },
       "result": {
         "en": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features.",
-        "vi": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features.",
-        "ja": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features.",
-        "es": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features.",
-        "ko": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features."
+        "vi": "Lông mày tự nhiên, cân đối và có hình dáng hoàn hảo tôn lên các nét đặc trưng riêng của bạn.",
+        "ja": "自然で対称的、完璧な形の眉毛があなたのユニークな特徴を引き立てます。",
+        "es": "Cejas naturales, simétricas y perfectamente formadas que realzan tus características únicas.",
+        "ko": "자연스럽고 대칭적이며 완벽하게 형성된 눈썹이 당신의 독특한 특징을 향상시킵니다."
       }
     },
     {
       "name": {
         "en": "Eyeliner",
-        "vi": "Eyeliner",
-        "ja": "Eyeliner",
-        "es": "Eyeliner",
-        "ko": "Eyeliner"
+        "vi": "Kẻ Mắt",
+        "ja": "アイライナー",
+        "es": "Delineador de Ojos",
+        "ko": "아이라이너"
       },
       "description": {
         "en": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
-        "vi": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
-        "ja": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
-        "es": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
-        "ko": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:"
+        "vi": "Làm sáng đôi mắt và đạt được vẻ ngoài hoàn thiện mỗi ngày. PMU kẻ mắt của chúng tôi được thiết kế để:",
+        "ja": "目を明るくし、毎日洗練された印象を実現します。当店のアイライナーPMUは以下のために設計されています：",
+        "es": "Ilumina tus ojos y logra un aspecto pulido todos los días. Nuestro PMU de delineador está diseñado para:",
+        "ko": "눈을 밝게 하고 매일 세련된 모습을 완성하세요. 우리의 아이라이너 PMU는 다음을 위해 디자인되었습니다:"
       },
       "options": {
         "en": [
@@ -94,48 +94,48 @@
           "Create smudge-proof, long-lasting definition"
         ],
         "vi": [
-          "Accentuate the lash line for a youthful, vibrant look",
-          "Save time on daily makeup routines",
-          "Create smudge-proof, long-lasting definition"
+          "Làm nổi bật viền mi cho vẻ ngoài trẻ trung, rực rỡ",
+          "Tiết kiệm thời gian trang điểm hàng ngày",
+          "Tạo đường nét sắc sảo, lâu dài, không bị lem"
         ],
         "ja": [
-          "Accentuate the lash line for a youthful, vibrant look",
-          "Save time on daily makeup routines",
-          "Create smudge-proof, long-lasting definition"
+          "若々しく活気のある印象のためにまつげラインを強調",
+          "毎日のメイクアップの時間を節約",
+          "にじまない長持ちする定義を作成"
         ],
         "es": [
-          "Accentuate the lash line for a youthful, vibrant look",
-          "Save time on daily makeup routines",
-          "Create smudge-proof, long-lasting definition"
+          "Acentúa la línea de las pestañas para un aspecto juvenil y vibrante",
+          "Ahorra tiempo en rutinas de maquillaje diario",
+          "Crea definición resistente a las manchas y duradera"
         ],
         "ko": [
-          "Accentuate the lash line for a youthful, vibrant look",
-          "Save time on daily makeup routines",
-          "Create smudge-proof, long-lasting definition"
+          "젊고 활기찬 모습을 위해 속눈썹 라인을 강조",
+          "일상적인 메이크업 루틴 시간 절약",
+          "번짐 방지, 오래 지속되는 선명함 제공"
         ]
       },
       "result": {
         "en": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes.",
-        "vi": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes.",
-        "ja": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes.",
-        "es": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes.",
-        "ko": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes."
+        "vi": "Cho dù bạn thích tăng cường tinh tế hay phong cách kẻ mắt đậm, các nghệ sĩ chuyên nghiệp của chúng tôi sẽ điều chỉnh thiết kế phù hợp với đôi mắt của bạn.",
+        "ja": "繊細な強調でも大胆なアイライナースタイルでも、当店の専門アーティストがあなたの目に合わせてデザインをカスタマイズします。",
+        "es": "Ya sea que prefieras un realce sutil o un estilo de delineador audaz, nuestros artistas expertos adaptan el diseño para que se ajuste a tus ojos.",
+        "ko": "은은한 강조나 대담한 아이라이너 스타일을 선호하든, 전문 아티스트가 당신의 눈에 맞게 디자인을 맞춤 제작합니다."
       }
     },
     {
       "name": {
         "en": "Lips",
-        "vi": "Lips",
-        "ja": "Lips",
-        "es": "Lips",
-        "ko": "Lips"
+        "vi": "Môi",
+        "ja": "リップ",
+        "es": "Labios",
+        "ko": "입술"
       },
       "description": {
         "en": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
-        "vi": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
-        "ja": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
-        "es": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
-        "ko": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition."
+        "vi": "Mang lại màu sắc, sự cân đối và đường nét cho đôi môi của bạn với dịch vụ PMU môi chuyên nghiệp. Hoàn hảo cho những người có môi nhợt nhạt, màu không đều hoặc mất đường nét môi.",
+        "ja": "当店のプロフェッショナルなPMUリップサービスで、唇に色、バランス、そして定義を取り戻します。色が薄い、不均一、または輪郭が失われた方に最適です。",
+        "es": "Devuelve el color, el equilibrio y la definición a tus labios con nuestros servicios profesionales de PMU labial. Perfecto para aquellos con tonos pálidos, irregulares o pérdida de definición labial.",
+        "ko": "전문 PMU 립 서비스로 입술에 색상, 균형 및 선명도를 되찾으세요. 창백하고 불균일한 톤이나 입술 윤곽 손실이 있는 분들에게 완벽합니다."
       },
       "options": {
         "en": [
@@ -144,32 +144,32 @@
           "Corrects asymmetry and revitalizes dull lips"
         ],
         "vi": [
-          "Lip Blush – for a soft, natural tint",
-          "Full Lip Shading – for richer color and volume effect",
-          "Corrects asymmetry and revitalizes dull lips"
+          "Lip Blush – màu môi mềm mại, tự nhiên",
+          "Full Lip Shading – màu sắc đậm hơn và hiệu ứng bồng bềnh",
+          "Điều chỉnh sự mất cân đối và làm sống lại đôi môi xỉn màu"
         ],
         "ja": [
-          "Lip Blush – for a soft, natural tint",
-          "Full Lip Shading – for richer color and volume effect",
-          "Corrects asymmetry and revitalizes dull lips"
+          "リップブラッシュ – 柔らかく自然な色合い",
+          "フルリップシェーディング – より豊かな色とボリューム効果",
+          "非対称を修正し、くすんだ唇を活性化"
         ],
         "es": [
-          "Lip Blush – for a soft, natural tint",
-          "Full Lip Shading – for richer color and volume effect",
-          "Corrects asymmetry and revitalizes dull lips"
+          "Lip Blush – para un tinte suave y natural",
+          "Sombreado Labial Completo – para un color más rico y efecto de volumen",
+          "Corrige la asimetría y revitaliza los labios apagados"
         ],
         "ko": [
-          "Lip Blush – for a soft, natural tint",
-          "Full Lip Shading – for richer color and volume effect",
-          "Corrects asymmetry and revitalizes dull lips"
+          "립 블러쉬 – 부드럽고 자연스러운 색조",
+          "풀 립 셰이딩 – 더 풍부한 색상과 볼륨 효과",
+          "비대칭을 교정하고 칙칙한 입술을 활성화"
         ]
       },
       "result": {
         "en": "Youthful, healthy-looking lips with lasting color and shape.",
-        "vi": "Youthful, healthy-looking lips with lasting color and shape.",
-        "ja": "Youthful, healthy-looking lips with lasting color and shape.",
-        "es": "Youthful, healthy-looking lips with lasting color and shape.",
-        "ko": "Youthful, healthy-looking lips with lasting color and shape."
+        "vi": "Đôi môi trẻ trung, khỏe mạnh với màu sắc và hình dáng lâu dài.",
+        "ja": "若々しく健康的に見える唇と、長持ちする色と形。",
+        "es": "Labios juveniles y de aspecto saludable con color y forma duraderos.",
+        "ko": "지속적인 색상과 형태를 가진 젊고 건강해 보이는 입술."
       }
     }
   ],
@@ -182,47 +182,47 @@
       "Long-Lasting Results that gradually fade naturally without harsh edges"
     ],
     "vi": [
-      "Expert Artists trained in advanced international PMU techniques",
-      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
-      "Customized Designs to fit your face shape, skin tone, and personal style",
-      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
-      "Long-Lasting Results that gradually fade naturally without harsh edges"
+      "Nghệ Sĩ Chuyên Gia được đào tạo các kỹ thuật PMU quốc tế tiên tiến",
+      "Sắc Tố Chất Lượng Cao an toàn, không gây dị ứng và lâu dài",
+      "Thiết Kế Tùy Chỉnh phù hợp với hình dáng khuôn mặt, tông da và phong cách cá nhân của bạn",
+      "Thực Hành An Toàn & Vệ Sinh với công cụ y tế cao cấp và tiêu chuẩn khử trùng",
+      "Kết Quả Lâu Dài phai màu dần tự nhiên mà không có viền cứng"
     ],
     "ja": [
-      "Expert Artists trained in advanced international PMU techniques",
-      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
-      "Customized Designs to fit your face shape, skin tone, and personal style",
-      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
-      "Long-Lasting Results that gradually fade naturally without harsh edges"
+      "高度な国際PMU技術でトレーニングされた専門アーティスト",
+      "安全で低アレルギー性で長持ちする高品質な色素",
+      "顔の形、肌のトーン、個人的なスタイルに合わせたカスタマイズされたデザイン",
+      "医療グレードのツールと滅菌基準による安全で衛生的な実践",
+      "厳しいエッジなしに自然に徐々に薄れる長持ちする結果"
     ],
     "es": [
-      "Expert Artists trained in advanced international PMU techniques",
-      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
-      "Customized Designs to fit your face shape, skin tone, and personal style",
-      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
-      "Long-Lasting Results that gradually fade naturally without harsh edges"
+      "Artistas Expertos capacitados en técnicas PMU internacionales avanzadas",
+      "Pigmentos de Alta Calidad que son seguros, hipoalergénicos y duraderos",
+      "Diseños Personalizados para adaptarse a tu forma facial, tono de piel y estilo personal",
+      "Prácticas Seguras e Higiénicas con herramientas de grado médico y estándares de esterilización",
+      "Resultados Duraderos que se desvanecen gradualmente de forma natural sin bordes duros"
     ],
     "ko": [
-      "Expert Artists trained in advanced international PMU techniques",
-      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
-      "Customized Designs to fit your face shape, skin tone, and personal style",
-      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
-      "Long-Lasting Results that gradually fade naturally without harsh edges"
+      "고급 국제 PMU 기술로 훈련된 전문 아티스트",
+      "안전하고 저자극성이며 오래 지속되는 고품질 색소",
+      "얼굴 형태, 피부 톤 및 개인 스타일에 맞는 맞춤형 디자인",
+      "의료용 도구와 멸균 기준을 갖춘 안전하고 위생적인 관행",
+      "거친 가장자리 없이 자연스럽게 점차 퇴색하는 오래 지속되는 결과"
     ]
   },
   "closing": {
     "en": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
-    "vi": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
-    "ja": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
-    "es": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
-    "ko": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips."
+    "vi": "Phun Xăm Thẩm Mỹ không chỉ là về vẻ đẹp – mà còn về sự tự tin, tiện lợi và thể hiện bản thân. Thức dậy mỗi ngày với lông mày có hình dáng hoàn hảo, đôi mắt sắc nét và đôi môi có màu tự nhiên.",
+    "ja": "パーマネントメイクは美しさだけではありません。それは自信、便利さ、そして自己表現についてです。完璧に形作られた眉、定義された目、そして自然な色の唇で毎日目覚めましょう。",
+    "es": "El Maquillaje Permanente no se trata solo de belleza, sino de confianza, comodidad y autoexpresión. Despierta cada día con cejas perfectamente formadas, ojos definidos y labios con tinte natural.",
+    "ko": "반영구 화장은 단순히 아름다움만이 아닙니다. 자신감, 편리함, 자기 표현에 관한 것입니다. 완벽하게 형성된 눈썹, 선명한 눈, 자연스럽게 착색된 입술로 매일 깨어나세요."
   },
   "callToAction": {
     "en": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
-    "vi": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
-    "ja": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
-    "es": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
-    "ko": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine."
+    "vi": "Ghé thăm chúng tôi ngay hôm nay tại Vy Brows Academy & Studio để khám phá cách PMU có thể tăng cường vẻ đẹp tự nhiên của bạn và đơn giản hóa thói quen hàng ngày.",
+    "ja": "本日Vy Brows Academy & Studioにお越しいただき、PMUがあなたの自然な美しさを高め、日常のルーティンを簡素化する方法をご発見ください。",
+    "es": "Visítanos hoy en Vy Brows Academy & Studio para descubrir cómo el PMU puede realzar tu belleza natural y simplificar tu rutina diaria.",
+    "ko": "오늘 Vy Brows Academy & Studio를 방문하여 PMU가 당신의 자연스러운 아름다움을 향상시키고 일상을 단순화하는 방법을 알아보세요."
   },
   "description": {
     "en": "Professional permanent makeup services for eyebrows, eyeliner, and lips.",
