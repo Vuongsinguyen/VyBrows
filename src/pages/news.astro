@@ -8,6 +8,8 @@ import { getAllNews } from '../data/newsLoader.js';
 export const prerender = true;
 
 const lang = 'en'; // English version without prefix
+const pageTitle = 'News & Updates - VyBrows Academy';
+const pageDescription = 'Stay updated with the latest permanent makeup trends, industry insights, beauty tips, and PMU education news from VyBrows Academy. Expert articles on microblading techniques, ombre brows, lip blush, and professional beauty training updates.';
 const PAGE_SIZE = 25;
 const pageParam = Astro.url?.searchParams.get('page');
 const currentPage = pageParam ? parseInt(pageParam) : 1;
@@ -35,7 +37,7 @@ const totalPages = Math.ceil(totalNews / PAGE_SIZE);
 const pagedNews = news.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 ---
 
-<NewsLayout title="News & Updates">
+<NewsLayout title={pageTitle} description={pageDescription}>
   <BannerFix 
     title="News & Updates" 
     subtitle="Stay updated with the latest news, trends, and insights from VyBrows Academy"

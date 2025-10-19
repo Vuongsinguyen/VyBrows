@@ -32,9 +32,16 @@ const serviceContent = servicesData.reduce((acc, service) => {
   acc[service.slug] = service.description;
   return acc;
 }, {} as Record<string, Record<string, string>>);
+
+// Get current service for meta
+const currentService = servicesData.find(s => s.slug === serviceSlug);
+const serviceTitle = `${serviceLabels[serviceSlug] || 'Service'} - VyBrows Academy`;
+const serviceDescription = currentService?.description?.[lang] || currentService?.description?.en
+  ? `${(currentService.description[lang] || currentService.description.en).substring(0, 155)}...` 
+  : 'Professional permanent makeup services by certified PMU artists at VyBrows Academy. Expert techniques, safe procedures, stunning natural results.';
 ---
 
-<NewsLayout title={serviceLabels[serviceSlug] || 'Service'}>
+<NewsLayout title={serviceTitle} description={serviceDescription}>
   <BannerFix 
     title={serviceLabels[serviceSlug] || 'Our Services'} 
     subtitle="Professional Beauty Services"

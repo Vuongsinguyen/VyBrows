@@ -23,9 +23,16 @@ const trainingTitles = trainingData.reduce((acc, training) => {
   acc[training.slug] = training.title.en;
   return acc;
 }, {} as Record<string, string>);
+
+// Get current training for meta
+const currentTraining = trainingData.find(t => t.slug === trainingSlug);
+const trainingTitle = `${trainingTitles[trainingSlug] || 'Training'} - VyBrows Academy`;
+const trainingDescription = currentTraining?.description?.en 
+  ? `${currentTraining.description.en.substring(0, 155)}...` 
+  : 'Professional permanent makeup training courses at VyBrows Academy. Expert-led PMU certification programs with hands-on practice and lifetime support.';
 ---
 
-<NewsLayout title={trainingTitles[trainingSlug] || 'Training'}>
+<NewsLayout title={trainingTitle} description={trainingDescription}>
   <BannerFix 
     title={trainingTitles[trainingSlug] || 'Training'} 
     subtitle="Professional Training Program"

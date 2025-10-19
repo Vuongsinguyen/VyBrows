@@ -6,38 +6,43 @@ import FooterSection from '../components/UI/layout/FooterSection.astro';
 
 export interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 const lang = Astro.url.pathname.split('/')[1] || 'en';
+
+// Default meta description if not provided
+const metaDescription = description || "VyBrows Academy - Professional permanent makeup training and beauty services. Expert PMU education, microblading courses, and certified beauty training programs.";
+const pageTitle = title || "VyBrows Academy - Professional Permanent Makeup & Beauty Services";
 ---
 
 <!DOCTYPE html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Vy Brows Beauty - Professional Permanent Makeup & Beauty Services" />
+    <meta name="description" content={metaDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title || "Vy Brows Beauty - Professional Permanent Makeup & Beauty Services"} />
-    <meta property="og:description" content="Leading permanent makeup studio specializing in microblading, PMU services, and natural beauty enhancements. Expert artists, safe techniques, stunning results." />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:image" content="https://vybrowsbeauty.com/images/brows%20beauty%20academy%20training.jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Vy Brows Beauty - Professional Permanent Makeup Services" />
-    <meta property="og:site_name" content="Vy Brows Beauty" />
+    <meta property="og:image:alt" content="VyBrows Academy - Professional Permanent Makeup Services" />
+    <meta property="og:site_name" content="VyBrows Academy" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title || "Vy Brows Beauty - Professional Permanent Makeup & Beauty Services"} />
-    <meta property="twitter:description" content="Leading permanent makeup studio specializing in microblading, PMU services, and natural beauty enhancements. Expert artists, safe techniques, stunning results." />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={metaDescription} />
     <meta property="twitter:image" content="https://vybrowsbeauty.com/images/brows%20beauty%20academy%20training.jpeg" />
-    <meta property="twitter:image:alt" content="Vy Brows Beauty - Professional Permanent Makeup Services" />
+    <meta property="twitter:image:alt" content="VyBrows Academy - Professional Permanent Makeup Services" />
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -65,7 +70,7 @@ const lang = Astro.url.pathname.split('/')[1] || 'en';
     <meta http-equiv="Expires" content="0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" sizes="any" />
-    <title>{title || 'Vy Brows Beauty'}</title>
+    <title>{pageTitle}</title>
   </head>
   <body class="min-h-screen transition-colors duration-200 bg-primary">
     <script>

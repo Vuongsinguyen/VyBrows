@@ -60,85 +60,137 @@ const aboutUsSubtitle = lang === 'vi' ? 'Tìm hiểu thêm về VyBrows Academy'
 
         <!-- Main Content -->
         <main class="flex-1 space-y-12 order-2">
-          {aboutUsData.sections.map((section: any) => (
-            <section class="bg-surface rounded-lg p-6 border border-border">
-              <a href={`/${lang}/about-us/${section.id}`} class="block group">
-                <h1 class="text-3xl font-bold mb-4 text-on-surface group-hover:text-primary transition-colors cursor-pointer">{section.title[lang as keyof typeof section.title] || section.title.en}</h1>
-              </a>
-              <div class="prose prose-lg max-w-none text-on-surface mb-6">
-                {(() => {
-                  const content = section.content[lang as keyof typeof section.content] || section.content.en;
-                  // Hiển thị tóm tắt (khoảng 150 từ đầu tiên)
-                  const words = content.split(' ');
-                  const summary = words.slice(0, 30).join(' ') + (words.length > 30 ? '...' : '');
-                  return <p set:html={summary}></p>;
-                })()}
-              </div>
-              <a
-                href={`/${lang}/about-us/${section.id}`}
-                class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base shadow transition-colors focus:outline-none focus-visible:ring-2 bg-primary text-on-primary hover:bg-primary/90"
+          <!-- Overview Section -->
+          <div class="space-y-8">
+            <div class="text-center mb-12">
+              <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 font-lora">
+                {lang === 'vi' ? 'Chào mừng đến với VyBrows Academy' : lang === 'ja' ? 'VyBrowsアカデミーへようこそ' : 'Welcome to VyBrows Academy'}
+              </h2>
+              <p class="text-lg text-on-surface max-w-3xl mx-auto leading-relaxed">
+                {lang === 'vi' 
+                  ? 'Tại VyBrows Academy, chúng tôi đam mê về nghệ thuật và khoa học phun xăm thẩm mỹ. Sứ mệnh của chúng tôi là cung cấp đào tạo và dịch vụ đẳng cấp thế giới giúp mọi người đạt được mục tiêu làm đẹp với sự tự tin và chuyên nghiệp.' 
+                  : lang === 'ja' 
+                  ? 'VyBrowsアカデミーでは、アートメイクの芸術と科学に情熱を注いでいます。私たちの使命は、自信と専門性を持って美容目標を達成できるよう、世界クラスのトレーニングとサービスを提供することです。' 
+                  : 'At VyBrows Academy, we are passionate about the art and science of permanent makeup. Our mission is to provide world-class training and services that empower individuals to achieve their beauty goals with confidence and professionalism.'
+                }
+              </p>
+            </div>
+
+            <!-- Quick Navigation Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              <a 
+                href={`/${lang}/about-us/why-choose-us`}
+                class="group block bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-lg shadow-sm border border-amber-200 hover:shadow-md transition-all duration-300 hover:border-amber-400"
               >
-                {lang === 'vi' ? 'Chi tiết' : lang === 'ja' ? '詳細' : 'Details'}
+                <h3 class="text-xl font-bold text-amber-800 mb-3 group-hover:text-amber-900 transition-colors">
+                  {lang === 'vi' ? 'TẠI SAO CHỌN CHÚNG TÔI' : lang === 'ja' ? '私たちを選ぶ理由' : 'WHY CHOOSE US'}
+                </h3>
+                <p class="text-gray-700 text-sm line-clamp-3">
+                  {lang === 'vi' 
+                    ? 'Khám phá điều gì làm cho VyBrows Academy khác biệt - chuyên môn, chất lượng và cam kết về sự xuất sắc của chúng tôi...' 
+                    : lang === 'ja' 
+                    ? 'VyBrowsアカデミーを際立たせるもの - 私たちの専門知識、品質、卓越性へのコミットメントをご覧ください...' 
+                    : 'Discover what sets VyBrows Academy apart - our expertise, quality, and commitment to excellence...'
+                  }
+                </p>
+                <div class="flex items-center text-amber-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                  <span>{lang === 'vi' ? 'Tìm hiểu thêm' : lang === 'ja' ? '詳細を見る' : 'Learn More'}</span>
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </a>
-            </section>
-          ))}
+              <a 
+                href={`/${lang}/about-us/expertise-experience`}
+                class="group block bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-lg shadow-sm border border-emerald-200 hover:shadow-md transition-all duration-300 hover:border-emerald-400"
+              >
+                <h3 class="text-xl font-bold text-emerald-800 mb-3 group-hover:text-emerald-900 transition-colors">
+                  {lang === 'vi' ? 'CHUYÊN MÔN & KINH NGHIỆM' : lang === 'ja' ? '専門知識と経験' : 'EXPERTISE & EXPERIENCE'}
+                </h3>
+                <p class="text-gray-700 text-sm line-clamp-3">
+                  {lang === 'vi' 
+                    ? 'Tìm hiểu về nghệ thuật cấp bậc master, chứng chỉ quốc tế và thành tích đã được chứng minh của chúng tôi...' 
+                    : lang === 'ja' 
+                    ? 'マスターレベルの芸術性、国際認定、実績のある実績について学びましょう...' 
+                    : 'Learn about our master-level artistry, international certifications, and proven track record...'
+                  }
+                </p>
+                <div class="flex items-center text-emerald-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                  <span>{lang === 'vi' ? 'Tìm hiểu thêm' : lang === 'ja' ? '詳細を見る' : 'Learn More'}</span>
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+              <a 
+                href={`/${lang}/about-us/safe-painless`}
+                class="group block bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg shadow-sm border border-green-200 hover:shadow-md transition-all duration-300 hover:border-green-400"
+              >
+                <h3 class="text-xl font-bold text-green-800 mb-3 group-hover:text-green-900 transition-colors">
+                  {lang === 'vi' ? 'KỸ THUẬT AN TOÀN & KHÔNG ĐAU' : lang === 'ja' ? '安全で痛みのない技術' : 'SAFE & PAINLESS TECHNIQUES'}
+                </h3>
+                <p class="text-gray-700 text-sm line-clamp-3">
+                  {lang === 'vi' 
+                    ? 'Khám phá quản lý đau tiên tiến và các quy trình vô trùng y tế của chúng tôi...' 
+                    : lang === 'ja' 
+                    ? '高度な疼痛管理と医療グレードの滅菌プロトコルをご覧ください...' 
+                    : 'Explore our advanced pain management and medical-grade sterilization protocols...'
+                  }
+                </p>
+                <div class="flex items-center text-green-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                  <span>{lang === 'vi' ? 'Tìm hiểu thêm' : lang === 'ja' ? '詳細を見る' : 'Learn More'}</span>
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+              <a 
+                href={`/${lang}/about-us/world-class-training`}
+                class="group block bg-gradient-to-br from-indigo-50 to-blue-50 p-6 rounded-lg shadow-sm border border-indigo-200 hover:shadow-md transition-all duration-300 hover:border-indigo-400"
+              >
+                <h3 class="text-xl font-bold text-indigo-800 mb-3 group-hover:text-indigo-900 transition-colors">
+                  {lang === 'vi' ? 'ĐÀO TẠO ĐẲNG CẤP THẾ GIỚI' : lang === 'ja' ? '世界クラスのトレーニング' : 'WORLD-CLASS TRAINING'}
+                </h3>
+                <p class="text-gray-700 text-sm line-clamp-3">
+                  {lang === 'vi' 
+                    ? 'Khám phá các chương trình đào tạo toàn diện, chứng chỉ quốc tế và giáo dục liên tục của chúng tôi...' 
+                    : lang === 'ja' 
+                    ? '包括的なトレーニングプログラム、国際認定、継続教育をご覧ください...' 
+                    : 'Discover our comprehensive training programs, international certifications, and continuous education...'
+                  }
+                </p>
+                <div class="flex items-center text-indigo-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                  <span>{lang === 'vi' ? 'Tìm hiểu thêm' : lang === 'ja' ? '詳細を見る' : 'Learn More'}</span>
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+              <a 
+                href={`/${lang}/about-us/natural-stunning`}
+                class="group block bg-gradient-to-br from-pink-50 to-rose-50 p-6 rounded-lg shadow-sm border border-pink-200 hover:shadow-md transition-all duration-300 hover:border-pink-400"
+              >
+                <h3 class="text-xl font-bold text-pink-800 mb-3 group-hover:text-pink-900 transition-colors">
+                  {lang === 'vi' ? 'KẾT QUẢ TỰ NHIÊN & TUYỆT ĐẸP' : lang === 'ja' ? '自然で素晴らしい結果' : 'NATURAL & STUNNING RESULTS'}
+                </h3>
+                <p class="text-gray-700 text-sm line-clamp-3">
+                  {lang === 'vi' 
+                    ? 'Xem cách chúng tôi tạo ra những cải thiện ngoạn mục, trông tự nhiên với nghệ thuật tinh thông...' 
+                    : lang === 'ja' 
+                    ? '芸術的な熟練により、息をのむような自然な見た目の美しさを作り出す方法をご覧ください...' 
+                    : 'See how we create breathtaking, natural-looking enhancements with artistic mastery...'
+                  }
+                </p>
+                <div class="flex items-center text-pink-700 text-sm font-medium mt-4 group-hover:gap-2 transition-all duration-300">
+                  <span>{lang === 'vi' ? 'Tìm hiểu thêm' : lang === 'ja' ? '詳細を見る' : 'Learn More'}</span>
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
         </main>
-</script>
-<script>
-// Simple dark mode toggle (auto detect or manual)
-function setTheme(theme: string) {
-  document.documentElement.setAttribute('data-theme', theme);
-}
-// Auto detect system preference
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  setTheme('dark');
-} else {
-  setTheme('light');
-}
-// Optional: expose to window for manual toggle
-// @ts-ignore
-window.setTheme = setTheme;
-</script>
-<script>
-// Smooth scroll for sidebar links
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.scroll-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const currentTarget = e.currentTarget as HTMLElement;
-      const href = currentTarget && currentTarget.getAttribute('href') || '';
-      const target = document.querySelector(href);
-      if (target) {
-        // Offset increased to 80px so section title is always visible
-        window.scrollTo({
-          top: target.getBoundingClientRect().top + window.scrollY - 80,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-});
-</script>
-
-        <!-- Sidebar Phải: Contact Form -->
-        <aside class="hidden lg:block w-[220px] bg-surface-1 rounded-lg p-4 text-on-surface shadow mt-4 lg:mt-0 lg:sticky lg:top-32 z-20 border border-border">
-          <form class="space-y-4">
-            <h2 class="font-bold text-lg mb-2 text-on-surface">Contact Us</h2>
-            <div>
-              <label class="block text-sm font-medium mb-1" for="name">Name</label>
-              <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="text" id="name" name="name" required />
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1" for="email">Email</label>
-              <input class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" type="email" id="email" name="email" required />
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1" for="message">Message</label>
-              <textarea class="w-full rounded border border-border p-2 text-on-surface bg-surface-1" id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="w-full bg-primary text-on-primary rounded-lg p-3 font-semibold shadow-none hover:opacity-90 transition">Send</button>
-          </form>
-        </aside>
-
-  </div>
+</div>
+</div>
 </PageLayout>

@@ -8,8 +8,8 @@ export const prerender = true;
 
 const lang = 'en'; // English version without prefix
 
-const pageTitle = 'Professional Training Programs';
-const pageDescription = 'Elevate your permanent makeup career with world-class training from VyBrows Academy. Our comprehensive courses are designed by industry experts with over 20 years of experience.';
+const pageTitle = 'Professional Training Programs - VyBrows Academy';
+const pageDescription = 'Elevate your permanent makeup career with world-class training from VyBrows Academy. Comprehensive PMU certification courses, microblading programs, and expert-led beauty education with over 20 years of industry experience. Transform your passion into a thriving career.';
 
 const ctaText = 'Ready to elevate your skills?';
 const ctaButtonText = 'Book Free Consultation';
@@ -25,7 +25,7 @@ const trainingList = trainingData.map(training => ({
 }));
 ---
 
-<NewsLayout title={pageTitle}>
+<NewsLayout title={pageTitle} description={pageDescription}>
   <BannerFix 
     title={pageTitle} 
     subtitle={pageDescription}
