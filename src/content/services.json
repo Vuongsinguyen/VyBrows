@@ -5,7 +5,8 @@
       "en": "PMU — PERMANENT MAKEUP",
       "vi": "PMU — TRANG ĐIỂM BỀN VỮNG",
       "ja": "PMU — パーマネントメイク",
-      "es": "PMU — MAQUILLAJE PERMANENTE"
+      "es": "PMU — MAQUILLAJE PERMANENTE",
+      "ko": "PMU — 반영구 화장"
     },
     "subtitle": "Elevating Beauty, Simplifying Your Routine",
     "introduction": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
@@ -54,7 +55,8 @@
       "en": "Professional permanent makeup services for eyebrows, eyeliner, and lips.",
       "vi": "Dịch vụ trang điểm bền vững chuyên nghiệp cho lông mày, eyeliner và môi.",
       "ja": "眉毛、アイライナー、リップのパーマネントメイクサービス。",
-      "es": "Servicios profesionales de maquillaje permanente para cejas, delineador y labios."
+      "es": "Servicios profesionales de maquillaje permanente para cejas, delineador y labios.",
+      "ko": "눈썹, 아이라이너, 립을 위한 전문 반영구 화장 서비스."
     },
     "image": "/images/service01.avif",
     "technologies": [
@@ -70,7 +72,8 @@
       "en": "SKINCARE — ACNE TREATMENT",
       "vi": "CHĂM SÓC DA — ĐIỀU TRỊ MỤN",
       "ja": "スキンケア — ニキビ治療",
-      "es": "CUIDADO DE LA PIEL — TRATAMIENTO DE ACNÉ"
+      "es": "CUIDADO DE LA PIEL — TRATAMIENTO DE ACNÉ",
+      "ko": "스킨케어 — 여드름 치료"
     },
     "subtitle": "Clear Skin, Clear Confidence",
     "introduction": "Acne doesn't have to define your skin or your confidence. At Vy Brows Academy & Studio, we offer comprehensive acne treatment solutions designed to target the root causes of breakouts, reduce inflammation, and promote healing. Our advanced skincare protocols combine medical-grade products, proven extraction techniques, and personalized care to help you achieve clear, healthy, radiant skin.",
@@ -122,7 +125,8 @@
       "en": "Advanced acne treatment and skincare solutions for clear, healthy skin.",
       "vi": "Giải pháp điều trị mụn và chăm sóc da tiên tiến cho làn da khỏe mạnh, sạch mụn.",
       "ja": "クリアで健康な肌のための高度なニキビ治療とスキンケアソリューション。",
-      "es": "Tratamiento avanzado del acné y soluciones de cuidado de la piel para una piel clara y saludable."
+      "es": "Tratamiento avanzado del acné y soluciones de cuidado de la piel para una piel clara y saludable.",
+      "ko": "깨끗하고 건강한 피부를 위한 고급 여드름 치료 및 스킨케어 솔루션."
     },
     "image": "/images/service02.avif",
     "technologies": [
@@ -139,7 +143,8 @@
       "en": "DETOX & HERBAL HAIR WASH",
       "vi": "GIẢI ĐỘC & GỘI ĐẦU BẰNG THẢO MỘC",
       "ja": "デトックス＆ハーブヘッドスパ",
-      "es": "DESINTOXICACIÓN Y LAVADO DE CABELLO HERBAL"
+      "es": "DESINTOXICACIÓN Y LAVADO DE CABELLO HERBAL",
+      "ko": "디톡스 & 허브 헤어 워시"
     },
     "subtitle": "Restore Your Hair's Natural Vitality",
     "introduction": "Experience the ancient wisdom of herbal hair care combined with modern detox techniques. At Vy Brows Academy & Studio, our Detox & Herbal Hair Wash service is designed to purify your scalp, remove toxins, and nourish your hair with the power of nature. This therapeutic treatment not only cleanses deeply but also promotes healthy hair growth and restores your hair's natural shine and strength.",
@@ -191,7 +196,8 @@
       "en": "Natural detox and herbal hair treatments for healthy, shiny hair.",
       "vi": "Giải độc tự nhiên và điều trị tóc bằng thảo mộc cho mái tóc khỏe mạnh, bóng mượt.",
       "ja": "健康で輝く髪のための天然デトックスとハーブヘアトリートメント。",
-      "es": "Desintoxicación natural y tratamientos capilares herbales para cabello saludable y brillante."
+      "es": "Desintoxicación natural y tratamientos capilares herbales para cabello saludable y brillante.",
+      "ko": "건강하고 윤기나는 모발을 위한 천연 디톡스 및 허브 헤어 트리트먼트."
     },
     "image": "/images/service03.avif",
     "technologies": [
@@ -208,7 +214,8 @@
       "en": "SHADING OMBRÉ",
       "vi": "SHADING OMBRÉ",
       "ja": "シェーディングオンブレ",
-      "es": "SOMBREADO OMBRE"
+      "es": "SOMBREADO OMBRE",
+      "ko": "셰이딩 옴브레"
     },
     "subtitle": "Soft, Natural Gradient Brows",
     "introduction": "Shading Ombré is the perfect blend of artistry and technique, creating beautifully soft, gradient eyebrows that look naturally fuller and more defined. At Vy Brows Academy & Studio, our Ombré Shading technique delivers a powder-soft finish that starts lighter at the front of the brow and gradually deepens toward the tail, mimicking the natural way brow hairs grow and creating a stunning, sophisticated look.",
@@ -260,7 +267,8 @@
       "en": "Beautiful ombre shading technique for natural-looking eyebrows.",
       "vi": "Kỹ thuật shading ombre đẹp mắt cho lông mày tự nhiên.",
       "ja": "自然な眉毛のための美しいオンブレシェーディングテクニック。",
-      "es": "Hermosa técnica de sombreado ombre para cejas de aspecto natural."
+      "es": "Hermosa técnica de sombreado ombre para cejas de aspecto natural.",
+      "ko": "자연스러운 눈썹을 위한 아름다운 옴브레 셰이딩 기법."
     },
     "image": "/images/service04.avif",
     "technologies": [
@@ -277,7 +285,8 @@
       "en": "MICRO BLADING",
       "vi": "MICRO BLADING",
       "ja": "マイクロブレーディング",
-      "es": "MICROBLADING"
+      "es": "MICROBLADING",
+      "ko": "마이크로블레이딩"
     },
     "subtitle": "Hair-Like Strokes for Natural Brows",
     "introduction": "Microblading is the most popular semi-permanent eyebrow technique that creates incredibly natural-looking hair strokes. At Vy Brows Academy & Studio, our skilled artists use ultra-fine manual tools to implant pigment into the skin, creating individual hair-like strokes that blend seamlessly with your natural brows. Perfect for those who want to add fullness, define shape, or completely reconstruct their eyebrows.",
@@ -329,7 +338,8 @@
       "en": "Precision micro blading for perfectly shaped eyebrows.",
       "vi": "Micro blading chính xác cho lông mày hình dáng hoàn hảo.",
       "ja": "完璧な形の眉毛のための精密マイクロブレーディング。",
-      "es": "Microblading de precisión para cejas perfectamente formadas."
+      "es": "Microblading de precisión para cejas perfectamente formadas.",
+      "ko": "완벽한 모양의 눈썹을 위한 정밀 마이크로블레이딩."
     },
     "image": "/images/service05.avif",
     "technologies": [
@@ -346,7 +356,8 @@
       "en": "HAIRS STROKES",
       "vi": "HAIRS STROKES",
       "ja": "ヘアーストローク",
-      "es": "TRAZOS DE PELO"
+      "es": "TRAZOS DE PELO",
+      "ko": "헤어 스트로크"
     },
     "subtitle": "Ultra-Fine Hair Simulation Technology",
     "introduction": "Hair Strokes technique represents the pinnacle of eyebrow artistry, using advanced digital technology to create the finest, most realistic hair simulation possible. At Vy Brows Academy & Studio, our Hair Strokes method goes beyond traditional microblading, utilizing ultra-fine needles and precise digital machines to create hair strokes that are virtually indistinguishable from natural brow hairs.",
@@ -398,7 +409,8 @@
       "en": "Fine hair strokes technique for ultra-realistic eyebrow appearance.",
       "vi": "Kỹ thuật nét tóc mỏng cho vẻ ngoài lông mày siêu thực tế.",
       "ja": "超リアルな眉毛の外観のための細いヘアーストロークテクニック。",
-      "es": "Técnica de trazos de pelo finos para apariencia de cejas ultra realista."
+      "es": "Técnica de trazos de pelo finos para apariencia de cejas ultra realista.",
+      "ko": "초현실적인 눈썹 외관을 위한 미세 헤어 스트로크 기법."
     },
     "image": "/images/service06.avif",
     "technologies": [
@@ -415,7 +427,8 @@
       "en": "EYELINERS",
       "vi": "EYELINERS",
       "ja": "アイライナー",
-      "es": "DELINEADORES"
+      "es": "DELINEADORES",
+      "ko": "아이라이너"
     },
     "subtitle": "Define Your Eyes, Enhance Your Beauty",
     "introduction": "Permanent eyeliner is the perfect solution for beautifully defined eyes that never smudge, run, or fade throughout the day. At Vy Brows Academy & Studio, our expert artists specialize in creating stunning eyeliner designs that enhance your natural eye shape, making your eyes appear larger, brighter, and more youthful. From subtle lash line enhancement to bold winged designs, we customize each treatment to perfectly complement your unique features.",
@@ -467,7 +480,8 @@
       "en": "Professional eyeliner services for defined, beautiful eyes.",
       "vi": "Dịch vụ eyeliner chuyên nghiệp cho đôi mắt được định hình, đẹp mắt.",
       "ja": "定義された美しい目ためのプロフェッショナルアイライナーサービス。",
-      "es": "Servicios profesionales de delineador para ojos definidos y hermosos."
+      "es": "Servicios profesionales de delineador para ojos definidos y hermosos.",
+      "ko": "선명하고 아름다운 눈을 위한 전문 아이라이너 서비스."
     },
     "image": "/images/service07.avif",
     "technologies": [
@@ -484,7 +498,8 @@
       "en": "LIP TREATMENTS",
       "vi": "ĐIỀU TRỊ MÔI",
       "ja": "リップトリートメント",
-      "es": "TRATAMIENTOS LABIALES"
+      "es": "TRATAMIENTOS LABIALES",
+      "ko": "립 트리트먼트"
     },
     "subtitle": "Beautiful, Youthful Lips Naturally Enhanced",
     "introduction": "Our comprehensive lip treatments are designed to restore, enhance, and beautify your lips naturally. At Vy Brows Academy & Studio, we offer a range of lip services from permanent makeup to rejuvenating treatments that address color loss, asymmetry, and aging signs. Whether you want subtle enhancement or dramatic transformation, our expert artists create beautiful, natural-looking results that complement your unique features.",
@@ -536,7 +551,8 @@
       "en": "Lip enhancement and treatment services for fuller, healthier lips.",
       "vi": "Dịch vụ tăng cường và điều trị môi cho đôi môi đầy đặn, khỏe mạnh hơn.",
       "ja": "より豊かで健康的な唇のための唇強化とトリートメントサービス。",
-      "es": "Servicios de realce y tratamiento labial para labios más llenos y saludables."
+      "es": "Servicios de realce y tratamiento labial para labios más llenos y saludables.",
+      "ko": "더 풍성하고 건강한 입술을 위한 립 강화 및 트리트먼트 서비스."
     },
     "image": "/images/service08.avif",
     "technologies": [
@@ -553,7 +569,8 @@
       "en": "DARK LIPS REMOVER",
       "vi": "LOẠI BỎ MÔI TỐI",
       "ja": "ダークリップスリムーバー",
-      "es": "ELIMINADOR DE LABIOS OSCUROS"
+      "es": "ELIMINADOR DE LABIOS OSCUROS",
+      "ko": "다크 립 제거"
     },
     "subtitle": "Restore Your Natural Lip Color",
     "introduction": "Dark lip pigmentation can affect your confidence and natural beauty. At Vy Brows Academy & Studio, our Dark Lips Remover treatment is specifically designed to safely and effectively lighten dark, discolored lips and restore your natural, healthy lip color. Using advanced techniques and safe, proven methods, we help you achieve beautiful, naturally pink lips that enhance your overall appearance and boost your confidence.",
@@ -605,7 +622,8 @@
       "en": "Safe and effective treatment to remove dark lip pigmentation.",
       "vi": "Điều trị an toàn và hiệu quả để loại bỏ sắc tố môi tối.",
       "ja": "ダークリップの色素沈着を安全かつ効果的に除去する治療。",
-      "es": "Tratamiento seguro y efectivo para eliminar la pigmentación oscura de los labios."
+      "es": "Tratamiento seguro y efectivo para eliminar la pigmentación oscura de los labios.",
+      "ko": "어두운 입술 색소침착을 안전하고 효과적으로 제거하는 트리트먼트."
     },
     "image": "/images/service09.avif",
     "technologies": [

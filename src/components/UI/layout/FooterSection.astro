@@ -68,20 +68,31 @@ const socialLinks = [
 
       <!-- About Us Column -->
       <div>
-        <h3 class="text-lg font-bold uppercase tracking-wide mb-6 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">ABOUT US</h3>
-        <ul class="space-y-3">
-          {(() => {
-            const aboutMenu = menuItems.find(item => item.label.toUpperCase() === 'ABOUT US');
-            const aboutLinks = aboutMenu?.children || [];
-            return aboutLinks.map(link => (
-              <li>
-                <a href={link.href} class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">
-                  {link.label}
-                </a>
-              </li>
-            ));
-          })()}
-        </ul>
+        {(() => {
+          // Tìm menu About Us dựa vào children có chứa "about-us" trong href
+          const aboutMenu = menuItems.find(item => item.children && item.children.some(child => child.href.includes('/about-us/')));
+          const aboutLinks = aboutMenu?.children || [];
+          
+          // Lấy label header từ menu item tìm được
+          const headerLabel = aboutMenu?.label || 'ABOUT US';
+          
+          return (
+            <>
+              <h3 class="text-lg font-bold uppercase tracking-wide mb-6 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">
+                {headerLabel}
+              </h3>
+              <ul class="space-y-3">
+                {aboutLinks.map(link => (
+                  <li>
+                    <a href={link.href} class="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          );
+        })()}
       </div>
 
       <!-- Explore Column -->
