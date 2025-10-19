@@ -3,13 +3,13 @@
     "slug": "pmu-permanent-makeup",
     "title": {
       "en": "PMU — PERMANENT MAKEUP",
-      "vi": "PMU — TRANG ĐIỂM BỀN VỮNG",
+      "vi": "PMU — PHUN XĂM THẨM MỸ",
       "ja": "PMU — パーマネントメイク",
       "es": "PMU — MAQUILLAJE PERMANENTE"
     },
     "description": {
       "en": "Professional permanent makeup services for eyebrows, eyeliner, and lips.",
-      "vi": "Dịch vụ trang điểm bền vững chuyên nghiệp cho lông mày, eyeliner và môi.",
+      "vi": "Dịch vụ Phun Xăm thẩm mỹ chuyên nghiệp cho lông mày, eyeliner và môi.",
       "ja": "眉毛、アイライナー、リップのパーマネントメイクサービス。",
       "es": "Servicios profesionales de maquillaje permanente para cejas, delineador y labios."
     },
@@ -179,7 +179,7 @@
     "slug": "dark-lips-remover",
     "title": {
       "en": "DARK LIPS REMOVER",
-      "vi": "LOẠI BỎ MÔI TỐI",
+      "vi": "KHỬ MÔI THÂM",
       "ja": "ダークリップスリムーバー",
       "es": "ELIMINADOR DE LABIOS OSCUROS"
     },

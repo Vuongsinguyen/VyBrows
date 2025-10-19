@@ -3,11 +3,12 @@ import '/src/styles/color.css';
 import '/src/styles/global.css';
 import NewsLayout from '../../../layouts/NewsLayout.astro';
 import BannerFix from '../../../components/UI/section/BannerFix.astro';
-import servicesData from '../../../content/services.json' assert { type: 'json' };
+import { getAllServices } from '../../../data/servicesLoader.js';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
+  const servicesData = getAllServices();
   const langs = ['en', 'vi', 'ja', 'es', 'ko'];
   return langs.flatMap(lang => {
     return servicesData.map(service => ({ 
@@ -18,12 +19,26 @@ export async function getStaticPaths() {
     }));
   });
 }
+
+const servicesData = getAllServices();
 const lang = Astro.params.lang as 'en' | 'vi' | 'ja' | 'es' | 'ko';
 const serviceSlug = Astro.params.service as string;
 
+// Helper function to get multilingual content (supports both old and new format)
+const getContent = (content: any, lang: string, fallback = '') => {
+  if (!content) return fallback;
+  // New format: {en: "...", vi: "...", ...}
+  if (typeof content === 'object' && !Array.isArray(content)) {
+    return content[lang] || content.en || fallback;
+  }
+  // Old format: direct string or lang object
+  if (typeof content === 'string') return content;
+  return content[lang] || content.en || fallback;
+};
+
 // Create service labels for sidebar
 const serviceLabels = servicesData.reduce((acc, service) => {
-  acc[service.slug] = (service.title as any)[lang] || service.title.en;
+  acc[service.slug] = getContent(service.title, lang, service.slug);
   return acc;
 }, {} as Record<string, string>);
 
@@ -84,7 +99,7 @@ const serviceDescription = currentService?.description?.[lang] || currentService
               
               {/* Subtitle */}
               {currentService?.subtitle && (
-                <p class="text-xl text-primary font-semibold mb-4">{currentService.subtitle}</p>
+                <p class="text-xl text-primary font-semibold mb-4">{getContent(currentService.subtitle, lang)}</p>
               )}
 
               {/* Image */}
@@ -98,7 +113,7 @@ const serviceDescription = currentService?.description?.[lang] || currentService
 
               {/* Introduction */}
               {currentService?.introduction && (
-                <p class="text-lg text-on-surface mb-6 leading-relaxed">{currentService.introduction}</p>
+                <p class="text-lg text-on-surface mb-6 leading-relaxed">{getContent(currentService.introduction, lang)}</p>
               )}
 
               {/* Services List */}
@@ -109,20 +124,24 @@ const serviceDescription = currentService?.description?.[lang] || currentService
                   </h2>
                   {currentService.services.map((service: any) => (
                     <div class="bg-surface-1 rounded-xl p-6" style="border: 1px solid rgba(1, 81, 58, 0.1);">
-                      <h3 class="text-xl font-bold text-primary mb-3">{service.name}</h3>
-                      <p class="text-on-surface mb-4">{service.description}</p>
-                      {service.options && service.options.length > 0 && (
-                        <ul class="space-y-2 mb-4">
-                          {service.options.map((option: string) => (
-                            <li class="flex items-start gap-2">
-                              <span class="text-primary mt-1">•</span>
-                              <span class="text-on-surface">{option}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                      <h3 class="text-xl font-bold text-primary mb-3">{getContent(service.name, lang)}</h3>
+                      <p class="text-on-surface mb-4">{getContent(service.description, lang)}</p>
+                      {service.options && (() => {
+                        const options = getContent(service.options, lang, []);
+                        const optionsArray = Array.isArray(options) ? options : [options];
+                        return optionsArray.length > 0 && (
+                          <ul class="space-y-2 mb-4">
+                            {optionsArray.map((option: string) => (
+                              <li class="flex items-start gap-2">
+                                <span class="text-primary mt-1">•</span>
+                                <span class="text-on-surface">{option}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      })()}
                       {service.result && (
-                        <p class="text-primary font-semibold italic">{service.result}</p>
+                        <p class="text-primary font-semibold italic">{getContent(service.result, lang)}</p>
                       )}
                     </div>
                   ))}
@@ -130,21 +149,25 @@ const serviceDescription = currentService?.description?.[lang] || currentService
               )}
 
               {/* Why Choose Us */}
-              {currentService?.whyChooseUs && currentService.whyChooseUs.length > 0 && (
-                <div class="bg-primary/5 rounded-xl p-6" style="border: 1px solid rgba(1, 81, 58, 0.1);">
-                  <h2 class="text-2xl font-bold text-primary mb-4">
-                    {lang === 'vi' ? 'Tại sao chọn chúng tôi?' : lang === 'ja' ? '私たちを選ぶ理由' : lang === 'es' ? '¿Por qué elegirnos?' : lang === 'ko' ? '왜 우리를 선택해야 할까요?' : 'Why Choose Us?'}
-                  </h2>
-                  <ul class="space-y-3">
-                    {currentService.whyChooseUs.map((reason: string) => (
-                      <li class="flex items-start gap-3">
-                        <span class="w-2 h-2 bg-primary rounded-full mt-2"></span>
-                        <span class="text-on-surface">{reason}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {currentService?.whyChooseUs && (() => {
+                const reasons = getContent(currentService.whyChooseUs, lang, '');
+                const reasonsArray = Array.isArray(reasons) ? reasons : [];
+                return reasonsArray.length > 0 && (
+                  <div class="bg-primary/5 rounded-xl p-6" style="border: 1px solid rgba(1, 81, 58, 0.1);">
+                    <h2 class="text-2xl font-bold text-primary mb-4">
+                      {lang === 'vi' ? 'Tại sao chọn chúng tôi?' : lang === 'ja' ? '私たちを選ぶ理由' : lang === 'es' ? '¿Por qué elegirnos?' : lang === 'ko' ? '왜 우리를 선택해야 할까요?' : 'Why Choose Us?'}
+                    </h2>
+                    <ul class="space-y-3">
+                      {reasonsArray.map((reason: string) => (
+                        <li class="flex items-start gap-3">
+                          <span class="w-2 h-2 bg-primary rounded-full mt-2"></span>
+                          <span class="text-on-surface">{reason}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })()}
 
               {/* Technologies & Equipment (old format fallback) */}
               {currentService?.technologies && (
@@ -165,28 +188,32 @@ const serviceDescription = currentService?.description?.[lang] || currentService
 
               {/* Closing */}
               {currentService?.closing && (
-                <p class="text-lg text-on-surface leading-relaxed italic border-l-4 border-primary pl-4">{currentService.closing}</p>
+                <p class="text-lg text-on-surface leading-relaxed italic border-l-4 border-primary pl-4">{getContent(currentService.closing, lang)}</p>
               )}
 
               {/* CTA Section */}
               <div class="bg-primary/10 rounded-xl p-6 text-center" style="border: 1px solid rgba(1, 81, 58, 0.1);">
                 <h3 class="text-xl font-bold text-primary mb-2">
-                  {currentService?.callToAction ? currentService.callToAction.split('📍')[0] : 
-                    (lang === 'vi' ? 'Sẵn sàng trải nghiệm dịch vụ của chúng tôi?' : 
-                     lang === 'ja' ? 'サービスをご体験いただく準備はできましたか？' : 
-                     lang === 'es' ? '¿Listo para experimentar nuestros servicios?' : 
-                     lang === 'ko' ? '저희 서비스를 경험할 준비가 되셨나요?' : 
-                     'Ready to Experience Our Services?')
-                  }
+                  {(() => {
+                    const cta = getContent(currentService?.callToAction, lang, '');
+                    return cta ? cta.split('📍')[0] : 
+                      (lang === 'vi' ? 'Sẵn sàng trải nghiệm dịch vụ của chúng tôi?' : 
+                       lang === 'ja' ? 'サービスをご体験いただく準備はできましたか？' : 
+                       lang === 'es' ? '¿Listo para experimentar nuestros servicios?' : 
+                       lang === 'ko' ? '저희 서비스를 경험할 준비가 되셨나요?' : 
+                       'Ready to Experience Our Services?');
+                  })()}
                 </h3>
                 <p class="text-on-surface mb-4">
-                  {currentService?.callToAction ? currentService.callToAction.split('📍')[1] : 
-                    (lang === 'vi' ? 'Đặt lịch tư vấn ngay hôm nay và khám phá sự khác biệt của VyBrows Academy.' : 
-                     lang === 'ja' ? '今すぐコンサルテーションをご予約いただき、VyBrows Academyの違いをご体験ください。' : 
-                     lang === 'es' ? 'Reserve su consulta hoy y descubra la diferencia de VyBrows Academy.' : 
-                     lang === 'ko' ? '오늘 상담을 예약하고 VyBrows Academy의 차이점을 발견해보세요.' : 
-                     'Book your consultation today and discover the VyBrows Academy difference.')
-                  }
+                  {(() => {
+                    const cta = getContent(currentService?.callToAction, lang, '');
+                    return cta ? cta.split('📍')[1] : 
+                      (lang === 'vi' ? 'Đặt lịch tư vấn ngay hôm nay và khám phá sự khác biệt của VyBrows Academy.' : 
+                       lang === 'ja' ? '今すぐコンサルテーションをご予約いただき、VyBrows Academyの違いをご体験ください。' : 
+                       lang === 'es' ? 'Reserve su consulta hoy y descubra la diferencia de VyBrows Academy.' : 
+                       lang === 'ko' ? '오늘 상담을 예약하고 VyBrows Academy의 차이점을 발견해보세요.' : 
+                       'Book your consultation today and discover the VyBrows Academy difference.');
+                  })()}
                 </p>
                 <a
                   href="https://www.fresha.com/vi/a/vy-brows-academy-houston-13192-bellaire-boulevard-ksjqvy55"

@@ -1,0 +1,257 @@
+{
+  "slug": "detox-herbal-hair-wash",
+  "title": {
+    "en": "DETOX & HERBAL HAIR WASH",
+    "vi": "GIẢI ĐỘC & GỘI ĐẦU BẰNG THẢO MỘC",
+    "ja": "デトックス＆ハーブヘッドスパ",
+    "es": "DESINTOXICACIÓN Y LAVADO DE CABELLO HERBAL",
+    "ko": "디톡스 & 허브 헤어 워시"
+  },
+  "subtitle": {
+    "en": "Restore Your Hair's Natural Vitality",
+    "vi": "Phục Hồi Sức Sống Tự Nhiên Cho Tóc",
+    "ja": "髪本来の活力を取り戻す",
+    "es": "Restaura la Vitalidad Natural de tu Cabello",
+    "ko": "모발의 자연스러운 활력 회복"
+  },
+  "introduction": {
+    "en": "Experience the ancient wisdom of herbal hair care combined with modern detox techniques. At Vy Brows Academy & Studio, our Detox & Herbal Hair Wash service is designed to purify your scalp, remove toxins, and nourish your hair with the power of nature. This therapeutic treatment not only cleanses deeply but also promotes healthy hair growth and restores your hair's natural shine and strength.",
+    "vi": "Experience the ancient wisdom of herbal hair care combined with modern detox techniques. At Vy Brows Academy & Studio, our Detox & Herbal Hair Wash service is designed to purify your scalp, remove toxins, and nourish your hair with the power of nature. This therapeutic treatment not only cleanses deeply but also promotes healthy hair growth and restores your hair's natural shine and strength.",
+    "ja": "Experience the ancient wisdom of herbal hair care combined with modern detox techniques. At Vy Brows Academy & Studio, our Detox & Herbal Hair Wash service is designed to purify your scalp, remove toxins, and nourish your hair with the power of nature. This therapeutic treatment not only cleanses deeply but also promotes healthy hair growth and restores your hair's natural shine and strength.",
+    "es": "Experience the ancient wisdom of herbal hair care combined with modern detox techniques. At Vy Brows Academy & Studio, our Detox & Herbal Hair Wash service is designed to purify your scalp, remove toxins, and nourish your hair with the power of nature. This therapeutic treatment not only cleanses deeply but also promotes healthy hair growth and restores your hair's natural shine and strength.",
+    "ko": "Experience the ancient wisdom of herbal hair care combined with modern detox techniques. At Vy Brows Academy & Studio, our Detox & Herbal Hair Wash service is designed to purify your scalp, remove toxins, and nourish your hair with the power of nature. This therapeutic treatment not only cleanses deeply but also promotes healthy hair growth and restores your hair's natural shine and strength."
+  },
+  "services": [
+    {
+      "name": {
+        "en": "Deep Scalp Detoxification",
+        "vi": "Deep Scalp Detoxification",
+        "ja": "Deep Scalp Detoxification",
+        "es": "Deep Scalp Detoxification",
+        "ko": "Deep Scalp Detoxification"
+      },
+      "description": {
+        "en": "A comprehensive cleansing process that removes buildup, toxins, and impurities from your scalp and hair follicles.",
+        "vi": "A comprehensive cleansing process that removes buildup, toxins, and impurities from your scalp and hair follicles.",
+        "ja": "A comprehensive cleansing process that removes buildup, toxins, and impurities from your scalp and hair follicles.",
+        "es": "A comprehensive cleansing process that removes buildup, toxins, and impurities from your scalp and hair follicles.",
+        "ko": "A comprehensive cleansing process that removes buildup, toxins, and impurities from your scalp and hair follicles."
+      },
+      "options": {
+        "en": [
+          "Activated charcoal treatment to draw out toxins",
+          "Clay mask application for deep pore cleansing",
+          "Gentle exfoliation to remove dead skin cells",
+          "Promotes healthy hair follicle environment"
+        ],
+        "vi": [
+          "Activated charcoal treatment to draw out toxins",
+          "Clay mask application for deep pore cleansing",
+          "Gentle exfoliation to remove dead skin cells",
+          "Promotes healthy hair follicle environment"
+        ],
+        "ja": [
+          "Activated charcoal treatment to draw out toxins",
+          "Clay mask application for deep pore cleansing",
+          "Gentle exfoliation to remove dead skin cells",
+          "Promotes healthy hair follicle environment"
+        ],
+        "es": [
+          "Activated charcoal treatment to draw out toxins",
+          "Clay mask application for deep pore cleansing",
+          "Gentle exfoliation to remove dead skin cells",
+          "Promotes healthy hair follicle environment"
+        ],
+        "ko": [
+          "Activated charcoal treatment to draw out toxins",
+          "Clay mask application for deep pore cleansing",
+          "Gentle exfoliation to remove dead skin cells",
+          "Promotes healthy hair follicle environment"
+        ]
+      },
+      "result": {
+        "en": "A refreshed, clean scalp free from buildup and ready for optimal hair growth.",
+        "vi": "A refreshed, clean scalp free from buildup and ready for optimal hair growth.",
+        "ja": "A refreshed, clean scalp free from buildup and ready for optimal hair growth.",
+        "es": "A refreshed, clean scalp free from buildup and ready for optimal hair growth.",
+        "ko": "A refreshed, clean scalp free from buildup and ready for optimal hair growth."
+      }
+    },
+    {
+      "name": {
+        "en": "Traditional Herbal Hair Wash",
+        "vi": "Traditional Herbal Hair Wash",
+        "ja": "Traditional Herbal Hair Wash",
+        "es": "Traditional Herbal Hair Wash",
+        "ko": "Traditional Herbal Hair Wash"
+      },
+      "description": {
+        "en": "Using time-tested herbal formulations that nourish, strengthen, and protect your hair naturally.",
+        "vi": "Using time-tested herbal formulations that nourish, strengthen, and protect your hair naturally.",
+        "ja": "Using time-tested herbal formulations that nourish, strengthen, and protect your hair naturally.",
+        "es": "Using time-tested herbal formulations that nourish, strengthen, and protect your hair naturally.",
+        "ko": "Using time-tested herbal formulations that nourish, strengthen, and protect your hair naturally."
+      },
+      "options": {
+        "en": [
+          "Vietnamese traditional herbal blend",
+          "Ginseng and green tea extracts for vitality",
+          "Aloe vera and coconut oil for moisture",
+          "Essential oils for aromatherapy benefits"
+        ],
+        "vi": [
+          "Vietnamese traditional herbal blend",
+          "Ginseng and green tea extracts for vitality",
+          "Aloe vera and coconut oil for moisture",
+          "Essential oils for aromatherapy benefits"
+        ],
+        "ja": [
+          "Vietnamese traditional herbal blend",
+          "Ginseng and green tea extracts for vitality",
+          "Aloe vera and coconut oil for moisture",
+          "Essential oils for aromatherapy benefits"
+        ],
+        "es": [
+          "Vietnamese traditional herbal blend",
+          "Ginseng and green tea extracts for vitality",
+          "Aloe vera and coconut oil for moisture",
+          "Essential oils for aromatherapy benefits"
+        ],
+        "ko": [
+          "Vietnamese traditional herbal blend",
+          "Ginseng and green tea extracts for vitality",
+          "Aloe vera and coconut oil for moisture",
+          "Essential oils for aromatherapy benefits"
+        ]
+      },
+      "result": {
+        "en": "Soft, manageable hair with improved texture and natural shine.",
+        "vi": "Soft, manageable hair with improved texture and natural shine.",
+        "ja": "Soft, manageable hair with improved texture and natural shine.",
+        "es": "Soft, manageable hair with improved texture and natural shine.",
+        "ko": "Soft, manageable hair with improved texture and natural shine."
+      }
+    },
+    {
+      "name": {
+        "en": "Therapeutic Scalp Massage",
+        "vi": "Therapeutic Scalp Massage",
+        "ja": "Therapeutic Scalp Massage",
+        "es": "Therapeutic Scalp Massage",
+        "ko": "Therapeutic Scalp Massage"
+      },
+      "description": {
+        "en": "A relaxing massage that stimulates blood circulation, reduces stress, and promotes hair growth.",
+        "vi": "A relaxing massage that stimulates blood circulation, reduces stress, and promotes hair growth.",
+        "ja": "A relaxing massage that stimulates blood circulation, reduces stress, and promotes hair growth.",
+        "es": "A relaxing massage that stimulates blood circulation, reduces stress, and promotes hair growth.",
+        "ko": "A relaxing massage that stimulates blood circulation, reduces stress, and promotes hair growth."
+      },
+      "options": {
+        "en": [
+          "Pressure point stimulation techniques",
+          "Improved blood circulation to hair follicles",
+          "Stress relief and relaxation",
+          "Enhanced nutrient delivery to scalp"
+        ],
+        "vi": [
+          "Pressure point stimulation techniques",
+          "Improved blood circulation to hair follicles",
+          "Stress relief and relaxation",
+          "Enhanced nutrient delivery to scalp"
+        ],
+        "ja": [
+          "Pressure point stimulation techniques",
+          "Improved blood circulation to hair follicles",
+          "Stress relief and relaxation",
+          "Enhanced nutrient delivery to scalp"
+        ],
+        "es": [
+          "Pressure point stimulation techniques",
+          "Improved blood circulation to hair follicles",
+          "Stress relief and relaxation",
+          "Enhanced nutrient delivery to scalp"
+        ],
+        "ko": [
+          "Pressure point stimulation techniques",
+          "Improved blood circulation to hair follicles",
+          "Stress relief and relaxation",
+          "Enhanced nutrient delivery to scalp"
+        ]
+      },
+      "result": {
+        "en": "Relaxed mind and body with improved scalp health and hair growth potential.",
+        "vi": "Relaxed mind and body with improved scalp health and hair growth potential.",
+        "ja": "Relaxed mind and body with improved scalp health and hair growth potential.",
+        "es": "Relaxed mind and body with improved scalp health and hair growth potential.",
+        "ko": "Relaxed mind and body with improved scalp health and hair growth potential."
+      }
+    }
+  ],
+  "whyChooseUs": {
+    "en": [
+      "Natural Ingredients sourced from organic, high-quality herbs and botanicals",
+      "Traditional Techniques passed down through generations of Vietnamese hair care wisdom",
+      "Customized Treatments tailored to your hair type and specific scalp concerns",
+      "Holistic Approach combining detoxification, nourishment, and relaxation",
+      "Expert Therapists trained in traditional herbal hair care methods"
+    ],
+    "vi": [
+      "Natural Ingredients sourced from organic, high-quality herbs and botanicals",
+      "Traditional Techniques passed down through generations of Vietnamese hair care wisdom",
+      "Customized Treatments tailored to your hair type and specific scalp concerns",
+      "Holistic Approach combining detoxification, nourishment, and relaxation",
+      "Expert Therapists trained in traditional herbal hair care methods"
+    ],
+    "ja": [
+      "Natural Ingredients sourced from organic, high-quality herbs and botanicals",
+      "Traditional Techniques passed down through generations of Vietnamese hair care wisdom",
+      "Customized Treatments tailored to your hair type and specific scalp concerns",
+      "Holistic Approach combining detoxification, nourishment, and relaxation",
+      "Expert Therapists trained in traditional herbal hair care methods"
+    ],
+    "es": [
+      "Natural Ingredients sourced from organic, high-quality herbs and botanicals",
+      "Traditional Techniques passed down through generations of Vietnamese hair care wisdom",
+      "Customized Treatments tailored to your hair type and specific scalp concerns",
+      "Holistic Approach combining detoxification, nourishment, and relaxation",
+      "Expert Therapists trained in traditional herbal hair care methods"
+    ],
+    "ko": [
+      "Natural Ingredients sourced from organic, high-quality herbs and botanicals",
+      "Traditional Techniques passed down through generations of Vietnamese hair care wisdom",
+      "Customized Treatments tailored to your hair type and specific scalp concerns",
+      "Holistic Approach combining detoxification, nourishment, and relaxation",
+      "Expert Therapists trained in traditional herbal hair care methods"
+    ]
+  },
+  "closing": {
+    "en": "Detox & Herbal Hair Wash is more than just a cleansing treatment – it's a journey back to your hair's natural health and beauty. Let nature's wisdom restore your hair's vitality while you enjoy a truly relaxing and rejuvenating experience.",
+    "vi": "Detox & Herbal Hair Wash is more than just a cleansing treatment – it's a journey back to your hair's natural health and beauty. Let nature's wisdom restore your hair's vitality while you enjoy a truly relaxing and rejuvenating experience.",
+    "ja": "Detox & Herbal Hair Wash is more than just a cleansing treatment – it's a journey back to your hair's natural health and beauty. Let nature's wisdom restore your hair's vitality while you enjoy a truly relaxing and rejuvenating experience.",
+    "es": "Detox & Herbal Hair Wash is more than just a cleansing treatment – it's a journey back to your hair's natural health and beauty. Let nature's wisdom restore your hair's vitality while you enjoy a truly relaxing and rejuvenating experience.",
+    "ko": "Detox & Herbal Hair Wash is more than just a cleansing treatment – it's a journey back to your hair's natural health and beauty. Let nature's wisdom restore your hair's vitality while you enjoy a truly relaxing and rejuvenating experience."
+  },
+  "callToAction": {
+    "en": "Book your Detox & Herbal Hair Wash session today at Vy Brows Academy & Studio and rediscover your hair's natural beauty.",
+    "vi": "Book your Detox & Herbal Hair Wash session today at Vy Brows Academy & Studio and rediscover your hair's natural beauty.",
+    "ja": "Book your Detox & Herbal Hair Wash session today at Vy Brows Academy & Studio and rediscover your hair's natural beauty.",
+    "es": "Book your Detox & Herbal Hair Wash session today at Vy Brows Academy & Studio and rediscover your hair's natural beauty.",
+    "ko": "Book your Detox & Herbal Hair Wash session today at Vy Brows Academy & Studio and rediscover your hair's natural beauty."
+  },
+  "description": {
+    "en": "Natural detox and herbal hair treatments for healthy, shiny hair.",
+    "vi": "Giải độc tự nhiên và điều trị tóc bằng thảo mộc cho mái tóc khỏe mạnh, bóng mượt.",
+    "ja": "健康で輝く髪のための天然デトックスとハーブヘアトリートメント。",
+    "es": "Desintoxicación natural y tratamientos capilares herbales para cabello saludable y brillante.",
+    "ko": "건강하고 윤기나는 모발을 위한 천연 디톡스 및 허브 헤어 트리트먼트."
+  },
+  "image": "/images/service03.avif",
+  "technologies": [
+    "Organic Vietnamese Herbs",
+    "Essential Oil Aromatherapy",
+    "Scalp Massage Techniques",
+    "Natural pH Balancing",
+    "Activated Charcoal Detox"
+  ]
+}

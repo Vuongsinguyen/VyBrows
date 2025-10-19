@@ -1,0 +1,241 @@
+{
+  "slug": "pmu-permanent-makeup",
+  "title": {
+    "en": "PMU — PERMANENT MAKEUP",
+    "vi": "PMU — PHUN XĂM THẨM MỸ",
+    "ja": "PMU — パーマネントメイク",
+    "es": "PMU — MAQUILLAJE PERMANENTE",
+    "ko": "PMU — 반영구 화장"
+  },
+  "subtitle": {
+    "en": "Elevating Beauty, Simplifying Your Routine",
+    "vi": "Nâng Tầm Vẻ Đẹp, Đơn Giản Hóa Thói Quen Của Bạn",
+    "ja": "美しさを高め、日常を簡素化",
+    "es": "Elevando la Belleza, Simplificando tu Rutina",
+    "ko": "아름다움을 높이고 일상을 단순화하세요"
+  },
+  "introduction": {
+    "en": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
+    "vi": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
+    "ja": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
+    "es": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day.",
+    "ko": "Permanent Makeup (PMU) is the art of enhancing natural beauty with advanced micropigmentation techniques. At Vy Brows Academy & Studio, we specialize in delivering professional PMU services designed to give you flawless, lasting results while saving you time every day."
+  },
+  "services": [
+    {
+      "name": {
+        "en": "Eyebrows",
+        "vi": "Eyebrows",
+        "ja": "Eyebrows",
+        "es": "Eyebrows",
+        "ko": "Eyebrows"
+      },
+      "description": {
+        "en": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
+        "vi": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
+        "ja": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
+        "es": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:",
+        "ko": "Your brows frame your face and define your expression. With PMU, you can say goodbye to daily pencils and powders. We offer customized techniques such as:"
+      },
+      "options": {
+        "en": [
+          "Microblading – for natural, hair-like strokes",
+          "Ombre / Powder Brows – for soft, shaded definition",
+          "Hybrid Brows – blending the best of both worlds"
+        ],
+        "vi": [
+          "Microblading – for natural, hair-like strokes",
+          "Ombre / Powder Brows – for soft, shaded definition",
+          "Hybrid Brows – blending the best of both worlds"
+        ],
+        "ja": [
+          "Microblading – for natural, hair-like strokes",
+          "Ombre / Powder Brows – for soft, shaded definition",
+          "Hybrid Brows – blending the best of both worlds"
+        ],
+        "es": [
+          "Microblading – for natural, hair-like strokes",
+          "Ombre / Powder Brows – for soft, shaded definition",
+          "Hybrid Brows – blending the best of both worlds"
+        ],
+        "ko": [
+          "Microblading – for natural, hair-like strokes",
+          "Ombre / Powder Brows – for soft, shaded definition",
+          "Hybrid Brows – blending the best of both worlds"
+        ]
+      },
+      "result": {
+        "en": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features.",
+        "vi": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features.",
+        "ja": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features.",
+        "es": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features.",
+        "ko": "Natural, symmetrical, and perfectly shaped brows that enhance your unique features."
+      }
+    },
+    {
+      "name": {
+        "en": "Eyeliner",
+        "vi": "Eyeliner",
+        "ja": "Eyeliner",
+        "es": "Eyeliner",
+        "ko": "Eyeliner"
+      },
+      "description": {
+        "en": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
+        "vi": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
+        "ja": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
+        "es": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:",
+        "ko": "Brighten your eyes and achieve a polished look every day. Our eyeliner PMU is designed to:"
+      },
+      "options": {
+        "en": [
+          "Accentuate the lash line for a youthful, vibrant look",
+          "Save time on daily makeup routines",
+          "Create smudge-proof, long-lasting definition"
+        ],
+        "vi": [
+          "Accentuate the lash line for a youthful, vibrant look",
+          "Save time on daily makeup routines",
+          "Create smudge-proof, long-lasting definition"
+        ],
+        "ja": [
+          "Accentuate the lash line for a youthful, vibrant look",
+          "Save time on daily makeup routines",
+          "Create smudge-proof, long-lasting definition"
+        ],
+        "es": [
+          "Accentuate the lash line for a youthful, vibrant look",
+          "Save time on daily makeup routines",
+          "Create smudge-proof, long-lasting definition"
+        ],
+        "ko": [
+          "Accentuate the lash line for a youthful, vibrant look",
+          "Save time on daily makeup routines",
+          "Create smudge-proof, long-lasting definition"
+        ]
+      },
+      "result": {
+        "en": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes.",
+        "vi": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes.",
+        "ja": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes.",
+        "es": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes.",
+        "ko": "Whether you prefer a subtle enhancement or a bold eyeliner style, our expert artists tailor the design to suit your eyes."
+      }
+    },
+    {
+      "name": {
+        "en": "Lips",
+        "vi": "Lips",
+        "ja": "Lips",
+        "es": "Lips",
+        "ko": "Lips"
+      },
+      "description": {
+        "en": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
+        "vi": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
+        "ja": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
+        "es": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition.",
+        "ko": "Bring color, balance, and definition back to your lips with our professional PMU lip services. Perfect for those with pale, uneven tones or loss of lip definition."
+      },
+      "options": {
+        "en": [
+          "Lip Blush – for a soft, natural tint",
+          "Full Lip Shading – for richer color and volume effect",
+          "Corrects asymmetry and revitalizes dull lips"
+        ],
+        "vi": [
+          "Lip Blush – for a soft, natural tint",
+          "Full Lip Shading – for richer color and volume effect",
+          "Corrects asymmetry and revitalizes dull lips"
+        ],
+        "ja": [
+          "Lip Blush – for a soft, natural tint",
+          "Full Lip Shading – for richer color and volume effect",
+          "Corrects asymmetry and revitalizes dull lips"
+        ],
+        "es": [
+          "Lip Blush – for a soft, natural tint",
+          "Full Lip Shading – for richer color and volume effect",
+          "Corrects asymmetry and revitalizes dull lips"
+        ],
+        "ko": [
+          "Lip Blush – for a soft, natural tint",
+          "Full Lip Shading – for richer color and volume effect",
+          "Corrects asymmetry and revitalizes dull lips"
+        ]
+      },
+      "result": {
+        "en": "Youthful, healthy-looking lips with lasting color and shape.",
+        "vi": "Youthful, healthy-looking lips with lasting color and shape.",
+        "ja": "Youthful, healthy-looking lips with lasting color and shape.",
+        "es": "Youthful, healthy-looking lips with lasting color and shape.",
+        "ko": "Youthful, healthy-looking lips with lasting color and shape."
+      }
+    }
+  ],
+  "whyChooseUs": {
+    "en": [
+      "Expert Artists trained in advanced international PMU techniques",
+      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
+      "Customized Designs to fit your face shape, skin tone, and personal style",
+      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
+      "Long-Lasting Results that gradually fade naturally without harsh edges"
+    ],
+    "vi": [
+      "Expert Artists trained in advanced international PMU techniques",
+      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
+      "Customized Designs to fit your face shape, skin tone, and personal style",
+      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
+      "Long-Lasting Results that gradually fade naturally without harsh edges"
+    ],
+    "ja": [
+      "Expert Artists trained in advanced international PMU techniques",
+      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
+      "Customized Designs to fit your face shape, skin tone, and personal style",
+      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
+      "Long-Lasting Results that gradually fade naturally without harsh edges"
+    ],
+    "es": [
+      "Expert Artists trained in advanced international PMU techniques",
+      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
+      "Customized Designs to fit your face shape, skin tone, and personal style",
+      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
+      "Long-Lasting Results that gradually fade naturally without harsh edges"
+    ],
+    "ko": [
+      "Expert Artists trained in advanced international PMU techniques",
+      "High-Quality Pigments that are safe, hypoallergenic, and long-lasting",
+      "Customized Designs to fit your face shape, skin tone, and personal style",
+      "Safe & Hygienic Practices with medical-grade tools and sterilization standards",
+      "Long-Lasting Results that gradually fade naturally without harsh edges"
+    ]
+  },
+  "closing": {
+    "en": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
+    "vi": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
+    "ja": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
+    "es": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips.",
+    "ko": "Permanent Makeup is not just about beauty – it's about confidence, convenience, and self-expression. Wake up every day with perfectly shaped brows, defined eyes, and naturally tinted lips."
+  },
+  "callToAction": {
+    "en": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
+    "vi": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
+    "ja": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
+    "es": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
+    "ko": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine."
+  },
+  "description": {
+    "en": "Professional permanent makeup services for eyebrows, eyeliner, and lips.",
+    "vi": "Dịch vụ Phun Xăm thẩm mỹ chuyên nghiệp cho lông mày, eyeliner và môi.",
+    "ja": "眉毛、アイライナー、リップのパーマネントメイクサービス。",
+    "es": "Servicios profesionales de maquillaje permanente para cejas, delineador y labios.",
+    "ko": "눈썹, 아이라이너, 립을 위한 전문 반영구 화장 서비스."
+  },
+  "image": "/images/service01.avif",
+  "technologies": [
+    "Digital Pigments",
+    "Nano Needles",
+    "Color Theory",
+    "Sterilization Equipment"
+  ]
+}

@@ -3,7 +3,7 @@
     "slug": "pmu-permanent-makeup",
     "title": {
       "en": "PMU — PERMANENT MAKEUP",
-      "vi": "PMU — TRANG ĐIỂM BỀN VỮNG",
+      "vi": "PMU — PHUN XĂM THẨM MỸ",
       "ja": "PMU — パーマネントメイク",
       "es": "PMU — MAQUILLAJE PERMANENTE",
       "ko": "PMU — 반영구 화장"
@@ -53,7 +53,7 @@
     "callToAction": "Visit us today at Vy Brows Academy & Studio to discover how PMU can enhance your natural beauty and simplify your daily routine.",
     "description": {
       "en": "Professional permanent makeup services for eyebrows, eyeliner, and lips.",
-      "vi": "Dịch vụ trang điểm bền vững chuyên nghiệp cho lông mày, eyeliner và môi.",
+      "vi": "Dịch vụ Phun Xăm thẩm mỹ chuyên nghiệp cho lông mày, eyeliner và môi.",
       "ja": "眉毛、アイライナー、リップのパーマネントメイクサービス。",
       "es": "Servicios profesionales de maquillaje permanente para cejas, delineador y labios.",
       "ko": "눈썹, 아이라이너, 립을 위한 전문 반영구 화장 서비스."
@@ -567,7 +567,7 @@
     "slug": "dark-lips-remover",
     "title": {
       "en": "DARK LIPS REMOVER",
-      "vi": "LOẠI BỎ MÔI TỐI",
+      "vi": "KHỬ MÔI THÂM",
       "ja": "ダークリップスリムーバー",
       "es": "ELIMINADOR DE LABIOS OSCUROS",
       "ko": "다크 립 제거"

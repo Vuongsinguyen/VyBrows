@@ -26,10 +26,22 @@ const news = allNews.map((item: any) => {
 <section class="py-16 px-6 bg-primary" style="">
   <div class="max-w-7xl mx-auto">
     <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 font-lora" style="font-family: 'Lora', serif; color: var(--color-black2white);">
-      Explore Our Beauty Stories
+      {({
+        en: "Explore Our Beauty Stories",
+        vi: "Khám Phá Những Câu Chuyện Làm Đẹp",
+        ja: "美容ストーリーを探る",
+        ko: "뷰티 스토리 탐색하기",
+        es: "Explora Nuestras Historias de Belleza"
+      })[currentLang]}
     </h2>
     <p class="text-base text-center mb-8 max-w-2xl mx-auto font-lora" style="color: var(--color-blacktext2); font-family: 'Lora', serif;">
-      Discover our clients' transformation journeys and boost their confidence, stay updated on the latest aesthetic trends, celebrate natural beauty, and enjoy inspiring stories and care tips from our team of experts.
+      {({
+        en: "Discover our clients' transformation journeys and boost their confidence, stay updated on the latest aesthetic trends, celebrate natural beauty, and enjoy inspiring stories and care tips from our team of experts.",
+        vi: "Khám phá hành trình thay đổi của khách hàng và tăng cường sự tự tin, cập nhật xu hướng thẩm mỹ mới nhất, tôn vinh vẻ đẹp tự nhiên, và thưởng thức những câu chuyện truyền cảm hứng cùng mẹo chăm sóc từ đội ngũ chuyên gia.",
+        ja: "お客様の変身の旅を発見し、自信を高め、最新の美容トレンドをチェックし、自然な美しさを祝い、専門家チームからの感動的なストーリーとケアのヒントをお楽しみください。",
+        ko: "고객의 변화 여정을 발견하고 자신감을 높이며, 최신 미용 트렌드를 확인하고, 자연스러운 아름다움을 기념하며, 전문가 팀의 영감을 주는 이야기와 케어 팁을 즐기세요.",
+        es: "Descubre los viajes de transformación de nuestros clientes y aumenta su confianza, mantente actualizado sobre las últimas tendencias estéticas, celebra la belleza natural y disfruta de historias inspiradoras y consejos de cuidado de nuestro equipo de expertos."
+      })[currentLang]}
     </p>
     <div class="grid md:grid-cols-2 gap-10">
       <!-- Left Column: Big News -->

@@ -48,13 +48,27 @@ const socialLinks = [
           <img src="/logo.webp" alt="VyBrows Academy" class="w-48 h-auto" />
         </a>
         <p class="text-gray-300 text-sm leading-relaxed">
-          VyBrows Academy - Excellence in permanent makeup artistry and training.
+          {({
+            en: "VyBrows Academy - Excellence in permanent makeup artistry and training.",
+            vi: "VyBrows Academy - Xuất sắc trong nghệ thuật phun xăm thẩm mỹ và đào tạo.",
+            ja: "VyBrows Academy - アートメイクと教育における卓越性。",
+            ko: "VyBrows Academy - 반영구 화장 예술 및 교육의 우수성.",
+            es: "VyBrows Academy - Excelencia en arte de maquillaje permanente y formación."
+          })[currentLang]}
         </p>
       </div>
 
       <!-- Services Column -->
       <div>
-  <h3 class="text-lg font-bold uppercase tracking-wide mb-6 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">SERVICES</h3>
+  <h3 class="text-lg font-bold uppercase tracking-wide mb-6 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">
+    {({
+      en: "SERVICES",
+      vi: "DỊCH VỤ",
+      ja: "サービス",
+      ko: "서비스",
+      es: "SERVICIOS"
+    })[currentLang]}
+  </h3>
         <ul class="space-y-3">
           {serviceLinks.map((service) => (
             <li>
@@ -97,7 +111,15 @@ const socialLinks = [
 
       <!-- Explore Column -->
       <div>
-        <h3 class="text-lg font-bold uppercase tracking-wide mb-6 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">EXPLORE</h3>
+        <h3 class="text-lg font-bold uppercase tracking-wide mb-6 font-lora" style="color: var(--color-black2white); font-family: 'Lora', serif;">
+          {({
+            en: "EXPLORE",
+            vi: "KHÁM PHÁ",
+            ja: "探索",
+            ko: "탐색",
+            es: "EXPLORAR"
+          })[currentLang]}
+        </h3>
         <ul class="space-y-3 mb-8">
           <!-- Bạn có thể bổ sung dữ liệu mới cho cột này tại đây -->
         </ul>
@@ -151,12 +173,24 @@ const socialLinks = [
       <div class="flex flex-col md:flex-row justify-between items-center">
         <!-- Copyright -->
         <div class="text-gray-400 text-sm mb-4 md:mb-0">
-          ©2025 Copyrights by VyBrows Academy
+          {({
+            en: "©2025 Copyrights by VyBrows Academy",
+            vi: "©2025 Bản quyền thuộc về VyBrows Academy",
+            ja: "©2025 VyBrows Academy 著作権所有",
+            ko: "©2025 VyBrows Academy 저작권",
+            es: "©2025 Derechos de autor por VyBrows Academy"
+          })[currentLang]}
         </div>
 
         <!-- Version -->
         <div class="text-gray-400 text-sm">
-          Version 1.0 - Design by
+          {({
+            en: "Version 1.0 - Design by",
+            vi: "Phiên bản 1.0 - Thiết kế bởi",
+            ja: "バージョン 1.0 - デザイン",
+            ko: "버전 1.0 - 디자인",
+            es: "Versión 1.0 - Diseñado por"
+          })[currentLang]}
           <a
             href="https://www.facebook.com/vuongsinguyen.info/"
             target="_blank"

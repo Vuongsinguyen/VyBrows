@@ -1,0 +1,257 @@
+{
+  "slug": "lip-treatments",
+  "title": {
+    "en": "LIP TREATMENTS",
+    "vi": "ĐIỀU TRỊ MÔI",
+    "ja": "リップトリートメント",
+    "es": "TRATAMIENTOS LABIALES",
+    "ko": "립 트리트먼트"
+  },
+  "subtitle": {
+    "en": "Beautiful, Youthful Lips Naturally Enhanced",
+    "vi": "Đôi Môi Đẹp, Trẻ Trung Được Tăng Cường Tự Nhiên",
+    "ja": "自然に美しく若々しい唇",
+    "es": "Labios Hermosos y Juveniles Mejorados Naturalmente",
+    "ko": "자연스럽게 향상된 아름답고 젊은 입술"
+  },
+  "introduction": {
+    "en": "Our comprehensive lip treatments are designed to restore, enhance, and beautify your lips naturally. At Vy Brows Academy & Studio, we offer a range of lip services from permanent makeup to rejuvenating treatments that address color loss, asymmetry, and aging signs. Whether you want subtle enhancement or dramatic transformation, our expert artists create beautiful, natural-looking results that complement your unique features.",
+    "vi": "Our comprehensive lip treatments are designed to restore, enhance, and beautify your lips naturally. At Vy Brows Academy & Studio, we offer a range of lip services from permanent makeup to rejuvenating treatments that address color loss, asymmetry, and aging signs. Whether you want subtle enhancement or dramatic transformation, our expert artists create beautiful, natural-looking results that complement your unique features.",
+    "ja": "Our comprehensive lip treatments are designed to restore, enhance, and beautify your lips naturally. At Vy Brows Academy & Studio, we offer a range of lip services from permanent makeup to rejuvenating treatments that address color loss, asymmetry, and aging signs. Whether you want subtle enhancement or dramatic transformation, our expert artists create beautiful, natural-looking results that complement your unique features.",
+    "es": "Our comprehensive lip treatments are designed to restore, enhance, and beautify your lips naturally. At Vy Brows Academy & Studio, we offer a range of lip services from permanent makeup to rejuvenating treatments that address color loss, asymmetry, and aging signs. Whether you want subtle enhancement or dramatic transformation, our expert artists create beautiful, natural-looking results that complement your unique features.",
+    "ko": "Our comprehensive lip treatments are designed to restore, enhance, and beautify your lips naturally. At Vy Brows Academy & Studio, we offer a range of lip services from permanent makeup to rejuvenating treatments that address color loss, asymmetry, and aging signs. Whether you want subtle enhancement or dramatic transformation, our expert artists create beautiful, natural-looking results that complement your unique features."
+  },
+  "services": [
+    {
+      "name": {
+        "en": "Lip Blush Permanent Makeup",
+        "vi": "Lip Blush Permanent Makeup",
+        "ja": "Lip Blush Permanent Makeup",
+        "es": "Lip Blush Permanent Makeup",
+        "ko": "Lip Blush Permanent Makeup"
+      },
+      "description": {
+        "en": "Semi-permanent lip color that enhances your natural lip tone with a soft, natural-looking tint.",
+        "vi": "Semi-permanent lip color that enhances your natural lip tone with a soft, natural-looking tint.",
+        "ja": "Semi-permanent lip color that enhances your natural lip tone with a soft, natural-looking tint.",
+        "es": "Semi-permanent lip color that enhances your natural lip tone with a soft, natural-looking tint.",
+        "ko": "Semi-permanent lip color that enhances your natural lip tone with a soft, natural-looking tint."
+      },
+      "options": {
+        "en": [
+          "Natural lip color enhancement",
+          "Soft, gradient color application",
+          "Corrects uneven lip pigmentation",
+          "Lasts 2-3 years with proper care"
+        ],
+        "vi": [
+          "Natural lip color enhancement",
+          "Soft, gradient color application",
+          "Corrects uneven lip pigmentation",
+          "Lasts 2-3 years with proper care"
+        ],
+        "ja": [
+          "Natural lip color enhancement",
+          "Soft, gradient color application",
+          "Corrects uneven lip pigmentation",
+          "Lasts 2-3 years with proper care"
+        ],
+        "es": [
+          "Natural lip color enhancement",
+          "Soft, gradient color application",
+          "Corrects uneven lip pigmentation",
+          "Lasts 2-3 years with proper care"
+        ],
+        "ko": [
+          "Natural lip color enhancement",
+          "Soft, gradient color application",
+          "Corrects uneven lip pigmentation",
+          "Lasts 2-3 years with proper care"
+        ]
+      },
+      "result": {
+        "en": "Naturally tinted lips with improved color and definition that looks like a perfect lip stain.",
+        "vi": "Naturally tinted lips with improved color and definition that looks like a perfect lip stain.",
+        "ja": "Naturally tinted lips with improved color and definition that looks like a perfect lip stain.",
+        "es": "Naturally tinted lips with improved color and definition that looks like a perfect lip stain.",
+        "ko": "Naturally tinted lips with improved color and definition that looks like a perfect lip stain."
+      }
+    },
+    {
+      "name": {
+        "en": "Lip Contouring & Definition",
+        "vi": "Lip Contouring & Definition",
+        "ja": "Lip Contouring & Definition",
+        "es": "Lip Contouring & Definition",
+        "ko": "Lip Contouring & Definition"
+      },
+      "description": {
+        "en": "Precision lip liner and shading to create perfect lip shape, symmetry, and definition.",
+        "vi": "Precision lip liner and shading to create perfect lip shape, symmetry, and definition.",
+        "ja": "Precision lip liner and shading to create perfect lip shape, symmetry, and definition.",
+        "es": "Precision lip liner and shading to create perfect lip shape, symmetry, and definition.",
+        "ko": "Precision lip liner and shading to create perfect lip shape, symmetry, and definition."
+      },
+      "options": {
+        "en": [
+          "Corrects asymmetrical lip shape",
+          "Creates fuller lip appearance",
+          "Defines lip borders precisely",
+          "Enhances natural lip contours"
+        ],
+        "vi": [
+          "Corrects asymmetrical lip shape",
+          "Creates fuller lip appearance",
+          "Defines lip borders precisely",
+          "Enhances natural lip contours"
+        ],
+        "ja": [
+          "Corrects asymmetrical lip shape",
+          "Creates fuller lip appearance",
+          "Defines lip borders precisely",
+          "Enhances natural lip contours"
+        ],
+        "es": [
+          "Corrects asymmetrical lip shape",
+          "Creates fuller lip appearance",
+          "Defines lip borders precisely",
+          "Enhances natural lip contours"
+        ],
+        "ko": [
+          "Corrects asymmetrical lip shape",
+          "Creates fuller lip appearance",
+          "Defines lip borders precisely",
+          "Enhances natural lip contours"
+        ]
+      },
+      "result": {
+        "en": "Perfectly shaped, symmetrical lips with enhanced definition and the appearance of natural fullness.",
+        "vi": "Perfectly shaped, symmetrical lips with enhanced definition and the appearance of natural fullness.",
+        "ja": "Perfectly shaped, symmetrical lips with enhanced definition and the appearance of natural fullness.",
+        "es": "Perfectly shaped, symmetrical lips with enhanced definition and the appearance of natural fullness.",
+        "ko": "Perfectly shaped, symmetrical lips with enhanced definition and the appearance of natural fullness."
+      }
+    },
+    {
+      "name": {
+        "en": "Lip Rejuvenation Treatment",
+        "vi": "Lip Rejuvenation Treatment",
+        "ja": "Lip Rejuvenation Treatment",
+        "es": "Lip Rejuvenation Treatment",
+        "ko": "Lip Rejuvenation Treatment"
+      },
+      "description": {
+        "en": "Comprehensive treatment to restore youthful color, texture, and vitality to aging or damaged lips.",
+        "vi": "Comprehensive treatment to restore youthful color, texture, and vitality to aging or damaged lips.",
+        "ja": "Comprehensive treatment to restore youthful color, texture, and vitality to aging or damaged lips.",
+        "es": "Comprehensive treatment to restore youthful color, texture, and vitality to aging or damaged lips.",
+        "ko": "Comprehensive treatment to restore youthful color, texture, and vitality to aging or damaged lips."
+      },
+      "options": {
+        "en": [
+          "Restores lost lip color",
+          "Improves lip texture and hydration",
+          "Reduces fine lines around lips",
+          "Anti-aging lip therapy"
+        ],
+        "vi": [
+          "Restores lost lip color",
+          "Improves lip texture and hydration",
+          "Reduces fine lines around lips",
+          "Anti-aging lip therapy"
+        ],
+        "ja": [
+          "Restores lost lip color",
+          "Improves lip texture and hydration",
+          "Reduces fine lines around lips",
+          "Anti-aging lip therapy"
+        ],
+        "es": [
+          "Restores lost lip color",
+          "Improves lip texture and hydration",
+          "Reduces fine lines around lips",
+          "Anti-aging lip therapy"
+        ],
+        "ko": [
+          "Restores lost lip color",
+          "Improves lip texture and hydration",
+          "Reduces fine lines around lips",
+          "Anti-aging lip therapy"
+        ]
+      },
+      "result": {
+        "en": "Youthful, healthy-looking lips with restored color, improved texture, and enhanced natural beauty.",
+        "vi": "Youthful, healthy-looking lips with restored color, improved texture, and enhanced natural beauty.",
+        "ja": "Youthful, healthy-looking lips with restored color, improved texture, and enhanced natural beauty.",
+        "es": "Youthful, healthy-looking lips with restored color, improved texture, and enhanced natural beauty.",
+        "ko": "Youthful, healthy-looking lips with restored color, improved texture, and enhanced natural beauty."
+      }
+    }
+  ],
+  "whyChooseUs": {
+    "en": [
+      "Lip Specialists with advanced training in lip anatomy and enhancement techniques",
+      "Safe, High-Quality Pigments that are FDA-approved and hypoallergenic",
+      "Customized Color Matching to complement your skin tone and personal style",
+      "Natural-Looking Results that enhance rather than overpower your features",
+      "Comprehensive Aftercare to ensure optimal healing and long-lasting results"
+    ],
+    "vi": [
+      "Lip Specialists with advanced training in lip anatomy and enhancement techniques",
+      "Safe, High-Quality Pigments that are FDA-approved and hypoallergenic",
+      "Customized Color Matching to complement your skin tone and personal style",
+      "Natural-Looking Results that enhance rather than overpower your features",
+      "Comprehensive Aftercare to ensure optimal healing and long-lasting results"
+    ],
+    "ja": [
+      "Lip Specialists with advanced training in lip anatomy and enhancement techniques",
+      "Safe, High-Quality Pigments that are FDA-approved and hypoallergenic",
+      "Customized Color Matching to complement your skin tone and personal style",
+      "Natural-Looking Results that enhance rather than overpower your features",
+      "Comprehensive Aftercare to ensure optimal healing and long-lasting results"
+    ],
+    "es": [
+      "Lip Specialists with advanced training in lip anatomy and enhancement techniques",
+      "Safe, High-Quality Pigments that are FDA-approved and hypoallergenic",
+      "Customized Color Matching to complement your skin tone and personal style",
+      "Natural-Looking Results that enhance rather than overpower your features",
+      "Comprehensive Aftercare to ensure optimal healing and long-lasting results"
+    ],
+    "ko": [
+      "Lip Specialists with advanced training in lip anatomy and enhancement techniques",
+      "Safe, High-Quality Pigments that are FDA-approved and hypoallergenic",
+      "Customized Color Matching to complement your skin tone and personal style",
+      "Natural-Looking Results that enhance rather than overpower your features",
+      "Comprehensive Aftercare to ensure optimal healing and long-lasting results"
+    ]
+  },
+  "closing": {
+    "en": "Lip treatments are perfect for anyone who wants to restore youthful color to their lips, correct asymmetry, or simply enhance their natural beauty. Our treatments save you time on daily makeup while giving you confidence in your natural appearance.",
+    "vi": "Lip treatments are perfect for anyone who wants to restore youthful color to their lips, correct asymmetry, or simply enhance their natural beauty. Our treatments save you time on daily makeup while giving you confidence in your natural appearance.",
+    "ja": "Lip treatments are perfect for anyone who wants to restore youthful color to their lips, correct asymmetry, or simply enhance their natural beauty. Our treatments save you time on daily makeup while giving you confidence in your natural appearance.",
+    "es": "Lip treatments are perfect for anyone who wants to restore youthful color to their lips, correct asymmetry, or simply enhance their natural beauty. Our treatments save you time on daily makeup while giving you confidence in your natural appearance.",
+    "ko": "Lip treatments are perfect for anyone who wants to restore youthful color to their lips, correct asymmetry, or simply enhance their natural beauty. Our treatments save you time on daily makeup while giving you confidence in your natural appearance."
+  },
+  "callToAction": {
+    "en": "Discover beautiful, naturally enhanced lips at Vy Brows Academy & Studio. Book your lip treatment consultation today and restore your lip's natural beauty.",
+    "vi": "Discover beautiful, naturally enhanced lips at Vy Brows Academy & Studio. Book your lip treatment consultation today and restore your lip's natural beauty.",
+    "ja": "Discover beautiful, naturally enhanced lips at Vy Brows Academy & Studio. Book your lip treatment consultation today and restore your lip's natural beauty.",
+    "es": "Discover beautiful, naturally enhanced lips at Vy Brows Academy & Studio. Book your lip treatment consultation today and restore your lip's natural beauty.",
+    "ko": "Discover beautiful, naturally enhanced lips at Vy Brows Academy & Studio. Book your lip treatment consultation today and restore your lip's natural beauty."
+  },
+  "description": {
+    "en": "Lip enhancement and treatment services for fuller, healthier lips.",
+    "vi": "Dịch vụ tăng cường và điều trị môi cho đôi môi đầy đặn, khỏe mạnh hơn.",
+    "ja": "より豊かで健康的な唇のための唇強化とトリートメントサービス。",
+    "es": "Servicios de realce y tratamiento labial para labios más llenos y saludables.",
+    "ko": "더 풍성하고 건강한 입술을 위한 립 강화 및 트리트먼트 서비스."
+  },
+  "image": "/images/service08.avif",
+  "technologies": [
+    "Lip Blush Technique",
+    "Color Enhancement Pigments",
+    "Lip Contouring Tools",
+    "Moisturizing Treatment Agents",
+    "Anti-aging Lip Therapy"
+  ]
+}

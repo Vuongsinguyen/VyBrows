@@ -1,0 +1,257 @@
+{
+  "slug": "eyeliners",
+  "title": {
+    "en": "EYELINERS",
+    "vi": "EYELINERS",
+    "ja": "アイライナー",
+    "es": "DELINEADORES",
+    "ko": "아이라이너"
+  },
+  "subtitle": {
+    "en": "Define Your Eyes, Enhance Your Beauty",
+    "vi": "Định Hình Đôi Mắt, Nâng Tầm Vẻ Đẹp",
+    "ja": "目を際立たせ、美しさを高める",
+    "es": "Define tus Ojos, Realza tu Belleza",
+    "ko": "눈을 정의하고 아름다움을 향상시키세요"
+  },
+  "introduction": {
+    "en": "Permanent eyeliner is the perfect solution for beautifully defined eyes that never smudge, run, or fade throughout the day. At Vy Brows Academy & Studio, our expert artists specialize in creating stunning eyeliner designs that enhance your natural eye shape, making your eyes appear larger, brighter, and more youthful. From subtle lash line enhancement to bold winged designs, we customize each treatment to perfectly complement your unique features.",
+    "vi": "Permanent eyeliner is the perfect solution for beautifully defined eyes that never smudge, run, or fade throughout the day. At Vy Brows Academy & Studio, our expert artists specialize in creating stunning eyeliner designs that enhance your natural eye shape, making your eyes appear larger, brighter, and more youthful. From subtle lash line enhancement to bold winged designs, we customize each treatment to perfectly complement your unique features.",
+    "ja": "Permanent eyeliner is the perfect solution for beautifully defined eyes that never smudge, run, or fade throughout the day. At Vy Brows Academy & Studio, our expert artists specialize in creating stunning eyeliner designs that enhance your natural eye shape, making your eyes appear larger, brighter, and more youthful. From subtle lash line enhancement to bold winged designs, we customize each treatment to perfectly complement your unique features.",
+    "es": "Permanent eyeliner is the perfect solution for beautifully defined eyes that never smudge, run, or fade throughout the day. At Vy Brows Academy & Studio, our expert artists specialize in creating stunning eyeliner designs that enhance your natural eye shape, making your eyes appear larger, brighter, and more youthful. From subtle lash line enhancement to bold winged designs, we customize each treatment to perfectly complement your unique features.",
+    "ko": "Permanent eyeliner is the perfect solution for beautifully defined eyes that never smudge, run, or fade throughout the day. At Vy Brows Academy & Studio, our expert artists specialize in creating stunning eyeliner designs that enhance your natural eye shape, making your eyes appear larger, brighter, and more youthful. From subtle lash line enhancement to bold winged designs, we customize each treatment to perfectly complement your unique features."
+  },
+  "services": [
+    {
+      "name": {
+        "en": "Lash Line Enhancement",
+        "vi": "Lash Line Enhancement",
+        "ja": "Lash Line Enhancement",
+        "es": "Lash Line Enhancement",
+        "ko": "Lash Line Enhancement"
+      },
+      "description": {
+        "en": "Subtle enhancement that darkens and defines the lash line for a natural, fresh-faced look.",
+        "vi": "Subtle enhancement that darkens and defines the lash line for a natural, fresh-faced look.",
+        "ja": "Subtle enhancement that darkens and defines the lash line for a natural, fresh-faced look.",
+        "es": "Subtle enhancement that darkens and defines the lash line for a natural, fresh-faced look.",
+        "ko": "Subtle enhancement that darkens and defines the lash line for a natural, fresh-faced look."
+      },
+      "options": {
+        "en": [
+          "Natural lash line darkening",
+          "Creates fuller lash appearance",
+          "Perfect for everyday wear",
+          "Subtle and professional look"
+        ],
+        "vi": [
+          "Natural lash line darkening",
+          "Creates fuller lash appearance",
+          "Perfect for everyday wear",
+          "Subtle and professional look"
+        ],
+        "ja": [
+          "Natural lash line darkening",
+          "Creates fuller lash appearance",
+          "Perfect for everyday wear",
+          "Subtle and professional look"
+        ],
+        "es": [
+          "Natural lash line darkening",
+          "Creates fuller lash appearance",
+          "Perfect for everyday wear",
+          "Subtle and professional look"
+        ],
+        "ko": [
+          "Natural lash line darkening",
+          "Creates fuller lash appearance",
+          "Perfect for everyday wear",
+          "Subtle and professional look"
+        ]
+      },
+      "result": {
+        "en": "Naturally defined eyes with the appearance of fuller, darker lashes without obvious makeup.",
+        "vi": "Naturally defined eyes with the appearance of fuller, darker lashes without obvious makeup.",
+        "ja": "Naturally defined eyes with the appearance of fuller, darker lashes without obvious makeup.",
+        "es": "Naturally defined eyes with the appearance of fuller, darker lashes without obvious makeup.",
+        "ko": "Naturally defined eyes with the appearance of fuller, darker lashes without obvious makeup."
+      }
+    },
+    {
+      "name": {
+        "en": "Classic Eyeliner",
+        "vi": "Classic Eyeliner",
+        "ja": "Classic Eyeliner",
+        "es": "Classic Eyeliner",
+        "ko": "Classic Eyeliner"
+      },
+      "description": {
+        "en": "Traditional eyeliner application that creates clean, defined lines for a polished, sophisticated look.",
+        "vi": "Traditional eyeliner application that creates clean, defined lines for a polished, sophisticated look.",
+        "ja": "Traditional eyeliner application that creates clean, defined lines for a polished, sophisticated look.",
+        "es": "Traditional eyeliner application that creates clean, defined lines for a polished, sophisticated look.",
+        "ko": "Traditional eyeliner application that creates clean, defined lines for a polished, sophisticated look."
+      },
+      "options": {
+        "en": [
+          "Clean, precise lines",
+          "Customizable thickness",
+          "Upper and/or lower liner options",
+          "Classic makeup-like appearance"
+        ],
+        "vi": [
+          "Clean, precise lines",
+          "Customizable thickness",
+          "Upper and/or lower liner options",
+          "Classic makeup-like appearance"
+        ],
+        "ja": [
+          "Clean, precise lines",
+          "Customizable thickness",
+          "Upper and/or lower liner options",
+          "Classic makeup-like appearance"
+        ],
+        "es": [
+          "Clean, precise lines",
+          "Customizable thickness",
+          "Upper and/or lower liner options",
+          "Classic makeup-like appearance"
+        ],
+        "ko": [
+          "Clean, precise lines",
+          "Customizable thickness",
+          "Upper and/or lower liner options",
+          "Classic makeup-like appearance"
+        ]
+      },
+      "result": {
+        "en": "Perfectly defined eyes with clean, professional eyeliner that looks like expertly applied makeup.",
+        "vi": "Perfectly defined eyes with clean, professional eyeliner that looks like expertly applied makeup.",
+        "ja": "Perfectly defined eyes with clean, professional eyeliner that looks like expertly applied makeup.",
+        "es": "Perfectly defined eyes with clean, professional eyeliner that looks like expertly applied makeup.",
+        "ko": "Perfectly defined eyes with clean, professional eyeliner that looks like expertly applied makeup."
+      }
+    },
+    {
+      "name": {
+        "en": "Winged Eyeliner",
+        "vi": "Winged Eyeliner",
+        "ja": "Winged Eyeliner",
+        "es": "Winged Eyeliner",
+        "ko": "Winged Eyeliner"
+      },
+      "description": {
+        "en": "Dramatic winged design that lifts and elongates the eye shape for a glamorous, youthful appearance.",
+        "vi": "Dramatic winged design that lifts and elongates the eye shape for a glamorous, youthful appearance.",
+        "ja": "Dramatic winged design that lifts and elongates the eye shape for a glamorous, youthful appearance.",
+        "es": "Dramatic winged design that lifts and elongates the eye shape for a glamorous, youthful appearance.",
+        "ko": "Dramatic winged design that lifts and elongates the eye shape for a glamorous, youthful appearance."
+      },
+      "options": {
+        "en": [
+          "Custom wing design",
+          "Eye-lifting effect",
+          "Dramatic and glamorous look",
+          "Perfect symmetry guaranteed"
+        ],
+        "vi": [
+          "Custom wing design",
+          "Eye-lifting effect",
+          "Dramatic and glamorous look",
+          "Perfect symmetry guaranteed"
+        ],
+        "ja": [
+          "Custom wing design",
+          "Eye-lifting effect",
+          "Dramatic and glamorous look",
+          "Perfect symmetry guaranteed"
+        ],
+        "es": [
+          "Custom wing design",
+          "Eye-lifting effect",
+          "Dramatic and glamorous look",
+          "Perfect symmetry guaranteed"
+        ],
+        "ko": [
+          "Custom wing design",
+          "Eye-lifting effect",
+          "Dramatic and glamorous look",
+          "Perfect symmetry guaranteed"
+        ]
+      },
+      "result": {
+        "en": "Stunning, symmetrical winged eyeliner that creates an instant eye-lift and glamorous appearance.",
+        "vi": "Stunning, symmetrical winged eyeliner that creates an instant eye-lift and glamorous appearance.",
+        "ja": "Stunning, symmetrical winged eyeliner that creates an instant eye-lift and glamorous appearance.",
+        "es": "Stunning, symmetrical winged eyeliner that creates an instant eye-lift and glamorous appearance.",
+        "ko": "Stunning, symmetrical winged eyeliner that creates an instant eye-lift and glamorous appearance."
+      }
+    }
+  ],
+  "whyChooseUs": {
+    "en": [
+      "Expert Eye Artists trained in advanced eyeliner techniques and eye anatomy",
+      "Premium Pigments that are waterproof, smudge-proof, and long-lasting",
+      "Customized Designs tailored to your eye shape and personal style preferences",
+      "Precise Application using advanced digital machines for perfect symmetry",
+      "Safe Procedures with medical-grade tools and strict hygiene standards"
+    ],
+    "vi": [
+      "Expert Eye Artists trained in advanced eyeliner techniques and eye anatomy",
+      "Premium Pigments that are waterproof, smudge-proof, and long-lasting",
+      "Customized Designs tailored to your eye shape and personal style preferences",
+      "Precise Application using advanced digital machines for perfect symmetry",
+      "Safe Procedures with medical-grade tools and strict hygiene standards"
+    ],
+    "ja": [
+      "Expert Eye Artists trained in advanced eyeliner techniques and eye anatomy",
+      "Premium Pigments that are waterproof, smudge-proof, and long-lasting",
+      "Customized Designs tailored to your eye shape and personal style preferences",
+      "Precise Application using advanced digital machines for perfect symmetry",
+      "Safe Procedures with medical-grade tools and strict hygiene standards"
+    ],
+    "es": [
+      "Expert Eye Artists trained in advanced eyeliner techniques and eye anatomy",
+      "Premium Pigments that are waterproof, smudge-proof, and long-lasting",
+      "Customized Designs tailored to your eye shape and personal style preferences",
+      "Precise Application using advanced digital machines for perfect symmetry",
+      "Safe Procedures with medical-grade tools and strict hygiene standards"
+    ],
+    "ko": [
+      "Expert Eye Artists trained in advanced eyeliner techniques and eye anatomy",
+      "Premium Pigments that are waterproof, smudge-proof, and long-lasting",
+      "Customized Designs tailored to your eye shape and personal style preferences",
+      "Precise Application using advanced digital machines for perfect symmetry",
+      "Safe Procedures with medical-grade tools and strict hygiene standards"
+    ]
+  },
+  "closing": {
+    "en": "Permanent eyeliner is perfect for active lifestyles, those with allergies to traditional makeup, or anyone who wants to wake up with perfectly defined eyes every day. Whether you prefer a natural enhancement or dramatic definition, our eyeliner services will give you confidence and convenience.",
+    "vi": "Permanent eyeliner is perfect for active lifestyles, those with allergies to traditional makeup, or anyone who wants to wake up with perfectly defined eyes every day. Whether you prefer a natural enhancement or dramatic definition, our eyeliner services will give you confidence and convenience.",
+    "ja": "Permanent eyeliner is perfect for active lifestyles, those with allergies to traditional makeup, or anyone who wants to wake up with perfectly defined eyes every day. Whether you prefer a natural enhancement or dramatic definition, our eyeliner services will give you confidence and convenience.",
+    "es": "Permanent eyeliner is perfect for active lifestyles, those with allergies to traditional makeup, or anyone who wants to wake up with perfectly defined eyes every day. Whether you prefer a natural enhancement or dramatic definition, our eyeliner services will give you confidence and convenience.",
+    "ko": "Permanent eyeliner is perfect for active lifestyles, those with allergies to traditional makeup, or anyone who wants to wake up with perfectly defined eyes every day. Whether you prefer a natural enhancement or dramatic definition, our eyeliner services will give you confidence and convenience."
+  },
+  "callToAction": {
+    "en": "Transform your eyes with professional permanent eyeliner at Vy Brows Academy & Studio. Schedule your consultation today and enjoy beautifully defined eyes 24/7.",
+    "vi": "Transform your eyes with professional permanent eyeliner at Vy Brows Academy & Studio. Schedule your consultation today and enjoy beautifully defined eyes 24/7.",
+    "ja": "Transform your eyes with professional permanent eyeliner at Vy Brows Academy & Studio. Schedule your consultation today and enjoy beautifully defined eyes 24/7.",
+    "es": "Transform your eyes with professional permanent eyeliner at Vy Brows Academy & Studio. Schedule your consultation today and enjoy beautifully defined eyes 24/7.",
+    "ko": "Transform your eyes with professional permanent eyeliner at Vy Brows Academy & Studio. Schedule your consultation today and enjoy beautifully defined eyes 24/7."
+  },
+  "description": {
+    "en": "Professional eyeliner services for defined, beautiful eyes.",
+    "vi": "Dịch vụ eyeliner chuyên nghiệp cho đôi mắt được định hình, đẹp mắt.",
+    "ja": "定義された美しい目ためのプロフェッショナルアイライナーサービス。",
+    "es": "Servicios profesionales de delineador para ojos definidos y hermosos.",
+    "ko": "선명하고 아름다운 눈을 위한 전문 아이라이너 서비스."
+  },
+  "image": "/images/service07.avif",
+  "technologies": [
+    "Digital Eyeliner Machine",
+    "Waterproof Premium Pigments",
+    "Ultra-fine Liner Needles",
+    "Color Matching Technology",
+    "Symmetry Measurement Tools"
+  ]
+}

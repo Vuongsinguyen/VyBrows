@@ -1,0 +1,257 @@
+{
+  "slug": "skincare-acne-treatment",
+  "title": {
+    "en": "SKINCARE — ACNE TREATMENT",
+    "vi": "CHĂM SÓC DA — ĐIỀU TRỊ MỤN",
+    "ja": "スキンケア — ニキビ治療",
+    "es": "CUIDADO DE LA PIEL — TRATAMIENTO DE ACNÉ",
+    "ko": "스킨케어 — 여드름 치료"
+  },
+  "subtitle": {
+    "en": "Clear Skin, Clear Confidence",
+    "vi": "Làn Da Sạch, Tự Tin Rạng Ngời",
+    "ja": "透明肌、輝く自信",
+    "es": "Piel Clara, Confianza Clara",
+    "ko": "깨끗한 피부, 확실한 자신감"
+  },
+  "introduction": {
+    "en": "Acne doesn't have to define your skin or your confidence. At Vy Brows Academy & Studio, we offer comprehensive acne treatment solutions designed to target the root causes of breakouts, reduce inflammation, and promote healing. Our advanced skincare protocols combine medical-grade products, proven extraction techniques, and personalized care to help you achieve clear, healthy, radiant skin.",
+    "vi": "Acne doesn't have to define your skin or your confidence. At Vy Brows Academy & Studio, we offer comprehensive acne treatment solutions designed to target the root causes of breakouts, reduce inflammation, and promote healing. Our advanced skincare protocols combine medical-grade products, proven extraction techniques, and personalized care to help you achieve clear, healthy, radiant skin.",
+    "ja": "Acne doesn't have to define your skin or your confidence. At Vy Brows Academy & Studio, we offer comprehensive acne treatment solutions designed to target the root causes of breakouts, reduce inflammation, and promote healing. Our advanced skincare protocols combine medical-grade products, proven extraction techniques, and personalized care to help you achieve clear, healthy, radiant skin.",
+    "es": "Acne doesn't have to define your skin or your confidence. At Vy Brows Academy & Studio, we offer comprehensive acne treatment solutions designed to target the root causes of breakouts, reduce inflammation, and promote healing. Our advanced skincare protocols combine medical-grade products, proven extraction techniques, and personalized care to help you achieve clear, healthy, radiant skin.",
+    "ko": "Acne doesn't have to define your skin or your confidence. At Vy Brows Academy & Studio, we offer comprehensive acne treatment solutions designed to target the root causes of breakouts, reduce inflammation, and promote healing. Our advanced skincare protocols combine medical-grade products, proven extraction techniques, and personalized care to help you achieve clear, healthy, radiant skin."
+  },
+  "services": [
+    {
+      "name": {
+        "en": "Deep Cleansing & Extraction",
+        "vi": "Deep Cleansing & Extraction",
+        "ja": "Deep Cleansing & Extraction",
+        "es": "Deep Cleansing & Extraction",
+        "ko": "Deep Cleansing & Extraction"
+      },
+      "description": {
+        "en": "A thorough cleansing process that removes impurities, unclogs pores, and extracts stubborn acne safely and hygienically.",
+        "vi": "A thorough cleansing process that removes impurities, unclogs pores, and extracts stubborn acne safely and hygienically.",
+        "ja": "A thorough cleansing process that removes impurities, unclogs pores, and extracts stubborn acne safely and hygienically.",
+        "es": "A thorough cleansing process that removes impurities, unclogs pores, and extracts stubborn acne safely and hygienically.",
+        "ko": "A thorough cleansing process that removes impurities, unclogs pores, and extracts stubborn acne safely and hygienically."
+      },
+      "options": {
+        "en": [
+          "Medical-grade cleansing solutions",
+          "Professional acne extraction",
+          "Pore purification treatment",
+          "Prevents scarring and infection"
+        ],
+        "vi": [
+          "Medical-grade cleansing solutions",
+          "Professional acne extraction",
+          "Pore purification treatment",
+          "Prevents scarring and infection"
+        ],
+        "ja": [
+          "Medical-grade cleansing solutions",
+          "Professional acne extraction",
+          "Pore purification treatment",
+          "Prevents scarring and infection"
+        ],
+        "es": [
+          "Medical-grade cleansing solutions",
+          "Professional acne extraction",
+          "Pore purification treatment",
+          "Prevents scarring and infection"
+        ],
+        "ko": [
+          "Medical-grade cleansing solutions",
+          "Professional acne extraction",
+          "Pore purification treatment",
+          "Prevents scarring and infection"
+        ]
+      },
+      "result": {
+        "en": "Clean, refreshed skin with reduced blackheads, whiteheads, and active acne.",
+        "vi": "Clean, refreshed skin with reduced blackheads, whiteheads, and active acne.",
+        "ja": "Clean, refreshed skin with reduced blackheads, whiteheads, and active acne.",
+        "es": "Clean, refreshed skin with reduced blackheads, whiteheads, and active acne.",
+        "ko": "Clean, refreshed skin with reduced blackheads, whiteheads, and active acne."
+      }
+    },
+    {
+      "name": {
+        "en": "Anti-Inflammatory Therapy",
+        "vi": "Anti-Inflammatory Therapy",
+        "ja": "Anti-Inflammatory Therapy",
+        "es": "Anti-Inflammatory Therapy",
+        "ko": "Anti-Inflammatory Therapy"
+      },
+      "description": {
+        "en": "Targeted treatments to calm redness, reduce swelling, and soothe irritated skin caused by acne breakouts.",
+        "vi": "Targeted treatments to calm redness, reduce swelling, and soothe irritated skin caused by acne breakouts.",
+        "ja": "Targeted treatments to calm redness, reduce swelling, and soothe irritated skin caused by acne breakouts.",
+        "es": "Targeted treatments to calm redness, reduce swelling, and soothe irritated skin caused by acne breakouts.",
+        "ko": "Targeted treatments to calm redness, reduce swelling, and soothe irritated skin caused by acne breakouts."
+      },
+      "options": {
+        "en": [
+          "Soothing serums and masks",
+          "Anti-bacterial treatments",
+          "Reduces redness and inflammation",
+          "Speeds up healing process"
+        ],
+        "vi": [
+          "Soothing serums and masks",
+          "Anti-bacterial treatments",
+          "Reduces redness and inflammation",
+          "Speeds up healing process"
+        ],
+        "ja": [
+          "Soothing serums and masks",
+          "Anti-bacterial treatments",
+          "Reduces redness and inflammation",
+          "Speeds up healing process"
+        ],
+        "es": [
+          "Soothing serums and masks",
+          "Anti-bacterial treatments",
+          "Reduces redness and inflammation",
+          "Speeds up healing process"
+        ],
+        "ko": [
+          "Soothing serums and masks",
+          "Anti-bacterial treatments",
+          "Reduces redness and inflammation",
+          "Speeds up healing process"
+        ]
+      },
+      "result": {
+        "en": "Calmer, more balanced skin with reduced irritation and faster recovery.",
+        "vi": "Calmer, more balanced skin with reduced irritation and faster recovery.",
+        "ja": "Calmer, more balanced skin with reduced irritation and faster recovery.",
+        "es": "Calmer, more balanced skin with reduced irritation and faster recovery.",
+        "ko": "Calmer, more balanced skin with reduced irritation and faster recovery."
+      }
+    },
+    {
+      "name": {
+        "en": "Skin Healing & Regeneration",
+        "vi": "Skin Healing & Regeneration",
+        "ja": "Skin Healing & Regeneration",
+        "es": "Skin Healing & Regeneration",
+        "ko": "Skin Healing & Regeneration"
+      },
+      "description": {
+        "en": "Advanced protocols that promote skin repair, minimize scarring, and restore your skin's natural barrier.",
+        "vi": "Advanced protocols that promote skin repair, minimize scarring, and restore your skin's natural barrier.",
+        "ja": "Advanced protocols that promote skin repair, minimize scarring, and restore your skin's natural barrier.",
+        "es": "Advanced protocols that promote skin repair, minimize scarring, and restore your skin's natural barrier.",
+        "ko": "Advanced protocols that promote skin repair, minimize scarring, and restore your skin's natural barrier."
+      },
+      "options": {
+        "en": [
+          "Skin healing serums",
+          "Scar reduction treatments",
+          "Barrier restoration therapy",
+          "Long-term skin health support"
+        ],
+        "vi": [
+          "Skin healing serums",
+          "Scar reduction treatments",
+          "Barrier restoration therapy",
+          "Long-term skin health support"
+        ],
+        "ja": [
+          "Skin healing serums",
+          "Scar reduction treatments",
+          "Barrier restoration therapy",
+          "Long-term skin health support"
+        ],
+        "es": [
+          "Skin healing serums",
+          "Scar reduction treatments",
+          "Barrier restoration therapy",
+          "Long-term skin health support"
+        ],
+        "ko": [
+          "Skin healing serums",
+          "Scar reduction treatments",
+          "Barrier restoration therapy",
+          "Long-term skin health support"
+        ]
+      },
+      "result": {
+        "en": "Smoother, healthier skin with improved texture and reduced acne marks.",
+        "vi": "Smoother, healthier skin with improved texture and reduced acne marks.",
+        "ja": "Smoother, healthier skin with improved texture and reduced acne marks.",
+        "es": "Smoother, healthier skin with improved texture and reduced acne marks.",
+        "ko": "Smoother, healthier skin with improved texture and reduced acne marks."
+      }
+    }
+  ],
+  "whyChooseUs": {
+    "en": [
+      "Experienced Estheticians trained in advanced acne treatment techniques",
+      "Medical-Grade Products that are safe, effective, and dermatologist-approved",
+      "Customized Treatment Plans tailored to your skin type and acne severity",
+      "Hygienic Practices with sterilized tools and professional-grade equipment",
+      "Proven Results with visible improvements in skin clarity and texture"
+    ],
+    "vi": [
+      "Experienced Estheticians trained in advanced acne treatment techniques",
+      "Medical-Grade Products that are safe, effective, and dermatologist-approved",
+      "Customized Treatment Plans tailored to your skin type and acne severity",
+      "Hygienic Practices with sterilized tools and professional-grade equipment",
+      "Proven Results with visible improvements in skin clarity and texture"
+    ],
+    "ja": [
+      "Experienced Estheticians trained in advanced acne treatment techniques",
+      "Medical-Grade Products that are safe, effective, and dermatologist-approved",
+      "Customized Treatment Plans tailored to your skin type and acne severity",
+      "Hygienic Practices with sterilized tools and professional-grade equipment",
+      "Proven Results with visible improvements in skin clarity and texture"
+    ],
+    "es": [
+      "Experienced Estheticians trained in advanced acne treatment techniques",
+      "Medical-Grade Products that are safe, effective, and dermatologist-approved",
+      "Customized Treatment Plans tailored to your skin type and acne severity",
+      "Hygienic Practices with sterilized tools and professional-grade equipment",
+      "Proven Results with visible improvements in skin clarity and texture"
+    ],
+    "ko": [
+      "Experienced Estheticians trained in advanced acne treatment techniques",
+      "Medical-Grade Products that are safe, effective, and dermatologist-approved",
+      "Customized Treatment Plans tailored to your skin type and acne severity",
+      "Hygienic Practices with sterilized tools and professional-grade equipment",
+      "Proven Results with visible improvements in skin clarity and texture"
+    ]
+  },
+  "closing": {
+    "en": "Acne treatment is not just about clearing your skin – it's about restoring your confidence and helping you feel comfortable in your own skin again. Let us guide you on your journey to clear, healthy, beautiful skin.",
+    "vi": "Acne treatment is not just about clearing your skin – it's about restoring your confidence and helping you feel comfortable in your own skin again. Let us guide you on your journey to clear, healthy, beautiful skin.",
+    "ja": "Acne treatment is not just about clearing your skin – it's about restoring your confidence and helping you feel comfortable in your own skin again. Let us guide you on your journey to clear, healthy, beautiful skin.",
+    "es": "Acne treatment is not just about clearing your skin – it's about restoring your confidence and helping you feel comfortable in your own skin again. Let us guide you on your journey to clear, healthy, beautiful skin.",
+    "ko": "Acne treatment is not just about clearing your skin – it's about restoring your confidence and helping you feel comfortable in your own skin again. Let us guide you on your journey to clear, healthy, beautiful skin."
+  },
+  "callToAction": {
+    "en": "Book your consultation today at Vy Brows Academy & Studio and take the first step towards clear, confident skin.",
+    "vi": "Book your consultation today at Vy Brows Academy & Studio and take the first step towards clear, confident skin.",
+    "ja": "Book your consultation today at Vy Brows Academy & Studio and take the first step towards clear, confident skin.",
+    "es": "Book your consultation today at Vy Brows Academy & Studio and take the first step towards clear, confident skin.",
+    "ko": "Book your consultation today at Vy Brows Academy & Studio and take the first step towards clear, confident skin."
+  },
+  "description": {
+    "en": "Advanced acne treatment and skincare solutions for clear, healthy skin.",
+    "vi": "Giải pháp điều trị mụn và chăm sóc da tiên tiến cho làn da khỏe mạnh, sạch mụn.",
+    "ja": "クリアで健康な肌のための高度なニキビ治療とスキンケアソリューション。",
+    "es": "Tratamiento avanzado del acné y soluciones de cuidado de la piel para una piel clara y saludable.",
+    "ko": "깨끗하고 건강한 피부를 위한 고급 여드름 치료 및 스킨케어 솔루션."
+  },
+  "image": "/images/service02.avif",
+  "technologies": [
+    "Medical-grade skincare products",
+    "Deep cleansing treatments",
+    "Acne extraction techniques",
+    "Anti-inflammatory therapies",
+    "Skin healing protocols"
+  ]
+}

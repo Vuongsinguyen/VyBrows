@@ -1,0 +1,257 @@
+{
+  "slug": "shading-ombre",
+  "title": {
+    "en": "SHADING OMBRÉ",
+    "vi": "SHADING OMBRÉ",
+    "ja": "シェーディングオンブレ",
+    "es": "SOMBREADO OMBRE",
+    "ko": "셰이딩 옴브레"
+  },
+  "subtitle": {
+    "en": "Soft, Natural Gradient Brows",
+    "vi": "Lông Mày Chuyển Màu Mềm Mại, Tự Nhiên",
+    "ja": "ソフトで自然なグラデーション眉",
+    "es": "Cejas Degradadas Suaves y Naturales",
+    "ko": "부드럽고 자연스러운 그라데이션 눈썹"
+  },
+  "introduction": {
+    "en": "Shading Ombré is the perfect blend of artistry and technique, creating beautifully soft, gradient eyebrows that look naturally fuller and more defined. At Vy Brows Academy & Studio, our Ombré Shading technique delivers a powder-soft finish that starts lighter at the front of the brow and gradually deepens toward the tail, mimicking the natural way brow hairs grow and creating a stunning, sophisticated look.",
+    "vi": "Shading Ombré is the perfect blend of artistry and technique, creating beautifully soft, gradient eyebrows that look naturally fuller and more defined. At Vy Brows Academy & Studio, our Ombré Shading technique delivers a powder-soft finish that starts lighter at the front of the brow and gradually deepens toward the tail, mimicking the natural way brow hairs grow and creating a stunning, sophisticated look.",
+    "ja": "Shading Ombré is the perfect blend of artistry and technique, creating beautifully soft, gradient eyebrows that look naturally fuller and more defined. At Vy Brows Academy & Studio, our Ombré Shading technique delivers a powder-soft finish that starts lighter at the front of the brow and gradually deepens toward the tail, mimicking the natural way brow hairs grow and creating a stunning, sophisticated look.",
+    "es": "Shading Ombré is the perfect blend of artistry and technique, creating beautifully soft, gradient eyebrows that look naturally fuller and more defined. At Vy Brows Academy & Studio, our Ombré Shading technique delivers a powder-soft finish that starts lighter at the front of the brow and gradually deepens toward the tail, mimicking the natural way brow hairs grow and creating a stunning, sophisticated look.",
+    "ko": "Shading Ombré is the perfect blend of artistry and technique, creating beautifully soft, gradient eyebrows that look naturally fuller and more defined. At Vy Brows Academy & Studio, our Ombré Shading technique delivers a powder-soft finish that starts lighter at the front of the brow and gradually deepens toward the tail, mimicking the natural way brow hairs grow and creating a stunning, sophisticated look."
+  },
+  "services": [
+    {
+      "name": {
+        "en": "Classic Ombré Shading",
+        "vi": "Classic Ombré Shading",
+        "ja": "Classic Ombré Shading",
+        "es": "Classic Ombré Shading",
+        "ko": "Classic Ombré Shading"
+      },
+      "description": {
+        "en": "The signature ombré technique that creates a soft, powdered effect with a beautiful gradient from light to dark.",
+        "vi": "The signature ombré technique that creates a soft, powdered effect with a beautiful gradient from light to dark.",
+        "ja": "The signature ombré technique that creates a soft, powdered effect with a beautiful gradient from light to dark.",
+        "es": "The signature ombré technique that creates a soft, powdered effect with a beautiful gradient from light to dark.",
+        "ko": "The signature ombré technique that creates a soft, powdered effect with a beautiful gradient from light to dark."
+      },
+      "options": {
+        "en": [
+          "Soft powder finish for natural-looking fullness",
+          "Gradient color transition from front to tail",
+          "Perfect for sparse or over-plucked brows",
+          "Long-lasting results that fade naturally"
+        ],
+        "vi": [
+          "Soft powder finish for natural-looking fullness",
+          "Gradient color transition from front to tail",
+          "Perfect for sparse or over-plucked brows",
+          "Long-lasting results that fade naturally"
+        ],
+        "ja": [
+          "Soft powder finish for natural-looking fullness",
+          "Gradient color transition from front to tail",
+          "Perfect for sparse or over-plucked brows",
+          "Long-lasting results that fade naturally"
+        ],
+        "es": [
+          "Soft powder finish for natural-looking fullness",
+          "Gradient color transition from front to tail",
+          "Perfect for sparse or over-plucked brows",
+          "Long-lasting results that fade naturally"
+        ],
+        "ko": [
+          "Soft powder finish for natural-looking fullness",
+          "Gradient color transition from front to tail",
+          "Perfect for sparse or over-plucked brows",
+          "Long-lasting results that fade naturally"
+        ]
+      },
+      "result": {
+        "en": "Beautifully shaped brows with a soft, makeup-like finish that looks natural and polished.",
+        "vi": "Beautifully shaped brows with a soft, makeup-like finish that looks natural and polished.",
+        "ja": "Beautifully shaped brows with a soft, makeup-like finish that looks natural and polished.",
+        "es": "Beautifully shaped brows with a soft, makeup-like finish that looks natural and polished.",
+        "ko": "Beautifully shaped brows with a soft, makeup-like finish that looks natural and polished."
+      }
+    },
+    {
+      "name": {
+        "en": "Combination Ombré",
+        "vi": "Combination Ombré",
+        "ja": "Combination Ombré",
+        "es": "Combination Ombré",
+        "ko": "Combination Ombré"
+      },
+      "description": {
+        "en": "Combines hair strokes at the front with ombré shading through the body and tail for the most natural, multidimensional look.",
+        "vi": "Combines hair strokes at the front with ombré shading through the body and tail for the most natural, multidimensional look.",
+        "ja": "Combines hair strokes at the front with ombré shading through the body and tail for the most natural, multidimensional look.",
+        "es": "Combines hair strokes at the front with ombré shading through the body and tail for the most natural, multidimensional look.",
+        "ko": "Combines hair strokes at the front with ombré shading through the body and tail for the most natural, multidimensional look."
+      },
+      "options": {
+        "en": [
+          "Hair strokes at the front for natural texture",
+          "Ombré shading through the arch and tail",
+          "Creates depth and dimension",
+          "Best of both microblading and shading techniques"
+        ],
+        "vi": [
+          "Hair strokes at the front for natural texture",
+          "Ombré shading through the arch and tail",
+          "Creates depth and dimension",
+          "Best of both microblading and shading techniques"
+        ],
+        "ja": [
+          "Hair strokes at the front for natural texture",
+          "Ombré shading through the arch and tail",
+          "Creates depth and dimension",
+          "Best of both microblading and shading techniques"
+        ],
+        "es": [
+          "Hair strokes at the front for natural texture",
+          "Ombré shading through the arch and tail",
+          "Creates depth and dimension",
+          "Best of both microblading and shading techniques"
+        ],
+        "ko": [
+          "Hair strokes at the front for natural texture",
+          "Ombré shading through the arch and tail",
+          "Creates depth and dimension",
+          "Best of both microblading and shading techniques"
+        ]
+      },
+      "result": {
+        "en": "Ultra-realistic brows that look like natural hair with perfect definition and fullness.",
+        "vi": "Ultra-realistic brows that look like natural hair with perfect definition and fullness.",
+        "ja": "Ultra-realistic brows that look like natural hair with perfect definition and fullness.",
+        "es": "Ultra-realistic brows that look like natural hair with perfect definition and fullness.",
+        "ko": "Ultra-realistic brows that look like natural hair with perfect definition and fullness."
+      }
+    },
+    {
+      "name": {
+        "en": "Color Correction Ombré",
+        "vi": "Color Correction Ombré",
+        "ja": "Color Correction Ombré",
+        "es": "Color Correction Ombré",
+        "ko": "Color Correction Ombré"
+      },
+      "description": {
+        "en": "Specialized technique to correct previous permanent makeup work or uneven natural brow color.",
+        "vi": "Specialized technique to correct previous permanent makeup work or uneven natural brow color.",
+        "ja": "Specialized technique to correct previous permanent makeup work or uneven natural brow color.",
+        "es": "Specialized technique to correct previous permanent makeup work or uneven natural brow color.",
+        "ko": "Specialized technique to correct previous permanent makeup work or uneven natural brow color."
+      },
+      "options": {
+        "en": [
+          "Corrects old, faded, or poorly done PMU",
+          "Neutralizes unwanted tones and colors",
+          "Restores symmetry and proper shape",
+          "Advanced color theory application"
+        ],
+        "vi": [
+          "Corrects old, faded, or poorly done PMU",
+          "Neutralizes unwanted tones and colors",
+          "Restores symmetry and proper shape",
+          "Advanced color theory application"
+        ],
+        "ja": [
+          "Corrects old, faded, or poorly done PMU",
+          "Neutralizes unwanted tones and colors",
+          "Restores symmetry and proper shape",
+          "Advanced color theory application"
+        ],
+        "es": [
+          "Corrects old, faded, or poorly done PMU",
+          "Neutralizes unwanted tones and colors",
+          "Restores symmetry and proper shape",
+          "Advanced color theory application"
+        ],
+        "ko": [
+          "Corrects old, faded, or poorly done PMU",
+          "Neutralizes unwanted tones and colors",
+          "Restores symmetry and proper shape",
+          "Advanced color theory application"
+        ]
+      },
+      "result": {
+        "en": "Restored, beautifully balanced brows that look fresh and natural.",
+        "vi": "Restored, beautifully balanced brows that look fresh and natural.",
+        "ja": "Restored, beautifully balanced brows that look fresh and natural.",
+        "es": "Restored, beautifully balanced brows that look fresh and natural.",
+        "ko": "Restored, beautifully balanced brows that look fresh and natural."
+      }
+    }
+  ],
+  "whyChooseUs": {
+    "en": [
+      "Master Artists specialized in advanced ombré shading techniques",
+      "Premium Pigments that heal to beautiful, natural-looking colors",
+      "Customized Color Matching to complement your skin tone and hair color",
+      "Precise Technique for smooth, even gradients without harsh lines",
+      "Professional Equipment including digital machines for consistent results"
+    ],
+    "vi": [
+      "Master Artists specialized in advanced ombré shading techniques",
+      "Premium Pigments that heal to beautiful, natural-looking colors",
+      "Customized Color Matching to complement your skin tone and hair color",
+      "Precise Technique for smooth, even gradients without harsh lines",
+      "Professional Equipment including digital machines for consistent results"
+    ],
+    "ja": [
+      "Master Artists specialized in advanced ombré shading techniques",
+      "Premium Pigments that heal to beautiful, natural-looking colors",
+      "Customized Color Matching to complement your skin tone and hair color",
+      "Precise Technique for smooth, even gradients without harsh lines",
+      "Professional Equipment including digital machines for consistent results"
+    ],
+    "es": [
+      "Master Artists specialized in advanced ombré shading techniques",
+      "Premium Pigments that heal to beautiful, natural-looking colors",
+      "Customized Color Matching to complement your skin tone and hair color",
+      "Precise Technique for smooth, even gradients without harsh lines",
+      "Professional Equipment including digital machines for consistent results"
+    ],
+    "ko": [
+      "Master Artists specialized in advanced ombré shading techniques",
+      "Premium Pigments that heal to beautiful, natural-looking colors",
+      "Customized Color Matching to complement your skin tone and hair color",
+      "Precise Technique for smooth, even gradients without harsh lines",
+      "Professional Equipment including digital machines for consistent results"
+    ]
+  },
+  "closing": {
+    "en": "Ombré Shading is the ultimate solution for those who want the look of perfectly applied brow makeup every day. This technique is ideal for clients who prefer a softer, more filled-in appearance rather than individual hair strokes, and it's perfect for all skin types, especially oily skin.",
+    "vi": "Ombré Shading is the ultimate solution for those who want the look of perfectly applied brow makeup every day. This technique is ideal for clients who prefer a softer, more filled-in appearance rather than individual hair strokes, and it's perfect for all skin types, especially oily skin.",
+    "ja": "Ombré Shading is the ultimate solution for those who want the look of perfectly applied brow makeup every day. This technique is ideal for clients who prefer a softer, more filled-in appearance rather than individual hair strokes, and it's perfect for all skin types, especially oily skin.",
+    "es": "Ombré Shading is the ultimate solution for those who want the look of perfectly applied brow makeup every day. This technique is ideal for clients who prefer a softer, more filled-in appearance rather than individual hair strokes, and it's perfect for all skin types, especially oily skin.",
+    "ko": "Ombré Shading is the ultimate solution for those who want the look of perfectly applied brow makeup every day. This technique is ideal for clients who prefer a softer, more filled-in appearance rather than individual hair strokes, and it's perfect for all skin types, especially oily skin."
+  },
+  "callToAction": {
+    "en": "Transform your brows with our expert Ombré Shading technique at Vy Brows Academy & Studio. Book your consultation today and wake up to perfect brows every morning.",
+    "vi": "Transform your brows with our expert Ombré Shading technique at Vy Brows Academy & Studio. Book your consultation today and wake up to perfect brows every morning.",
+    "ja": "Transform your brows with our expert Ombré Shading technique at Vy Brows Academy & Studio. Book your consultation today and wake up to perfect brows every morning.",
+    "es": "Transform your brows with our expert Ombré Shading technique at Vy Brows Academy & Studio. Book your consultation today and wake up to perfect brows every morning.",
+    "ko": "Transform your brows with our expert Ombré Shading technique at Vy Brows Academy & Studio. Book your consultation today and wake up to perfect brows every morning."
+  },
+  "description": {
+    "en": "Beautiful ombre shading technique for natural-looking eyebrows.",
+    "vi": "Kỹ thuật shading ombre đẹp mắt cho lông mày tự nhiên.",
+    "ja": "自然な眉毛のための美しいオンブレシェーディングテクニック。",
+    "es": "Hermosa técnica de sombreado ombre para cejas de aspecto natural.",
+    "ko": "자연스러운 눈썹을 위한 아름다운 옴브레 셰이딩 기법."
+  },
+  "image": "/images/service04.avif",
+  "technologies": [
+    "Digital Shading Machine",
+    "Premium Powder Pigments",
+    "Color Gradient Techniques",
+    "3D Dimensional Effect",
+    "Advanced Color Theory"
+  ]
+}

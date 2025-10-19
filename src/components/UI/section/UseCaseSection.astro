@@ -102,7 +102,13 @@ section .text-4xl.font-bold {
     })[(Astro.props?.lang || Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es']}
   </h2>
   <p class="text-base text-center mb-8 max-w-2xl mx-auto font-lora" style="color: var(--color-blacktext2); font-family: 'Lora', serif;">
-    Honest reviews from those who have experienced our premium services.
+    {({
+      en: "Honest reviews from those who have experienced our premium services.",
+      vi: "Những đánh giá chân thực từ khách hàng đã trải nghiệm dịch vụ cao cấp của chúng tôi.",
+      ja: "私たちのプレミアムサービスを体験されたお客様からの正直なレビュー。",
+      ko: "프리미엄 서비스를 경험한 고객들의 솔직한 리뷰입니다.",
+      es: "Reseñas honestas de quienes han experimentado nuestros servicios premium."
+    })[(Astro.props?.lang || Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es']}
   </p>
   <div class="relative overflow-x-hidden">
     <div>

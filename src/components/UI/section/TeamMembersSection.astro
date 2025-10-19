@@ -33,7 +33,13 @@ const compareItems = [
       class="text-4xl md:text-5xl font-bold text-center mb-8" 
       style="color: var(--color-text-secondary); font-family: 'Lora', serif;"
     >
-      Your Beauty — Our Commitment
+      {({
+        en: "Your Beauty — Our Commitment",
+        vi: "Vẻ Đẹp Của Bạn — Cam Kết Của Chúng Tôi",
+        ja: "あなたの美しさ — 私たちの約束",
+        ko: "당신의 아름다움 — 우리의 약속",
+        es: "Tu Belleza — Nuestro Compromiso"
+      })[(Astro.props?.lang || Astro.url.pathname.split('/')[1] || 'en') as 'en' | 'vi' | 'ja' | 'ko' | 'es']}
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[20px]">
