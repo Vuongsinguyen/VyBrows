@@ -7,10 +7,9 @@ const { title } = Astro.props;
 
 // Lấy ngôn ngữ từ URL
 const lang = Astro.url.pathname.split('/')[1] || 'en';
-
-// Xác định ngôn ngữ hợp lệ
 const validLangs = ['en', 'vi', 'ja', 'es', 'ko'];
-const currentLang = validLangs.includes(lang) ? lang : 'en';
+let currentLang = lang;
+if (!validLangs.includes(currentLang)) currentLang = 'en';
 
 // Tạo alternate URLs cho hreflang
 const pathname = Astro.url.pathname;
@@ -74,12 +73,12 @@ import Header from '../components/UI/layout/Header.astro';
     <link rel="canonical" href={Astro.url} />
     
     <!-- Hreflang Tags for Multilingual SEO -->
-    <link rel="alternate" hreflang="en" href={`${baseUrl}${pathWithoutLang === '/' ? '/' : '/en' + pathWithoutLang}`} />
+  <link rel="alternate" hreflang="en" href={`${baseUrl}${pathWithoutLang}`} />
     <link rel="alternate" hreflang="vi" href={`${baseUrl}/vi${pathWithoutLang}`} />
     <link rel="alternate" hreflang="ja" href={`${baseUrl}/ja${pathWithoutLang}`} />
     <link rel="alternate" hreflang="es" href={`${baseUrl}/es${pathWithoutLang}`} />
     <link rel="alternate" hreflang="ko" href={`${baseUrl}/ko${pathWithoutLang}`} />
-    <link rel="alternate" hreflang="x-default" href={`${baseUrl}${pathWithoutLang === '/' ? '/' : '/en' + pathWithoutLang}`} />
+  <link rel="alternate" hreflang="x-default" href={`${baseUrl}${pathWithoutLang}`} />
     
     <!-- Primary Domain Declaration -->
     <meta name="google-site-verification" content="your-verification-code" />
@@ -210,40 +209,42 @@ import Header from '../components/UI/layout/Header.astro';
     }
     </script>
 
-    <!-- WebPage Schema with Featured Image -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "VYBROWS ACADEMY | #1 PMU Studio & Academy",
-      "url": "${Astro.url}",
-      "description": "Leading permanent makeup studio specializing in microblading, PMU services, and natural beauty enhancements. Expert artists, safe techniques, stunning results.",
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://vybrowsbeauty.com/images/SEO.png",
-        "width": 1200,
-        "height": 630,
-        "caption": "VYBROWS ACADEMY - Premier PMU Training Institute"
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://vybrowsbeauty.com/images/SEO.png",
-        "width": 1200,
-        "height": 630
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://vybrowsbeauty.com"
-          }
-        ]
-      }
-    }
-    </script>
+    <!-- WebPage Schema with Featured Image (JSON.stringify to ensure valid JSON and dynamic URL) -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "VYBROWS ACADEMY | #1 PMU Studio & Academy",
+        url: String(Astro.url),
+        description:
+          "Leading permanent makeup studio specializing in microblading, PMU services, and natural beauty enhancements. Expert artists, safe techniques, stunning results.",
+        image: {
+          "@type": "ImageObject",
+          url: "https://vybrowsbeauty.com/images/SEO.png",
+          width: 1200,
+          height: 630,
+          caption: "VYBROWS ACADEMY - Premier PMU Training Institute",
+        },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: "https://vybrowsbeauty.com/images/SEO.png",
+          width: 1200,
+          height: 630,
+        },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://vybrowsbeauty.com",
+            },
+          ],
+        },
+      })}
+    />
 
     <!-- Site Navigation Schema for Sitelinks -->
     <script type="application/ld+json">
@@ -313,13 +314,13 @@ import Header from '../components/UI/layout/Header.astro';
           "@type": "ListItem",
           "position": 2,
           "name": "Services",
-          "item": "https://vybrowsbeauty.com/en/service/pmu-permanent-makeup"
+          "item": "https://vybrowsbeauty.com/service/pmu-permanent-makeup"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Training",
-          "item": "https://vybrowsbeauty.com/en/training"
+          "item": "https://vybrowsbeauty.com/training"
         }
       ]
     }

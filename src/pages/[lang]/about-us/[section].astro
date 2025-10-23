@@ -7,7 +7,7 @@ import aboutUsData from '../../../content/about-us.json' assert { type: 'json' }
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ['en', 'vi', 'ja', 'es', 'ko'];
+  const langs = ['vi', 'ja', 'es', 'ko'];
   return langs.flatMap(lang => aboutUsData.sections.map(section => ({ params: { lang, section: section.id } })));
 }
 const lang = Astro.params.lang as string;

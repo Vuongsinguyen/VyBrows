@@ -9,7 +9,7 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const servicesData = getAllServices();
-  const langs = ['en', 'vi', 'ja', 'es', 'ko'];
+  const langs = ['vi', 'ja', 'es', 'ko'];
   return langs.flatMap(lang => {
     return servicesData.map(service => ({ 
       params: { 

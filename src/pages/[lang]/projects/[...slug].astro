@@ -13,7 +13,7 @@ export async function getStaticPaths() {
       const parts = file.split('/');
       const folder = parts[parts.length - 2];
       const fileName = parts[parts.length - 1];
-      const match = fileName.match(/^(.*)\.(en|vi|ja)\.md$/);
+      const match = fileName.match(/^(.*)\.(vi|ja)\.md$/);
       if (!match) return null;
       const fileBase = match[1];
       const lang = match[2];

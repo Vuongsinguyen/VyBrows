@@ -1,37 +1,37 @@
 # Netlify/Vercel Redirects for old URLs to new structure
 # Old PMU service URLs
-/service-pmu/ /en/service/pmu-permanent-makeup/ 301
-/service-pmu /en/service/pmu-permanent-makeup/ 301
-/pmu-permanent-makeup/ /en/service/pmu-permanent-makeup/ 301
-/permanent-makeup/ /en/service/pmu-permanent-makeup/ 301
+ /service-pmu/ /service/pmu-permanent-makeup/ 301
+ /service-pmu /service/pmu-permanent-makeup/ 301
+ /pmu-permanent-makeup/ /service/pmu-permanent-makeup/ 301
+ /permanent-makeup/ /service/pmu-permanent-makeup/ 301
 
 # Old training URLs  
-/training-courses/ /en/training/ 301
-/training-courses /en/training/ 301
-/courses/ /en/training/ 301
-/academy/ /en/training/ 301
+ /training-courses/ /training/ 301
+ /training-courses /training/ 301
+ /courses/ /training/ 301
+ /academy/ /training/ 301
 
 # Old about URLs
-/about/ /en/about-us/ 301
-/about /en/about-us/ 301
-/company/ /en/about-us/ 301
+ /about/ /about-us/ 301
+ /about /about-us/ 301
+ /company/ /about-us/ 301
 
 # Old portfolio/gallery URLs
-/portfolio/ /en/projects/ 301
-/portfolio /en/projects/ 301
-/gallery/ /en/projects/ 301
-/work/ /en/projects/ 301
+ /portfolio/ /projects/ 301
+ /portfolio /projects/ 301
+ /gallery/ /projects/ 301
+ /work/ /projects/ 301
 
 # Old contact URLs
-/contact-us/ /en/contact/ 301
-/contact-us /en/contact/ 301
-/get-in-touch/ /en/contact/ 301
+ /contact-us/ /contact/ 301
+ /contact-us /contact/ 301
+ /get-in-touch/ /contact/ 301
 
 # Old service-specific URLs
-/microblading/ /en/service/micro-blading/ 301
-/eyebrow-tattoo/ /en/service/micro-blading/ 301
-/lip-tattoo/ /en/service/lip-treatments/ 301
-/eyeliner-tattoo/ /en/service/eyeliners/ 301
+ /microblading/ /service/micro-blading/ 301
+ /eyebrow-tattoo/ /service/micro-blading/ 301
+ /lip-tattoo/ /service/lip-treatments/ 301
+ /eyeliner-tattoo/ /service/eyeliners/ 301
 
 # Language-specific redirects for homepage
 /home/ / 301
@@ -46,15 +46,15 @@
 /dao-tao/ /vi/training/ 301
 /lien-he/ /vi/contact/ 301
 
-# Blog/Tag old URLs
-/tag/2025-permanent-makeup-trends/ /en/news/ 301
-/tag/2025-permanent-makeup-trends /en/news/ 301
-/tag/permanent-makeup-trends/ /en/news/ 301
-/tag/pmu-trends/ /en/news/ 301
-/blog/2025-trends/ /en/news/ 301
-/trends/ /en/news/ 301
-/makeup-trends/ /en/service/pmu-permanent-makeup/ 301
+ # Blog/Tag old URLs
+ /tag/2025-permanent-makeup-trends/ /news/ 301
+ /tag/2025-permanent-makeup-trends /news/ 301
+ /tag/permanent-makeup-trends/ /news/ 301
+ /tag/pmu-trends/ /news/ 301
+ /blog/2025-trends/ /news/ 301
+ /trends/ /news/ 301
+ /makeup-trends/ /service/pmu-permanent-makeup/ 301
 
 # Catch-all for common variations
-/services/ /en/service/pmu-permanent-makeup/ 301
-/service/ /en/service/pmu-permanent-makeup/ 301
+ /services/ /service/pmu-permanent-makeup/ 301
+ /service/ /service/pmu-permanent-makeup/ 301

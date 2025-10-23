@@ -7,11 +7,9 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const paths: any[] = [];
-  
   // Generate paths for all languages and news items
-  const languages = ['en', 'vi', 'ja', 'es', 'ko'];
+  const languages = ['vi', 'ja', 'es', 'ko'];
   const allNews = getAllNews();
-  
   for (const lang of languages) {
     for (const newsItem of allNews) {
       paths.push({
@@ -22,7 +20,6 @@ export async function getStaticPaths() {
       });
     }
   }
-  
   return paths;
 }
 
@@ -250,29 +247,30 @@ const pageTitle = `${translation.title} - VYBROWS ACADEMY | PMU Studio & Academy
   </section>
 </NewsLayout>
 
-<!-- Structured Data for Article -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "{translation.title}",
-  "description": "{translation.shortDescription}",
-  "image": "{newsItem.mainImage}",
-  "datePublished": "{newsItem.createdDate}",
-  "author": {
-    "@type": "Organization",
-    "name": "VYBROWS ACADEMY | PMU Studio & Academy"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "VYBROWS ACADEMY | PMU Studio & Academy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://vybrowsbeauty.com/logo.webp"
-    }
-  }
-}
-</script>
+<!-- Structured Data for Article (JSON.stringify to ensure valid JSON) -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: translation.title,
+    description: translation.shortDescription,
+    image: newsItem.mainImage,
+    datePublished: newsItem.createdDate,
+    author: {
+      "@type": "Organization",
+      name: "VYBROWS ACADEMY | PMU Studio & Academy",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "VYBROWS ACADEMY | PMU Studio & Academy",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://vybrowsbeauty.com/logo.webp",
+      },
+    },
+  })}
+/>
 
 <style>
   /* Line clamp utilities for text truncation */

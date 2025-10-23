@@ -92,7 +92,6 @@ const slides = getSlides(lang as string);
 
 export async function getStaticPaths() {
   return [
-    { params: { lang: 'en' } },
     { params: { lang: 'vi' } },
     { params: { lang: 'ja' } },
     { params: { lang: 'es' } },

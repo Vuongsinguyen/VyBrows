@@ -5,7 +5,7 @@ import FullContactSection from '../../../components/UI/section/FullContactSectio
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ['en', 'vi', 'ja', 'es', 'ko'];
+  const langs = ['vi', 'ja', 'es', 'ko'];
   return langs.map(lang => ({ params: { lang } }));
 }
 
